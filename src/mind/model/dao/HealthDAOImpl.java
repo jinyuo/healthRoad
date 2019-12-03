@@ -18,6 +18,31 @@ import mind.util.DbUtil;
 public class HealthDAOImpl implements HealthDAO {
 	private Properties proFile = DbUtil.getProFile();
 	
+	@Override
+	public String selectPwdById(String id) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String sql = proFile.getProperty("member.selectPwdById");
+		
+		String pwd =null;
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			System.out.println(id);
+			ps.setString(1, id);
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				pwd = rs.getString(1);
+				System.out.println(1);
+			}
+		} finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
+		return pwd;
+	}
+	
 	//트랜잭션 처리 - 참고 : C:\Edu\Java\JavaWorkSpace\step10_JDBC\src\ex1101\transaction
 	@Override
 	public int insertMember(MemberDTO member) throws SQLException {
@@ -626,5 +651,7 @@ public class HealthDAOImpl implements HealthDAO {
 		}
 		return result;
 	}
+
+	
 
 }

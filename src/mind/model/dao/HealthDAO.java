@@ -13,6 +13,11 @@ import mind.model.dto.UseDetailDTO;
 public interface HealthDAO {
 	
 	/**
+	 * 로그인
+	 */
+	String selectPwdById(String id) throws SQLException;
+
+	/**
 	 * 회원가입(유저 등록)
 	 * */
 	int insertMember(MemberDTO member) throws SQLException;

@@ -10,10 +10,28 @@ import mind.model.dto.MemberDTO;
 import mind.model.dto.PointDTO;
 import mind.model.dto.ReviewDTO;
 import mind.model.dto.UseDetailDTO;
+import mind.util.PwUtil;
 
 public class HealthService {
 	private static HealthDAO healthDAO = new HealthDAOImpl();
 		
+	/**
+	 * 유저 로그인
+	 */
+	public static boolean login(String id,String inputPwd) throws SQLException{
+		
+		String pwd = healthDAO.selectPwdById(id);
+	
+	//해당되는 아이디가 없으면 return
+	if(pwd==null) {
+		return false;
+	}
+	//패스워드 체크 메소드
+	//패스워드가 일치하면 true, 틀리면 false 출력
+	//System.out.println(inputPwd+" | "+pwd);
+	return new PwUtil().PWCheck(inputPwd,pwd);
+	}
+	
 	/**
 	 * 유저 회원가입(등록)
 	 * */

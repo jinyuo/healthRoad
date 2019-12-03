@@ -221,15 +221,17 @@
 										</h5>
 										<div class="dot-hr"></div>
 										<span class="pull-left"><b> 수용인원 :</b> ${gymList.gymCapacity }명 </span> <span
-											class="proerty-price pull-right"> ${gymList.price }p</span>
-										<p style="display: none;">Suspendisse ultricies
+											class="proerty-price pull-right"> ${gymList.price }p</span><br>
+										<p>${gymList.addr}</p>
+										<p>${gymList.phoneNum }</p>
+										<!--<p style="display: none;">Suspendisse ultricies
 											Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse
 											ultricies commodo arcu nec pretium ...</p>
-										<div class="property-icon">
+										 <div class="property-icon">
 											<img src="img/icon/bed.png">(5)| <img
 												src="img/icon/shawer.png">(2)| <img
 												src="img/icon/cars.png">(1)
-										</div>
+										</div> -->
 									</div>
 								</div>
 							</div>

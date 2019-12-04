@@ -106,15 +106,14 @@
 	<div class="slider-area">
 		<div class="slider">
 			<div id="bg-slider" class="owl-carousel owl-theme">
-
 				<div class="item">
-					<img src="assets/img/slide1/PushUp_Sample.jpg" alt="PushUp">
+					<img src="${pageContext.request.contextPath}/assets/img/slide1/PushUp_Sample.jpg" alt="PushUp">
 				</div>
 				<div class="item">
-					<img src="assets/img/slide1/Train.jpeg" alt="Train">
+					<img src="${pageContext.request.contextPath}/assets/img/slide1/Train.jpeg" alt="Train">
 				</div>
 				<div class="item">
-					<img src="assets/img/slide1/sample3.png" alt="Dumbbell">
+					<img src="${pageContext.request.contextPath}/assets/img/slide1/sample3.png" alt="Dumbbell">
 				</div>
 
 			</div>
@@ -128,12 +127,15 @@
 						가까운 헬스장을 찾아보세요</p>
 					<div class="search-form wow pulse" data-wow-delay="0.8s">
 
-						<form action="${pageContext.request.contextPath}/front?" class="form-inline">
+						<form action="${pageContext.request.contextPath}/front?"
+							class="form-inline">
 							<div class="form-group">
 								<!-- 컨트롤러 매칭을 위한 값 넘김 -->
-								<input type="hidden" name="command" value="gymList"> 
-<!-- 								<select id="lunchBegins" class="selectpicker" data-live-search="true" data-live-search-style="begins" title="-선택-" name="keyfield">
- -->								<select id="basic" class="selectpicker show-tick form-control" name="keyfield">
+								<input type="hidden" name="command" value="gymList">
+								<!-- 								<select id="lunchBegins" class="selectpicker" data-live-search="true" data-live-search-style="begins" title="-선택-" name="keyfield">
+ -->
+								<select id="basic" class="selectpicker show-tick form-control"
+									name="keyfield">
 									<option>선택</option>
 									<option>주소</option>
 									<option>이름</option>
@@ -160,9 +162,9 @@
 			<div class="row">
 				<div class="col-md-12  padding-top-40 properties-page">
 					<div class="col-md-12 ">
- 						<div class="col-xs-10 page-subheader sorting pl0">
+						<div class="col-xs-10 page-subheader sorting pl0">
 
-							<ul class="sort-by-list">
+							<!-- <ul class="sort-by-list">
 								<li class="active"><a href="javascript:void(0);"
 									class="order_by_date" data-orderby="property_date"
 									data-order="ASC"> 날짜 순 정렬 <i class="fa fa-sort-amount-asc"></i>
@@ -172,10 +174,10 @@
 									data-order="DESC"> 가격 순 정렬 <i
 										class="fa fa-sort-numeric-desc"></i>
 								</a></li>
-							</ul> 
-							<!--/ .sort-by-list-->
+							</ul>
+							/ .sort-by-list
 
- 							<div class="items-per-page">
+							<div class="items-per-page">
 								<div class="sel">
 									<select id="items_per_page" name="per_page">
 										<option value="3">3</option>
@@ -188,12 +190,12 @@
 										<option value="60">60</option>
 									</select>
 								</div>
-								<!--/ .sel-->
- 								<label for="items_per_page"><b>개 씩 보기 :</b></label>
+								/ .sel
+								<label for="items_per_page"><b>개 씩 보기 :</b></label>
 
-							</div>
+							</div> -->
 							<!--/ .items-per-page-->
-							</div>
+						</div>
 
 						<div class="col-xs-2 layout-switcher">
 							<a class="layout-list" href="javascript:void(0);"> <i
@@ -206,25 +208,30 @@
 					</div>
 					<div class="col-md-12 ">
 						<div id="list-type" class="proerty-th">
-							
+
 							<c:forEach items="${requestScope.list }" var="gymList">
 								<div class="col-sm-6 col-md-3 p0">
-								<div class="box-two proerty-item">
-									<div class="item-thumb">
-										<a href="${pageContext.request.contextPath}/front?command=gymDetail&code=${gymList.code}"><img
-											src="assets/img/demo/property-3.jpg"></a>
-									</div>
+									<div class="box-two proerty-item">
+										<div class="item-thumb">
+											<a href="${pageContext.request.contextPath}/front?command=gymDetail&code=${gymList.code}">
+												<!-- <img src="assets/img/demo/property-3.jpg"></a> --> 
+												<img src="${pageContext.request.contextPath}/save/gym/${gymList.fileName}">
+												</a>
+										</div>
 
-									<div class="item-entry overflow">
-										<h5>
-											<a href="${pageContext.request.contextPath}/front?command=gymDetail&code=${gymList.code}"> ${gymList.name } </a>
-										</h5>
-										<div class="dot-hr"></div>
-										<span class="pull-left"><b> 수용인원 :</b> ${gymList.gymCapacity }명 </span> <span
-											class="proerty-price pull-right"> ${gymList.price }p</span><br>
-										<p>${gymList.addr}</p>
-										<p>${gymList.phoneNum }</p>
-										<!--<p style="display: none;">Suspendisse ultricies
+										<div class="item-entry overflow">
+											<h5>
+												<a href="${pageContext.request.contextPath}/front?command=gymDetail&code=${gymList.code}">
+													${gymList.name} </a>
+											</h5>
+											<div class="dot-hr"></div>
+											<span class="pull-left"><b> 수용인원 :</b>
+												${gymList.gymCapacity }명 </span> 
+												<span class="proerty-price pull-right"> ${gymList.price} p
+											</span><br>
+											<p>${gymList.addr}</p>
+											<p>${gymList.phoneNum}</p>
+											<!--<p style="display: none;">Suspendisse ultricies
 											Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse
 											ultricies commodo arcu nec pretium ...</p>
 										 <div class="property-icon">
@@ -232,11 +239,11 @@
 												src="img/icon/shawer.png">(2)| <img
 												src="img/icon/cars.png">(1)
 										</div> -->
+										</div>
 									</div>
 								</div>
-							</div>
 							</c:forEach>
-							
+
 
 
 							<!-- <div class="col-sm-6 col-md-3 p0">

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -171,26 +172,39 @@
                                 <div>
 									<h4 class="s-property-title">총 별점 </h4> <h1 class="rating-num">${requestScope.gym.avgScore}</h1><h4 class="s-property-title" style="position:relative; top:-38px; left:55px;">점 </h4>
 								</div>
-								
-								
-								
+<%-- 								<c:set scope="request" var="gymCode" value="${requestScope.gym.code}"></c:set> --%>
+								<form action="${pageContext.request.contextPath}/front?command=insertReviewForm&gymCode=${requestScope.gym.code}" method="post" >
+								<button class="btn btn-primary" style="background-color:#FF8000" >리뷰작성하기</button> <!-- onclick="window.open('review_insert.jsp', '_blank', 'width=550, height=400, toolbar=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no' );" -->
+								<input type="hidden" name=gymCode value ="${requestScope.gym.code}"/>
+								</form>
+								<c:choose>
+								<c:when test = "${empty requestScope.review}">
+								<div style="width:20%; height:20px; background-color:#F2F2F2">등록된 리뷰가 없습니다.</div>
+								</c:when>
+								<c:otherwise>
+								<c:forEach items="${requestScope.review}" var = "reviewList">
 								<div><!-- comment container 시작 -->
 									<h3 class="s-property-title">리뷰 </h3>
 									
-									<button type="button" class="btn btn-primary" style="background-color:#FF8000" onclick="window.open('review_insert.html', '_blank', 'width=550, height=400, toolbar=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no' );">리뷰작성하기</button>
-									<div style="width:20%; height:20px; background-color:#F2F2F2">제목<input type="text" value="${requestScope.review.content}" readonly="readonly" style="background-color:#F2F2F2; position:relative; top:-20px; left:150px; width:350px"></div>
-									<div style="width:20%; height:20px; background-color:#FFFFFF">작성자<input type="text" value="작성자아이디" readonly="readonly" style="background-color:#FFFFFF; position:relative; top:-20px; left:150px; width:350px"></div>
-									<div style="width:20%; height:100px; background-color:#F2F2F2">내용
+									
+									<div style="width:20%; height:20px; background-color:#F2F2F2">별점<input type="text" value="${reviewList.starScore}" readonly="readonly" style="background-color:#F2F2F2; position:relative; top:-20px; left:150px; width:350px"></div>
+									<div style="width:20%; height:20px; background-color:#FFFFFF">작성자<input type="text" value="${reviewList.memberId}" readonly="readonly" style="background-color:#FFFFFF; position:relative; top:-20px; left:150px; width:350px"></div>
+									<div style="width:20%; height:100px; background-color:#F2F2F2">내용 
 									<!-- <textarea rows="100" cols="100"></textarea> -->
 									
-									<input type="text" readonly="readonly" style="overflow:auto; background-color:#F2F2F2; position:relative; top:-20px; left:150px; width:350px; height:100px">
+									<input type="text"  readonly="readonly" style="overflow:auto; background-color:#F2F2F2; position:relative; top:-20px; left:150px; width:350px; height:100px" value="${reviewList.content}">
 										
 									</div>
 									<div style="width: 500px; height:auto; overflow: hidden">
-									<img id="review_pic" src="assets/img/slide1/slider-image-2.jpg" style="position:relative;  margin: 5px 5px 5px 0px;" >
-									</div>
+									<c:if test="${not empty reviewList.fileName}">
+									<img id="review_pic" src="${pageContext.request.contextPath}/save/review/${reviewList.fileName}" style="position:relative;  margin: 5px 5px 5px 0px;" >
+									</c:if>
+									</div><!-- ${pageContext.request.contextPath}/save/review" -->
 									
 								</div><!-- comment container 끝 -->
+								</c:forEach>
+								</c:otherwise>
+								</c:choose>
 								<hr>
              <!-- //////////////////////////////////////////////////// -->
                             </div>

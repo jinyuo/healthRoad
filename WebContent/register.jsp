@@ -39,7 +39,35 @@
         <div id="preloader">
             <div id="status">&nbsp;</div>
         </div>
-        
+        <!-- Body content -->
+
+       
+        <div class="header-connect">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5 col-sm-8  col-xs-12">
+                        <div class="header-half header-call">
+                            <p>
+                                <span><i class="pe-7s-call"></i> +1 234 567 7890</span>
+                                <span><i class="pe-7s-mail"></i> your@company.com</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-md-offset-5  col-sm-3 col-sm-offset-1  col-xs-12">
+                        <div class="header-half header-social">
+                            <ul class="list-inline">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-vine"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>            
         <!--End top header -->
 
         <nav class="navbar navbar-default ">
@@ -58,18 +86,110 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
                     <div class="button navbar-right">
-                        <button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.open('register.html')" data-wow-delay="0.4s">로그인/회원가입</button>
+                        <button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.open('register.html')" data-wow-delay="0.4s">Login</button>
+                        <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.open('submit-property.html')" data-wow-delay="0.5s">Submit</button>
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
-                            <a href="index.html" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">마이페이지 </a>
+                            <a href="index.html" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Home <b class="caret"></b></a>
+                            <ul class="dropdown-menu navbar-nav">
+                                <li>
+                                    <a href="index-2.html">Home Style 2</a>
+                                </li>
+                                <li>
+                                    <a href="index-3.html">Home Style 3</a>
+                                </li>
+                                <li>
+                                    <a href="index-4.html">Home Style 4</a>
+                                </li>
+                                <li>
+                                    <a href="index-5.html">Home Style 5</a>
+                                </li>
+
+                            </ul>
                         </li>
 
+                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="properties.html">Properties</a></li>
+                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="property.html">Property</a></li>
                         <li class="dropdown yamm-fw" data-wow-delay="0.1s">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">포인트 충전 </a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Template <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <div class="yamm-content">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <h5>Home pages</h5>
+                                                <ul>
+                                                    <li>
+                                                        <a href="index.html">Home Style 1</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="index-2.html">Home Style 2</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="index-3.html">Home Style 3</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="index-4.html">Home Style 4</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="index-5.html">Home Style 5</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <h5>Pages and blog</h5>
+                                                <ul>
+                                                    <li><a href="blog.html">Blog listing</a>  </li>
+                                                    <li><a href="single.html">Blog Post (full)</a>  </li>
+                                                    <li><a href="single-right.html">Blog Post (Right)</a>  </li>
+                                                    <li><a href="single-left.html">Blog Post (left)</a>  </li>
+                                                    <li><a href="contact.html">Contact style (1)</a> </li>
+                                                    <li><a href="contact-3.html">Contact style (2)</a> </li>
+                                                    <li><a href="contact_3.html">Contact style (3)</a> </li>
+                                                    <li><a href="faq.html">FAQ page</a> </li> 
+                                                    <li><a href="404.html">404 page</a>  </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <h5>Property</h5>
+                                                <ul>
+                                                    <li><a href="property-1.html">Property pages style (1)</a> </li>
+                                                    <li><a href="property-2.html">Property pages style (2)</a> </li>
+                                                    <li><a href="property-3.html">Property pages style (3)</a> </li>
+                                                </ul>
+
+                                                <h5>Properties list</h5>
+                                                <ul>
+                                                    <li><a href="properties.html">Properties list style (1)</a> </li> 
+                                                    <li><a href="properties-2.html">Properties list style (2)</a> </li> 
+                                                    <li><a href="properties-3.html">Properties list style (3)</a> </li> 
+                                                </ul>                                               
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <h5>Property process</h5>
+                                                <ul> 
+                                                    <li><a href="submit-property.html">Submit - step 1</a> </li>
+                                                    <li><a href="submit-property.html">Submit - step 2</a> </li>
+                                                    <li><a href="submit-property.html">Submit - step 3</a> </li> 
+                                                </ul>
+                                                <h5>User account</h5>
+                                                <ul>
+                                                    <li><a href="register.html">Register / login</a>   </li>
+                                                    <li><a href="user-properties.html">Your properties</a>  </li>
+                                                    <li><a href="submit-property.html">Submit property</a>  </li>
+                                                    <li><a href="change-password.html">Change password</a> </li>
+                                                    <li><a href="user-profile.html">Your profile</a>  </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.yamm-content -->
+                                </li>
+                            </ul>
                         </li>
 
-                        <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">서비스 소개</a></li>
+                        <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">Contact</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
@@ -80,7 +200,7 @@
             <div class="container">
                 <div class="row">
                     <div class="page-head-content">
-                        <h1 class="page-title">회원가입 / 로그인 </h1>               
+                        <h1 class="page-title">Home New account / Sign in </h1>               
                     </div>
                 </div>
             </div>
@@ -95,22 +215,22 @@
                 <div class="col-md-6">
                     <div class="box-for overflow">
                         <div class="col-md-12 col-xs-12 register-blocks">
-                            <h2>회원가입 : </h2> 
+                            <h2>New account : </h2> 
                             <form action="" method="post">
                                 <div class="form-group">
-                                    <label for="name">이름</label>
+                                    <label for="name">Name</label>
                                     <input type="text" class="form-control" id="name">
                                 </div>
                                 <div class="form-group">
-                                    <label for="email">이메일</label>
+                                    <label for="email">Email</label>
                                     <input type="text" class="form-control" id="email">
                                 </div>
                                 <div class="form-group">
-                                    <label for="password">비밀번호</label>
+                                    <label for="password">Password</label>
                                     <input type="password" class="form-control" id="password">
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-default">가입하기</button>
+                                    <button type="submit" class="btn btn-default">Register</button>
                                 </div>
                             </form>
                         </div>
@@ -120,29 +240,22 @@
                 <div class="col-md-6">
                     <div class="box-for overflow">                         
                         <div class="col-md-12 col-xs-12 login-blocks">
-                            <h2>로그인 : </h2> 
-                            <form action="" method="post">
+                            <h2>Login : </h2> 
+                            <form action="front?command=login" method="post">
                                 <div class="form-group">
-                                    <label for="email">이메일</label>
-                                    <input type="text" class="form-control" id="email">
+                                    <label for="email">ID</label>
+                                    <input type="text" class="form-control" name="id">
                                 </div>
                                 <div class="form-group">
-                                    <label for="password">비밀번호</label>
-                                    <input type="password" class="form-control" id="password">
+                                    <label for="password">Password</label>
+                                    <input type="password" class="form-control" name="password">
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-default"> 로그인</button>
+                                    <button type="submit" class="btn btn-default"> Log in</button>
                                 </div>
                             </form>
                             <br>
                             
-                            <h2>소셜 로그인 :  </h2> 
-                            
-                            <p>
-                            <a class="login-social" href="#"><i class="fa fa-facebook"></i>&nbsp;Facebook</a> 
-                            <a class="login-social" href="#"><i class="fa fa-google-plus"></i>&nbsp;Gmail</a> 
-                            <a class="login-social" href="#"><i class="fa fa-twitter"></i>&nbsp;Twitter</a>  
-                            </p> 
                         </div>
                         
                     </div>

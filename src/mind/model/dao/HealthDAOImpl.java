@@ -10,13 +10,37 @@ import java.util.Properties;
 
 import mind.model.dto.GymDTO;
 import mind.model.dto.MemberDTO;
-import mind.model.dto.PointDTO;
 import mind.model.dto.ReviewDTO;
 import mind.model.dto.UseDetailDTO;
 import mind.util.DbUtil;
 
 public class HealthDAOImpl implements HealthDAO {
 	private Properties proFile = DbUtil.getProFile();
+	
+	@Override
+	public String selectPwdById(String id) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String sql = proFile.getProperty("member.selectPwdById");
+		
+		String pwd =null;
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			System.out.println(id);
+			ps.setString(1, id);
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				pwd = rs.getString(1);
+				System.out.println(1);
+			}
+		} finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
+		return pwd;
+	}
 	
 	//트랜잭션 처리 - 참고 : C:\Edu\Java\JavaWorkSpace\step10_JDBC\src\ex1101\transaction
 	@Override
@@ -39,15 +63,10 @@ public class HealthDAOImpl implements HealthDAO {
 			
 			result = ps.executeUpdate();
 			
-			if(result > 0) {
-				result = insertPoint(member.getId(), con);
-				if(result > 0)
-					con.commit();
-				else
-					con.rollback();
-			}else {
+			if(result > 0)
+				con.commit();
+			else
 				con.rollback();
-			}
 			
 		}catch (SQLException e) {
 			try {
@@ -143,6 +162,7 @@ public class HealthDAOImpl implements HealthDAO {
 		return result;
 	}
 
+	/*
 	@Override
 	public int insertPoint(String memberId, Connection con) throws SQLException {
 		PreparedStatement ps = null;
@@ -154,20 +174,21 @@ public class HealthDAOImpl implements HealthDAO {
 		result = ps.executeUpdate();
 		return result;
 	}
+	*/
 	
 	@Override
 	//업데이트할 가격 매개변수로 받아야 함
-	public int updatePoint(String memberId, int price) throws SQLException {
+	public int updatePoint(String id, int price) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
-		String sql = proFile.getProperty("point.update");
+		String sql = proFile.getProperty("member.updatePoint");
 		int result = 0;
 		
 		try {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, price);
-			ps.setString(2, memberId);
+			ps.setString(2, id);
 			
 			result = ps.executeUpdate();
 		} finally {
@@ -178,11 +199,11 @@ public class HealthDAOImpl implements HealthDAO {
 	
 	//트랜잭션 처리
 	@Override
-	public int updatePoint(String memberId, int gymCode, int price) throws SQLException{
+	public int updatePoint(String id, int gymCode, int price) throws SQLException{
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		String sql = proFile.getProperty("point.update");
+		String sql = proFile.getProperty("member.updatePoint");
 		int result = 0;
 		
 		try {
@@ -192,7 +213,7 @@ public class HealthDAOImpl implements HealthDAO {
 			//고객 포인트 차감
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, (-1) * price);
-			ps.setString(2, memberId);
+			ps.setString(2, id);
 			result = ps.executeUpdate();
 			ps.close();
 			String tempId = null;
@@ -237,25 +258,25 @@ public class HealthDAOImpl implements HealthDAO {
 	}
 
 	@Override
-	public PointDTO selectPoint(String memberId) throws SQLException {
+	public MemberDTO selectPoint(String id) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		String sql = proFile.getProperty("point.selectById");
-		PointDTO pointDTO = null;
+		String sql = proFile.getProperty("member.selectPointById");
+		MemberDTO memberDTO = null;
 		
 		try {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
-			ps.setString(1, memberId);
+			ps.setString(1, id);
 			rs = ps.executeQuery();
 			
 			if(rs.next())
-				pointDTO = new PointDTO(rs.getString("member_id"), rs.getInt("balance"));
+				memberDTO = new MemberDTO(rs.getString("member_id"), rs.getInt("balance"));
 		} finally {
 			DbUtil.dbClose(rs, ps, con);
 		}
-		return pointDTO;
+		return memberDTO;
 	}
 
 	@Override
@@ -636,5 +657,7 @@ public class HealthDAOImpl implements HealthDAO {
 		}
 		return result;
 	}
+
+	
 
 }

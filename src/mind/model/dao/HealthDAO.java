@@ -6,12 +6,16 @@ import java.util.List;
 
 import mind.model.dto.GymDTO;
 import mind.model.dto.MemberDTO;
-import mind.model.dto.PointDTO;
 import mind.model.dto.ReviewDTO;
 import mind.model.dto.UseDetailDTO;
 
 public interface HealthDAO {
 	
+	/**
+	 * 로그인
+	 */
+	String selectPwdById(String id) throws SQLException;
+
 	/**
 	 * 회원가입(유저 등록)
 	 * */
@@ -43,22 +47,22 @@ public interface HealthDAO {
 	/**
 	 * 포인트 레코드 초기화
 	 * */
-	public int insertPoint(String memberId, Connection con) throws SQLException;
+	//public int insertPoint(String memberId, Connection con) throws SQLException;
 	
 	/**
 	 * 포인트 잔액 갱신
 	 * */
-	int updatePoint(String memberId, int price) throws SQLException;
+	int updatePoint(String id, int price) throws SQLException;
 		
 	/**
 	 * 회원 포인트 사용 및 사업자 포인트 적립
 	 * */
-	int updatePoint(String memberId, int gymCode, int price) throws SQLException;
+	int updatePoint(String id, int gymCode, int price) throws SQLException;
 	
 	/**
 	 * 포인트 잔액 출력
 	 * */
-	PointDTO selectPoint(String memberId) throws SQLException;
+	MemberDTO selectPoint(String id) throws SQLException;
 	
 	/////////////////////////////////////////////////////////////////////////////
 	

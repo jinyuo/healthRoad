@@ -18,7 +18,7 @@ public class GymDetailController implements HealthController {
 		int code = Integer.parseInt(request.getParameter("code"));
 		GymDTO gymDTO = HealthService.selectGymByCode(code);
 		request.setAttribute("gym", gymDTO);
-		
+		mv.setViewName("property-1.jsp");
 		return mv;
 	}
 }

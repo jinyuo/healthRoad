@@ -326,17 +326,21 @@ public class HealthDAOImpl implements HealthDAO {
 	public List<GymDTO> selectGymByKeyword(String keyField, String keyword) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
-
+		
+		
 		String sql = proFile.getProperty("gym.selectByKeyword");//sql = gym.selectByKeyword=SELECT CODE, NAME, ADDR, PHONE_NUM, FILE_NAME, GYM_CAPACITY, PRICE, GYM_COMMENT, WEEKDAY_HOUR, WEEKEND_HOUR, STAR_SCORE FROM GYM WHERE ? LIKE ?
-
+		if(keyField.equals("addr") || keyField.equals("name")) {
+			sql = String.format(sql, keyField);
+		}
+		System.out.println(sql);
 		ResultSet rs = null;
 		List<GymDTO> list = new ArrayList<GymDTO>();
 		
 		try {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
-			ps.setString(1, keyField);
-			ps.setString(2, "%"+keyword+"%");
+			
+			ps.setString(1, "%"+keyword+"%");
 			rs = ps.executeQuery();
 			
 			while(rs.next()) {

@@ -31,7 +31,7 @@ public class UseListController implements HealthController {
 		
 		if(curUserType == 1)
 			list = HealthService.selectUseDetailByKeyword("member_id", memberId);
-		else { // 사업자면
+		else { // 사업자면 aa
 			int gymCode = HealthService.selectMemberById(memberId).getGymCode();
 			list = HealthService.selectUseDetailByKeyword("gym_code", Integer.toString(gymCode));
 		}

@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 
 
@@ -107,23 +109,24 @@
 		<div class="slider">
 			<div id="bg-slider" class="owl-carousel owl-theme">
 				<div class="item">
-					<img src="${pageContext.request.contextPath}/assets/img/slide1/PushUp_Sample.jpg" alt="PushUp">
+					<img src="${pageContext.request.contextPath}/save/main/main5.jpg" alt="mainImg1">
 				</div>
 				<div class="item">
-					<img src="${pageContext.request.contextPath}/assets/img/slide1/Train.jpeg" alt="Train">
+					<img src="${pageContext.request.contextPath}/save/main/main7.jpg" alt="mainImg2">
 				</div>
 				<div class="item">
-					<img src="${pageContext.request.contextPath}/assets/img/slide1/sample3.png" alt="Dumbbell">
+					<img src="${pageContext.request.contextPath}/save/main/main6.jpg" alt="mainImg3">
 				</div>
 
 			</div>
 		</div>
 		<div class="container slider-content">
 			<div class="row">
-				<div
-					class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
-					<h2 style="color: black"> 나를 찾아오는 건강</h2>
-					<p style="color: black"> 나의 건강을 시간과 장소에 구애받지 마세요. 언제 어디서든 나와 가장 가까운 헬스장을 찾아보세요</p>
+				<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
+					<blockquote style="background-color: rgba(0, 0, 0, 0.23)">
+					<h2 style="color: white"> 나를 찾아오는 건강</h2>
+					<p style="color: white"> 나의 건강을 시간과 장소에 구애받지 마세요. 언제 어디서든 나와 가장 가까운 헬스장을 찾아보세요</p>
+					</blockquote>
 					<div class="search-form wow pulse" data-wow-delay="0.8s">
 
 						<form action="${pageContext.request.contextPath}/front?"
@@ -207,12 +210,14 @@
 					</div>
 					<div class="col-md-12 ">
 						<div id="list-type" class="proerty-th">
-
+						
+							<c:if test="${fn:length(list) == 0 }">
+								<div class="row">
+									<h2 style="text-align: center;">검색 결과가 없습니다.</h2>
+								</div>
+							</c:if>
 							<c:forEach items="${requestScope.list }" var="gymList">
 								<div class="col-sm-6 col-md-3 p0">
-									<c:if test="${empty list}">
-										없음<br>
-									</c:if>
 									<div class="box-two proerty-item">
 										<div class="item-thumb">
 											<a href="${pageContext.request.contextPath}/front?command=gymDetail&code=${gymList.code}">

@@ -104,7 +104,7 @@
             <div class="container"> 
             
             <div class="">											<!-- ${requestScope.gym.name} -->
-        	<h2 style="left:100px" class="wow fadeInLeft animated">\${requestScope.gym.name}</h2>
+        	<h2 style="left:100px" class="wow fadeInLeft animated">${requestScope.gym.name}</h2>
             	<div class="title-line wow fadeInRight animated"></div>
        		 </div>  
 
@@ -149,7 +149,7 @@
                                 <p align="right">
                                 <button type="button" class="btn btn-primary btn-lg" style="background-color:#FF8000">이용하기</button>
                                 </p>
-                                <span class="property-price pull-right" style="text-align:right">가격\${requestScope.gym.price}</span>
+                                <span class="property-price pull-right" style="text-align:right">가격 ${requestScope.gym.price}p</span>
                                 
                             </div>
 
@@ -162,14 +162,14 @@
                                 
                                 <div class="s-property-content">
                                 		<!-- ${requestScope.gym.comment} -->
-                                    <p>\${requestScope.gym.comment}</p>
+                                    <p>${requestScope.gym.comment}</p>
                                     
 
                                   
                                 </div>
             <!-- /////////////////////////////////////////////////// -->
                                 <div>
-									<h4 class="s-property-title">총 별점 </h4> <h1 class="rating-num">\${requestScope.gym.avgScore}</h1><h4 class="s-property-title" style="position:relative; top:-38px; left:55px;">점 </h4>
+									<h4 class="s-property-title">총 별점 </h4> <h1 class="rating-num">${requestScope.gym.avgScore}</h1><h4 class="s-property-title" style="position:relative; top:-38px; left:55px;">점 </h4>
 								</div>
 								
 								
@@ -178,7 +178,7 @@
 									<h3 class="s-property-title">리뷰 </h3>
 									
 									<button type="button" class="btn btn-primary" style="background-color:#FF8000" onclick="window.open('review_insert.html', '_blank', 'width=550, height=400, toolbar=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no' );">리뷰작성하기</button>
-									<div style="width:20%; height:20px; background-color:#F2F2F2">제목<input type="text" value="\${requestScope.review.content} ${requestScope.review.content}" readonly="readonly" style="background-color:#F2F2F2; position:relative; top:-20px; left:150px; width:350px"></div>
+									<div style="width:20%; height:20px; background-color:#F2F2F2">제목<input type="text" value="${requestScope.review.content}" readonly="readonly" style="background-color:#F2F2F2; position:relative; top:-20px; left:150px; width:350px"></div>
 									<div style="width:20%; height:20px; background-color:#FFFFFF">작성자<input type="text" value="작성자아이디" readonly="readonly" style="background-color:#FFFFFF; position:relative; top:-20px; left:150px; width:350px"></div>
 									<div style="width:20%; height:100px; background-color:#F2F2F2">내용
 									<!-- <textarea rows="100" cols="100"></textarea> -->
@@ -220,7 +220,7 @@
                                             
                                             <div class="col-xs-8 col-sm-8 ">
                                                 <h3 class="dealer-name">
-                                                    <a href="">\${requestScope.gym.name}${requestScope.gym.name}</a>
+                                                    <a href="">${requestScope.gym.name}</a>
                                                        
                                                 </h3>
                                                 
@@ -230,11 +230,11 @@
 
                                         <div class="clear">
                                             <ul class="dealer-contacts">                                       
-                                                <li><i class="pe-7s-map-marker strong"> </i> \${requestScope.gym.addr}${requestScope.gym.addr}</li>
+                                                <li><i class="pe-7s-map-marker strong"> </i> ${requestScope.gym.addr}</li>
                                                 <li><i class="pe-7s-mail strong"> </i> hahahoho@gaver.com</li>
-                                                <li><i class="pe-7s-call strong"> </i> \${requestScope.gym.phoneNum}${requestScope.gym.phoneNum}</li>
+                                                <li><i class="pe-7s-call strong"> </i> ${requestScope.gym.phoneNum}</li>
                                             </ul>
-                                            <p>\${requestScope.gym.comment}${requestScope.gym.comment}</p>
+                                            <p>${requestScope.gym.comment}</p>
                                         </div>
 
                                     </div>
@@ -451,7 +451,7 @@
 			var geocoder = new kakao.maps.services.Geocoder();
 			
 			// 주소로 좌표를 검색합니다 ${requestScope.gym.addr}
-			geocoder.addressSearch('야탑동 537-6', function(result, status) {
+			geocoder.addressSearch('${requestScope.gym.addr}', function(result, status) {
 			
 			    // 정상적으로 검색이 완료됐으면 
 			     if (status === kakao.maps.services.Status.OK) {
@@ -466,7 +466,7 @@
 			
 			        // 인포윈도우로 장소에 대한 설명을 표시합니다
 			        var infowindow = new kakao.maps.InfoWindow({
-			            content: '<div style="width:150px;text-align:center;padding:6px 0;">헬스매니아</div>'
+			            content: '<div style="width:150px;text-align:center;padding:6px 0;">${requestScope.gym.name}</div>'
 			        });
 			        infowindow.open(map, marker);
 			

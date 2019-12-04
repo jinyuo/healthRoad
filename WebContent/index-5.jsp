@@ -211,13 +211,13 @@
 								<div class="col-sm-6 col-md-3 p0">
 								<div class="box-two proerty-item">
 									<div class="item-thumb">
-										<a href="property-1.html"><img
+										<a href="${pageContext.request.contextPath}/front?command=gymDetail&code=${gymList.code}"><img
 											src="assets/img/demo/property-3.jpg"></a>
 									</div>
 
 									<div class="item-entry overflow">
 										<h5>
-											<a href="property-1.html"> ${gymList.name } </a>
+											<a href="${pageContext.request.contextPath}/front?command=gymDetail&code=${gymList.code}"> ${gymList.name } </a>
 										</h5>
 										<div class="dot-hr"></div>
 										<span class="pull-left"><b> 수용인원 :</b> ${gymList.gymCapacity }명 </span> <span

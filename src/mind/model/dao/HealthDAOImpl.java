@@ -533,7 +533,11 @@ public class HealthDAOImpl implements HealthDAO {
 		PreparedStatement ps = null;
 
 		String sql = proFile.getProperty("useDetail.selectByKeyword"); //SELECT CODE, MEMBER_ID, GYM_CODE, PRICE, USE_START_HOUR, STATE FROM USE_DETAIL WHERE ? = ?
-		sql.replaceFirst("?", keyField);
+		
+		if(keyField.equals("member_id") || keyField.equals("gym_code")) {
+			sql = String.format(sql, keyField);
+			System.out.println("sql : " + sql);
+		}
 		ResultSet rs = null;
 		List<UseDetailDTO> list = new ArrayList<UseDetailDTO>();
 		

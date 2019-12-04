@@ -98,7 +98,7 @@
                 
         <!-- End page header -->
 
-        <!-- property area aa -->
+        <!-- property area aaa -->
 
 <form action="${pageContext.request.contextPath}/front?">
 	<input type="hidden" name="command" value="useList">

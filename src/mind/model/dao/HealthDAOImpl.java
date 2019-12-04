@@ -536,7 +536,8 @@ public class HealthDAOImpl implements HealthDAO {
 		
 		if(keyField.equals("member_id") || keyField.equals("gym_code")) {
 			sql = String.format(sql, keyField);
-			System.out.println("sql : " + sql);
+//			System.out.println("sql : " + sql);
+//			System.out.println("keyworld" + keyword);
 		}
 		ResultSet rs = null;
 		List<UseDetailDTO> list = new ArrayList<UseDetailDTO>();
@@ -563,6 +564,9 @@ public class HealthDAOImpl implements HealthDAO {
 		} finally {
 			DbUtil.dbClose(rs, ps, con);
 		}
+		
+		for(UseDetailDTO dto : list)
+			System.out.println( "dto : " + dto.getMemberId());
 		return list;
 	}
 
@@ -623,9 +627,9 @@ public class HealthDAOImpl implements HealthDAO {
 	public int checkUseDetailState() throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
-		String sql = proFile.getProperty("useDetail.updateToUsed"); //UPDATE USE_DETAIL SET STATE = CASE WHEN SYSDATE - TO_DATE(USE_START_HOUR) > 1.0 THEN -1 ELSE 1 END
+		String sql = proFile.getProperty("useDetail.CheckStateUpdate"); //UPDATE USE_DETAIL SET STATE = CASE WHEN SYSDATE - TO_DATE(USE_START_HOUR) > 1.0 THEN -1 ELSE 1 END
 		int result = 0;
-		
+		//System.out.println(sql);
 		try {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);

@@ -347,17 +347,21 @@ public class HealthDAOImpl implements HealthDAO {
 	public List<GymDTO> selectGymByKeyword(String keyField, String keyword) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
-
+		
+		
 		String sql = proFile.getProperty("gym.selectByKeyword");//sql = gym.selectByKeyword=SELECT CODE, NAME, ADDR, PHONE_NUM, FILE_NAME, GYM_CAPACITY, PRICE, GYM_COMMENT, WEEKDAY_HOUR, WEEKEND_HOUR, STAR_SCORE FROM GYM WHERE ? LIKE ?
-
+		if(keyField.equals("addr") || keyField.equals("name")) {
+			sql = String.format(sql, keyField);
+		}
+		System.out.println(sql);
 		ResultSet rs = null;
 		List<GymDTO> list = new ArrayList<GymDTO>();
 		
 		try {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
-			ps.setString(1, keyField);
-			ps.setString(2, "%"+keyword+"%");
+			
+			ps.setString(1, "%"+keyword+"%");
 			rs = ps.executeQuery();
 			
 			while(rs.next()) {
@@ -448,7 +452,8 @@ public class HealthDAOImpl implements HealthDAO {
 	public List<ReviewDTO> selectReviewByGymCode(int gymCode) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
-		String sql = proFile.getProperty("gym.selectByKeyword");//SELECT CODE, GYM_CODE, MEMBER_ID, REG_DATE, STAR_SCORE, CONTENT, FILE_NAME FROM REVIEW WHERE GYM_CODE = ?
+		String sql = proFile.getProperty("review.selectByGymCode");//SELECT CODE, GYM_CODE, MEMBER_ID, REG_DATE, STAR_SCORE, CONTENT, FILE_NAME FROM REVIEW WHERE GYM_CODE = ?
+		System.out.println(sql);
 		ResultSet rs = null;
 		List<ReviewDTO> list = new ArrayList<ReviewDTO>();
 		
@@ -467,6 +472,7 @@ public class HealthDAOImpl implements HealthDAO {
 				String content = rs.getString("CONTENT");
 				String fileName = rs.getString("FILE_NAME");
 				int gCode = rs.getInt("GYM_CODE");	//gymCode가 매개변수로 사용되고 있어서 gCode로 사용!
+				System.out.println(code+ memberId+ regDate+ starScore+ content+ fileName+ gCode);
 				ReviewDTO review = new ReviewDTO(code, memberId, regDate, starScore, content, fileName, gCode);
 				list.add(review);
 			}
@@ -548,7 +554,11 @@ public class HealthDAOImpl implements HealthDAO {
 		PreparedStatement ps = null;
 
 		String sql = proFile.getProperty("useDetail.selectByKeyword"); //SELECT CODE, MEMBER_ID, GYM_CODE, PRICE, USE_START_HOUR, STATE FROM USE_DETAIL WHERE ? = ?
-		sql.replaceFirst("?", keyField);
+		
+		if(keyField.equals("member_id") || keyField.equals("gym_code")) {
+			sql = String.format(sql, keyField);
+			System.out.println("sql : " + sql);
+		}
 		ResultSet rs = null;
 		List<UseDetailDTO> list = new ArrayList<UseDetailDTO>();
 		

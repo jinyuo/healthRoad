@@ -7,7 +7,6 @@ import mind.model.dao.HealthDAO;
 import mind.model.dao.HealthDAOImpl;
 import mind.model.dto.GymDTO;
 import mind.model.dto.MemberDTO;
-import mind.model.dto.PointDTO;
 import mind.model.dto.ReviewDTO;
 import mind.model.dto.UseDetailDTO;
 import mind.util.PwUtil;
@@ -72,25 +71,25 @@ public class HealthService {
 	/**
 	 * 포인트 잔액 갱신 : 포인트 충전용
 	 * */
-	public static int updatePoint(String memberId, int price) throws SQLException{
-		int result = healthDAO.updatePoint(memberId, price);
+	public static int updatePoint(String id, int price) throws SQLException{
+		int result = healthDAO.updatePoint(id, price);
 		return result;
 	}
 	
 	/**
 	 * 포인트 잔액 갱신 : 사용자가 헬스장 이용하기 시
 	 * */
-	public static int updatePoint(String memberId, int gymCode, int price) throws SQLException{
-		int result = healthDAO.updatePoint(memberId, gymCode, price);
+	public static int updatePoint(String id, int gymCode, int price) throws SQLException{
+		int result = healthDAO.updatePoint(id, gymCode, price);
 		return result;
 	}
 	
 	/**
 	 * 포인트 잔액 검색, 출력
 	 * */
-	public static PointDTO selectPoint(String memberId) throws SQLException{
-		PointDTO pointDTO = healthDAO.selectPoint(memberId);
-		return pointDTO;
+	public static MemberDTO selectPoint(String id) throws SQLException{
+		MemberDTO memberDTO = healthDAO.selectPoint(id);
+		return memberDTO;
 	}
 	
 	//////////////////////////////////////////////////////////////////////////////

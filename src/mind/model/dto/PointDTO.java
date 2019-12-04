@@ -1,3 +1,4 @@
+
 package mind.model.dto;
 
 public class PointDTO {

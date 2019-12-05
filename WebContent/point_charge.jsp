@@ -170,7 +170,7 @@
     <!-- Footer area-->
         <div class="footer-area">
 
-            <div class=" footer">
+            <!-- <div class=" footer">
                 <div class="container">
                     <div class="row">
 
@@ -266,7 +266,7 @@
                                             <button class="btn btn-primary subscribe" type="button"><i class="pe-7s-paper-plane pe-2x"></i></button>
                                         </span>
                                     </div>
-                                    <!-- /input-group -->
+                                    /input-group
                                 </form> 
 
                                 <div class="social pull-right"> 
@@ -283,7 +283,7 @@
 
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <div class="footer-copy text-center">
                 <div class="container">

@@ -99,7 +99,7 @@
                                 <p><br>
                                     언제 어디서나 회사 근처. 집 근처. 밤에도 낮에도. 장소, 시간 걱정하지 말고 시작하세요. <em><strong>헬스로드 하나면 OK!</strong></em><br>
                                     하나의 멤버십으로 30개 이상 종목, 3,289개 제휴시설을 매일 매일 바꿔가며 이용하세요!</p>
-                                </p>
+                               <!--  </p> -->
                                 
                                 <hr>
 
@@ -277,12 +277,12 @@
             </div>
         </div>
         
-        <
+        
          <!-- <div id="map" style="height: 400px;"></div> -->
          <!-- Footer area-->
         <div class="footer-area">
 
-            <div class=" footer">
+            <!-- <div class=" footer">
                 <div class="container">
                     <div class="row">
 
@@ -378,7 +378,7 @@
                                             <button class="btn btn-primary subscribe" type="button"><i class="pe-7s-paper-plane pe-2x"></i></button>
                                         </span>
                                     </div>
-                                    <!-- /input-group -->
+                                    /input-group
                                 </form> 
 
                                 <div class="social pull-right"> 
@@ -395,7 +395,7 @@
 
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <div class="footer-copy text-center">
                 <div class="container">

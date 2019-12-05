@@ -1,15 +1,22 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
+
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> 
-<html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!-->
+ 
+<html class="no-js"> 
+
+<!--<![endif]-->
     <head>
- <meta charset="utf-8">
+        <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>point_charge</title>
-        <meta name="description" content="company is a real-estate template">
+        <title>헬스로드 | 이용내역</title>
+        <meta name="description" content="GARO is a real-estate template">
         <meta name="author" content="Kimarotec">
         <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -35,21 +42,13 @@
         <link rel="stylesheet" href="assets/css/owl.transitions.css">
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="assets/css/responsive.css">
-        <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-        <script type="text/javascript">
-       
-        	
-        </script>
-        
     </head>
     <body>
 
         <div id="preloader">
             <div id="status">&nbsp;</div>
         </div>
-        <!-- Body content -->
-
-          
+           
         <!--End top header -->
 
         <nav class="navbar navbar-default ">
@@ -62,112 +61,124 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index-5.html"><img src="assets/img/logo.png" alt=""></a> <!-- 로고이미지 바꾸기 -->
+                    <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png" alt=""></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
                     <div class="button navbar-right">
-                        <button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.open('register.html')" data-wow-delay="0.4s">로그인/회원가입</button>
-                 
+                        <button class="navbar-btn nav-button wow bounceInRight login" data-wow-delay="0.4s">로그인/회원가입</button>
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
- <!-- 여기href 바꿔야함-->                           <a href="index.html" class="dropdown-toggle active"  data-hover="dropdown" data-delay="200">마이페이지 </a>
-                            
+                            <a href="mypage.html" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">마이페이지 </a>
                         </li>
 
-                        
-                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="point_charge.jsp">포인트충전</a></li>
                         <li class="dropdown yamm-fw" data-wow-delay="0.1s">
- <!-- 여기href 바꿔야함-->                            <a href="contact-3.jsp" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">서비스소개 </a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">포인트 충전 </a>
                         </li>
 
-                        <!-- <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">Contact</a></li> -->
+                        <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">서비스 소개</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
         <!-- End of nav bar -->
-      
-        <div class="content-area error-page" style="background-color: #FCFCFC; padding-bottom: 55px;">
-            <div class="container">
-                <div class="row">
-                    <!-- <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
-                        <h2 class="error-title">404</h2>
-                        <p>Sorry, the page you requested may have been moved or deleted</p>
-                        <a href="index.html" class="btn btn-default">Home</a>                        
-                    </div> -->
-                    <!-- ------------------------------------------------------------------------------------------------------- -->
-                    <p><p><p><p><p><p><p><p><p>
-                    <div class="container">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="panel panel-success">
-                <div class="panel-heading">
-                    <h4 class="text-center">일 반 팩</h4>
-                </div>
-                <div class="panel-body text-center">
-                    <p class="lead">
-                        <strong>5 0, 0 0 0 ￦</strong>
-                    </p>
-                </div>
-                
-                <div class="panel-footer">
-                	<form action="${pageContext.request.contextPath}/front?">
-                    <button type="submit" class="btn btn-lg btn-block btn-success" name="fiveCharge" value="50000">충전하기</button>
-                    <input type="hidden" name="command" value="fiveCharge">
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <h4 class="text-center">고 급 팩</h4>
-                </div>
-                <div class="panel-body text-center">
-                    <p class="lead">
-                        <strong>2 0 0, 0 0 0 ￦</strong>
-                    </p>
-                </div>
-                
-                <div class="panel-footer">
-                    <form action="${pageContext.request.contextPath}/front?">
-                    <button type="submit" class="btn btn-lg btn-block btn-success" name="twetCharge" value="200000">충전하기</button>
-                    <input type="hidden" name="command" value="twetCharge">
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h4 class="text-center">프 리 미 엄 팩</h4>
-                </div>
-                <div class="panel-body text-center">
-                    <p class="lead">
-                        <strong>5 0 0, 0 0 0 ￦</strong>
-                    </p>
-                </div>
-                
-                <div class="panel-footer">
-                    <form action="${pageContext.request.contextPath}/front?">
-                    <button type="submit" class="btn btn-lg btn-block btn-success" name="fiftyCharge" value="500000">충전하기</button>
-                    <input type="hidden" name="command" value="fiftyCharge">
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <p><p><p>
-</div>
-                    <!-- ------------------------------------------------------------------------------------------------------- -->
-                </div> 
-            </div>
-        </div> 
 
-    <!-- Footer area-->
+        <div class="container">
+            <h2 class="ps-property-title">신청자 목록</h2>
+        </div>
+        <div class="collapse navbar-collapse yamm" id="navigation">
+                    <ul class="main-nav nav navbar-nav navbar-right">
+                        <li class="dropdown ymm-sw " data-wow-delay="0.1s">
+                            <a href="mypage.html">돌아가기 </a>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+                
+        <!-- End page header -->
+<form action="${pageContext.request.contextPath}/front?">
+	<input type="hidden" name="command" value="applicantList">
+	<button type="submit">제발되어라</button>
+</form>
+        <!-- property area aaa -->
+
+            <div class="container"> 
+           
+           
+                <div class="row">
+                	<div class="col-md-9 pr-30 padding-top-20 properties-page user-properties">
+                	
+                        
+               			<div class="section additional-details">
+
+                                 <ul class="additional-details-list clearfix">
+                                    <li>
+                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-title" style="width:20%" >회원 아이디</span>
+                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-title" style="width:20%">차감 포인트</span>
+                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-title" style="width:20%">이용날짜</span>
+                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-title" style="width:20%">이용상태</span>
+                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-title" style="width:20%">이용시작</span>
+                                    </li>
+
+                                    <li>
+                                    <c:forEach items="${requestScope.alist }" var="list" varStatus="state">
+                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry" style="width:20%">${list.memberId }</span>
+                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry" style="width:20%">${list.price}</span>
+                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry" style="width:20%">${list.useStartHour}</span>
+                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry" style="width:20%">${list.state}</span>
+                                        <form action="${pageContext.request.contextPath}/front?">
+                                        <button type="submit" name="command" value="userManaging" style="width:20%">이용시작</button>
+                                        <input type="hidden" name="usercode" value="${list.code}">
+                                        </form>
+                                        </c:forEach>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                        <div class="section"> 
+                            <div class="pull-right">
+                                <div class="pagination">
+                                    <ul>
+                                        <li><a href="#">이전</a></li>
+                                        <li><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">다음</a></li>
+                                    </ul>
+                                </div>
+                            </div>                
+                        </div>
+
+                    </div>       
+
+                    <!-- <div class="col-md-3 p0 padding-top-40">
+                        <div class="blog-asside-right">
+                            <div class="panel panel-default sidebar-menu wow fadeInRight animated" >
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Hello Kimaro</h3>
+                                </div>
+                                <div class="panel-body search-widget">
+
+                                </div>
+                            </div>
+
+                            <div class="panel panel-default sidebar-menu wow fadeInRight animated">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Recommended</h3>
+                                </div>
+                                <div class="panel-body recent-property-widget">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+
+          <!-- Footer area-->
         <div class="footer-area">
 
             <div class=" footer">
@@ -304,24 +315,28 @@
             </div>
 
         </div>
+          
 
         <script src="assets/js/modernizr-2.6.2.min.js"></script>
-
-        <script src="assets/js/jquery-1.10.2.min.js"></script> 
+        <script src="assets/js/jquery-1.10.2.min.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
         <script src="assets/js/bootstrap-select.min.js"></script>
         <script src="assets/js/bootstrap-hover-dropdown.js"></script>
-
         <script src="assets/js/easypiechart.min.js"></script>
         <script src="assets/js/jquery.easypiechart.min.js"></script>
-
         <script src="assets/js/owl.carousel.min.js"></script>
         <script src="assets/js/wow.js"></script>
-
         <script src="assets/js/icheck.min.js"></script>
-        <script src="assets/js/price-range.js"></script>
+
+        <script src="assets/js/price-range.js"></script> 
+        <script src="assets/js/jquery.bootstrap.wizard.js" type="text/javascript"></script>
+        <script src="assets/js/jquery.validate.min.js"></script>
+        <script src="assets/js/wizard.js"></script>
 
         <script src="assets/js/main.js"></script>
-
+        <script type="text/javascript">
+        	
+        </script>
+        
     </body>
 </html>

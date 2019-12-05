@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import mind.model.dto.UseDetailDTO;
 import mind.service.HealthService;
 
-public class userPointToGymController implements HealthController {
+public class UserPointToGymController implements HealthController {
 
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
@@ -29,13 +29,14 @@ public class userPointToGymController implements HealthController {
 		int price = Integer.parseInt(request.getParameter("price"));
 		
 		//button을 누른 해당 시간의 시간을 받아온다.   toLocaleDateString()을 이용해서 String 값으로 받는다.
-		SimpleDateFormat format2 = new SimpleDateFormat ( "yyyy년 MM월dd일 HH시mm분");
+		//sql 구문을 통해 sysdate를 넣어줌
+		//SimpleDateFormat format2 = new SimpleDateFormat ( "yyyy년 MM월dd일 HH시mm분");
 				
-		String useStartHour = format2.format (System.currentTimeMillis());
+		//String useStartHour = format2.format (System.currentTimeMillis());
 		
 		
 				
-		UseDetailDTO useDetail = new UseDetailDTO(0, memberId, gymCode, price, useStartHour, 1);
+		UseDetailDTO useDetail = new UseDetailDTO(0, memberId, gymCode, price, null, 1);
 		int insertUseDetailResult = HealthService.insertUseDetail(useDetail);
 		
 		if(insertUseDetailResult == 0 ) {

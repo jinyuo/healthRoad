@@ -8,7 +8,7 @@
     <head>
  <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>point_charge</title>
+        <title>헬스로드 | 포인트충전</title>
         <meta name="description" content="company is a real-estate template">
         <meta name="author" content="Kimarotec">
         <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
@@ -68,7 +68,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
                     <div class="button navbar-right">
-                        <button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.open('register.html')" data-wow-delay="0.4s">로그인/회원가입</button>
+                        <button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.open('register.html')" data-wow-delay="0.4s">로그인/회원가입 </button>
                  
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
@@ -78,9 +78,9 @@
                         </li>
 
                         
-                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="point_charge.jsp">포인트충전</a></li>
+                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="point_charge.jsp">포인트충전 </a></li>
                         <li class="dropdown yamm-fw" data-wow-delay="0.1s">
- <!-- 여기href 바꿔야함-->                            <a href="contact-3.jsp" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">서비스소개 </a>
+ <!-- 여기href 바꿔야함-->                            <a href="contact-3.jsp" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">헬스로드 소개 </a>
                         </li>
 
                         <!-- <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">Contact</a></li> -->

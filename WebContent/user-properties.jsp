@@ -67,7 +67,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
                     <div class="button navbar-right">
-                        <button class="navbar-btn nav-button wow bounceInRight login" data-wow-delay="0.4s">로그인/회원가입</button>
+                        <button class="navbar-btn nav-button wow bounceInRight login" data-wow-delay="0.4s">로그인/회원가입 </button>
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
@@ -75,10 +75,10 @@
                         </li>
 
                         <li class="dropdown yamm-fw" data-wow-delay="0.1s">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">포인트 충전 </a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">포인트충전 </a>
                         </li>
 
-                        <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">서비스 소개</a></li>
+                        <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">헬스로드 소개 </a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
@@ -89,20 +89,16 @@
             <h2 class="ps-property-title">이용 내역</h2>
         </div>
         <div class="collapse navbar-collapse yamm" id="navigation">
-                    <ul class="main-nav nav navbar-nav navbar-right">
-                        <li class="dropdown ymm-sw " data-wow-delay="0.1s">
-                            <a href="mypage.html">돌아가기 </a>
-                        </li>
-                    </ul>
+                    
                 </div><!-- /.navbar-collapse -->
                 
         <!-- End page header -->
 
         <!-- property area aaa -->
-<form action="${pageContext.request.contextPath}/front?">
+<%-- <form action="${pageContext.request.contextPath}/front?">
 	<input type="hidden" name="command" value="useList">
 	<button type="submit">테스트 입니다</button>
-</form>
+</form> --%>
             <div class="container"> 
            
            
@@ -135,12 +131,7 @@
                             <div class="pull-right">
                                 <div class="pagination">
                                     <ul>
-                                        <li><a href="#">이전</a></li>
-                                        <li><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">다음</a></li>
+                                        <li><a href="mypage.html">이전페이지</a></li>
                                     </ul>
                                 </div>
                             </div>                

@@ -75,12 +75,12 @@
 			<div class="collapse navbar-collapse yamm" id="navigation">
 				<div class="button navbar-right">
 					<button class="navbar-btn nav-button wow bounceInRight login"
-						onclick=" window.open('register.html')" data-wow-delay="0.4s">로그인/회원가입</button>
+						onclick="location.href='register.jsp'" data-wow-delay="0.4s">로그인/회원가입</button>
 
 				</div>
 				<ul class="main-nav nav navbar-nav navbar-right">
 					<li class="dropdown ymm-sw " data-wow-delay="0.1s">
-						<!-- 여기href 바꿔야함--> <a href="index.html"
+						<!-- 여기href 바꿔야함--> <a href="${pageContext.request.contextPath}/mypage.html"
 						class="dropdown-toggle active" data-hover="dropdown"
 						data-delay="200">마이페이지 </a>
 

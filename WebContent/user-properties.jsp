@@ -99,10 +99,9 @@
         <!-- End page header -->
 
         <!-- property area aaa -->
-
 <form action="${pageContext.request.contextPath}/front?">
 	<input type="hidden" name="command" value="useList">
-	<button type="submit">dlehd</button>
+	<button type="submit">테스트 입니다</button>
 </form>
             <div class="container"> 
            
@@ -219,7 +218,7 @@
                                             <a href="single.html">
                                                 <img src="assets/img/demo/small-proerty-2.jpg">
                                             </a>
-                                            <span class="blg-date">12-12-2016</span>
+                                            <span class="blg-date"></span>
 
                                         </div>
                                         <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
@@ -233,7 +232,7 @@
                                             <a href="single.html">
                                                 <img src="assets/img/demo/small-proerty-2.jpg">
                                             </a>
-                                            <span class="blg-date">12-12-2016</span>
+                                            <span class="blg-date"></span>
 
                                         </div>
                                         <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
@@ -247,7 +246,7 @@
                                             <a href="single.html">
                                                 <img src="assets/img/demo/small-proerty-2.jpg">
                                             </a>
-                                            <span class="blg-date">12-12-2016</span>
+                                            <span class="blg-date"></span>
 
                                         </div>
                                         <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">

@@ -118,9 +118,8 @@
                                     <h4 class="text-uppercase">신청자 아이디 : </h4>
                                     <h6 class="text-uppercase">신청자 이름 : </h6>
                                     <from action="${pageContext.request.contextPath}/front?">
-                                    	<button type="button" class="btn btn-danger" name="fiveCharge" value="회원의 뭔가" style=" border-color : orange ; color:orange">이용시작</button>
-                                    	
-                						<input type="hidden" name="command" value="fiveCharge">
+                                    	<button type="submit" class="btn btn-danger" name="controller만들기" value="회원의 뭔가" style=" border-color : orange ; color:orange">이용시작</button>                                    	
+                						<input type="hidden" name="command" value="controller만들기">
                                     	
                                     </from>
                                     

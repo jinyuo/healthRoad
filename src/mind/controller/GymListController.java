@@ -16,18 +16,22 @@ public class GymListController implements HealthController {
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("index.html");
-		String keyfield = request.getParameter("keyfield");
+		mv.setViewName("index-5.jsp");
+		String keyfield = null;
 		String keyword = request.getParameter("keyword");
-		List<GymDTO> list = new ArrayList<GymDTO>();
 		
+		if(request.getParameter("keyfield").equals("주소")) {
+			keyfield="addr";
+		}else if(request.getParameter("keyfield").equals("이름")) {
+			keyfield = "name";
+		}
+		List<GymDTO> list = new ArrayList<GymDTO>();
 		if(keyfield == null)
 			list = HealthService.selectAllGym();
 		else
 			list = HealthService.selectGymByKeyword(keyfield, keyword);
 		
-		request.setAttribute("gymList", list);
-		
+		request.setAttribute("list", list);
 		return mv;
 	}
 

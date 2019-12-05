@@ -120,6 +120,13 @@ public interface HealthDAO {
 	 * */
 	List<UseDetailDTO> selectUseDetailByKeyword(String keyField, String keyword) throws SQLException;
 	
+	/*
+	 * 사용자의 이용내역에서
+	 * 헬스장 이름을 포함하여 목록 출력
+	 * 필요한(받아야 할) 키 값만 파라미터에 넣는다_근딘	
+	 */ 
+	List<UseDetailDTO> selectUseDetailByMemberId(String memberId) throws SQLException;
+	
 	/**
 	 * 헬스장 이용 신청을 한 사용자 목록
 	 * @param state는 -1 만료됨, 0 사용됨, 1 사용가능

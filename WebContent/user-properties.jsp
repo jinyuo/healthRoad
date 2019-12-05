@@ -122,8 +122,8 @@
 
                                     <li>
                                     <c:forEach items="${requestScope.useList }" var="list" varStatus="state">
-                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry">${list.code }</span>
-                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry">${list.gymCode}</span>
+                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry">${list.gymName }</span>
+                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry">${list.price}</span>
                                         <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry">${list.useStartHour}</span>
                                         <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry">${list.state}</span>
                                         </c:forEach>

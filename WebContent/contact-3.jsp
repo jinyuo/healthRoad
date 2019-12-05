@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -40,34 +41,7 @@
         <div id="preloader">
             <div id="status">&nbsp;</div>
         </div>
-        <!-- Body content -->
-
-        <div class="header-connect">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-5 col-sm-8  col-xs-12">
-                        <div class="header-half header-call">
-                            <p>
-                                <span><i class="pe-7s-call"></i> +1 234 567 7890</span>
-                                <span><i class="pe-7s-mail"></i> your@company.com</span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-2 col-md-offset-5  col-sm-3 col-sm-offset-1  col-xs-12">
-                        <div class="header-half header-social">
-                            <ul class="list-inline">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-vine"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>        
+          
         <!--End top header -->
 
         <nav class="navbar navbar-default ">
@@ -86,191 +60,120 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
                     <div class="button navbar-right">
-                        <button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.open('register.html')" data-wow-delay="0.4s">Login</button>
-                        <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.open('submit-property.html')" data-wow-delay="0.5s">Submit</button>
+                        <button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.open('register.html')" data-wow-delay="0.4s">로그인/회원가입</button>
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
-                            <a href="index.html" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Home <b class="caret"></b></a>
-                            <ul class="dropdown-menu navbar-nav">
-                                <li>
-                                    <a href="index-2.html">Home Style 2</a>
-                                </li>
-                                <li>
-                                    <a href="index-3.html">Home Style 3</a>
-                                </li>
-                                <li>
-                                    <a href="index-4.html">Home Style 4</a>
-                                </li>
-                                <li>
-                                    <a href="index-5.html">Home Style 5</a>
-                                </li>
-
-                            </ul>
+                            <a href="index.html" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">마이페이지 </a>
                         </li>
 
-                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="properties.html">Properties</a></li>
-                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="property.html">Property</a></li>
                         <li class="dropdown yamm-fw" data-wow-delay="0.1s">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Template <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <div class="yamm-content">
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <h5>Home pages</h5>
-                                                <ul>
-                                                    <li>
-                                                        <a href="index.html">Home Style 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-2.html">Home Style 2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-3.html">Home Style 3</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-4.html">Home Style 4</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-5.html">Home Style 5</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h5>Pages and blog</h5>
-                                                <ul>
-                                                    <li><a href="blog.html">Blog listing</a>  </li>
-                                                    <li><a href="single.html">Blog Post (full)</a>  </li>
-                                                    <li><a href="single-right.html">Blog Post (Right)</a>  </li>
-                                                    <li><a href="single-left.html">Blog Post (left)</a>  </li>
-                                                    <li><a href="contact.html">Contact style (1)</a> </li>
-                                                    <li><a href="contact-3.html">Contact style (2)</a> </li>
-                                                    <li><a href="contact_3.html">Contact style (3)</a> </li>
-                                                    <li><a href="faq.html">FAQ page</a> </li> 
-                                                    <li><a href="404.html">404 page</a>  </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h5>Property</h5>
-                                                <ul>
-                                                    <li><a href="property-1.html">Property pages style (1)</a> </li>
-                                                    <li><a href="property-2.html">Property pages style (2)</a> </li>
-                                                    <li><a href="property-3.html">Property pages style (3)</a> </li>
-                                                </ul>
-
-                                                <h5>Properties list</h5>
-                                                <ul>
-                                                    <li><a href="properties.html">Properties list style (1)</a> </li> 
-                                                    <li><a href="properties-2.html">Properties list style (2)</a> </li> 
-                                                    <li><a href="properties-3.html">Properties list style (3)</a> </li> 
-                                                </ul>                                               
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h5>Property process</h5>
-                                                <ul> 
-                                                    <li><a href="submit-property.html">Submit - step 1</a> </li>
-                                                    <li><a href="submit-property.html">Submit - step 2</a> </li>
-                                                    <li><a href="submit-property.html">Submit - step 3</a> </li> 
-                                                </ul>
-                                                <h5>User account</h5>
-                                                <ul>
-                                                    <li><a href="register.html">Register / login</a>   </li>
-                                                    <li><a href="user-properties.html">Your properties</a>  </li>
-                                                    <li><a href="submit-property.html">Submit property</a>  </li>
-                                                    <li><a href="change-password.html">Change password</a> </li>
-                                                    <li><a href="user-profile.html">Your profile</a>  </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- /.yamm-content -->
-                                </li>
-                            </ul>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">포인트 충전 </a>
                         </li>
 
-                        <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">Contact</a></li>
+                        <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact-3.jsp">서비스 소개</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
-        <!-- End of nav bar -->
-
-        <div class="page-head"> 
-            <div class="container">
-                <div class="row">
-                    <div class="page-head-content">
-                        <h1 class="page-title">마이페이지</h1>               
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End page header -->
 
         <!-- property area -->
-        <div class="content-area recent-property padding-top-40" style="background-color: #FFF;">
+        
             <div class="container">  
-            <div class="profiel-header">
-                                <h3>
-                                    <b>My Page</b>  <br>
-                                    <small></small>
-                                </h3>
+            
+            <div class="post-header single">
+                                <div class="">
+                                    <h2 class="wow fadeInLeft animated">헬스로드 소개</h2>
+                                    <div class="title-line wow fadeInRight animated"></div>
+                                </div>
+                                <div class="row wow fadeInRight animated">
+                                    <br>
+                                    
+                                </div>
+                                <div class="image wow fadeInRight animated"> 
+                                    <img src="assets/img/운동1.jpeg" class="img-responsive" alt="Example blog post alt">
+                                </div>
+                            </div> 
+
+                            <div id="post-content" class="post-body single wow fadeInLeft animated">
+                                <p><br>
+                                    언제 어디서나 회사 근처. 집 근처. 밤에도 낮에도. 장소, 시간 걱정하지 말고 시작하세요. <em><strong>헬스로드 하나면 OK!</strong></em><br>
+                                    하나의 멤버십으로 30개 이상 종목, 3,289개 제휴시설을 매일 매일 바꿔가며 이용하세요!</p>
+                                </p>
+                                
                                 <hr>
-                            </div>
 
                 <div class="col-md-9">
 
                     <div class="" id="contact1">                        
-                        <div class="row" >
+                        <div class="row">
                             <div class="col-sm-4">
-                                <h3><a href="memberInfoUpdate.html"><i class="fa fa-star"></i>정보수정</a></h3>
-                                <p><strong>비밀번호 연락처를 
-                                <br>수정 할 수 있습니다.</strong>
-                                  
-                            		
-                                   
+                                <h3><i class="fa fa-map-marker"></i> 주소</h3>
+                                <p>13494
+                                    <br>경기도 성남시 분당구 대왕판교로 670길
+                                    <br>유스페이스2
+                                    <br>
+                                    <strong>헬스로드</strong>
                                 </p>
                             </div>
                             <!-- /.col-sm-4 -->
                             <div class="col-sm-4">
-                                <h3><a href="#"><i class="fa fa-money"></i>포인트 충전</a></h3>
-                                <p class="text-muted"><strong>포인트를 충전 할 수 있습니다.</strong></p>
-                       
+                                <h3><i class="fa fa-phone"></i> 고객센터</h3>
+                                <p class="text-muted">도움이 필요하신가요?<br>
+                                 고객님의 의견을 적극 수렴하는 헬스로드가 되겠습니다.</p>
+                                <p><strong>031-606-9316</strong></p>
                             </div>
                             <!-- /.col-sm-4 -->
                             <div class="col-sm-4">
-                                <h3><a href="user-properties.jsp"><i class="fa fa-bar-chart"></i>이용 내역</a></h3>
-                                <p class="text-muted"><strong>회원의 포인트 사용 내역을 볼 수 있습니다.</strong></p>
-                             
+                                <h3><i class="fa fa-envelope"></i> 1:1문의</h3>
+                                <p class="text-muted">해결되지 않은 문제가 있다면 1:1문의로 문의주세요.</p>
+                                <ul>
+                                    <li><strong><a href="mailto:">info@healthroad.com</a></strong>   </li>
+                                    <li> - 이메일로 연락주세요.</li>
+                                </ul>
                             </div>
                             <!-- /.col-sm-4 -->
                         </div>
                         <!-- /.row --> 
                        
-                        <hr>
-                         <!-- /.col-sm-4 -->
-                            <div class="col-sm-4">
-                                <h3><a href="buisness_register.html"><i class="fa fa-child"></i>사업자 등록</a></h3>
-                                <p class="text-muted"><strong>사업자가 헬스장을 등록해서 
-                                <br>회원들에게 서비스를
-                                <br>제공해 줄 수 있습니다.</strong></p>
-                             
-                            </div>
-                            <!-- /.col-sm-4 -->
-                            <div class="col-sm-4">
-                                <h3><a href="#"><i class="fa fa-heart"></i>신청자 목록</a></h3>
-                                <p class="text-muted"><strong>신청한 회원 목록을 보고 승인을 해줄수 있습니다.</strong></p>
-                             
-                            </div>
-                            <!-- /.col-sm-4 -->
-                                                        <!-- /.col-sm-4 -->
-                            <div class="col-sm-4">
-                                <h3><a href="#"><i class="fa fa-sign-out"></i>회원 탈퇴</a></h3>
-                                <p class="text-muted"><strong>신청한 회원 목록을 보고 승인을 해줄수 있습니다.</strong></p>
-                             
-                            </div>
-                            <!-- /.col-sm-4 -->
-                    
+                        <!-- <hr> -->
+                        <!-- <h2>Contact form</h2> -->
+                        <form>
+                           <!--  <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="firstname">Firstname</label>
+                                        <input type="text" class="form-control" id="firstname">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="lastname">Lastname</label>
+                                        <input type="text" class="form-control" id="lastname">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input type="text" class="form-control" id="email">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="subject">Subject</label>
+                                        <input type="text" class="form-control" id="subject">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="message">Message</label>
+                                        <textarea id="message" class="form-control"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 text-center">
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-envelope-o"></i> Send message</button>
+                                </div>
+                            </div> -->
                             <!-- /.row -->
                         </form>
                     </div>
@@ -278,76 +181,94 @@
                 <!-- /.col-md-9 -->   
 
                 <div class="col-md-3 ">                    
-                    <div class="blog-asside-left">  
-                        <div class="panel panel-default sidebar-menu wow fadeInLeft animated">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">My page</h3>
-                            </div>
+                    <div class="blog-asside-right">  
+                        <div class="panel panel-default sidebar-menu wow fadeInRight animated">
+                            <!-- <div class="panel-heading">
+                                <h3 class="panel-title">Recommended</h3>
+                            </div> -->
                             <div class="panel-body recent-property-widget">
                                 <ul>
                                     <li>
-                                        <div class="col-md-3 blg-thumb p0">
-                                            <a href="#"><img src="assets/img/demo/small-property-2.jpg"></a>
+                                        <!-- <div class="col-md-3 blg-thumb p0">
+                                            <a href="single.html"><img src="assets/img/demo/small-property-2.jpg"></a>
                                             <span class="property-seeker">
-                                                
+                                                <b class="b-1">A</b>
+                                                <b class="b-2">S</b>
                                             </span>
                                         </div>
                                         <div class="col-md-8 blg-entry">
-                                            <h6> <a href="#">정보수정 </a></h6>
-                                            <span class="property-price"></span>
-                                        </div>
+                                            <h6> <a href="single.html">Super nice villa </a></h6>
+                                            <span class="property-price">3000000$</span>
+                                        </div> -->
                                     </li>
                                     <li>
-                                        <div class="col-md-3 blg-thumb p0">
-                                            <a href="#"><img src="assets/img/demo/small-property-1.jpg"></a>
+                                        <!-- <div class="col-md-3 blg-thumb p0">
+                                            <a href="single.html"><img src="assets/img/demo/small-property-1.jpg"></a>
                                             <span class="property-seeker">
-                                               
+                                                <b class="b-1">A</b>
+                                                <b class="b-2">S</b>
                                             </span>
                                         </div>
                                         <div class="col-md-8 blg-entry">
-                                            <h6> <a href="#">포인트 충전</a></h6>
-                                            <span class="property-price"></span>
-                                        </div>
+                                            <h6> <a href="single.html">Super nice villa </a></h6>
+                                            <span class="property-price">3000000$</span>
+                                        </div> -->
                                     </li>
                                     <li>
-                                        <div class="col-md-3 blg-thumb p0">
-                                            <a href="#"><img src="assets/img/demo/small-property-3.jpg"></a>
+                                        <!-- <div class="col-md-3 blg-thumb p0">
+                                            <a href="single.html"><img src="assets/img/demo/small-property-3.jpg"></a>
                                             <span class="property-seeker">
-                                              
+                                                <b class="b-1">A</b>
+                                                <b class="b-2">S</b>
                                             </span>
                                         </div>
                                         <div class="col-md-8 blg-entry">
-                                            <h6> <a href="#">이용 내역</a></h6>
-                                            <span class="property-price"></span>
-                                        </div>
+                                            <h6> <a href="single.html">Super nice villa </a></h6>
+                                            <span class="property-price">3000000$</span>
+                                        </div> -->
                                     </li>
 
                                     <li>
-                                        <div class="col-md-3 blg-thumb p0">
-                                            <a href="#"><img src="assets/img/demo/small-property-2.jpg"></a>
+                                        <!-- <div class="col-md-3 blg-thumb p0">
+                                            <a href="single.html"><img src="assets/img/demo/small-property-2.jpg"></a>
                                             <span class="property-seeker">
-                                               
+                                                <b class="b-1">A</b>
+                                                <b class="b-2">S</b>
                                             </span>
                                         </div>
                                         <div class="col-md-8 blg-entry">
-                                            <h6> <a href="#">사업자 등록 </a></h6>
-                                            <span class="property-price"></span>
-                                        </div>
+                                            <h6> <a href="single.html">Super nice villa </a></h6>
+                                            <span class="property-price">3000000$</span>
+                                        </div> -->
                                     </li>
                                     
                                     <li>
-                                        <div class="col-md-3 blg-thumb p0">
-                                            <a href="#"><img src="assets/img/demo/small-property-2.jpg"></a>
+                                        <!-- <div class="col-md-3 blg-thumb p0">
+                                            <a href="single.html"><img src="assets/img/demo/small-property-2.jpg"></a>
                                             <span class="property-seeker">
-                                                
+                                                <b class="b-1">A</b>
+                                                <b class="b-2">S</b>
                                             </span>
                                         </div>
                                         <div class="col-md-8 blg-entry">
-                                            <h6> <a href="#">신청자 목록</a></h6>
-                                            <span class="property-price"></span>
-                                        </div>
+                                            <h6> <a href="single.html">Super nice villa </a></h6>
+                                            <span class="property-price">3000000$</span>
+                                        </div> -->
                                     </li>
-                                 
+                                    
+                                    <li>
+                                        <!-- <div class="col-md-3 blg-thumb p0">
+                                            <a href="single.html"><img src="assets/img/demo/small-property-2.jpg"></a>
+                                            <span class="property-seeker">
+                                                <b class="b-1">A</b>
+                                                <b class="b-2">S</b>
+                                            </span>
+                                        </div>
+                                        <div class="col-md-8 blg-entry">
+                                            <h6> <a href="single.html">Super nice villa </a></h6>
+                                            <span class="property-price">3000000$</span>
+                                        </div> -->
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -355,7 +276,9 @@
                 </div>            
             </div>
         </div>
-  
+        
+        <
+         <!-- <div id="map" style="height: 400px;"></div> -->
          <!-- Footer area-->
         <div class="footer-area">
 
@@ -401,7 +324,7 @@
                                             <a href="single.html">
                                                 <img src="assets/img/demo/small-proerty-2.jpg">
                                             </a>
-                                            <span class="blg-date"></span>
+                                            <span class="blg-date">12-12-2016</span>
 
                                         </div>
                                         <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
@@ -415,7 +338,7 @@
                                             <a href="single.html">
                                                 <img src="assets/img/demo/small-proerty-2.jpg">
                                             </a>
-                                            <span class="blg-date"></span>
+                                            <span class="blg-date">12-12-2016</span>
 
                                         </div>
                                         <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
@@ -429,7 +352,7 @@
                                             <a href="single.html">
                                                 <img src="assets/img/demo/small-proerty-2.jpg">
                                             </a>
-                                            <span class="blg-date"></span>
+                                            <span class="blg-date">12-12-2016</span>
 
                                         </div>
                                         <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">

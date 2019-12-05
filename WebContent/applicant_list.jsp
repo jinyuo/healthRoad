@@ -1,14 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
+
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> 
-<html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!-->
+ 
+<html class="no-js"> 
+
+<!--<![endif]-->
     <head>
-         <meta charset="utf-8">
+        <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>GARO ESTATE | Home page</title>
-        <meta name="description" content="company is a real-estate template">
+        <title>헬스로드 | 이용내역</title>
+        <meta name="description" content="GARO is a real-estate template">
         <meta name="author" content="Kimarotec">
         <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -40,7 +48,7 @@
         <div id="preloader">
             <div id="status">&nbsp;</div>
         </div>
-          
+           
         <!--End top header -->
 
         <nav class="navbar navbar-default ">
@@ -59,11 +67,11 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
                     <div class="button navbar-right">
-                        <button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.open('register.html')" data-wow-delay="0.4s">로그인/회원가입</button>
+                        <button class="navbar-btn nav-button wow bounceInRight login" data-wow-delay="0.4s">로그인/회원가입</button>
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
-                            <a href="index.html" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">마이페이지 </a>
+                            <a href="mypage.html" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">마이페이지 </a>
                         </li>
 
                         <li class="dropdown yamm-fw" data-wow-delay="0.1s">
@@ -75,210 +83,102 @@
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
+        <!-- End of nav bar -->
 
-        <!-- property area -->
-        
-            <div class="container">  
-            
-            <div class="post-header single">
-                                <div class="">
-                                    <h2 class="wow fadeInLeft animated">헬스로드 소개</h2>
-                                    <div class="title-line wow fadeInRight animated"></div>
-                                </div>
-                                <div class="row wow fadeInRight animated">
-                                    <br>
-                                    
-                                </div>
-                                <div class="image wow fadeInRight animated"> 
-                                    <img src="assets/img/운동1.jpeg" class="img-responsive" alt="Example blog post alt">
-                                </div>
-                            </div> 
+        <div class="container">
+            <h2 class="ps-property-title">신청자 목록</h2>
+        </div>
+        <div class="collapse navbar-collapse yamm" id="navigation">
+                    <ul class="main-nav nav navbar-nav navbar-right">
+                        <li class="dropdown ymm-sw " data-wow-delay="0.1s">
+                            <a href="mypage.html">돌아가기 </a>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+                
+        <!-- End page header -->
+<form action="${pageContext.request.contextPath}/front?">
+	<input type="hidden" name="command" value="applicantList">
+	<button type="submit">제발되어라</button>
+</form>
+        <!-- property area aaa -->
 
-                            <div id="post-content" class="post-body single wow fadeInLeft animated">
-                                <p><br>
-                                    언제 어디서나 회사 근처. 집 근처. 밤에도 낮에도. 장소, 시간 걱정하지 말고 시작하세요. <em><strong>헬스로드 하나면 OK!</strong></em><br>
-                                    하나의 멤버십으로 30개 이상 종목, 3,289개 제휴시설을 매일 매일 바꿔가며 이용하세요!</p>
-                                </p>
-                                
-                                <hr>
+            <div class="container"> 
+           
+           
+                <div class="row">
+                	<div class="col-md-9 pr-30 padding-top-20 properties-page user-properties">
+                	
+                        
+               			<div class="section additional-details">
 
-                <div class="col-md-9">
+                                 <ul class="additional-details-list clearfix">
+                                    <li>
+                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-title" style="width:20%" >회원 아이디</span>
+                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-title" style="width:20%">차감 포인트</span>
+                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-title" style="width:20%">이용날짜</span>
+                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-title" style="width:20%">이용상태</span>
+                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-title" style="width:20%">이용시작</span>
+                                    </li>
 
-                    <div class="" id="contact1">                        
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <h3><i class="fa fa-map-marker"></i> 주소</h3>
-                                <p>13494
-                                    <br>경기도 성남시 분당구 대왕판교로 670길
-                                    <br>유스페이스2
-                                    <br>
-                                    <strong>헬스로드</strong>
-                                </p>
-                            </div>
-                            <!-- /.col-sm-4 -->
-                            <div class="col-sm-4">
-                                <h3><i class="fa fa-phone"></i> 고객센터</h3>
-                                <p class="text-muted">도움이 필요하신가요?<br>
-                                 고객님의 의견을 적극 수렴하는 헬스로드가 되겠습니다.</p>
-                                <p><strong>031-606-9316</strong></p>
-                            </div>
-                            <!-- /.col-sm-4 -->
-                            <div class="col-sm-4">
-                                <h3><i class="fa fa-envelope"></i> 1:1문의</h3>
-                                <p class="text-muted">해결되지 않은 문제가 있다면 1:1문의로 문의주세요.</p>
-                                <ul>
-                                    <li><strong><a href="mailto:">info@healthroad.com</a></strong>   </li>
-                                    <li> - 이메일로 연락주세요.</li>
+                                    <li>
+                                    <c:forEach items="${requestScope.alist }" var="list" varStatus="state">
+                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry" style="width:20%">${list.memberId }</span>
+                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry" style="width:20%">${list.price}</span>
+                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry" style="width:20%">${list.useStartHour}</span>
+                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry" style="width:20%">${list.state}</span>
+                                        <form action="${pageContext.request.contextPath}/front?">
+                                        <button type="submit" name="command" value="userManaging" style="width:20%">이용시작</button>
+                                        <input type="hidden" name="usercode" value="${list.code}">
+                                        </form>
+                                        </c:forEach>
+                                    </li>
                                 </ul>
                             </div>
-                            <!-- /.col-sm-4 -->
+                            
+                        <div class="section"> 
+                            <div class="pull-right">
+                                <div class="pagination">
+                                    <ul>
+                                        <li><a href="#">이전</a></li>
+                                        <li><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">다음</a></li>
+                                    </ul>
+                                </div>
+                            </div>                
                         </div>
-                        <!-- /.row --> 
-                       
-                        <!-- <hr> -->
-                        <!-- <h2>Contact form</h2> -->
-                        <form>
-                           <!--  <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label for="firstname">Firstname</label>
-                                        <input type="text" class="form-control" id="firstname">
-                                    </div>
+
+                    </div>       
+
+                    <!-- <div class="col-md-3 p0 padding-top-40">
+                        <div class="blog-asside-right">
+                            <div class="panel panel-default sidebar-menu wow fadeInRight animated" >
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Hello Kimaro</h3>
                                 </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label for="lastname">Lastname</label>
-                                        <input type="text" class="form-control" id="lastname">
-                                    </div>
+                                <div class="panel-body search-widget">
+
                                 </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label for="email">Email</label>
-                                        <input type="text" class="form-control" id="email">
-                                    </div>
+                            </div>
+
+                            <div class="panel panel-default sidebar-menu wow fadeInRight animated">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Recommended</h3>
                                 </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label for="subject">Subject</label>
-                                        <input type="text" class="form-control" id="subject">
-                                    </div>
+                                <div class="panel-body recent-property-widget">
+
                                 </div>
-                                <div class="col-sm-12">
-                                    <div class="form-group">
-                                        <label for="message">Message</label>
-                                        <textarea id="message" class="form-control"></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12 text-center">
-                                    <button type="submit" class="btn btn-primary"><i class="fa fa-envelope-o"></i> Send message</button>
-                                </div>
-                            </div> -->
-                            <!-- /.row -->
-                        </form>
-                    </div>
+                            </div>
+                        </div>
+                    </div> -->
                 </div>
-                <!-- /.col-md-9 -->   
-
-                <div class="col-md-3 ">                    
-                    <div class="blog-asside-right">  
-                        <div class="panel panel-default sidebar-menu wow fadeInRight animated">
-                            <!-- <div class="panel-heading">
-                                <h3 class="panel-title">Recommended</h3>
-                            </div> -->
-                            <div class="panel-body recent-property-widget">
-                                <ul>
-                                    <li>
-                                        <!-- <div class="col-md-3 blg-thumb p0">
-                                            <a href="single.html"><img src="assets/img/demo/small-property-2.jpg"></a>
-                                            <span class="property-seeker">
-                                                <b class="b-1">A</b>
-                                                <b class="b-2">S</b>
-                                            </span>
-                                        </div>
-                                        <div class="col-md-8 blg-entry">
-                                            <h6> <a href="single.html">Super nice villa </a></h6>
-                                            <span class="property-price">3000000$</span>
-                                        </div> -->
-                                    </li>
-                                    <li>
-                                        <!-- <div class="col-md-3 blg-thumb p0">
-                                            <a href="single.html"><img src="assets/img/demo/small-property-1.jpg"></a>
-                                            <span class="property-seeker">
-                                                <b class="b-1">A</b>
-                                                <b class="b-2">S</b>
-                                            </span>
-                                        </div>
-                                        <div class="col-md-8 blg-entry">
-                                            <h6> <a href="single.html">Super nice villa </a></h6>
-                                            <span class="property-price">3000000$</span>
-                                        </div> -->
-                                    </li>
-                                    <li>
-                                        <!-- <div class="col-md-3 blg-thumb p0">
-                                            <a href="single.html"><img src="assets/img/demo/small-property-3.jpg"></a>
-                                            <span class="property-seeker">
-                                                <b class="b-1">A</b>
-                                                <b class="b-2">S</b>
-                                            </span>
-                                        </div>
-                                        <div class="col-md-8 blg-entry">
-                                            <h6> <a href="single.html">Super nice villa </a></h6>
-                                            <span class="property-price">3000000$</span>
-                                        </div> -->
-                                    </li>
-
-                                    <li>
-                                        <!-- <div class="col-md-3 blg-thumb p0">
-                                            <a href="single.html"><img src="assets/img/demo/small-property-2.jpg"></a>
-                                            <span class="property-seeker">
-                                                <b class="b-1">A</b>
-                                                <b class="b-2">S</b>
-                                            </span>
-                                        </div>
-                                        <div class="col-md-8 blg-entry">
-                                            <h6> <a href="single.html">Super nice villa </a></h6>
-                                            <span class="property-price">3000000$</span>
-                                        </div> -->
-                                    </li>
-                                    
-                                    <li>
-                                        <!-- <div class="col-md-3 blg-thumb p0">
-                                            <a href="single.html"><img src="assets/img/demo/small-property-2.jpg"></a>
-                                            <span class="property-seeker">
-                                                <b class="b-1">A</b>
-                                                <b class="b-2">S</b>
-                                            </span>
-                                        </div>
-                                        <div class="col-md-8 blg-entry">
-                                            <h6> <a href="single.html">Super nice villa </a></h6>
-                                            <span class="property-price">3000000$</span>
-                                        </div> -->
-                                    </li>
-                                    
-                                    <li>
-                                        <!-- <div class="col-md-3 blg-thumb p0">
-                                            <a href="single.html"><img src="assets/img/demo/small-property-2.jpg"></a>
-                                            <span class="property-seeker">
-                                                <b class="b-1">A</b>
-                                                <b class="b-2">S</b>
-                                            </span>
-                                        </div>
-                                        <div class="col-md-8 blg-entry">
-                                            <h6> <a href="single.html">Super nice villa </a></h6>
-                                            <span class="property-price">3000000$</span>
-                                        </div> -->
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>                     
-                </div>            
             </div>
         </div>
-        
-        <
-         <!-- <div id="map" style="height: 400px;"></div> -->
-         <!-- Footer area-->
+
+          <!-- Footer area-->
         <div class="footer-area">
 
             <div class=" footer">
@@ -415,27 +315,28 @@
             </div>
 
         </div>
+          
 
         <script src="assets/js/modernizr-2.6.2.min.js"></script>
-        <script src="assets/js/jquery-1.10.2.min.js"></script> 
+        <script src="assets/js/jquery-1.10.2.min.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
         <script src="assets/js/bootstrap-select.min.js"></script>
         <script src="assets/js/bootstrap-hover-dropdown.js"></script>
-
         <script src="assets/js/easypiechart.min.js"></script>
         <script src="assets/js/jquery.easypiechart.min.js"></script>
-
         <script src="assets/js/owl.carousel.min.js"></script>
         <script src="assets/js/wow.js"></script>
-
         <script src="assets/js/icheck.min.js"></script>
-        <script src="assets/js/price-range.js"></script>
-        
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
-        <script src="assets/js/gmaps.js"></script>        
-        <script src="assets/js/gmaps.init.js"></script>
+
+        <script src="assets/js/price-range.js"></script> 
+        <script src="assets/js/jquery.bootstrap.wizard.js" type="text/javascript"></script>
+        <script src="assets/js/jquery.validate.min.js"></script>
+        <script src="assets/js/wizard.js"></script>
 
         <script src="assets/js/main.js"></script>
-
+        <script type="text/javascript">
+        	
+        </script>
+        
     </body>
 </html>

@@ -92,9 +92,10 @@ public class HealthDAOImpl implements HealthDAO {
 			ps = con.prepareStatement(sql);
 			ps.setString(1, id);
 			rs = ps.executeQuery();
-			
-			if(rs.next())
-				memberDTO = new MemberDTO(rs.getString("id"), rs.getString("name"), rs.getString("pwd"), rs.getString("phone_num"), rs.getInt("gym_code"));
+
+			if (rs.next())
+				memberDTO = new MemberDTO(rs.getString("id"), rs.getString("name"), rs.getString("pwd"),
+						rs.getString("phone_num"), rs.getInt("gym_code"));
 		} finally {
 			DbUtil.dbClose(rs, ps, con);
 		}
@@ -553,9 +554,12 @@ public class HealthDAOImpl implements HealthDAO {
 		Connection con = null;
 		PreparedStatement ps = null;
 
-		String sql = proFile.getProperty("useDetail.selectByKeyword"); //SELECT CODE, MEMBER_ID, GYM.NAME ,GYM_CODE, PRICE, USE_START_HOUR, STATE FROM USE_DETAIL WHERE ? = ?
 		
-		if(keyField.equals("member_id") || keyField.equals("gym_code")) {
+		String sql = proFile.getProperty("useDetail.selectByKeyword"); // SELECT CODE, MEMBER_ID, GYM.NAME ,GYM_CODE,
+																		// PRICE, USE_START_HOUR, STATE FROM USE_DETAIL
+																		// WHERE ? = ?
+
+		if (keyField.equals("member_id") || keyField.equals("gym_code")) {
 			sql = String.format(sql, keyField);
 //			System.out.println("sql : " + sql);
 //			System.out.println("keyworld" + keyword);
@@ -573,13 +577,13 @@ public class HealthDAOImpl implements HealthDAO {
 			while(rs.next()) {
 				int code = rs.getInt("CODE");
 				String memberId = rs.getString("MEMBER_ID");
-				String gymName = rs.getString("GYM.NAME");
+				//String gymName = rs.getString("GYM.NAME");
 				int gymCode = rs.getInt("GYM_CODE");
 				int price = rs.getInt("PRICE");
 				String useStartHour = rs.getString("USE_START_HOUR");
 				int state = rs.getInt("STATE");
 						
-				UseDetailDTO useDetail = new UseDetailDTO(code, memberId, gymName, gymCode, price, useStartHour, state);
+				UseDetailDTO useDetail = new UseDetailDTO(code, memberId, null, gymCode, price, useStartHour, state);
 				list.add(useDetail);
 			}
 			
@@ -662,6 +666,39 @@ public class HealthDAOImpl implements HealthDAO {
 			DbUtil.dbClose(ps, con);
 		}
 		return result;
+	}
+
+	@Override // 이용목록에서 헬스장 이름을 출력하기 위해 추가
+	public List<UseDetailDTO> selectUseDetailByMemberId(String memberId) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		String sql = proFile.getProperty("useDetail.selectByMemberId"); // SELECT USE_DETAIL.CODE, GYM.NAME,
+																		// USE_DETAIL.PRICE, USE_DETAIL.USE_START_HOUR,
+																		// USE_DETAIL.STATE FROM USE_DETAIL, GYM WHERE
+																		// USE_DETAIL.GYM_CODE = GYM.CODE AND
+																		// USE_DETAIL.MEMBER_ID = ?
+		ResultSet rs = null;
+		List<UseDetailDTO> list = new ArrayList<UseDetailDTO>();
+		System.out.println(memberId);
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setString(1, memberId);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				int code = rs.getInt("CODE");
+				String gName = rs.getString("NAME");
+				//String mId = rs.getString(“USE_DETAIL.MEMBER_ID”);
+				int price = rs.getInt("PRICE");
+				String useStartHour = rs.getString("USE_START_HOUR");
+				int st = rs.getInt("STATE");
+				UseDetailDTO useDetail = new UseDetailDTO(code, null, gName, 0, price, useStartHour, st);
+				list.add(useDetail);
+			}
+		} finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
+		return list;
 	}
 
 	

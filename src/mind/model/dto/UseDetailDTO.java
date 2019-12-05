@@ -55,11 +55,11 @@ public class UseDetailDTO {
 		this.memberId = memberId;
 	}
 
-	public String getGymName() {
+	public String getgymName() {
 		return gymName;
 	}
 	
-	public void setGymName(String gymName) {
+	public void setgymName(String gymName) {
 		this.gymName = gymName;
 	}
 

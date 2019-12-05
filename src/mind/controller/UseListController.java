@@ -31,12 +31,17 @@ public class UseListController implements HealthController {
 		String memberId = session.getAttribute("curUserId").toString();
 		List<UseDetailDTO> list = new ArrayList<UseDetailDTO>();
 		
-		if(curUserType == 1)
-			list = HealthService.selectUseDetailByKeyword("member_id", memberId);
-		else { // 사업자면
-			int gymCode = HealthService.selectMemberById(memberId).getGymCode();
-			list = HealthService.selectUseDetailByKeyword("gym_code", Integer.toString(gymCode));
-		}
+//		if(curUserType == 1)
+//			list = HealthService.selectUseDetailByKeyword("member_id", memberId);
+//		else { // 사업자면
+//			int gymCode = HealthService.selectMemberById(memberId).getGymCode();
+//			list = HealthService.selectUseDetailByKeyword("gym_code", Integer.toString(gymCode));
+//		}
+		
+		if(curUserType == 1)	
+			list = HealthService.selectUseDetailByMemberId(memberId);
+		
+		mv.setRedirect(false);		
 		
 		request.setAttribute("useList", list);
 		return mv;

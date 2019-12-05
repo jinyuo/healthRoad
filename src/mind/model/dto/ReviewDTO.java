@@ -36,6 +36,23 @@ public class ReviewDTO {
 	 * 필요한 생성자 생성하세요ㅎㅎ
 	 * */
 	
+	/**
+	 * 파일없는 생성자
+	 * */
+	
+	public ReviewDTO(int code, String memberId, String regDate, double starScore, String content, int gymCode) {
+		super();
+		this.code = code;
+		this.memberId = memberId;
+		this.regDate = regDate;
+		this.starScore = starScore;
+		this.content = content;
+		this.gymCode = gymCode;
+	}
+	
+	
+	
+	
 	/////////////////////////////////////////
 		
 	//setter getter
@@ -44,6 +61,8 @@ public class ReviewDTO {
 	public int getCode() {
 		return code;
 	}
+
+	
 
 	public void setCode(int code) {
 		this.code = code;

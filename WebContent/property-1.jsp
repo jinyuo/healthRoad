@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -9,7 +10,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>HealthRoad</title>
+        <title>헬스로드</title>
         <meta name="description" content="company is a real-estate template">
         <meta name="author" content="Kimarotec">
         <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
@@ -124,18 +125,14 @@
                                     </div> 
 
                                     <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
-                                        <li data-thumb="assets/img/property-1/property1.jpg"> 
-                                            <img src="assets/img/property-1/property1.jpg" />
+                                        <li data-thumb="${pageContext.request.contextPath}/save/gym/${gym.fileName}"> 
+                                            <img src="${pageContext.request.contextPath}/save/gym/${gym.fileName}" />
                                         </li>
-                                        <li data-thumb="assets/img/property-1/property2.jpg"> 
-                                            <img src="assets/img/property-1/property3.jpg" />
+                                        <li data-thumb="${pageContext.request.contextPath}/save/property/health.PNG"> 
+                                            <img src="${pageContext.request.contextPath}/save/property/health.PNG" />
                                         </li>
-                                        <li data-thumb="assets/img/property-1/property3.jpg"> 
-                                            <img src="assets/img/property-1/property3.jpg" />
-                                        </li>
-                                        <li data-thumb="assets/img/property-1/property4.jpg"> 
-                                            <img src="assets/img/property-1/property4.jpg" />
-                                        </li>                                         
+                                        
+                                                                              
                                     </ul>
                                 </div>
                             </div>
@@ -147,9 +144,9 @@
                                 
                                 
                                 <p align="right">
-                                <button type="button" class="btn btn-primary btn-lg" style="background-color:#FF8000">이용하기</button>
+                                <button type="button" class="btn btn-primary btn-lg" style="background-color:#FF8000" name="btn6">이용하기</button>
                                 </p>
-                                <span class="property-price pull-right" style="text-align:right">가격 ${requestScope.gym.price}p</span>
+                                <span class="property-price pull-right" style="text-align:right">${requestScope.gym.price}p</span>
                                 
                             </div>
 
@@ -162,7 +159,7 @@
                                 
                                 <div class="s-property-content">
                                 		<!-- ${requestScope.gym.comment} -->
-                                    <p>${requestScope.gym.comment}</p>
+                                    <p>${requestScope.gym.comment}  </p>
                                     
 
                                   
@@ -171,26 +168,57 @@
                                 <div>
 									<h4 class="s-property-title">총 별점 </h4> <h1 class="rating-num">${requestScope.gym.avgScore}</h1><h4 class="s-property-title" style="position:relative; top:-38px; left:55px;">점 </h4>
 								</div>
+<%-- 								<c:set scope="request" var="gymCode" value="${requestScope.gym.code}"></c:set> --%>
+								<form action="${pageContext.request.contextPath}/front?command=insertReviewForm" method="post" >
+								<button class="btn btn-primary" style="background-color:#FF8000" id="insertReview" name="btn6">리뷰작성하기</button> <!-- onclick="window.open('review_insert.jsp', '_blank', 'width=550, height=400, toolbar=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no' );" -->
+								<input type="hidden" name=gymCode value ="${requestScope.gym.code}"/>
+								</form>
+								<c:choose>
+								<c:when test = "${empty requestScope.review}">
+								<div style="width:30%; height:20px; background-color:#F2F2F2">등록된 리뷰가 없습니다.</div>
+								</c:when>
+								<c:otherwise>
 								
-								
-								
+								<c:forEach items="${requestScope.review}" var = "reviewList">
 								<div><!-- comment container 시작 -->
 									<h3 class="s-property-title">리뷰 </h3>
+									<!-- 리뷰 삭제 form -->
+									<form method="post" action ="${pageContext.request.contextPath}/front?command=deleteReview">
+									<div style="width:20%; height:20px; background-color:#F2F2F2; text-align: center">별점<input type="text" value="${reviewList.starScore}" readonly="readonly" style="background-color:#F2F2F2; position:relative; top:-20px; left:150px; width:350px"></div>
+									<div style="width:20%; height:20px; background-color:#FFFFFF; text-align: center">작성자<input type="text" value="${reviewList.memberId}" name="memberId" readonly="readonly" style="background-color:#FFFFFF; position:relative; top:-20px; left:150px; width:350px"></div>
+									<div style="width:20%; height:100px; background-color:#F2F2F2; text-align: center; position:relative; vertical-align: middle;">내용 
+									<textarea rows="" cols="" readonly="readonly" style="background-color:#F2F2F2; position:relative;  top:-20px; left:150px; width:350px;border-color:white; height:100px; resize: none">   ${reviewList.content}</textarea>
 									
-									<button type="button" class="btn btn-primary" style="background-color:#FF8000" onclick="window.open('review_insert.html', '_blank', 'width=550, height=400, toolbar=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no' );">리뷰작성하기</button>
-									<div style="width:20%; height:20px; background-color:#F2F2F2">제목<input type="text" value="${requestScope.review.content}" readonly="readonly" style="background-color:#F2F2F2; position:relative; top:-20px; left:150px; width:350px"></div>
-									<div style="width:20%; height:20px; background-color:#FFFFFF">작성자<input type="text" value="작성자아이디" readonly="readonly" style="background-color:#FFFFFF; position:relative; top:-20px; left:150px; width:350px"></div>
-									<div style="width:20%; height:100px; background-color:#F2F2F2">내용
-									<!-- <textarea rows="100" cols="100"></textarea> -->
-									
-									<input type="text" readonly="readonly" style="overflow:auto; background-color:#F2F2F2; position:relative; top:-20px; left:150px; width:350px; height:100px">
-										
+<%-- 									<input type="text" readonly="readonly" style="white-space:normal; background-color:#F2F2F2; position:relative; top:-20px; left:150px; width:350px; height:100px" value="${reviewList.content}"> --%>		
 									</div>
+									<input type="hidden" value="${reviewList.code}" name="reviewCode"> 
+									<input type="hidden" value="${requestScope.gym.code}" name = "gymCode">
+									
+									
 									<div style="width: 500px; height:auto; overflow: hidden">
-									<img id="review_pic" src="assets/img/slide1/slider-image-2.jpg" style="position:relative;  margin: 5px 5px 5px 0px;" >
-									</div>
+									<c:if test="${not empty reviewList.fileName}">
+									<img id="review_pic" src="${pageContext.request.contextPath}/save/review/${reviewList.fileName}" style="position:relative;  margin: 5px 5px 5px 0px;" >
+									</c:if>
 									
+									</div><!-- ${pageContext.request.contextPath}/save/review" -->
+									<span><input type="submit" name="" value="삭제" style="position: relative; width:50px; background-color:orange; color:white;"></span>
+									</form>
+									<!--삭제 form끝 -->
+									<!--리뷰 업데이트 form 시작 -->
+									<form method="post" action="${pageContext.request.contextPath}/front?command=updateReviewForm">
+									<input type="hidden" value="${reviewList.memberId}" name="memberId" >
+									<input type="hidden" value="${reviewList.code}" name="reviewCode"> 
+									<input type="hidden" value="${requestScope.gym.code}" name = "gymCode">
+									<input type="hidden" value="${reviewList.content}" name = "reviewContent">
+									<input type="hidden" value="${reviewList.fileName}" name = "reviewFileName">
+									<span><input type="submit" name="" value="수정" style="position: relative; left:55px; top:-30px; width:50px; background-color:orange; color:white;"></span>
+									</form>
+									<!-- 리뷰 업데이트 form 끝 -->
 								</div><!-- comment container 끝 -->
+								</c:forEach>
+								
+								</c:otherwise>
+								</c:choose>
 								<hr>
              <!-- //////////////////////////////////////////////////// -->
                             </div>
@@ -234,7 +262,7 @@
                                                 <li><i class="pe-7s-mail strong"> </i> hahahoho@gaver.com</li>
                                                 <li><i class="pe-7s-call strong"> </i> ${requestScope.gym.phoneNum}</li>
                                             </ul>
-                                            <p>${requestScope.gym.comment}</p>
+<%--                                             <p>${requestScope.gym.comment}</p> --%>
                                         </div>
 
                                     </div>
@@ -475,6 +503,21 @@
 			    } 
 			});    
 </script>
+<!-- 리뷰 작성하기 버튼에 적용할 제이쿼리 -->
+<script type="text/javascript">
+	$(function(){
+		$("[name=btn6]").click(function(){
+			//session에 curUserType이 0이면 비회원이니까 로그인하라는 alert 띄움
+			
+			if("${sessionScope.curUserType}" == 0){
+				alert("로그인 후 사용해주세요.");
+				
+				return false;
+			}
+		});
+		
+	});
 
+</script>
     </body>
 </html>

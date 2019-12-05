@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 
 
@@ -71,14 +73,24 @@
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse yamm" id="navigation">
-				<div class="button navbar-right">
-					<button class="navbar-btn nav-button wow bounceInRight login"
-						onclick=" window.open('register.html')" data-wow-delay="0.4s">로그인/회원가입</button>
-
+				<!-- 로그인/로그아웃 버튼 -->
+				<c:choose>
+					<c:when test="${not empty sessionScope.session }">
+						<div class="button navbar-right">
+							<button class="navbar-btn nav-button wow bounceInRight login" onclick="" data-wow-delay="0.4s">로그아웃</button>
 				</div>
+					</c:when>
+					<c:otherwise>
+						<div class="button navbar-right">
+							<button class="navbar-btn nav-button wow bounceInRight login"
+						onclick="location.href='register.jsp'" data-wow-delay="0.4s">로그인/회원가입</button>
+				</div>
+					</c:otherwise>
+				</c:choose>
+				
 				<ul class="main-nav nav navbar-nav navbar-right">
 					<li class="dropdown ymm-sw " data-wow-delay="0.1s">
-						<!-- 여기href 바꿔야함--> <a href="index.html"
+						<!-- 여기href 바꿔야함--> <a href="${pageContext.request.contextPath}/mypage.html"
 						class="dropdown-toggle active" data-hover="dropdown"
 						data-delay="200">마이페이지 </a>
 
@@ -107,23 +119,24 @@
 		<div class="slider">
 			<div id="bg-slider" class="owl-carousel owl-theme">
 				<div class="item">
-					<img src="${pageContext.request.contextPath}/assets/img/slide1/PushUp_Sample.jpg" alt="PushUp">
+					<img src="${pageContext.request.contextPath}/save/main/main5.jpg" alt="mainImg1">
 				</div>
 				<div class="item">
-					<img src="${pageContext.request.contextPath}/assets/img/slide1/Train.jpeg" alt="Train">
+					<img src="${pageContext.request.contextPath}/save/main/main7.jpg" alt="mainImg2">
 				</div>
 				<div class="item">
-					<img src="${pageContext.request.contextPath}/assets/img/slide1/sample3.png" alt="Dumbbell">
+					<img src="${pageContext.request.contextPath}/save/main/main6.jpg" alt="mainImg3">
 				</div>
 
 			</div>
 		</div>
 		<div class="container slider-content">
 			<div class="row">
-				<div
-					class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
-					<h2 style="color: black"> 나를 찾아오는 건강</h2>
-					<p style="color: black"> 나의 건강을 시간과 장소에 구애받지 마세요. 언제 어디서든 나와 가장 가까운 헬스장을 찾아보세요</p>
+				<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
+					<blockquote style="background-color: rgba(0, 0, 0, 0.23)">
+					<h2 style="color: white"> 나를 찾아오는 건강</h2>
+					<p style="color: white"> 나의 건강을 시간과 장소에 구애받지 마세요. 언제 어디서든 나와 가장 가까운 헬스장을 찾아보세요</p>
+					</blockquote>
 					<div class="search-form wow pulse" data-wow-delay="0.8s">
 
 						<form action="${pageContext.request.contextPath}/front?"
@@ -207,12 +220,14 @@
 					</div>
 					<div class="col-md-12 ">
 						<div id="list-type" class="proerty-th">
-
+						
+							<c:if test="${fn:length(list) == 0 }">
+								<div class="row">
+									<h2 style="text-align: center;">검색 결과가 없습니다.</h2>
+								</div>
+							</c:if>
 							<c:forEach items="${requestScope.list }" var="gymList">
 								<div class="col-sm-6 col-md-3 p0">
-									<c:if test="${empty list}">
-										없음<br>
-									</c:if>
 									<div class="box-two proerty-item">
 										<div class="item-thumb">
 											<a href="${pageContext.request.contextPath}/front?command=gymDetail&code=${gymList.code}">
@@ -270,7 +285,7 @@
 	<!-- Footer area-->
 	<div class="footer-area">
 
-		<div class=" footer">
+		<!-- <div class=" footer">
 			<div class="container">
 				<div class="row">
 
@@ -281,7 +296,7 @@
 
 							<img src="assets/img/footer-logo.png" alt="" class="wow pulse"
 								data-wow-delay="1s">
-							<!-- 로고이미지 바꾸기 -->
+							로고이미지 바꾸기
 							<p>Lorem ipsum dolor cum necessitatibus su quisquam
 								molestias. Vel unde, blanditiis.</p>
 
@@ -375,7 +390,7 @@
 										</button>
 									</span>
 								</div>
-								<!-- /input-group -->
+								/input-group
 							</form>
 
 							<div class="social pull-right">
@@ -402,14 +417,14 @@
 
 				</div>
 			</div>
-		</div>
+		</div> -->
 
 		<div class="footer-copy text-center">
 			<div class="container">
 				<div class="row">
 					<div class="pull-left">
-						<span> (C) <a href="http://www.KimaroTec.com">KimaroTheme</a>
-							, All rights reserved 2016
+						<span> (C) <a href="#">OpenMind</a>
+							, All rights reserved 2019
 						</span>
 					</div>
 					<div class="bottom-menu pull-right">

@@ -336,7 +336,8 @@ public class HealthDAOImpl implements HealthDAO {
 				
 				GymDTO gym = new GymDTO(code, name, addr, phoneNum, fileName, gymCapacity, price, comment, weekdayHour, weekendHour, avgScore);
 				
-				list.add(gym);
+				if(code != -1)
+					list.add(gym);
 			}
 		} finally {
 			DbUtil.dbClose(rs, ps, con);
@@ -350,10 +351,12 @@ public class HealthDAOImpl implements HealthDAO {
 		PreparedStatement ps = null;
 		
 		
-		String sql = proFile.getProperty("gym.selectByKeyword");//sql = gym.selectByKeyword=SELECT CODE, NAME, ADDR, PHONE_NUM, FILE_NAME, GYM_CAPACITY, PRICE, GYM_COMMENT, WEEKDAY_HOUR, WEEKEND_HOUR, STAR_SCORE FROM GYM WHERE ? LIKE ?
+		String sql = proFile.getProperty("gym.selectByKeyword");//sql = gym.selectByKeyword=SELECT CODE, NAME, ADDR, PHONE_NUM, FILE_NAME, GYM_CAPACITY, PRICE, GYM_COMMENT, WEEKDAY_HOUR, WEEKEND_HOUR, STAR_SCORE FROM GYM WHERE  LIKE ?
+		System.out.println(sql);
 		if(keyField.equals("addr") || keyField.equals("name")) {
 			sql = String.format(sql, keyField);
 		}
+		String.format("%s", "ssssss");
 		System.out.println(sql);
 		ResultSet rs = null;
 		List<GymDTO> list = new ArrayList<GymDTO>();

@@ -553,7 +553,7 @@ public class HealthDAOImpl implements HealthDAO {
 		Connection con = null;
 		PreparedStatement ps = null;
 
-		String sql = proFile.getProperty("useDetail.selectByKeyword"); //SELECT CODE, MEMBER_ID, GYM_CODE, PRICE, USE_START_HOUR, STATE FROM USE_DETAIL WHERE ? = ?
+		String sql = proFile.getProperty("useDetail.selectByKeyword"); //SELECT CODE, MEMBER_ID, GYM.NAME ,GYM_CODE, PRICE, USE_START_HOUR, STATE FROM USE_DETAIL WHERE ? = ?
 		
 		if(keyField.equals("member_id") || keyField.equals("gym_code")) {
 			sql = String.format(sql, keyField);
@@ -573,12 +573,13 @@ public class HealthDAOImpl implements HealthDAO {
 			while(rs.next()) {
 				int code = rs.getInt("CODE");
 				String memberId = rs.getString("MEMBER_ID");
+				String gymName = rs.getString("GYM.NAME");
 				int gymCode = rs.getInt("GYM_CODE");
 				int price = rs.getInt("PRICE");
 				String useStartHour = rs.getString("USE_START_HOUR");
 				int state = rs.getInt("STATE");
 						
-				UseDetailDTO useDetail = new UseDetailDTO(code, memberId, gymCode, price, useStartHour, state);
+				UseDetailDTO useDetail = new UseDetailDTO(code, memberId, gymName, gymCode, price, useStartHour, state);
 				list.add(useDetail);
 			}
 			
@@ -595,7 +596,7 @@ public class HealthDAOImpl implements HealthDAO {
 	public List<UseDetailDTO> selectUseDetailByGymCodeState(int gymCode, int state) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
-		String sql = proFile.getProperty("useDetail.selectByGymCodeState"); //SELECT CODE, MEMBER_ID, GYM_CODE, PRICE, USE_START_HOUR, STATE FROM USE_DETAIL WHERE GYM_CODE = ? AND STATE = 1
+		String sql = proFile.getProperty("useDetail.selectByGymCodeState"); //SELECT CODE, MEMBER_ID, GYM.NAME, GYM_CODE, PRICE, USE_START_HOUR, STATE FROM USE_DETAIL WHERE GYM_CODE = ? AND STATE = 1
 		ResultSet rs = null;
 		List<UseDetailDTO> list = new ArrayList<UseDetailDTO>();
 		
@@ -608,12 +609,13 @@ public class HealthDAOImpl implements HealthDAO {
 			while(rs.next()) {
 				int code = rs.getInt("CODE");
 				String memberId = rs.getString("MEMBER_ID");
+				String gName = rs.getString("GYM.NAME");
 				int gCode = rs.getInt("GYM_CODE");  // gymCode는 매개변수로 들어오는 값이랑 같아서 변수이름 gCode로 변경
 				int price = rs.getInt("PRICE");
 				String useStartHour = rs.getString("USE_START_HOUR");
 				int st = rs.getInt("STATE"); //state는 매개변수로 들어오는 값이랑 같아서 변수이름 st로 변경
 						
-				UseDetailDTO useDetail = new UseDetailDTO(code, memberId, gCode, price, useStartHour, st);
+				UseDetailDTO useDetail = new UseDetailDTO(code, memberId, gName, gCode, price, useStartHour, st);
 				list.add(useDetail);
 			}
 			

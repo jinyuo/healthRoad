@@ -73,11 +73,21 @@
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse yamm" id="navigation">
-				<div class="button navbar-right">
-					<button class="navbar-btn nav-button wow bounceInRight login"
-						onclick="location.href='register.jsp'" data-wow-delay="0.4s">로그인/회원가입</button>
-
+				<!-- 로그인/로그아웃 버튼 -->
+				<c:choose>
+					<c:when test="${not empty sessionScope.session }">
+						<div class="button navbar-right">
+							<button class="navbar-btn nav-button wow bounceInRight login" onclick="" data-wow-delay="0.4s">로그아웃</button>
 				</div>
+					</c:when>
+					<c:otherwise>
+						<div class="button navbar-right">
+							<button class="navbar-btn nav-button wow bounceInRight login"
+						onclick="location.href='register.jsp'" data-wow-delay="0.4s">로그인/회원가입</button>
+				</div>
+					</c:otherwise>
+				</c:choose>
+				
 				<ul class="main-nav nav navbar-nav navbar-right">
 					<li class="dropdown ymm-sw " data-wow-delay="0.1s">
 						<!-- 여기href 바꿔야함--> <a href="${pageContext.request.contextPath}/mypage.html"
@@ -275,7 +285,7 @@
 	<!-- Footer area-->
 	<div class="footer-area">
 
-		<div class=" footer">
+		<!-- <div class=" footer">
 			<div class="container">
 				<div class="row">
 
@@ -286,7 +296,7 @@
 
 							<img src="assets/img/footer-logo.png" alt="" class="wow pulse"
 								data-wow-delay="1s">
-							<!-- 로고이미지 바꾸기 -->
+							로고이미지 바꾸기
 							<p>Lorem ipsum dolor cum necessitatibus su quisquam
 								molestias. Vel unde, blanditiis.</p>
 
@@ -380,7 +390,7 @@
 										</button>
 									</span>
 								</div>
-								<!-- /input-group -->
+								/input-group
 							</form>
 
 							<div class="social pull-right">
@@ -407,14 +417,14 @@
 
 				</div>
 			</div>
-		</div>
+		</div> -->
 
 		<div class="footer-copy text-center">
 			<div class="container">
 				<div class="row">
 					<div class="pull-left">
-						<span> (C) <a href="http://www.KimaroTec.com">KimaroTheme</a>
-							, All rights reserved 2016
+						<span> (C) <a href="#">OpenMind</a>
+							, All rights reserved 2019
 						</span>
 					</div>
 					<div class="bottom-menu pull-right">

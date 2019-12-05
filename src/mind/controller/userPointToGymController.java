@@ -1,3 +1,4 @@
+
 package mind.controller;
 
 import java.io.IOException;
@@ -30,13 +31,13 @@ public class userPointToGymController implements HealthController {
 		int price = Integer.parseInt(request.getParameter("price"));
 		
 		//button을 누른 해당 시간의 시간을 받아온다.   toLocaleDateString()을 이용해서 String 값으로 받는다.
-		SimpleDateFormat format2 = new SimpleDateFormat ( "yyyy년 MM월dd일 HH시mm분");
-				
-		String useStartHour = format2.format (System.currentTimeMillis());
+//		SimpleDateFormat format2 = new SimpleDateFormat ( "yyyy년 MM월dd일 HH시mm분");
+//				
+//		String useStartHour = format2.format (System.currentTimeMillis());
 		
 		
 				
-		UseDetailDTO useDetail = new UseDetailDTO(0, memberId, gymName, gymCode, price, useStartHour, 1);
+		UseDetailDTO useDetail = new UseDetailDTO(0, memberId, gymName, gymCode, price, null, 1);
 		int insertUseDetailResult = HealthService.insertUseDetail(useDetail);
 		
 		if(insertUseDetailResult == 0 ) {

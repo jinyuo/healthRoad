@@ -16,23 +16,23 @@ import mind.util.DbUtil;
 
 public class HealthDAOImpl implements HealthDAO {
 	private Properties proFile = DbUtil.getProFile();
-
+	
 	@Override
 	public String selectPwdById(String id) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		String sql = proFile.getProperty("member.selectPwdById");
-
-		String pwd = null;
+		
+		String pwd =null;
 		try {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
 			System.out.println(id);
 			ps.setString(1, id);
 			rs = ps.executeQuery();
-
-			if (rs.next()) {
+			
+			if(rs.next()) {
 				pwd = rs.getString(1);
 				System.out.println(1);
 			}
@@ -41,38 +41,38 @@ public class HealthDAOImpl implements HealthDAO {
 		}
 		return pwd;
 	}
-
-	// 트랜잭션 처리 - 참고 : C:\Edu\Java\JavaWorkSpace\step10_JDBC\src\ex1101\transaction
+	
+	//트랜잭션 처리 - 참고 : C:\Edu\Java\JavaWorkSpace\step10_JDBC\src\ex1101\transaction
 	@Override
 	public int insertMember(MemberDTO member) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		String sql = proFile.getProperty("member.insert");
 		int result = 0;
-
+		
 		try {
 			con = DbUtil.getConnection();
 			con.setAutoCommit(false);
-
+			
 			ps = con.prepareStatement(sql);
 			ps.setString(1, member.getId());
 			ps.setString(2, member.getPwd());
 			ps.setString(3, member.getName());
 			ps.setString(4, member.getPhoneNum());
 			ps.setInt(5, member.getGymCode());
-
+			
 			result = ps.executeUpdate();
-
-			if (result > 0)
+			
+			if(result > 0)
 				con.commit();
 			else
 				con.rollback();
-
-		} catch (SQLException e) {
+			
+		}catch (SQLException e) {
 			try {
 				con.rollback();
 			} catch (SQLException ex) {
-				throw new SQLException(ex.getMessage());
+				throw new SQLException(ex.getMessage()); 
 			}
 		} finally {
 			DbUtil.dbClose(ps, con);
@@ -585,13 +585,13 @@ public class HealthDAOImpl implements HealthDAO {
 			while (rs.next()) {
 				int code = rs.getInt("CODE");
 				String memberId = rs.getString("MEMBER_ID");
-				String gymName = rs.getString("GYM.NAME");
+				//String gymName = rs.getString("GYM.NAME");
 				int gymCode = rs.getInt("GYM_CODE");
 				int price = rs.getInt("PRICE");
 				String useStartHour = rs.getString("USE_START_HOUR");
 				int state = rs.getInt("STATE");
 
-				UseDetailDTO useDetail = new UseDetailDTO(code, memberId, gymName, gymCode, price, useStartHour, state);
+				UseDetailDTO useDetail = new UseDetailDTO(code, memberId, null, gymCode, price, useStartHour, state);
 				list.add(useDetail);
 			}
 

@@ -8,7 +8,7 @@
     <head>
  <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>GARO ESTATE | 404 page</title>
+        <title>point_charge</title>
         <meta name="description" content="company is a real-estate template">
         <meta name="author" content="Kimarotec">
         <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
@@ -114,7 +114,10 @@
                 </div>
                 
                 <div class="panel-footer">
-                    <input type="button" class="btn btn-lg btn-block btn-success" id="fiveCharge" value="충전하기">
+                	<form action="${pageContext.request.contextPath}/front?">
+                    <button type="submit" class="btn btn-lg btn-block btn-success" name="fiveCharge" value="50000">충전하기</button>
+                    <input type="hidden" name="command" value="fiveCharge">
+                    </form>
                 </div>
             </div>
         </div>
@@ -130,7 +133,10 @@
                 </div>
                 
                 <div class="panel-footer">
-                    <input type="button" class="btn btn-lg btn-block btn-info" id="twetCharge" value="충전하기">
+                    <form action="${pageContext.request.contextPath}/front?">
+                    <button type="submit" class="btn btn-lg btn-block btn-success" name="twetCharge" value="200000">충전하기</button>
+                    <input type="hidden" name="command" value="twetCharge">
+                    </form>
                 </div>
             </div>
         </div>
@@ -146,7 +152,10 @@
                 </div>
                 
                 <div class="panel-footer">
-                    <input type="button" class="btn btn-lg btn-block btn-info" style="background-color: none; " id="fiftyCharge" value="충전하기">
+                    <form action="${pageContext.request.contextPath}/front?">
+                    <button type="submit" class="btn btn-lg btn-block btn-success" name="fiftyCharge" value="500000">충전하기</button>
+                    <input type="hidden" name="command" value="fiftyCharge">
+                    </form>
                 </div>
             </div>
         </div>

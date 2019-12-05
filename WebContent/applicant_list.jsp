@@ -86,7 +86,7 @@
         <!-- End of nav bar -->
 
         <div class="container">
-            <h2 class="ps-property-title">이용 내역</h2>
+            <h2 class="ps-property-title">신청자 목록</h2>
         </div>
         <div class="collapse navbar-collapse yamm" id="navigation">
                     <ul class="main-nav nav navbar-nav navbar-right">
@@ -97,13 +97,12 @@
                 </div><!-- /.navbar-collapse -->
                 
         <!-- End page header -->
-
+<form action="${pageContext.request.contextPath}/front?">
+	<input type="hidden" name="command" value="applicantList">
+	<button type="submit">제발되어라</button>
+</form>
         <!-- property area aaa -->
 
-<form action="${pageContext.request.contextPath}/front?">
-	<input type="hidden" name="command" value="useList">
-	<button type="submit">dlehd</button>
-</form>
             <div class="container"> 
            
            
@@ -115,18 +114,23 @@
 
                                  <ul class="additional-details-list clearfix">
                                     <li>
-                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-title">헬스장 이름</span>
-                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-title">차감 포인트</span>
-                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-title">이용날짜</span>
-                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-title">이용상태</span>
+                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-title" style="width:20%" >회원 아이디</span>
+                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-title" style="width:20%">차감 포인트</span>
+                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-title" style="width:20%">이용날짜</span>
+                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-title" style="width:20%">이용상태</span>
+                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-title" style="width:20%">이용시작</span>
                                     </li>
 
                                     <li>
-                                    <c:forEach items="${requestScope.useList }" var="list" varStatus="state">
-                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry">${list.gymName }</span>
-                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry">${list.price}</span>
-                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry">${list.useStartHour}</span>
-                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry">${list.state}</span>
+                                    <c:forEach items="${requestScope.alist }" var="list" varStatus="state">
+                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry" style="width:20%">${list.memberId }</span>
+                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry" style="width:20%">${list.price}</span>
+                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry" style="width:20%">${list.useStartHour}</span>
+                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry" style="width:20%">${list.state}</span>
+                                        <form action="${pageContext.request.contextPath}/front?">
+                                        <button type="submit" name="command" value="userManaging" style="width:20%">이용시작</button>
+                                        <input type="hidden" name="usercode" value="${list.code}">
+                                        </form>
                                         </c:forEach>
                                     </li>
                                 </ul>

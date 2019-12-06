@@ -218,4 +218,12 @@ public class HealthService {
 		int result = healthDAO.updateUseDetail(useDetailCode);
 		return result;
 	}
+	
+	/*
+	 * 이용 내역에서 헬스장 이름으로 출력
+	 */
+	public static List<UseDetailDTO> selectUseDetailByMemberId(String memberId) throws SQLException {
+		List<UseDetailDTO> list = healthDAO.selectUseDetailByMemberId(memberId);
+		return list;
+	}
 }

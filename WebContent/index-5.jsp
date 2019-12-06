@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <!DOCTYPE html>
 
@@ -48,26 +48,22 @@
 <link rel="stylesheet" href="assets/css/responsive.css">
 <script src="js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
-
-	if("${Msg}"=="1"){
+	if ("${Msg}" == "1") {
 		alert("성공적으로 삭제 되었습니다.");
 	}
 
-    
-	$(function(){
-		$("#login").click(function(){
-			if($(this).text() == "로그인/회원가입"){
+	$(function() {
+		$("#login").click(function() {
+			if ($(this).text() == "로그인/회원가입") {
 				alert($(this).text())
-        		location.href="register.jsp";
-        	} else {
-        		alert($(this).text());
-        		location.href="front?command=login";
-        		
-        	}
-		}); 	
-	});
-    
+				location.href = "register.jsp";
+			} else {
+				alert($(this).text());
+				location.href = "front?command=login";
 
+			}
+		});
+	});
 </script>
 </head>
 <body>
@@ -94,21 +90,19 @@
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse yamm" id="navigation">
-
 				<div class="button navbar-right">
 					<button class="navbar-btn nav-button wow bounceInRight login" id="login" data-wow-delay="0.4s">
-            <c:choose>
-              <c:when test="${curUserType eq '0'}" >로그인/회원가입</c:when>
-              <c:otherwise>로그아웃</c:otherwise>
-            </c:choose>
-        </button>
+						<c:choose>
+							<c:when test="${curUserType eq '0'}">로그인/회원가입</c:when>
+							<c:otherwise>로그아웃</c:otherwise>
+						</c:choose>
+					</button>
 				</div>
-					</c:otherwise>
-				</c:choose>
 				
 				<ul class="main-nav nav navbar-nav navbar-right">
 					<li class="dropdown ymm-sw " data-wow-delay="0.1s">
-						<!-- 여기href 바꿔야함--> <a href="${pageContext.request.contextPath}/mypage.html"
+						<!-- 여기href 바꿔야함--> <a
+						href="${pageContext.request.contextPath}/mypage.html"
 						class="dropdown-toggle active" data-hover="dropdown"
 						data-delay="200">마이페이지 </a>
 
@@ -120,7 +114,7 @@
 					<li class="dropdown yamm-fw" data-wow-delay="0.1s">
 						<!-- 여기href 바꿔야함--> <a href="contact-3.html"
 						class="dropdown-toggle" data-toggle="dropdown"
-						data-hover="dropdown" data-delay="200">헬스로드 소개  </a>
+						data-hover="dropdown" data-delay="200">헬스로드 소개 </a>
 					</li>
 
 					<!-- <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">Contact</a></li> -->
@@ -136,22 +130,27 @@
 		<div class="slider">
 			<div id="bg-slider" class="owl-carousel owl-theme">
 				<div class="item">
-					<img src="${pageContext.request.contextPath}/save/main/main5.jpg" alt="mainImg1">
+					<img src="${pageContext.request.contextPath}/save/main/main5.jpg"
+						alt="mainImg1">
 				</div>
 				<div class="item">
-					<img src="${pageContext.request.contextPath}/save/main/main7.jpg" alt="mainImg2">
+					<img src="${pageContext.request.contextPath}/save/main/main7.jpg"
+						alt="mainImg2">
 				</div>
 				<div class="item">
-					<img src="${pageContext.request.contextPath}/save/main/main6.jpg" alt="mainImg3">
+					<img src="${pageContext.request.contextPath}/save/main/main6.jpg"
+						alt="mainImg3">
 				</div>
 			</div>
 		</div>
 		<div class="container slider-content">
 			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
+				<div
+					class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
 					<blockquote style="background-color: rgba(0, 0, 0, 0.23)">
-					<h2 style="color: white"> 나를 찾아오는 건강</h2>
-					<p style="color: white"> 나의 건강을 시간과 장소에 구애받지 마세요. 언제 어디서든 나와 가장 가까운 헬스장을 찾아보세요</p>
+						<h2 style="color: white">나를 찾아오는 건강</h2>
+						<p style="color: white">나의 건강을 시간과 장소에 구애받지 마세요. 언제 어디서든 나와 가장
+							가까운 헬스장을 찾아보세요</p>
 					</blockquote>
 					<div class="search-form wow pulse" data-wow-delay="0.8s">
 
@@ -169,7 +168,8 @@
 								</select>
 							</div>
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Keyword" name="keyword">
+								<input type="text" class="form-control" placeholder="Keyword"
+									name="keyword">
 							</div>
 							<button class="btn search-btn" type="submit">
 								<i class="fa fa-search"></i>
@@ -183,14 +183,15 @@
 
 
 	<!-- property area -->
-	<div class="content-area recent-property" style="padding-bottom: 60px; background-color: rgb(252, 252, 252);">
+	<div class="content-area recent-property"
+		style="padding-bottom: 60px; background-color: rgb(252, 252, 252);">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12  padding-top-40 properties-page">
 					<div class="col-md-12 ">
 						<div class="col-xs-10 page-subheader sorting pl0">
 
-							 <!-- <ul class="sort-by-list">
+							<!-- <ul class="sort-by-list">
 								<li class="active"><a href="javascript:void(0);"
 									class="order_by_date" data-orderby="property_date"
 									data-order="ASC"> 별점 순 정렬 <i class="fa fa-sort-amount-asc"></i>
@@ -224,16 +225,15 @@
 						</div>
 
 						<div class="col-xs-2 layout-switcher">
-							<a class="layout-list" href="javascript:void(0);"> 
-								<i class="fa fa-th-list"></i>
-							</a> 
-							<a class="layout-grid active" href="javascript:void(0);"> 
-								<i class="fa fa-th"></i>
+							<a class="layout-list" href="javascript:void(0);"> <i
+								class="fa fa-th-list"></i>
+							</a> <a class="layout-grid active" href="javascript:void(0);"> <i
+								class="fa fa-th"></i>
 							</a>
 						</div>
 						<!--/ .layout-switcher-->
 					</div>
-				
+
 					<div class="col-md-12 ">
 						<div id="list-type" class="proerty-th">
 							<c:if test="${fn:length(list) == 0 }">
@@ -245,22 +245,24 @@
 								<div class="col-sm-6 col-md-3 p0">
 									<div class="box-two proerty-item">
 										<div class="item-thumb">
-											<a href="${pageContext.request.contextPath}/front?command=gymDetail&code=${gymList.code}">
-												<img src="${pageContext.request.contextPath}/save/gym/${gymList.fileName}">
+											<a
+												href="${pageContext.request.contextPath}/front?command=gymDetail&code=${gymList.code}">
+												<img
+												src="${pageContext.request.contextPath}/save/gym/${gymList.fileName}">
 											</a>
 										</div>
 
 										<div class="item-entry overflow">
 											<h5>
-												<a href="${pageContext.request.contextPath}/front?command=gymDetail&code=${gymList.code}">${gymList.name} </a>
+												<a
+													href="${pageContext.request.contextPath}/front?command=gymDetail&code=${gymList.code}">${gymList.name}
+												</a>
 											</h5>
 											<div class="dot-hr"></div>
-											<span class="pull-left">
-												<b> 수용인원 :</b> ${gymList.gymCapacity }명 
-											</span> 
-											<span class="proerty-price pull-right"> 
-												${gymList.price} p
-											</span><br>
+											<span class="pull-left"> <b> 수용인원 :</b>
+												${gymList.gymCapacity }명
+											</span> <span class="proerty-price pull-right">
+												${gymList.price} p </span><br>
 											<p>${gymList.addr}</p>
 											<p>${gymList.phoneNum}</p>
 											<!--<p style="display: none;">Suspendisse ultricies

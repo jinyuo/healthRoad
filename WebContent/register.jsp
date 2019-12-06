@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -33,9 +34,26 @@
         <link rel="stylesheet" href="assets/css/owl.transitions.css">
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="assets/css/responsive.css">
+        
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript">
+        
+		$(function(){
+			$("#login").click(function(){
+				if($(this).text() == "Login"){
+					alert($(this).text())
+            		location.href="register.jsp";
+            	} else {
+            		alert($(this).text());
+            		
+            	}
+			}); 	
+		});
+        	
+		
+        </script>
     </head>
     <body>
-
         <div id="preloader">
             <div id="status">&nbsp;</div>
         </div>
@@ -86,7 +104,8 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
                     <div class="button navbar-right">
-                        <button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.open('register.html')" data-wow-delay="0.4s">Login</button>
+                    	<script type="text/javascript">alert(${curUserType});</script> 
+                        <button id="login" class="navbar-btn nav-button wow bounceInRight login" data-wow-delay="0.4s"><c:choose><c:when test="${curUserType eq '0'}" >Login</c:when><c:otherwise>Logout</c:otherwise></c:choose></button>
                         <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.open('submit-property.html')" data-wow-delay="0.5s">Submit</button>
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">

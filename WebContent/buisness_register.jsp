@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -80,8 +84,8 @@
             	<div class="row">
                     <div class="col-sm-10 col-sm-offset-1 profiel-container">
         
-
-        				<form name="gymInsertForm" action="front?command=gymInsert" method="post">
+        				<form action="" method="post">
+        				
         					<div class="profiel-header">
         						
                             	<h3>
@@ -96,42 +100,41 @@
                          
                                 <div class="form-group">
                                     <label for="gymName">사업장 이름</label>
-                                    <input type="text" class="form-control" name="gymName" id="gymName">
+                                    <input type="text" class="form-control" id="gymName">
                                 </div>
                                 <div class="form-group">
                                     <label for="addr">주소</label>
-                                    <input type="text" class="form-control" name="addr" id="addr">
+                                    <input type="text" class="form-control" id="addr">
                                 </div>
                                 <div class="form-group">
                                     <label for="phone">전화번호</label>
-                                    <input type="text" class="form-control" name="phone" id="phone">
+                                    <input type="text" class="form-control" id="phone">
                                 </div>
                                 <div class="form-group">
                                     <label for="capacity">수용인원</label>
-                                    <input type="text" class="form-control" name="capacity" id="capacity">
+                                    <input type="text" class="form-control" id="capacity">
                                 </div>
                                 <div class="form-group">
                                     <label for="price">가격</label>
-                                    <input type="text" class="form-control" name="price" id="price">
+                                    <input type="text" class="form-control" id="price">
                                 </div>
                                 <div class="form-group">
                                     <label for=comment>사업장 소개</label>
-                                    <input type="text" class="form-control" name="comment" id="comment">
+                                    <input type="text" class="form-control" id="comment">
                                 </div>
                                <div class="form-group">
                                     <label for=time>이용 시간</label>
-                                    <input type="text" class="form-control" name ="weekday" id="weekday" placeholder="평일 이용 시간"> 
+                                    <input type="text" class="form-control" id="weekday" placeholder="평일 이용 시간"> 
                                     <br>
-                                    <input type="text" class="form-control" name ="weekend" id="weekend" placeholder="주말 이용 시간">
+                                    <input type="text" class="form-control" id="weekend" placeholder="주말 이용 시간">
                                 </div>
                                <div class="form-group">
                                     <label for="fileName">파일 이름</label>
-                                    <input type="text" class="form-control" name ="fileName" id="fileName">
+                                    <input type="text" class="form-control" id="fileName">
                                 </div>
 
                         <div class="col-sm-2 col-sm-offset-5">
-
-						<input type='submit' class='btn btn-finish btn-primary pull-right' name='main' value='등록'>
+						<input type='button' class='btn btn-finish btn-primary pull-right' name='main' value='등록'>
 						</div>
                      </div> 
                      </div>
@@ -148,10 +151,12 @@
 <!--             <div class=" footer">
                 <div class="container">
                     <div class="row">
+
                         <div class="col-md-3 col-sm-6 wow fadeInRight animated">
                             <div class="single-footer">
                                 <h4>About us </h4>
                                 <div class="footer-title-line"></div>
+
                                 <img src="assets/img/footer-logo.png" alt="" class="wow pulse" data-wow-delay="1s">
                                 <p>Lorem ipsum dolor cum necessitatibus su quisquam molestias. Vel unde, blanditiis.</p>
                                 <ul class="footer-adress">
@@ -186,36 +191,43 @@
                                                 <img src="assets/img/demo/small-proerty-2.jpg">
                                             </a>
                                             <span class="blg-date">12-12-2016</span>
+
                                         </div>
                                         <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
                                             <h6> <a href="single.html">Add news functions </a></h6> 
                                             <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p>
                                         </div>
                                     </li> 
+
                                     <li>
                                         <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
                                             <a href="single.html">
                                                 <img src="assets/img/demo/small-proerty-2.jpg">
                                             </a>
                                             <span class="blg-date">12-12-2016</span>
+
                                         </div>
                                         <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
                                             <h6> <a href="single.html">Add news functions </a></h6> 
                                             <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p>
                                         </div>
                                     </li> 
+
                                     <li>
                                         <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
                                             <a href="single.html">
                                                 <img src="assets/img/demo/small-proerty-2.jpg">
                                             </a>
                                             <span class="blg-date">12-12-2016</span>
+
                                         </div>
                                         <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
                                             <h6> <a href="single.html">Add news functions </a></h6> 
                                             <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p>
                                         </div>
                                     </li> 
+
+
                                 </ul>
                             </div>
                         </div>
@@ -224,6 +236,7 @@
                                 <h4>Stay in touch</h4>
                                 <div class="footer-title-line"></div>
                                 <p>Lorem ipsum dolor sit amet, nulla  suscipit similique quisquam molestias. Vel unde, blanditiis.</p>
+
                                 <form>
                                     <div class="input-group">
                                         <input class="form-control" type="text" placeholder="E-mail ... ">
@@ -233,6 +246,7 @@
                                     </div>
                                     /input-group
                                 </form> 
+
                                 <div class="social pull-right"> 
                                     <ul>
                                         <li><a class="wow fadeInUp animated" href="https://twitter.com/kimarotec"><i class="fa fa-twitter"></i></a></li>
@@ -244,11 +258,12 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div> -->
 
-            <div class="footer-copy text-center">
+            <!-- <div class="footer-copy text-center">
                 <div class="container">
                     <div class="row">
                         <div class="pull-left">
@@ -262,8 +277,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
+            </div> -->
+			<jsp:include page="footer.jsp"></jsp:include>
         </div>
 
          <script src="assets/js/modernizr-2.6.2.min.js"></script>

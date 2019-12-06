@@ -16,10 +16,11 @@ public class fiveChargePointChargeController implements HealthController {
 			throws SQLException, IOException {
 		ModelAndView mv = new ModelAndView();
 		HttpSession session = request.getSession();
-		String login = (String) session.getAttribute("curUserId");
-		System.out.println(session.getAttribute("curUserId"));
+		String curUserType = (String) session.getAttribute("curUserType");
+		System.out.println("curUserType  :  "+curUserType+"테스트입니다.");
+		
 		//로그인 되어있는 경우
-		if(login.equals("1")) {
+		if(curUserType.equals("1")) {
 			//point_charge.jsp에서 받아온 point 값을 request에 설정해서 받는다.
 			
 			
@@ -27,15 +28,17 @@ public class fiveChargePointChargeController implements HealthController {
 			//로그인 된 계정의 아이디를 
 			
 			String memberId = (String) session.getAttribute("curUserId");
-			
+			System.out.println("memberId   :    "+memberId + "테스트입니다.");
 			//db에서 받아온 point update결과를 int 타입으로 받는다.
 			int result = HealthService.updatePoint(memberId, price);
+			System.out.println("result =  "+result+" 테스트입니다.");
 			if(result == 0) {
+				System.out.println("예외가 쎄게 납니다.");
 				request.setAttribute("errCode", "50");
 				throw new SQLException();
 				
 			}
-			mv.setViewName("mypage.html");//포인트 충전에 성공한 경우 마이페이지로 이동한다.
+			mv.setViewName("mypage.jsp");//포인트 충전에 성공한 경우 마이페이지로 이동한다.
 			//넘길 값이 없기 때문에 redirect방식 x : setRedirect(true) 설정 필요 없음
 		}else {
 			//로그인 안되어있는 경우 해당 페이지에서 로그인 회원가입 페이지로 이동한 후

@@ -1,3 +1,4 @@
+
 package mind.model.dao;
 
 import java.sql.Connection;
@@ -52,22 +53,31 @@ public class HealthDAOImpl implements HealthDAO {
 		
 		try {
 			con = DbUtil.getConnection();
-			con.setAutoCommit(false);
+			con.setAutoCommit(true);
 			
 			ps = con.prepareStatement(sql);
 			ps.setString(1, member.getId());
 			ps.setString(2, member.getPwd());
 			ps.setString(3, member.getName());
 			ps.setString(4, member.getPhoneNum());
-			ps.setInt(5, member.getGymCode());
 			
+			if(member.getGymCode() ==0) {
+			ps.setString(5, null);	
+			
+			}else {
+			ps.setInt(5, member.getGymCode());
+			}
+			
+			System.out.println(member.getGymCode() +"@@@@@");
+			System.out.println(result+"전");
 			result = ps.executeUpdate();
+			System.out.println(result +"후 :결과값");
 			
 			if(result > 0)
 				con.commit();
 			else
 				con.rollback();
-			
+	
 		}catch (SQLException e) {
 			try {
 				con.rollback();

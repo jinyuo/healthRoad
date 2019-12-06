@@ -81,8 +81,8 @@
         <!-- End of nav bar -->
         
         <!-- ------------------------------------------영상 시작-------------------------------------------- -->
-		<div style="position: relative; z-index: -99; width: 100%; height: 600px">
-			<iframe style="position: absolute" width=100% height=100% 
+		<div style="position: relative; z-index: -99; width: 100%; height: 860px;">
+			<iframe style="position: relative" width=100% height=100% 
 			src="https://www.youtube.com/embed/w-cRWOjlk8c?rel=0;amp;autoplay=1&amp;mute=1;start=258&playlist=w-cRWOjlk8c" 
 			frameborder="0" 
 			allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
@@ -90,24 +90,16 @@
 		</div>
         <!-- ------------------------------------------영상 끝-------------------------------------------- -->
 
-          <a id="bgndVideo" class="player"
-          data-property="{videoURL:'https://www.youtube.com/watch?v=w-cRWOjlk8c',
-          showYTLogo:false, showAnnotations: false, 
-          showControls: false, cc_load_policy: false, 
-          containment:'#home-section',
-          autoPlay:true, 
-          mute:true, 
-          startAt:255, 
-          stopAt: 271, 
-          opacity:1}">
-          </a>
-    
         <div class="intro-section" id="home-section" style="background-color: #ccc;">
+      
           <div class="container">
     
             <div class="row align-items-center">
+            
               <div class="col-lg-12 mx-auto text-center" data-aos="fade-up">
-                <h1 class="mb-3">헬스로드 </h1><br>
+              
+              
+                <h1 class="mb-3">헬스로드</h1><br>
                 <p class="lead mx-auto desc mb-5">언제 어디서나 회사 근처. 집 근처. 밤에도 낮에도. 장소, 시간 걱정하지 말고 시작하세요. <em><strong>헬스로드 하나면 OK!</strong></em><br>
                                         하나의 멤버십으로 30개 이상 종목, 3,289개 제휴시설을 매일 매일 바꿔가며 이용하세요! </p>
                 <p class="text-center">

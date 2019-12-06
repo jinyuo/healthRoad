@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>에러뷰입니다 ㅋㅋ</h1>
+<h1>메세지 : ${requestScope.errorMsg}</h1>
+	
 </body>
 </html>

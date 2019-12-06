@@ -114,7 +114,7 @@
                     <div class="" id="contact1">                        
                         <div class="row" >
                             <div class="col-sm-4">
-                                <h3><a href="memberInfoUpdate.html"><i class="fa fa-star"></i>정보수정</a></h3>
+                                <h3><a href="memberInfoUpdate.jsp"><i class="fa fa-star"></i>정보수정</a></h3>
                                 <p><strong>비밀번호 연락처를 
                                 <br>수정 할 수 있습니다.</strong></p>
                             </div>

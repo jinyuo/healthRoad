@@ -41,6 +41,8 @@
         <script type="text/javascript">
         
   	function checkValid(){
+  		
+
 		 if($("#memberId").val()==""){
 			alert("아이디를 입력하세요.")
 			 $("#memberId").focus();
@@ -170,7 +172,7 @@
                                 <div class="form-group">
                                     <label for="name">아이디</label>
                                     <input type="text" class="form-control" id="memberId" name="memberId" autocomplete="off">
-                                    <span id="span">아이디 중복 체크</span>
+                                    <span id="span" class="red strong">아이디 중복 체크</span>
                                 </div>
                                 <div class="form-group">
                                     <label for="password">비밀번호</label>

@@ -7,6 +7,9 @@
 	if( "${errCode}" == 1){
 		alert("아이디 혹은 패스워드가 틀립니다.");
 		location.href="register.jsp";
+	}else if( "${errCode}" == 5){
+		alert("이미 등록된 사업자이거나 접근 권한이 없습니다.");
+		location.href="mypage.html";
 	}
     </script>	
 <!DOCTYPE html>

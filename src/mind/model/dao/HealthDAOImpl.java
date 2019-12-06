@@ -1,3 +1,4 @@
+
 package mind.model.dao;
 
 import java.sql.Connection;
@@ -52,22 +53,31 @@ public class HealthDAOImpl implements HealthDAO {
 		
 		try {
 			con = DbUtil.getConnection();
-			con.setAutoCommit(false);
+			con.setAutoCommit(true);
 			
 			ps = con.prepareStatement(sql);
 			ps.setString(1, member.getId());
 			ps.setString(2, member.getPwd());
 			ps.setString(3, member.getName());
 			ps.setString(4, member.getPhoneNum());
-			ps.setInt(5, member.getGymCode());
 			
+			if(member.getGymCode() ==0) {
+			ps.setString(5, null);	
+			
+			}else {
+			ps.setInt(5, member.getGymCode());
+			}
+			
+			System.out.println(member.getGymCode() +"@@@@@");
+			System.out.println(result+"전");
 			result = ps.executeUpdate();
+			System.out.println(result +"후 :결과값");
 			
 			if(result > 0)
 				con.commit();
 			else
 				con.rollback();
-			
+	
 		}catch (SQLException e) {
 			try {
 				con.rollback();
@@ -103,19 +113,28 @@ public class HealthDAOImpl implements HealthDAO {
 	}
 
 	@Override
-	public int updateMember(MemberDTO member) throws SQLException {
+	public int updateMember(MemberDTO member, String type) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		String sql = proFile.getProperty("member.update");
+
 		int result = 0;
 		
 		try {
 			con = DbUtil.getConnection();
-			ps = con.prepareStatement(sql);
-			ps.setString(1, member.getPwd());
-			ps.setString(2, member.getPhoneNum());
-			ps.setString(3, member.getId());
 			
+			
+			if(type.equals("1")) {
+				sql = String.format(sql,"PWD");
+				ps = con.prepareStatement(sql);
+				ps.setString(1,member.getPwd());
+			}
+			else {
+				sql = String.format(sql,"PHONE_NUM");
+				ps = con.prepareStatement(sql);
+				ps.setString(1,member.getPhoneNum());
+			}
+			ps.setString(2, member.getId());
 			result = ps.executeUpdate();
 		} finally {
 			DbUtil.dbClose(ps, con);

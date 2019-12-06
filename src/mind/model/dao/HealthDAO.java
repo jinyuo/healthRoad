@@ -29,7 +29,7 @@ public interface HealthDAO {
 	/**
 	 * 회원 정보 수정
 	 * */
-	int updateMember(MemberDTO member) throws SQLException;
+	int updateMember(MemberDTO member,String type) throws SQLException;
 	
 	/**
 	 * 회원탈퇴(유저 삭제)

@@ -20,7 +20,7 @@ public class HealthService {
 	public static boolean login(String id,String inputPwd) throws SQLException{
 		
 		String pwd = healthDAO.selectPwdById(id);
-	
+
 	//해당되는 아이디가 없으면 return
 	if(pwd==null) {
 		return false;
@@ -55,8 +55,14 @@ public class HealthService {
 	/**
 	 * 회원 정보 수정
 	 * */
-	public static int updateMember(MemberDTO member) throws SQLException{
-		int result = healthDAO.updateMember(member);
+	public static int updateMember(MemberDTO member, String type) throws SQLException{
+		if(type.equals("1")) {
+			PwUtil pwutil = new PwUtil();
+			String pwd = member.getPwd();
+			String enpwd = pwutil.Encryption(pwd);
+			member.setPwd(enpwd);
+		}
+		int result = healthDAO.updateMember(member, type);
 		return result;
 	}
 	

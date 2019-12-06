@@ -46,6 +46,29 @@
 <link rel="stylesheet" href="assets/css/owl.transitions.css">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="assets/css/responsive.css">
+<script src="js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+
+	if("${Msg}"=="1"){
+		alert("성공적으로 삭제 되었습니다.");
+	}
+
+    
+	$(function(){
+		$("#login").click(function(){
+			if($(this).text() == "로그인/회원가입"){
+				alert($(this).text())
+        		location.href="register.jsp";
+        	} else {
+        		alert($(this).text());
+        		location.href="front?command=login";
+        		
+        	}
+		}); 	
+	});
+    
+
+</script>
 </head>
 <body>
 	<div id="preloader">
@@ -71,17 +94,14 @@
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse yamm" id="navigation">
-				<!-- 로그인/로그아웃 버튼 -->
-				<c:choose>
-					<c:when test="${not empty sessionScope.session }">
-						<div class="button navbar-right">
-							<button class="navbar-btn nav-button wow bounceInRight login" onclick="" data-wow-delay="0.4s">로그아웃</button>
-				</div>
-					</c:when>
-					<c:otherwise>
-						<div class="button navbar-right">
-							<button class="navbar-btn nav-button wow bounceInRight login"
-						onclick="location.href='register.jsp'" data-wow-delay="0.4s">로그인/회원가입</button>
+
+				<div class="button navbar-right">
+					<button class="navbar-btn nav-button wow bounceInRight login" id="login" data-wow-delay="0.4s">
+            <c:choose>
+              <c:when test="${curUserType eq '0'}" >로그인/회원가입</c:when>
+              <c:otherwise>로그아웃</c:otherwise>
+            </c:choose>
+        </button>
 				</div>
 					</c:otherwise>
 				</c:choose>

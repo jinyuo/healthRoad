@@ -1,3 +1,8 @@
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -11,7 +16,7 @@
         <meta name="author" content="Kimarotec">
         <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -33,41 +38,91 @@
         <link rel="stylesheet" href="assets/css/owl.transitions.css">
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="assets/css/responsive.css">
+        
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript">
+        
+
+      	function checkValid(){
+    		 if($("#memberId").val()==""){
+    			alert("아이디를 입력하세요.")
+    			 $("#memberId").focus();
+    			 return false;
+    		 }
+    		 if($("#memberPassword").val()==""){
+    			alert("비밀번호를 입력하세요.")
+    			  $("#memberId").focus();
+    			 return false;
+    		 }
+    		 if($("#name").val()==""){
+    				alert("이름을 입력하세요.")
+    				  $("#name").focus();
+    			 return false;
+    		 }
+    		 if($("#phone").val()==""){
+    				alert("전화번호를 입력하세요.")
+    				  $("#phone").focus();
+    			 return false;
+    		 }
+    	
+    	 }// 빈칸 유효성 체크 끝
+    	 
+        
+		$(function(){
+			$("#login").click(function(){
+				if($(this).text() == "Login"){
+					alert($(this).text())
+            		location.href="register.jsp";
+            	} else {
+            		alert($(this).text());
+            		
+            	}
+			}); 	
+			
+			//아이디 중복 체크
+        	$("#memberId").keyup(function(){
+        		if($(this).val()==""){
+        			$("#span").text("   ");
+        			return;
+        		}
+        		 $.ajax({
+       			  type:"post",
+       			  url:"idCheckServlet",
+       		      dataType: "text",//서버에게 받은 응답결과 type(text, xml, html, json)
+       		      data : {memberId: $(this).val() } ,//서버에게 전송할 parameter
+       		      success: function(result){
+       		    	  $("#span").html(result);
+       		      } ,
+       		      error : function(err){
+       		    	  console.log(err+"=> 오류발생");
+       		      }
+       		  });//ajax끝
+       	  });//keyup끝
+        	  
+     		
+ //////////////////////////////////////////////////////////////////////////////////////////////////////
+ 
+			$("#join").click(function(){
+
+				if($("#check").is(":checked")){ //사업자 인지 체크
+					$("#memberCheck").val(-1);  //사업자 회원(사업장 등록 가능)
+					
+					
+        		}else{
+        			$("#memberCheck").val(0);  //일반 회원
+        		}	
+			});
+			
+		});
+        	
+		
+        </script>
     </head>
     <body>
-
         <div id="preloader">
             <div id="status">&nbsp;</div>
         </div>
-        <!-- Body content -->
-
-       
-        <div class="header-connect">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-5 col-sm-8  col-xs-12">
-                        <div class="header-half header-call">
-                            <p>
-                                <span><i class="pe-7s-call"></i> +1 234 567 7890</span>
-                                <span><i class="pe-7s-mail"></i> your@company.com</span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-2 col-md-offset-5  col-sm-3 col-sm-offset-1  col-xs-12">
-                        <div class="header-half header-social">
-                            <ul class="list-inline">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-vine"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>            
+        
         <!--End top header -->
 
         <nav class="navbar navbar-default ">
@@ -86,110 +141,22 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
                     <div class="button navbar-right">
-                        <button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.open('register.html')" data-wow-delay="0.4s">Login</button>
+                    
+                    	<script type="text/javascript">alert(${curUserType});</script> 
+                        <button id="login" class="navbar-btn nav-button wow bounceInRight login" data-wow-delay="0.4s"><c:choose><c:when test="${curUserType eq '0'}" >Login</c:when><c:otherwise>Logout</c:otherwise></c:choose></button>
                         <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.open('submit-property.html')" data-wow-delay="0.5s">Submit</button>
+
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
-                            <a href="index.html" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Home <b class="caret"></b></a>
-                            <ul class="dropdown-menu navbar-nav">
-                                <li>
-                                    <a href="index-2.html">Home Style 2</a>
-                                </li>
-                                <li>
-                                    <a href="index-3.html">Home Style 3</a>
-                                </li>
-                                <li>
-                                    <a href="index-4.html">Home Style 4</a>
-                                </li>
-                                <li>
-                                    <a href="index-5.html">Home Style 5</a>
-                                </li>
-
-                            </ul>
+                            <a href="index.html" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">마이페이지 </a>
                         </li>
 
-                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="properties.html">Properties</a></li>
-                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="property.html">Property</a></li>
                         <li class="dropdown yamm-fw" data-wow-delay="0.1s">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Template <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <div class="yamm-content">
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <h5>Home pages</h5>
-                                                <ul>
-                                                    <li>
-                                                        <a href="index.html">Home Style 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-2.html">Home Style 2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-3.html">Home Style 3</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-4.html">Home Style 4</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-5.html">Home Style 5</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h5>Pages and blog</h5>
-                                                <ul>
-                                                    <li><a href="blog.html">Blog listing</a>  </li>
-                                                    <li><a href="single.html">Blog Post (full)</a>  </li>
-                                                    <li><a href="single-right.html">Blog Post (Right)</a>  </li>
-                                                    <li><a href="single-left.html">Blog Post (left)</a>  </li>
-                                                    <li><a href="contact.html">Contact style (1)</a> </li>
-                                                    <li><a href="contact-3.html">Contact style (2)</a> </li>
-                                                    <li><a href="contact_3.html">Contact style (3)</a> </li>
-                                                    <li><a href="faq.html">FAQ page</a> </li> 
-                                                    <li><a href="404.html">404 page</a>  </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h5>Property</h5>
-                                                <ul>
-                                                    <li><a href="property-1.html">Property pages style (1)</a> </li>
-                                                    <li><a href="property-2.html">Property pages style (2)</a> </li>
-                                                    <li><a href="property-3.html">Property pages style (3)</a> </li>
-                                                </ul>
-
-                                                <h5>Properties list</h5>
-                                                <ul>
-                                                    <li><a href="properties.html">Properties list style (1)</a> </li> 
-                                                    <li><a href="properties-2.html">Properties list style (2)</a> </li> 
-                                                    <li><a href="properties-3.html">Properties list style (3)</a> </li> 
-                                                </ul>                                               
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h5>Property process</h5>
-                                                <ul> 
-                                                    <li><a href="submit-property.html">Submit - step 1</a> </li>
-                                                    <li><a href="submit-property.html">Submit - step 2</a> </li>
-                                                    <li><a href="submit-property.html">Submit - step 3</a> </li> 
-                                                </ul>
-                                                <h5>User account</h5>
-                                                <ul>
-                                                    <li><a href="register.html">Register / login</a>   </li>
-                                                    <li><a href="user-properties.html">Your properties</a>  </li>
-                                                    <li><a href="submit-property.html">Submit property</a>  </li>
-                                                    <li><a href="change-password.html">Change password</a> </li>
-                                                    <li><a href="user-profile.html">Your profile</a>  </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- /.yamm-content -->
-                                </li>
-                            </ul>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">포인트 충전 </a>
                         </li>
 
-                        <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">Contact</a></li>
+                        <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">서비스 소개</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
@@ -200,14 +167,13 @@
             <div class="container">
                 <div class="row">
                     <div class="page-head-content">
-                        <h1 class="page-title">Home New account / Sign in </h1>               
+                        <h1 class="page-title">회원가입 / 로그인 </h1>               
                     </div>
                 </div>
             </div>
         </div>
         <!-- End page header -->
  
-
         <!-- register-area -->
         <div class="register-area" style="background-color: rgb(249, 249, 249);">
             <div class="container">
@@ -215,24 +181,38 @@
                 <div class="col-md-6">
                     <div class="box-for overflow">
                         <div class="col-md-12 col-xs-12 register-blocks">
-                            <h2>New account : </h2> 
-                            <form action="" method="post">
+                            <h2>회원가입 : </h2> 
+                            <form name = "insertForm"action="front?command=memberInsert" method="post" onSubmit="return checkValid()">
                                 <div class="form-group">
-                                    <label for="name">Name</label>
-                                    <input type="text" class="form-control" id="name">
+                                    <label for="name">아이디</label>
+                                    <input type="text" class="form-control" id="memberId" name="memberId" autocomplete="off">
+                                    <span id="span">아이디 중복 체크</span>
                                 </div>
                                 <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="text" class="form-control" id="email">
+                                    <label for="password">비밀번호</label>
+                                    <input type="password" class="form-control" id="memberPassword" name="memberPassword">
                                 </div>
                                 <div class="form-group">
-                                    <label for="password">Password</label>
-                                    <input type="password" class="form-control" id="password">
+                                    <label for="name">이름</label>
+                                    <input type="text" class="form-control" id="name" name="name">
                                 </div>
+                                <div class="form-group">
+                                    <label for="phone">전화번호</label>
+                                    <input type="text" class="form-control" id="phone" name="phone">
+                                </div>
+                                <div class="form-group">
+                                    <label>사업자 여부</label>
+                                    <input type="checkbox" name ="check" id="check">체크시 사업자 등록가능
+									<input type="hidden" class="form-control" name ="memberCheck" id= "memberCheck">
+                                </div>
+                        
+                                
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-default">Register</button>
+                                    <button type="submit" class="btn btn-default" id="join">가입하기</button>
+                                   
                                 </div>
                             </form>
+                            
                         </div>
                     </div>
                 </div>
@@ -240,23 +220,31 @@
                 <div class="col-md-6">
                     <div class="box-for overflow">                         
                         <div class="col-md-12 col-xs-12 login-blocks">
-                            <h2>Login : </h2> 
-                            <form action="front?command=login" method="post">
+                            <h2>로그인 : </h2> 
+                            <form action="" method="post">
                                 <div class="form-group">
-                                    <label for="email">ID</label>
-                                    <input type="text" class="form-control" name="id">
+                                    <label for="id">아이디</label>
+                                    <input type="text" class="form-control" id="id">
                                 </div>
                                 <div class="form-group">
-                                    <label for="password">Password</label>
-                                    <input type="password" class="form-control" name="password">
+                                    <label for="password">비밀번호</label>
+                                    <input type="password" class="form-control" id="password">
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-default"> Log in</button>
+                                    <button type="submit" class="btn btn-default"> 로그인</button>
                                 </div>
                             </form>
                             <br>
                             
-                        </div>
+                            <h2>소셜 로그인 :  </h2> 
+                            
+                            
+                            <p>
+                            <a class="login-social" href="#"><i class="fa fa-facebook"></i>&nbsp;Facebook</a> 
+                            <a class="login-social" href="#"><i class="fa fa-google-plus"></i>&nbsp;Gmail</a> 
+                            <a class="login-social" href="#"><i class="fa fa-twitter"></i>&nbsp;Twitter</a>  
+                            </p> 
+                      </div>
                         
                     </div>
                 </div>
@@ -422,3 +410,4 @@
 
     </body>
 </html>
+                            

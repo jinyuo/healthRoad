@@ -7,13 +7,30 @@ import mind.model.dao.HealthDAO;
 import mind.model.dao.HealthDAOImpl;
 import mind.model.dto.GymDTO;
 import mind.model.dto.MemberDTO;
-import mind.model.dto.PointDTO;
 import mind.model.dto.ReviewDTO;
 import mind.model.dto.UseDetailDTO;
+import mind.util.PwUtil;
 
 public class HealthService {
 	private static HealthDAO healthDAO = new HealthDAOImpl();
 		
+	/**
+	 * 유저 로그인
+	 */
+	public static boolean login(String id,String inputPwd) throws SQLException{
+		
+		String pwd = healthDAO.selectPwdById(id);
+	
+	//해당되는 아이디가 없으면 return
+	if(pwd==null) {
+		return false;
+	}
+	//패스워드 체크 메소드
+	//패스워드가 일치하면 true, 틀리면 false 출력
+	//System.out.println(inputPwd+" | "+pwd);
+	return new PwUtil().PWCheck(inputPwd,pwd);
+	}
+	
 	/**
 	 * 유저 회원가입(등록)
 	 * */
@@ -54,25 +71,25 @@ public class HealthService {
 	/**
 	 * 포인트 잔액 갱신 : 포인트 충전용
 	 * */
-	public static int updatePoint(String memberId, int price) throws SQLException{
-		int result = healthDAO.updatePoint(memberId, price);
+	public static int updatePoint(String id, int price) throws SQLException{
+		int result = healthDAO.updatePoint(id, price);
 		return result;
 	}
 	
 	/**
 	 * 포인트 잔액 갱신 : 사용자가 헬스장 이용하기 시
 	 * */
-	public static int updatePoint(String memberId, int gymCode, int price) throws SQLException{
-		int result = healthDAO.updatePoint(memberId, gymCode, price);
+	public static int updatePoint(String id, int gymCode, int price) throws SQLException{
+		int result = healthDAO.updatePoint(id, gymCode, price);
 		return result;
 	}
 	
 	/**
 	 * 포인트 잔액 검색, 출력
 	 * */
-	public static PointDTO selectPoint(String memberId) throws SQLException{
-		PointDTO pointDTO = healthDAO.selectPoint(memberId);
-		return pointDTO;
+	public static MemberDTO selectPoint(String id) throws SQLException{
+		MemberDTO memberDTO = healthDAO.selectPoint(id);
+		return memberDTO;
 	}
 	
 	//////////////////////////////////////////////////////////////////////////////
@@ -106,6 +123,21 @@ public class HealthService {
 	 * */
 	public static GymDTO selectGymByCode(int gymCode) throws SQLException {
 		GymDTO gymDTO = healthDAO.selectGymByCode(gymCode);
+		List<ReviewDTO> reviewList = healthDAO.selectReviewByGymCode(gymCode);
+		double avg = 0;//평균을 저장할 변수
+		double sum = 0; //별점 더해서 저장할 변수
+		if(reviewList == null || reviewList.size()==0) { //리뷰가 없으면 평균 별점 0으로 세팅
+			gymDTO.setAvgScore(0);
+		}else { //리뷰가 있다면
+			for(ReviewDTO r : reviewList) {
+				sum += r.getStarScore();
+				avg = sum / reviewList.size();
+				avg = Math.round(avg*10)/10.0; //소수점 1번째 까지 반올림해서 출력 
+				gymDTO.setAvgScore(avg);
+			}
+		}
+		
+		
 		return gymDTO;
 	}
 

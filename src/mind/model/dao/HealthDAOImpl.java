@@ -11,13 +11,37 @@ import java.util.Properties;
 
 import mind.model.dto.GymDTO;
 import mind.model.dto.MemberDTO;
-import mind.model.dto.PointDTO;
 import mind.model.dto.ReviewDTO;
 import mind.model.dto.UseDetailDTO;
 import mind.util.DbUtil;
 
 public class HealthDAOImpl implements HealthDAO {
 	private Properties proFile = DbUtil.getProFile();
+	
+	@Override
+	public String selectPwdById(String id) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String sql = proFile.getProperty("member.selectPwdById");
+		
+		String pwd =null;
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			System.out.println(id);
+			ps.setString(1, id);
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				pwd = rs.getString(1);
+				System.out.println(1);
+			}
+		} finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
+		return pwd;
+	}
 	
 	//트랜잭션 처리 - 참고 : C:\Edu\Java\JavaWorkSpace\step10_JDBC\src\ex1101\transaction
 	@Override
@@ -49,17 +73,11 @@ public class HealthDAOImpl implements HealthDAO {
 			result = ps.executeUpdate();
 			System.out.println(result +"후 :결과값");
 			
-			if (result > 0) {
-				result = insertPoint(member.getId(), con);
-				if (result > 0)
-					con.commit();
-				else
-					con.rollback();
-			} else {
+			if(result > 0)
+				con.commit();
+			else
 				con.rollback();
-			}
-			 
-			 
+	
 		}catch (SQLException e) {
 			try {
 				con.rollback();
@@ -154,6 +172,7 @@ public class HealthDAOImpl implements HealthDAO {
 		return result;
 	}
 
+	/*
 	@Override
 	public int insertPoint(String memberId, Connection con) throws SQLException {
 		PreparedStatement ps = null;
@@ -165,20 +184,21 @@ public class HealthDAOImpl implements HealthDAO {
 		result = ps.executeUpdate();
 		return result;
 	}
+	*/
 	
 	@Override
 	//업데이트할 가격 매개변수로 받아야 함
-	public int updatePoint(String memberId, int price) throws SQLException {
+	public int updatePoint(String id, int price) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
-		String sql = proFile.getProperty("point.update");
+		String sql = proFile.getProperty("member.updatePoint");
 		int result = 0;
 		
 		try {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, price);
-			ps.setString(2, memberId);
+			ps.setString(2, id);
 			
 			result = ps.executeUpdate();
 		} finally {
@@ -189,11 +209,11 @@ public class HealthDAOImpl implements HealthDAO {
 	
 	//트랜잭션 처리
 	@Override
-	public int updatePoint(String memberId, int gymCode, int price) throws SQLException{
+	public int updatePoint(String id, int gymCode, int price) throws SQLException{
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		String sql = proFile.getProperty("point.update");
+		String sql = proFile.getProperty("member.updatePoint");
 		int result = 0;
 		
 		try {
@@ -203,7 +223,7 @@ public class HealthDAOImpl implements HealthDAO {
 			//고객 포인트 차감
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, (-1) * price);
-			ps.setString(2, memberId);
+			ps.setString(2, id);
 			result = ps.executeUpdate();
 			ps.close();
 			String tempId = null;
@@ -248,25 +268,25 @@ public class HealthDAOImpl implements HealthDAO {
 	}
 
 	@Override
-	public PointDTO selectPoint(String memberId) throws SQLException {
+	public MemberDTO selectPoint(String id) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		String sql = proFile.getProperty("point.selectById");
-		PointDTO pointDTO = null;
+		String sql = proFile.getProperty("member.selectPointById");
+		MemberDTO memberDTO = null;
 		
 		try {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
-			ps.setString(1, memberId);
+			ps.setString(1, id);
 			rs = ps.executeQuery();
 			
 			if(rs.next())
-				pointDTO = new PointDTO(rs.getString("member_id"), rs.getInt("balance"));
+				memberDTO = new MemberDTO(rs.getString("member_id"), rs.getInt("balance"));
 		} finally {
 			DbUtil.dbClose(rs, ps, con);
 		}
-		return pointDTO;
+		return memberDTO;
 	}
 
 	@Override
@@ -325,7 +345,8 @@ public class HealthDAOImpl implements HealthDAO {
 				
 				GymDTO gym = new GymDTO(code, name, addr, phoneNum, fileName, gymCapacity, price, comment, weekdayHour, weekendHour, avgScore);
 				
-				list.add(gym);
+				if(code != -1)
+					list.add(gym);
 			}
 		} finally {
 			DbUtil.dbClose(rs, ps, con);
@@ -337,17 +358,23 @@ public class HealthDAOImpl implements HealthDAO {
 	public List<GymDTO> selectGymByKeyword(String keyField, String keyword) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
-
-		String sql = proFile.getProperty("gym.selectByKeyword");//sql = gym.selectByKeyword=SELECT CODE, NAME, ADDR, PHONE_NUM, FILE_NAME, GYM_CAPACITY, PRICE, GYM_COMMENT, WEEKDAY_HOUR, WEEKEND_HOUR, STAR_SCORE FROM GYM WHERE ? LIKE ?
-
+		
+		
+		String sql = proFile.getProperty("gym.selectByKeyword");//sql = gym.selectByKeyword=SELECT CODE, NAME, ADDR, PHONE_NUM, FILE_NAME, GYM_CAPACITY, PRICE, GYM_COMMENT, WEEKDAY_HOUR, WEEKEND_HOUR, STAR_SCORE FROM GYM WHERE  LIKE ?
+		System.out.println(sql);
+		if(keyField.equals("addr") || keyField.equals("name")) {
+			sql = String.format(sql, keyField);
+		}
+		String.format("%s", "ssssss");
+		System.out.println(sql);
 		ResultSet rs = null;
 		List<GymDTO> list = new ArrayList<GymDTO>();
 		
 		try {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
-			ps.setString(1, keyField);
-			ps.setString(2, "%"+keyword+"%");
+			
+			ps.setString(1, "%"+keyword+"%");
 			rs = ps.executeQuery();
 			
 			while(rs.next()) {
@@ -438,7 +465,8 @@ public class HealthDAOImpl implements HealthDAO {
 	public List<ReviewDTO> selectReviewByGymCode(int gymCode) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
-		String sql = proFile.getProperty("gym.selectByKeyword");//SELECT CODE, GYM_CODE, MEMBER_ID, REG_DATE, STAR_SCORE, CONTENT, FILE_NAME FROM REVIEW WHERE GYM_CODE = ?
+		String sql = proFile.getProperty("review.selectByGymCode");//SELECT CODE, GYM_CODE, MEMBER_ID, REG_DATE, STAR_SCORE, CONTENT, FILE_NAME FROM REVIEW WHERE GYM_CODE = ?
+		System.out.println(sql);
 		ResultSet rs = null;
 		List<ReviewDTO> list = new ArrayList<ReviewDTO>();
 		
@@ -457,6 +485,7 @@ public class HealthDAOImpl implements HealthDAO {
 				String content = rs.getString("CONTENT");
 				String fileName = rs.getString("FILE_NAME");
 				int gCode = rs.getInt("GYM_CODE");	//gymCode가 매개변수로 사용되고 있어서 gCode로 사용!
+				System.out.println(code+ memberId+ regDate+ starScore+ content+ fileName+ gCode);
 				ReviewDTO review = new ReviewDTO(code, memberId, regDate, starScore, content, fileName, gCode);
 				list.add(review);
 			}
@@ -538,7 +567,11 @@ public class HealthDAOImpl implements HealthDAO {
 		PreparedStatement ps = null;
 
 		String sql = proFile.getProperty("useDetail.selectByKeyword"); //SELECT CODE, MEMBER_ID, GYM_CODE, PRICE, USE_START_HOUR, STATE FROM USE_DETAIL WHERE ? = ?
-		sql.replaceFirst("?", keyField);
+		
+		if(keyField.equals("member_id") || keyField.equals("gym_code")) {
+			sql = String.format(sql, keyField);
+			System.out.println("sql : " + sql);
+		}
 		ResultSet rs = null;
 		List<UseDetailDTO> list = new ArrayList<UseDetailDTO>();
 		
@@ -637,5 +670,7 @@ public class HealthDAOImpl implements HealthDAO {
 		}
 		return result;
 	}
+
+	
 
 }

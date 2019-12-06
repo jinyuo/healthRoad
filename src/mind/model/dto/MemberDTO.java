@@ -7,6 +7,7 @@ public class MemberDTO {
 	private String pwd; //비밀번호
 	private String phoneNum; // 유저 연락처
 	private int gymCode; //사업가라면 필요한 헬스장 코드 헬스장 코드는 시퀀스라서 인트로
+	private int balance;
 	
 	/**
 	 * 인수없는  MemberDTO생성자
@@ -17,13 +18,14 @@ public class MemberDTO {
 	/**
 	 * 모든 필드사용하는 MemberDTO생성자 아마 헬스장 코드가 있으니 사업가 생성할 때 사용할 듯
 	 * */
-	public MemberDTO(String id, String name, String pwd, String phoneNum, int gymCode) {
+	public MemberDTO(String id, String name, String pwd, String phoneNum, int gymCode/*, int balance*/) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.pwd = pwd;
 		this.phoneNum = phoneNum;
 		this.gymCode = gymCode;
+		/*this.balance = balance;*/
 	}
 
 
@@ -39,6 +41,16 @@ public class MemberDTO {
 	}
 	
 	/**
+	 * 포인트를 사용하기 위한 MemberDTO생성자
+	 */
+	public MemberDTO(String id, int balance) {
+		super();
+		this.id = id;
+		this.balance = balance;
+	}
+
+	
+	/**
 	 * 필요한 생성자 있으면 생성하세요
 	 * */
 	
@@ -50,6 +62,7 @@ public class MemberDTO {
 	public String getId() {
 		return id;
 	}
+
 
 
 	public void setId(String id) {
@@ -94,6 +107,16 @@ public class MemberDTO {
 
 	public void setGymCode(int gymCode) {
 		this.gymCode = gymCode;
+	}
+
+
+	public int getBalance() {
+		return balance;
+	}
+
+
+	public void setBalance(int balance) {
+		this.balance = balance;
 	}
 	
 	

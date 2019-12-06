@@ -26,7 +26,7 @@ public class userPointToGymController implements HealthController {
 		//로그인된 사용자의 계정에서 id를 얻어온다.
 		String memberId = (String)session.getAttribute("curUser");
 		//해당 헬스장의 gymCode와 price를 받아온다.(넘어오는 파라미터 이름 점검필요)
-		String gymName = (String)session.getAttribute("gymName");
+		String gymName = request.getParameter("gymName");
 		int gymCode = Integer.parseInt(request.getParameter("gymCode"));
 		int price = Integer.parseInt(request.getParameter("price"));
 		

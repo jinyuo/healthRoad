@@ -76,23 +76,49 @@
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
+        
+       						<!-- <div style="position: relative; z-index: -99; width: 100%; height: 600px">
+          					
+          						<iframe width=100% height=100% src="https://www.youtube.com/embed/w-cRWOjlk8c?start=258" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+								<iframe frameborder="0" height="100%" width="100%" 
+								src="https://www.youtube.com/embed/U9csZAZUZeI?mute=1&loop=1&autoplay=1&rel=0&controls=0&showinfo=0" allow="autoplay; encrypted-media" >
+								</iframe>
+
+							</div>	 -->
+        
 
         <!-- property area -->
         
+        <!-- ------------------------------------------영상 시작-------------------------------------------- -->
+           					<div style="position: relative; z-index: -99; width: 100%; height: 600px">
+          					
+          						<iframe style="position: absolute" width=100% height=100% src="https://www.youtube.com/embed/w-cRWOjlk8c?rel=0;amp;autoplay=1&amp;mute=1;start=258&playlist=w-cRWOjlk8c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+							</div>
+            
+            <!-- ------------------------------------------영상 끝-------------------------------------------- -->
+        
             <div class="container">  
             
-            <div class="post-header single">
+            
+          					<div class="post-header single">
+          					
+          					
+							
                                 <div class="">
                                     <h2 class="wow fadeInLeft animated">헬스로드 소개</h2>
                                     <div class="title-line wow fadeInRight animated"></div>
                                 </div>
-                                <div class="row wow fadeInRight animated">
+                                
+                                
+                                <!-- <div class="row wow fadeInRight animated">
+                                ggggggggggggggggggggggggggggggggggg
                                     <br>
                                     
                                 </div>
-                                <div class="image wow fadeInRight animated"> 
-                                    <img src="assets/img/운동1.jpeg" class="img-responsive" alt="Example blog post alt">
-                                </div>
+ -->                                	
                             </div> 
 
                             <div id="post-content" class="post-body single wow fadeInLeft animated">
@@ -401,7 +427,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="pull-left">
-                            <span> (C) <a href="http://www.KimaroTec.com">KimaroTheme</a> , All rights reserved 2016  </span> 
+                            <span> (C) <a href="#">OpenMind</a> , All rights reserved 2016  </span> 
                         </div> 
                         <div class="bottom-menu pull-right"> 
                             <ul> 

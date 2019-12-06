@@ -28,7 +28,7 @@ public class MemberDTO {
 		/*this.balance = balance;*/
 	}
 
-
+ 
 	/**
 	 * 헬스장 코드가 없는 MemberDTO생성자 아마 일반 유저가 사용할 듯ㅋㅋ
 	 * */

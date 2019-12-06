@@ -47,7 +47,7 @@
             		location.href="register.jsp";
             	} else {
             		alert($(this).text());
-            		
+            		location.href="front?command=login";
             	}
 			}); 	
 		});

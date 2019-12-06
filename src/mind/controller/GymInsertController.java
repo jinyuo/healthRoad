@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import mind.model.dto.GymDTO;
 import mind.service.HealthService;
@@ -14,6 +15,10 @@ public class GymInsertController implements HealthController {
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException {
+		HttpSession session = request.getSession();
+
+		String id = session.getAttribute("curUserId").toString();
+
 		String name = request.getParameter("gymName");
 		String addr = request.getParameter("addr");
 		String phoneNum = request.getParameter("phone");
@@ -36,7 +41,7 @@ public class GymInsertController implements HealthController {
 		
 		GymDTO gym = new GymDTO(name,addr,phoneNum,gymCapacity,price,comment, weekday,weekend,fileName);
 		
-		HealthService.insertGym(gym);
+		HealthService.insertGym(gym,id);
 		
 		ModelAndView mv = new ModelAndView();
 		

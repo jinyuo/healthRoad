@@ -11,6 +11,7 @@ import mind.model.dao.HealthDAO;
 import mind.model.dao.HealthDAOImpl;
 import mind.model.dto.MemberDTO;
 import mind.service.HealthService;
+import mind.util.PwUtil;
 
 public class MemberInsertController implements HealthController {
 
@@ -26,9 +27,10 @@ public class MemberInsertController implements HealthController {
 		String phoneNum = request.getParameter("phone");
 		int gymCode = Integer.parseInt(request.getParameter("memberCheck"));
 		
-	
-		System.out.println(gymCode +"******");
-		MemberDTO member = new MemberDTO(id,pwd,name,phoneNum,gymCode);
+		PwUtil pwutil = new PwUtil();
+		String enpwd = pwutil.Encryption(pwd);
+		//System.out.println(gymCode +"******");
+		MemberDTO member = new MemberDTO(id,enpwd,name,phoneNum,gymCode);
 		
 		HealthService.insertMember(member);
 		

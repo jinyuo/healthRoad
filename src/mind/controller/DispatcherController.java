@@ -26,7 +26,6 @@ public class DispatcherController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// command = view에서 name=command
 		String key = request.getParameter("command");
-		System.out.println(12312);
 		try {
 			ModelAndView mv = map.get(key).handleRequest(request, response);
 

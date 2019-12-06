@@ -16,14 +16,13 @@ public class CheckGymCodeController implements HealthController {
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException {
 		HttpSession session = request.getSession();
-		
 		ModelAndView mv = new ModelAndView();
-		
 		String id =session.getAttribute("curUserId").toString();
 		String type =session.getAttribute("curUserType").toString();
+		
 		if(type.equals("1") || type.equals("")) {
-			request.setAttribute("errCode", "5");
-			new SQLException();
+			request.setAttribute("errCode", "4");
+			throw new SQLException();
 		}else {
 		MemberDTO member=  HealthService.selectMemberById(id);
 			int gymCode=member.getGymCode();
@@ -31,7 +30,7 @@ public class CheckGymCodeController implements HealthController {
 				mv.setViewName("buisness_register.html");
 			}else {
 				request.setAttribute("errCode", "5");
-				new SQLException();
+			throw new SQLException();
 			}
 		}
 			

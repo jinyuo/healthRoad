@@ -42,6 +42,11 @@ public interface HealthDAO {
 	 * */
 	boolean duplicateById(String id) throws SQLException;
 	
+	/**
+	 * GymCode 업데이트
+	 */
+	
+	
 	//////////////////////////////////////////////////////////////////////////
 	
 	/**
@@ -69,7 +74,7 @@ public interface HealthDAO {
 	/**
 	 * 헬스장 등록
 	 * */
-	int insertGym(GymDTO gym) throws SQLException;
+	int insertGym(GymDTO gym,String id) throws SQLException;
 	
 	/**
 	 * 모든 헬스장 검색

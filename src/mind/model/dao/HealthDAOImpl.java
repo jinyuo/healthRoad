@@ -299,7 +299,7 @@ public class HealthDAOImpl implements HealthDAO {
 	}
 
 	@Override
-	public int insertGym(GymDTO gym) throws SQLException {
+	public int insertGym(GymDTO gym,String id) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		String sql = proFile.getProperty("gym.insert");
@@ -320,9 +320,20 @@ public class HealthDAOImpl implements HealthDAO {
 			ps.setString(9, gym.getWeekendHour());
 			
 			result = ps.executeUpdate();
-		} finally {
-			DbUtil.dbClose(ps, con);
+			
+			if(result==0) throw new SQLException();
+			
+			//현재 GymCode구하기
+			sql = proFile.getProperty("member.updateGymCode");
+			ps = con.prepareStatement(sql);
+			ps.setString(1, id);
+			
+			result = ps.executeUpdate();
+			
+		}finally {
+			DbUtil.dbClose(ps, con);;
 		}
+		
 		return result;
 	}
 
@@ -469,6 +480,8 @@ public class HealthDAOImpl implements HealthDAO {
 		}
 		return result;
 	}
+	
+	
 
 	@Override
 	public List<ReviewDTO> selectReviewByGymCode(int gymCode) throws SQLException {
@@ -679,6 +692,8 @@ public class HealthDAOImpl implements HealthDAO {
 		}
 		return result;
 	}
+
+	
 
 	
 

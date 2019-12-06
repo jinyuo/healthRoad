@@ -28,13 +28,20 @@ public class LoginController implements HealthController {
 	String password = request.getParameter("password");
 	boolean result = HealthService.login(id,password);
 	
+	int gymCode = HealthService.selectMemberById(id).getGymCode();
+	
 	//로그인 성공
 	if (result) {
 		
-		session.setAttribute("curUserType", "1");
+		if(gymCode==0) {
+			session.setAttribute("curUserType", "1");
+		} else if (gymCode==-1) {
+			session.setAttribute("curUserType", "2");
+		}
 		session.setAttribute("curUserId",id);
 		mv.setViewName("index-5.jsp");
 		mv.setRedirect(true);
+		
 		
 	} else {		
 		//방법3
@@ -42,13 +49,15 @@ public class LoginController implements HealthController {
 		request.setAttribute("errCode","1");
 		throw new SQLException();
 	}
+	} else { 
+		  session.setAttribute("curUserType", "0");
+		  session.setAttribute("curUserId",""); 
+		  mv.setViewName("index-5.jsp");
+		  mv.setRedirect(true); 
+		  }
 
-	} else {
-		session.setAttribute("curUserType", "0");
-		session.setAttribute("curUserId","");
-		mv.setViewName("index-5.jsp");
-		mv.setRedirect(true);
-	}
+	
+		 
 	return mv;
 	}
 }

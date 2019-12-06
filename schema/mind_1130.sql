@@ -245,3 +245,11 @@ UPDATE USE_DETAIL SET STATE = CASE
                                 END;
 
 COMMIT
+select * from gym;
+select * from member;
+UPDATE MEMBER SET GYM_CODE = (select LAST_NUMBER from user_sequences where SEQUENCE_NAME = 'GYM_CODE_SEQ') where id = 'testtest3';
+ SELECT GYM_CODE_SEQ.CURRVAL FROM DUAL 
+
+ 
+ UPDATE MEMBER SET GYM_CODE = (select max(code) from gym) where id = 'testtest3';
+ UPDATE MEMBER SET GYM_CODE = (select max(code) from gym) where id = 'testtest4';

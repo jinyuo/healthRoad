@@ -103,8 +103,8 @@ public class HealthService {
 	/**
 	 * 헬스장 등록
 	 * */
-	public static int insertGym(GymDTO gym) throws SQLException{
-		int result = healthDAO.insertGym(gym);
+	public static int insertGym(GymDTO gym, String id) throws SQLException{
+		int result = healthDAO.insertGym(gym,id);
 		return result;
 	}
 	

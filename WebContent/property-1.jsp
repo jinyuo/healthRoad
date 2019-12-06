@@ -142,12 +142,15 @@
                             <div class="single-property-header">                                          
                                 <h1 class="property-title pull-left">환영합니다</h1>
                                 
-                                
+                                <form action ="${pageContext.request.contextPath}/front?command=userPointToGym" method="post">
+                                <input type ="hidden" name="gymCode" value="${requestScope.gym.code}">
+                                <input type = "hidden" name="price" value="${requestScope.gym.price}">
+                                <input type = "hidden" name="gymName" value="${requestScope.gym.name}">
                                 <p align="right">
-                                <button type="button" class="btn btn-primary btn-lg" style="background-color:#FF8000" name="btnn">이용하기</button>
+                                <button class="btn btn-primary btn-lg" style="background-color:#FF8000" name="btnn">이용하기</button>
                                 </p>
                                 <span class="property-price pull-right" style="text-align:right">${requestScope.gym.price}p</span>
-                                
+                                </form>
                             </div>
 
                             
@@ -201,11 +204,11 @@
 									</c:if>
 									
 									</div><!-- ${pageContext.request.contextPath}/save/review" -->
-									<c:choose>
-										<c:when test="${reviewList.memberId == sessionScope.curUserId} ">
+ 									<c:choose> 
+ 									<c:when test="${reviewList.memberId == sessionScope.curUserId} "> 
 									<span ><input type="submit" name="rBtn" value="삭제" style="text-align:center; position: relative; width:50px; background-color:orange; color:white;"></span>
-									</c:when>
-									</c:choose> 
+ 									</c:when>
+									</c:choose>  
 									</form>
 									<!--삭제 form끝 -->
 									<!--리뷰 업데이트 form 시작 -->
@@ -217,7 +220,7 @@
 									<input type="hidden" value="${reviewList.fileName}" name = "reviewFileName">
 									<c:choose>
 										<c:when test="${reviewList.memberId == sessionScope.curUserId} ">
-											<span><input type="submit" name="rBtn" value="수정" style="text-align:center; position: relative; left:55px; top:-30px; width:50px; background-color:orange; color:white;"></span>
+											<span><input type="button" name="rBtn" value="수정" style="text-align:center; position: relative; left:55px; top:-30px; width:50px; background-color:orange; color:white;"></span>
 										</c:when>
 									</c:choose>
 									</form>
@@ -286,7 +289,7 @@
                                 <div class="panel-body recent-property-widget">
                                 	<!-- 지도 출력할 위치 -->
                                    
-                                    <div style="width:300px; height:400px" id='map'></div>
+                                    <div style="width:100%; height:400px" id='map' ></div>
                                 </div>
                             </div>
 
@@ -437,7 +440,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
           
         
@@ -517,19 +519,33 @@
 		$("[name=btnn]").click(function(){
 			//session에 curUserType이 0이면 비회원이니까 로그인하라는 alert 띄움
 			
-			if("${sessionScope.curUserType}" == 0){
+			if("${sessionScope.curUserType}" == 3){
 				alert("로그인 후 사용해주세요.");
 				
 				return false;
 			}
 		});
-// 		var reviewList = "${requestScope.review}";
+		
+		$("[value=삭제]").click(function(){
+			var b = confirm("정말삭제하시겠습니까?");
+			console.log(b);
+			if(b){
+				return true;
+			}else{
+				return false;
+			}
+			
+		});
+		
 // 		alert(reviewList);
 // 		$("[name=rBtn]").hide();
 // 		$.each(reviewList, function(index, item){
 // 			console.log(item);
 // 		});
-		
+// 		$.each(reviewList, function(index, item){
+// 			alert(1);
+			
+// 		});
 		
 	});
 

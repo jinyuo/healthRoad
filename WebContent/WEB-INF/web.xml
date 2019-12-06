@@ -14,4 +14,7 @@
     <param-name>fileName</param-name>
     <param-value>mind/listener/ActionMapping</param-value>
   </context-param>
+  <listener> 
+	<listener-class>mind.listener.LoginSessionListener</listener-class>
+</listener>
 </web-app>

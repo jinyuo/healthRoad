@@ -34,6 +34,20 @@
         <link rel="stylesheet" href="assets/css/owl.transitions.css">
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="assets/css/responsive.css">
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript">
+        
+       
+        	function userDel(){
+        		if(confirm("정말로 탈퇴하시겠습니까?")){
+        			location.href="front?command=delUser";		
+        		}else {
+        			return;
+        		}
+        	}
+        	
+            
+        </script>
     </head>
     <body>
 
@@ -86,8 +100,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
                     <div class="button navbar-right">
-                        <button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.open('register.html')" data-wow-delay="0.4s">Login</button>
-                        <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.open('submit-property.html')" data-wow-delay="0.5s">Submit</button>
+                        <button class="navbar-btn nav-button wow bounceInRight login" onclick="location.href='register.jsp'" data-wow-delay="0.4s">Login</button>
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
@@ -265,7 +278,7 @@
                             <!-- /.col-sm-4 -->
                                                         <!-- /.col-sm-4 -->
                             <div class="col-sm-4">
-                                <h3><a href="front?command=delUser"><i class="fa fa-sign-out"></i>회원 탈퇴</a></h3>
+                                <h3><a href="#" onclick="userDel()"><i class="fa fa-sign-out"></i>회원 탈퇴</a></h3>
                                 <p class="text-muted"><strong>신청한 회원 목록을 보고 승인을 해줄수 있습니다.</strong></p>
                              
                             </div>

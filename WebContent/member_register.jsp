@@ -172,7 +172,7 @@
                                 <div class="form-group">
                                     <label for="name">아이디</label>
                                     <input type="text" class="form-control" id="memberId" name="memberId" autocomplete="off">
-                                    <span id="span" class="red strong">아이디 중복 체크</span>
+                                    <span id="span" class="orange strong">아이디 중복 체크</span>
                                 </div>
                                 <div class="form-group">
                                     <label for="password">비밀번호</label>

@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -40,8 +41,9 @@ public class UpdateReviewController implements HealthController {
 		int code = Integer.parseInt(m.getParameter("reviewCode"));
 		// 사진이 있는 리뷰에서 수정하기를 눌렀을 때 업로드 되어있던 사진이름.
 		String oldFile = m.getParameter("oldFile");
-		//세션에 유저 아이디 받기(수정필요)
-		String memberId = "SONG";
+		//세션에 유저 아이디 받기()
+		HttpSession session = request.getSession();
+		String memberId = (String)session.getAttribute("curUserId");
 		//본문내용에 스크립트 태그를 막기 위해서 사용
 		content= content.replace("<", "&lt;");
 		

@@ -48,14 +48,12 @@
 <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 <body>
-
 	<div id="preloader">
 		<div id="status">&nbsp;</div>
 	</div>
 	<!-- Body content -->
 
 	<!--End top header -->
-
 	<nav class="navbar navbar-default ">
 		<div class="container">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -114,7 +112,6 @@
 	</nav>
 	<!-- End of nav bar -->
 
-
 	<div class="slider-area">
 		<div class="slider">
 			<div id="bg-slider" class="owl-carousel owl-theme">
@@ -127,7 +124,6 @@
 				<div class="item">
 					<img src="${pageContext.request.contextPath}/save/main/main6.jpg" alt="mainImg3">
 				</div>
-
 			</div>
 		</div>
 		<div class="container slider-content">
@@ -144,8 +140,7 @@
 							<div class="form-group">
 								<!-- 컨트롤러 매칭을 위한 값 넘김 -->
 								<input type="hidden" name="command" value="gymList">
-								<!-- 								<select id="lunchBegins" class="selectpicker" data-live-search="true" data-live-search-style="begins" title="-선택-" name="keyfield">
- -->
+								<!-- <select id="lunchBegins" class="selectpicker" data-live-search="true" data-live-search-style="begins" title="-선택-" name="keyfield"> -->
 								<select id="basic" class="selectpicker show-tick form-control"
 									name="keyfield">
 									<option>선택</option>
@@ -168,18 +163,17 @@
 
 
 	<!-- property area -->
-	<div class="content-area recent-property"
-		style="padding-bottom: 60px; background-color: rgb(252, 252, 252);">
+	<div class="content-area recent-property" style="padding-bottom: 60px; background-color: rgb(252, 252, 252);">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12  padding-top-40 properties-page">
 					<div class="col-md-12 ">
 						<div class="col-xs-10 page-subheader sorting pl0">
 
-							<!-- <ul class="sort-by-list">
+							 <!-- <ul class="sort-by-list">
 								<li class="active"><a href="javascript:void(0);"
 									class="order_by_date" data-orderby="property_date"
-									data-order="ASC"> 날짜 순 정렬 <i class="fa fa-sort-amount-asc"></i>
+									data-order="ASC"> 별점 순 정렬 <i class="fa fa-sort-amount-asc"></i>
 								</a></li>
 								<li class=""><a href="javascript:void(0);"
 									class="order_by_price" data-orderby="property_price"
@@ -187,9 +181,9 @@
 										class="fa fa-sort-numeric-desc"></i>
 								</a></li>
 							</ul>
-							/ .sort-by-list
+							 / .sort-by-list -->
 
-							<div class="items-per-page">
+							<!-- <div class="items-per-page">
 								<div class="sel">
 									<select id="items_per_page" name="per_page">
 										<option value="3">3</option>
@@ -205,22 +199,23 @@
 								/ .sel
 								<label for="items_per_page"><b>개 씩 보기 :</b></label>
 
-							</div> -->
-							<!--/ .items-per-page-->
+							</div> 
+							/ .items-per-page -->
 						</div>
 
 						<div class="col-xs-2 layout-switcher">
-							<a class="layout-list" href="javascript:void(0);"> <i
-								class="fa fa-th-list"></i>
-							</a> <a class="layout-grid active" href="javascript:void(0);"> <i
-								class="fa fa-th"></i>
+							<a class="layout-list" href="javascript:void(0);"> 
+								<i class="fa fa-th-list"></i>
+							</a> 
+							<a class="layout-grid active" href="javascript:void(0);"> 
+								<i class="fa fa-th"></i>
 							</a>
 						</div>
 						<!--/ .layout-switcher-->
 					</div>
+				
 					<div class="col-md-12 ">
 						<div id="list-type" class="proerty-th">
-						
 							<c:if test="${fn:length(list) == 0 }">
 								<div class="row">
 									<h2 style="text-align: center;">검색 결과가 없습니다.</h2>
@@ -231,20 +226,20 @@
 									<div class="box-two proerty-item">
 										<div class="item-thumb">
 											<a href="${pageContext.request.contextPath}/front?command=gymDetail&code=${gymList.code}">
-												<!-- <img src="assets/img/demo/property-3.jpg"></a> --> 
 												<img src="${pageContext.request.contextPath}/save/gym/${gymList.fileName}">
-												</a>
+											</a>
 										</div>
 
 										<div class="item-entry overflow">
 											<h5>
-												<a href="${pageContext.request.contextPath}/front?command=gymDetail&code=${gymList.code}">
-													${gymList.name} </a>
+												<a href="${pageContext.request.contextPath}/front?command=gymDetail&code=${gymList.code}">${gymList.name} </a>
 											</h5>
 											<div class="dot-hr"></div>
-											<span class="pull-left"><b> 수용인원 :</b>
-												${gymList.gymCapacity }명 </span> 
-												<span class="proerty-price pull-right"> ${gymList.price} p
+											<span class="pull-left">
+												<b> 수용인원 :</b> ${gymList.gymCapacity }명 
+											</span> 
+											<span class="proerty-price pull-right"> 
+												${gymList.price} p
 											</span><br>
 											<p>${gymList.addr}</p>
 											<p>${gymList.phoneNum}</p>
@@ -284,7 +279,6 @@
 
 	<!-- Footer area-->
 	<div class="footer-area">
-
 		<!-- <div class=" footer">
 			<div class="container">
 				<div class="row">
@@ -418,31 +412,7 @@
 				</div>
 			</div>
 		</div> -->
-
-		<div class="footer-copy text-center">
-			<div class="container">
-				<div class="row">
-					<div class="pull-left">
-						<span> (C) <a href="#">OpenMind</a>
-							, All rights reserved 2019
-						</span>
-					</div>
-					<div class="bottom-menu pull-right">
-						<ul>
-							<li><a class="wow fadeInUp animated" href="#"
-								data-wow-delay="0.2s">Home</a></li>
-							<li><a class="wow fadeInUp animated" href="#"
-								data-wow-delay="0.3s">Property</a></li>
-							<li><a class="wow fadeInUp animated" href="#"
-								data-wow-delay="0.4s">Faq</a></li>
-							<li><a class="wow fadeInUp animated" href="#"
-								data-wow-delay="0.6s">Contact</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-
+		<jsp:include page="footer.jsp"></jsp:include>
 	</div>
 
 

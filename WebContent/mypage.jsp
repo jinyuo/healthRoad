@@ -42,7 +42,7 @@
         <script type="text/javascript">
         
        
-        //회원 탈퇴를 클릭 했을 때 기능
+        //회원 탈퇴를 클릭 했을 때 기능!
         	function userDel(){
         		if(confirm("정말로 탈퇴하시겠습니까?")){
         			location.href="front?command=delUser";		

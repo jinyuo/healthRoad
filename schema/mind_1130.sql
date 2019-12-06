@@ -8,6 +8,8 @@
 -- INSERT문에 속성명 작성 권장
 -- SELECT문에 * 대신 속성명 작성 권장
 -- 'NULL'은 NULL이라는 값의 문자열이므로 INSERT문에 속성값이 비어있다면 NULL로 처리할 것.
+update member set balance = 50000 where id = "test"
+select * from member
 
 SELECT * FROM DUAL;
 

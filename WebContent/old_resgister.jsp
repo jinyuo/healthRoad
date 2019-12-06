@@ -1,11 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <!DOCTYPE html>
-
-
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -15,7 +12,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>헬스로드 | 메인페이지</title>
+<title>GARO ESTATE | Register page</title>
 <meta name="description" content="GARO is a real-estate template">
 <meta name="author" content="Kimarotec">
 <meta name="keyword"
@@ -46,22 +43,107 @@
 <link rel="stylesheet" href="assets/css/owl.transitions.css">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="assets/css/responsive.css">
+
 <script src="js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
-	if ("${Msg}" == "1") {
-		alert("성공적으로 삭제 되었습니다.");
-	}
+        
 
-	$(function() {
-		$("#login").click(function() {
-			if ($(this).text() == "로그인/회원가입") {
-				alert($(this).text())
-				location.href = "register.jsp";
-			} else {
-				alert($(this).text());
-				location.href = "front?command=login";
+      	function checkValid(){
+    		 if($("#memberId").val()==""){
+    			alert("아이디를 입력하세요.")
+    			 $("#memberId").focus();
+    			 return false;
+    		 }
+    		 if($("#memberPassword").val()==""){
+    			alert("비밀번호를 입력하세요.")
+    			  $("#memberId").focus();
+    			 return false;
+    		 }
+    		 if($("#name").val()==""){
+    				alert("이름을 입력하세요.")
+    				  $("#name").focus();
+    			 return false;
+    		 }
+    		 if($("#phone").val()==""){
+    				alert("전화번호를 입력하세요.")
+    				  $("#phone").focus();
+    			 return false;
+    		 }
+    	
+    	 }// 빈칸 유효성 체크 끝
+    	 
+        
+		$(function(){
+			$("#login").click(function(){
+				if($(this).text() == "Login"){
+					alert($(this).text())
+            		location.href="register.jsp";
+            	} else {
+            		alert($(this).text());
+            		location.href="front?command=login";
+            	}
+			}); 	
+		});
+        	
+		
+        </script>
 
+<script src="js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+	function checkValid(){
+		if($("#memberId").val()==""){
+			alert("아이디를 입력하세요.")
+			$("#memberId").focus();
+			return false;
 			}
+		if($("#memberPassword").val()==""){
+			alert("비밀번호를 입력하세요.")
+			$("#memberId").focus();
+			return false;
+			}
+		if($("#name").val()==""){
+			alert("이름을 입력하세요.")
+			$("#name").focus();
+			return false;
+			}
+		if($("#phone").val()==""){
+			alert("전화번호를 입력하세요.")
+			$("#phone").focus();
+			return false;
+			}
+		}// 빈칸 유효성 체크 끝
+
+		$(function(){
+			//아이디 중복 체크
+			$("#memberId").keyup(function(){
+				if($(this).val()==""){
+					$("#span").text("   ");
+					return;
+				}
+				$.ajax({
+					type:"post",
+					url:"idCheckServlet",
+					dataType: "text",//서버에게 받은 응답결과 type(text, xml, html, json)\
+					data : {memberId: $(this).val() } ,//서버에게 전송할 parameter
+					success: function(result){
+						$("#span").html(result);
+					} ,
+					error : function(err){
+						console.log(err+"=> 오류발생");
+					}
+				});//ajax끝
+			});//keyup끝
+        	  
+     		
+ //////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ 			$("#join").click(function(){
+ 				if($("#check").is(":checked")){ //사업자 인지 체크
+ 					$("#memberCheck").val(-1);  //사업자 회원(사업장 등록 가능)
+ 				}else{
+ 					$("#memberCheck").val(0);  //일반 회원
+        		}	
+			});	
 		});
 	});
 </script>
@@ -70,9 +152,9 @@
 	<div id="preloader">
 		<div id="status">&nbsp;</div>
 	</div>
-	<!-- Body content -->
 
 	<!--End top header -->
+
 	<nav class="navbar navbar-default ">
 		<div class="container">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -83,36 +165,31 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index-5.html"><img
+				<a class="navbar-brand" href="index.html"><img
 					src="assets/img/logo.png" alt=""></a>
-				<!-- 로고이미지 바꾸기 -->
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse yamm" id="navigation">
 				<div class="button navbar-right">
-					<button class="navbar-btn nav-button wow bounceInRight login" id="login" data-wow-delay="0.4s"><c:choose><c:when test="${curUserType eq '0'}">로그인/회원가입</c:when><c:otherwise>로그아웃</c:otherwise></c:choose></button>
+					<script type="text/javascript">alert(${curUserType});</script>
+					<button id="login"class="navbar-btn nav-button wow bounceInRight login"data-wow-delay="0.4s"><c:choose><c:when test="${curUserType eq '0'}">Login</c:when><c:otherwise>Logout</c:otherwise></c:choose></button>
+					<button class="navbar-btn nav-button wow fadeInRight"
+						onclick=" window.open('submit-property.html')"
+						data-wow-delay="0.5s">Submit</button>
 				</div>
-				
 				<ul class="main-nav nav navbar-nav navbar-right">
-					<li class="dropdown ymm-sw " data-wow-delay="0.1s">
-						<!-- 여기href 바꿔야함--> <a
-						href="${pageContext.request.contextPath}/mypage.html"
-						class="dropdown-toggle active" data-hover="dropdown"
-						data-delay="200">마이페이지 </a>
+					<li class="dropdown ymm-sw " data-wow-delay="0.1s"><a
+						href="index.html" class="dropdown-toggle active"
+						data-toggle="dropdown" data-hover="dropdown" data-delay="200">마이페이지
+					</a></li>
 
-					</li>
-
-
-					<li class="wow fadeInDown" data-wow-delay="0.1s"><a class=""
-						href="property.html">포인트충전 </a></li>
-					<li class="dropdown yamm-fw" data-wow-delay="0.1s">
-						<!-- 여기href 바꿔야함--> <a href="contact-3.html"
+					<li class="dropdown yamm-fw" data-wow-delay="0.1s"><a href="#"
 						class="dropdown-toggle" data-toggle="dropdown"
-						data-hover="dropdown" data-delay="200">헬스로드 소개 </a>
-					</li>
+						data-hover="dropdown" data-delay="200">포인트 충전 </a></li>
 
-					<!-- <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">Contact</a></li> -->
+					<li class="wow fadeInDown" data-wow-delay="0.4s"><a
+						href="contact.html">Contact</a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -121,182 +198,100 @@
 	</nav>
 	<!-- End of nav bar -->
 
-	<div class="slider-area">
-		<div class="slider">
-			<div id="bg-slider" class="owl-carousel owl-theme">
-				<div class="item">
-					<img src="${pageContext.request.contextPath}/save/main/main5.jpg"
-						alt="mainImg1">
-				</div>
-				<div class="item">
-					<img src="${pageContext.request.contextPath}/save/main/main7.jpg"
-						alt="mainImg2">
-				</div>
-				<div class="item">
-					<img src="${pageContext.request.contextPath}/save/main/main6.jpg"
-						alt="mainImg3">
+	<div class="page-head">
+		<div class="container">
+			<div class="row">
+				<div class="page-head-content">
+					<h1 class="page-title">회원가입 / 로그인</h1>
 				</div>
 			</div>
 		</div>
-		<div class="container slider-content">
-			<div class="row">
-				<div
-					class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
-					<blockquote style="background-color: rgba(0, 0, 0, 0.23)">
-						<h2 style="color: white">나를 찾아오는 건강</h2>
-						<p style="color: white">나의 건강을 시간과 장소에 구애받지 마세요. 언제 어디서든 나와 가장
-							가까운 헬스장을 찾아보세요</p>
-					</blockquote>
-					<div class="search-form wow pulse" data-wow-delay="0.8s">
+	</div>
+	<!-- End page header -->
 
-						<form action="${pageContext.request.contextPath}/front?"
-							class="form-inline">
+	<!-- register-area -->
+	<div class="register-area"
+		style="background-color: rgb(249, 249, 249);">
+		<div class="container">
+
+			<div class="col-md-6">
+				<div class="box-for overflow">
+					<div class="col-md-12 col-xs-12 register-blocks">
+						<h2>회원가입 :</h2>
+						<form name="insertForm" action="front?command=memberInsert"
+							method="post" onSubmit="return checkValid()">
 							<div class="form-group">
-								<!-- 컨트롤러 매칭을 위한 값 넘김 -->
-								<input type="hidden" name="command" value="gymList">
-								<!-- <select id="lunchBegins" class="selectpicker" data-live-search="true" data-live-search-style="begins" title="-선택-" name="keyfield"> -->
-								<select id="basic" class="selectpicker show-tick form-control"
-									name="keyfield">
-									<option>선택</option>
-									<option>주소</option>
-									<option>이름</option>
-								</select>
+								<label for="name">아이디</label> <input type="text"
+									class="form-control" id="memberId" name="memberId"
+									autocomplete="off"> <span id="span">아이디 중복 체크</span>
 							</div>
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Keyword"
-									name="keyword">
+								<label for="password">비밀번호</label> <input type="password"
+									class="form-control" id="memberPassword" name="memberPassword">
 							</div>
-							<button class="btn search-btn" type="submit">
-								<i class="fa fa-search"></i>
-							</button>
+							<div class="form-group">
+								<label for="name">이름</label> <input type="text"
+									class="form-control" id="name" name="name">
+							</div>
+							<div class="form-group">
+								<label for="phone">전화번호</label> <input type="text"
+									class="form-control" id="phone" name="phone">
+							</div>
+							<div class="form-group">
+								<label>사업자 여부</label> <input type="checkbox" name="check"
+									id="check">체크시 사업자 등록가능 <input type="hidden"
+									class="form-control" name="memberCheck" id="memberCheck">
+							</div>
+
+
+							<div class="text-center">
+								<button type="submit" class="btn btn-default" id="join">가입하기</button>
+
+							</div>
 						</form>
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
 
-
-	<!-- property area -->
-	<div class="content-area recent-property"
-		style="padding-bottom: 60px; background-color: rgb(252, 252, 252);">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12  padding-top-40 properties-page">
-					<div class="col-md-12 ">
-						<div class="col-xs-10 page-subheader sorting pl0">
-
-							<!-- <ul class="sort-by-list">
-								<li class="active"><a href="javascript:void(0);"
-									class="order_by_date" data-orderby="property_date"
-									data-order="ASC"> 별점 순 정렬 <i class="fa fa-sort-amount-asc"></i>
-								</a></li>
-								<li class=""><a href="javascript:void(0);"
-									class="order_by_price" data-orderby="property_price"
-									data-order="DESC"> 가격 순 정렬 <i
-										class="fa fa-sort-numeric-desc"></i>
-								</a></li>
-							</ul>
-							 / .sort-by-list -->
-
-							<!-- <div class="items-per-page">
-								<div class="sel">
-									<select id="items_per_page" name="per_page">
-										<option value="3">3</option>
-										<option value="6">6</option>
-										<option value="9">9</option>
-										<option selected="selected" value="12">12</option>
-										<option value="15">15</option>
-										<option value="30">30</option>
-										<option value="45">45</option>
-										<option value="60">60</option>
-									</select>
-								</div>
-								/ .sel
-								<label for="items_per_page"><b>개 씩 보기 :</b></label>
-
-							</div> 
-							/ .items-per-page -->
-						</div>
-
-						<div class="col-xs-2 layout-switcher">
-							<a class="layout-list" href="javascript:void(0);"> <i
-								class="fa fa-th-list"></i>
-							</a> <a class="layout-grid active" href="javascript:void(0);"> <i
-								class="fa fa-th"></i>
-							</a>
-						</div>
-						<!--/ .layout-switcher-->
-					</div>
-
-					<div class="col-md-12 ">
-						<div id="list-type" class="proerty-th">
-							<c:if test="${fn:length(list) == 0 }">
-								<div class="row">
-									<h2 style="text-align: center;">검색 결과가 없습니다.</h2>
-								</div>
-							</c:if>
-							<c:forEach items="${requestScope.list }" var="gymList">
-								<div class="col-sm-6 col-md-3 p0">
-									<div class="box-two proerty-item">
-										<div class="item-thumb">
-											<a
-												href="${pageContext.request.contextPath}/front?command=gymDetail&code=${gymList.code}">
-												<img
-												src="${pageContext.request.contextPath}/save/gym/${gymList.fileName}">
-											</a>
-										</div>
-
-										<div class="item-entry overflow">
-											<h5>
-												<a
-													href="${pageContext.request.contextPath}/front?command=gymDetail&code=${gymList.code}">${gymList.name}
-												</a>
-											</h5>
-											<div class="dot-hr"></div>
-											<span class="pull-left"> <b> 수용인원 :</b>
-												${gymList.gymCapacity }명
-											</span> <span class="proerty-price pull-right">
-												${gymList.price} p </span><br>
-											<p>${gymList.addr}</p>
-											<p>${gymList.phoneNum}</p>
-											<!--<p style="display: none;">Suspendisse ultricies
-											Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse
-											ultricies commodo arcu nec pretium ...</p>
-										 <div class="property-icon">
-											<img src="img/icon/bed.png">(5)| <img
-												src="img/icon/shawer.png">(2)| <img
-												src="img/icon/cars.png">(1)
-										</div> -->
-										</div>
-									</div>
-								</div>
-							</c:forEach>
-						</div>
-					</div>
-					<!-- <div class="col-md-12">
-						<div class="pull-right">
-							<div class="pagination">
-								<ul>
-									<li><a href="#">이전</a></li>
-									<li><a href="#">1</a></li>
-									<li><a href="#">2</a></li>
-									<li><a href="#">3</a></li>
-									<li><a href="#">4</a></li>
-									<li><a href="#">다음</a></li>
-								</ul>
+			<div class="col-md-6">
+				<div class="box-for overflow">
+					<div class="col-md-12 col-xs-12 login-blocks">
+						<h2>로그인 :</h2>
+						<form action="front?command=login" method="post">
+							<div class="form-group">
+								<label for="id">아이디</label> <input type="text"
+									class="form-control" name="id">
 							</div>
-						</div>
-					</div> -->
+							<div class="form-group">
+								<label for="password">비밀번호</label> <input type="password"
+									class="form-control" name="password">
+							</div>
+							<div class="text-center">
+								<button type="submit" class="btn btn-default">로그인</button>
+							</div>
+						</form>
+						<br>
+
+						<h2>소셜 로그인 :</h2>
+
+
+						<p>
+							<a class="login-social" href="#"><i class="fa fa-facebook"></i>&nbsp;Facebook</a>
+							<a class="login-social" href="#"><i class="fa fa-google-plus"></i>&nbsp;Gmail</a>
+							<a class="login-social" href="#"><i class="fa fa-twitter"></i>&nbsp;Twitter</a>
+						</p>
+					</div>
+
 				</div>
 			</div>
+
 		</div>
 	</div>
-
 
 	<!-- Footer area-->
 	<div class="footer-area">
-		<!-- <div class=" footer">
+
+		<div class=" footer">
 			<div class="container">
 				<div class="row">
 
@@ -307,10 +302,15 @@
 
 							<img src="assets/img/footer-logo.png" alt="" class="wow pulse"
 								data-wow-delay="1s">
-							로고이미지 바꾸기
 							<p>Lorem ipsum dolor cum necessitatibus su quisquam
 								molestias. Vel unde, blanditiis.</p>
-
+							<ul class="footer-adress">
+								<li><i class="pe-7s-map-marker strong"> </i> 9089 your
+									adress her</li>
+								<li><i class="pe-7s-mail strong"> </i>
+									email@yourcompany.com</li>
+								<li><i class="pe-7s-call strong"> </i> +1 908 967 5906</li>
+							</ul>
 						</div>
 					</div>
 					<div class="col-md-3 col-sm-6 wow fadeInRight animated">
@@ -401,7 +401,7 @@
 										</button>
 									</span>
 								</div>
-								/input-group
+								<!-- /input-group -->
 							</form>
 
 							<div class="social pull-right">
@@ -422,16 +422,38 @@
 										href="https://instagram.com/kimarotec" data-wow-delay="0.6s"><i
 											class="fa fa-dribbble"></i></a></li>
 								</ul>
-							</div>
 						</div>
 					</div>
 
 				</div>
 			</div>
-		</div> -->
-		<jsp:include page="footer.jsp"></jsp:include>
-	</div>
+		</div>
 
+		<div class="footer-copy text-center">
+			<div class="container">
+				<div class="row">
+					<div class="pull-left">
+						<span> (C) <a href="http://www.KimaroTec.com">KimaroTheme</a>
+							, All rights reserved 2016
+						</span>
+					</div>
+					<div class="bottom-menu pull-right">
+						<ul>
+							<li><a class="wow fadeInUp animated" href="#"
+								data-wow-delay="0.2s">Home</a></li>
+							<li><a class="wow fadeInUp animated" href="#"
+								data-wow-delay="0.3s">Property</a></li>
+							<li><a class="wow fadeInUp animated" href="#"
+								data-wow-delay="0.4s">Faq</a></li>
+							<li><a class="wow fadeInUp animated" href="#"
+								data-wow-delay="0.6s">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
 
 	<script src="assets/js/modernizr-2.6.2.min.js"></script>
 

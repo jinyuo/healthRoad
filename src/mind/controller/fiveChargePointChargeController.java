@@ -16,8 +16,8 @@ public class fiveChargePointChargeController implements HealthController {
 			throws SQLException, IOException {
 		ModelAndView mv = new ModelAndView();
 		HttpSession session = request.getSession();
-		String login = (String) session.getAttribute("curUserType");
-		
+		String login = (String) session.getAttribute("curUserId");
+		System.out.println(session.getAttribute("curUserId"));
 		//로그인 되어있는 경우
 		if(login.equals("1")) {
 			//point_charge.jsp에서 받아온 point 값을 request에 설정해서 받는다.
@@ -33,6 +33,7 @@ public class fiveChargePointChargeController implements HealthController {
 			if(result == 0) {
 				request.setAttribute("errCode", "50");
 				throw new SQLException();
+				
 			}
 			mv.setViewName("mypage.html");//포인트 충전에 성공한 경우 마이페이지로 이동한다.
 			//넘길 값이 없기 때문에 redirect방식 x : setRedirect(true) 설정 필요 없음

@@ -20,6 +20,7 @@ public class userPointToGymController implements HealthController {
 			throws SQLException, IOException {
 		HttpSession session = request.getSession();
 		
+		
 		ModelAndView mv = new ModelAndView();
 		////////////////// 이용내역 추가 //////////////////////
 		
@@ -38,6 +39,7 @@ public class userPointToGymController implements HealthController {
 		
 				
 		UseDetailDTO useDetail = new UseDetailDTO(0, memberId, gymName, gymCode, price, null, 1);
+		
 		int insertUseDetailResult = HealthService.insertUseDetail(useDetail);
 		
 		if(insertUseDetailResult == 0 ) {

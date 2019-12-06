@@ -520,7 +520,7 @@
 		$("[name=btnn]").click(function(){
 			//session에 curUserType이 0이면 비회원이니까 로그인하라는 alert 띄움
 			
-			if("${sessionScope.curUserType}" == 3){
+			if("${sessionScope.curUserType}" == 0){
 				alert("로그인 후 사용해주세요.");
 				
 				return false;

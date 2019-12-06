@@ -39,7 +39,7 @@ function checkValid() {
   
     <tr>
         <td width="1220" height="20" colspan="2" bgcolor="orange">
-            <p align="center"><font color="white" size="3"><b> 리뷰 등록 ${sessionScope.curUserId} </b></font></p>
+            <p align="center"><font color="white" size="3"><b> 리뷰 등록 </b></font></p>
         </td>
     </tr>
     <tr>

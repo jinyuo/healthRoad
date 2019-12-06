@@ -164,7 +164,7 @@
                                 		<!-- ${requestScope.gym.comment} -->
                                     <p>${requestScope.gym.comment}  </p>
                                     
-
+								
                                   
                                 </div>
             <!-- /////////////////////////////////////////////////// -->
@@ -184,7 +184,9 @@
 								
 								<c:forEach items="${requestScope.review}" var = "reviewList">
 								<div><!-- comment container 시작 -->
-									<h3 class="s-property-title">리뷰 </h3>
+									<h3 class="s-property-title">리뷰</h3>
+									
+									
 									<!-- 리뷰 삭제 form -->
 									<form method="post" action ="${pageContext.request.contextPath}/front?command=deleteReview">
 									<div style="width:20%; height:20px; background-color:#F2F2F2; text-align: center">별점<input type="text" value="${reviewList.starScore}" readonly="readonly" style="background-color:#F2F2F2; position:relative; top:-20px; left:150px; width:350px"></div>
@@ -204,11 +206,9 @@
 									</c:if>
 									
 									</div><!-- ${pageContext.request.contextPath}/save/review" -->
- 									<c:choose> 
- 									<c:when test="${reviewList.memberId == sessionScope.curUserId} "> 
+ 									<c:if test="${reviewList.memberId == sessionScope.curUserId}">
 									<span ><input type="submit" name="rBtn" value="삭제" style="text-align:center; position: relative; width:50px; background-color:orange; color:white;"></span>
- 									</c:when>
-									</c:choose>  
+									</c:if>
 									</form>
 									<!--삭제 form끝 -->
 									<!--리뷰 업데이트 form 시작 -->
@@ -218,11 +218,9 @@
 									<input type="hidden" value="${requestScope.gym.code}" name = "gymCode">
 									<input type="hidden" value="${reviewList.content}" name = "reviewContent">
 									<input type="hidden" value="${reviewList.fileName}" name = "reviewFileName">
-									<c:choose>
-										<c:when test="${reviewList.memberId == sessionScope.curUserId} ">
-											<span><input type="button" name="rBtn" value="수정" style="text-align:center; position: relative; left:55px; top:-30px; width:50px; background-color:orange; color:white;"></span>
-										</c:when>
-									</c:choose>
+									<c:if test="${reviewList.memberId == sessionScope.curUserId}">
+											<span><input type="submit" name="rBtn" value="수정" style="text-align:center; position: relative; left:55px; top:-30px; width:50px; background-color:orange; color:white;"></span>
+										</c:if>
 									</form>
 									<!-- 리뷰 업데이트 form 끝 -->
 								</div><!-- comment container 끝 -->

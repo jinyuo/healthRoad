@@ -280,7 +280,7 @@
 
                     </div>
                 </div>
-            </div> -->
+            </div>
 
             <div class="footer-copy text-center">
                 <div class="container">
@@ -298,9 +298,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-        </div>
+            </div>-->
+			<jsp:include page="footer.jsp"></jsp:include>
+        </div> 
           
 
         <script src="assets/js/modernizr-2.6.2.min.js"></script>

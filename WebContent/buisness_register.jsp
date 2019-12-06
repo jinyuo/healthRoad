@@ -10,7 +10,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>í¬ì¤ë¡ë | ì¬ììë±ë¡</title>
+        <title>헬스로드 | 사업자등록</title>
         <meta name="description" content="GARO is a real-estate template">
         <meta name="author" content="Kimarotec">
         <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
@@ -61,18 +61,18 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
                     <div class="button navbar-right">
-                        <button class="navbar-btn nav-button wow bounceInRight login" data-wow-delay="0.4s">ë¡ê·¸ì¸/íìê°ì </button>
+                        <button class="navbar-btn nav-button wow bounceInRight login" data-wow-delay="0.4s">로그인/회원가입 </button>
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
-                            <a href="mypage.html" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">ë§ì´íì´ì§ </a>
+                            <a href="mypage.html" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">마이페이지 </a>
                         </li>
 
                         <li class="dropdown yamm-fw" data-wow-delay="0.1s">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">í¬ì¸í¸ì¶©ì  </a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">포인트충전 </a>
                         </li>
 
-                        <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">í¬ì¤ë¡ë ìê° </a></li>
+                        <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">헬스로드 소개 </a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
@@ -89,7 +89,7 @@
         					<div class="profiel-header">
         						
                             	<h3>
-                            		<b>ì¬ìì ë±ë¡ </b><br>
+                            		<b>사업자 등록 </b><br>
                             	</h3>
                             	<hr>
                             	</div>
@@ -99,48 +99,48 @@
                             	<div class="col-sm-10 col-sm-offset-1">
                          
                                 <div class="form-group">
-                                    <label for="gymName">ì¬ìì¥ ì´ë¦</label>
+                                    <label for="gymName">사업장 이름</label>
                                     <input type="text" class="form-control" id="gymName">
                                 </div>
                                 <div class="form-group">
-                                    <label for="addr">ì£¼ì</label>
+                                    <label for="addr">주소</label>
                                     <input type="text" class="form-control" id="addr">
                                 </div>
                                 <div class="form-group">
-                                    <label for="phone">ì íë²í¸</label>
+                                    <label for="phone">전화번호</label>
                                     <input type="text" class="form-control" id="phone">
                                 </div>
                                 <div class="form-group">
-                                    <label for="capacity">ìì©ì¸ì</label>
+                                    <label for="capacity">수용인원</label>
                                     <input type="text" class="form-control" id="capacity">
                                 </div>
                                 <div class="form-group">
-                                    <label for="price">ê°ê²©</label>
+                                    <label for="price">가격</label>
                                     <input type="text" class="form-control" id="price">
                                 </div>
                                 <div class="form-group">
-                                    <label for=comment>ì¬ìì¥ ìê°</label>
+                                    <label for=comment>사업장 소개</label>
                                     <input type="text" class="form-control" id="comment">
                                 </div>
                                <div class="form-group">
-                                    <label for=time>ì´ì© ìê°</label>
-                                    <input type="text" class="form-control" id="weekday" placeholder="íì¼ ì´ì© ìê°"> 
+                                    <label for=time>이용 시간</label>
+                                    <input type="text" class="form-control" id="weekday" placeholder="평일 이용 시간"> 
                                     <br>
-                                    <input type="text" class="form-control" id="weekend" placeholder="ì£¼ë§ ì´ì© ìê°">
+                                    <input type="text" class="form-control" id="weekend" placeholder="주말 이용 시간">
                                 </div>
                                <div class="form-group">
-                                    <label for="fileName">íì¼ ì´ë¦</label>
+                                    <label for="fileName">파일 이름</label>
                                     <input type="text" class="form-control" id="fileName">
                                 </div>
 
                         <div class="col-sm-2 col-sm-offset-5">
-						<input type='button' class='btn btn-finish btn-primary pull-right' name='main' value='ë±ë¡'>
+						<input type='button' class='btn btn-finish btn-primary pull-right' name='main' value='등록'>
 						</div>
                      </div> 
                      </div>
                  </form>
                  </div>
-                 <!-- ê°ê²© ì¡°ì  íì -->
+                 <!-- 간격 조정 필요 -->
              </div>
         </div>      
 	</div>
@@ -263,7 +263,7 @@
                 </div>
             </div> -->
 
-            <div class="footer-copy text-center">
+            <!-- <div class="footer-copy text-center">
                 <div class="container">
                     <div class="row">
                         <div class="pull-left">
@@ -271,14 +271,14 @@
                         </div> 
                         <div class="bottom-menu pull-right"> 
                             <ul> 
-                               <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.2s">íì¬ìê°</a></li>
-                               <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.4s">í¬ì¸í¸ì¶©ì </a></li>
+                               <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.2s">회사소개</a></li>
+                               <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.4s">포인트충전</a></li>
                             </ul> 
                         </div>
                     </div>
                 </div>
-            </div>
-
+            </div> -->
+			<jsp:include page="footer.jsp"></jsp:include>
         </div>
 
          <script src="assets/js/modernizr-2.6.2.min.js"></script>

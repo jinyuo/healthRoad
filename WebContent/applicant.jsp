@@ -46,9 +46,9 @@
         
         <!--End top header -->
 
-        <nav class="navbar navbar-default ">
+        <!-- <nav class="navbar navbar-default ">
 		<div class="container">
-			<!-- Brand and toggle get grouped for better mobile display -->
+			Brand and toggle get grouped for better mobile display
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed"
 					data-toggle="collapse" data-target="#navigation">
@@ -58,10 +58,10 @@
 				</button>
 				<a class="navbar-brand" href="index-5.html"><img
 					src="assets/img/logo.png" alt=""></a>
-				<!-- 로고이미지 바꾸기 -->
+				로고이미지 바꾸기
 			</div>
 
-			<!-- Collect the nav links, forms, and other content for toggling -->
+			Collect the nav links, forms, and other content for toggling
 			<div class="collapse navbar-collapse yamm" id="navigation">
 				<div class="button navbar-right">
 					<button class="navbar-btn nav-button wow bounceInRight login"
@@ -70,7 +70,7 @@
 				</div>
 				<ul class="main-nav nav navbar-nav navbar-right">
 					<li class="dropdown ymm-sw " data-wow-delay="0.1s">
-						<!-- 여기href 바꿔야함--> <a href="index.html"
+						여기href 바꿔야함 <a href="index.html"
 						class="dropdown-toggle active" data-hover="dropdown"
 						data-delay="200">마이페이지 </a>
 
@@ -80,20 +80,20 @@
 					<li class="wow fadeInDown" data-wow-delay="0.1s"><a class=""
 						href="property.html">포인트충전</a></li>
 					<li class="dropdown yamm-fw" data-wow-delay="0.1s">
-						<!-- 여기href 바꿔야함--> <a href="contact-3.html"
+						여기href 바꿔야함 <a href="contact-3.html"
 						class="dropdown-toggle" data-toggle="dropdown"
 						data-hover="dropdown" data-delay="200">서비스소개 </a>
 					</li>
 
-					<!-- <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">Contact</a></li> -->
+					<li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">Contact</a></li>
 				</ul>
 			</div>
-			<!-- /.navbar-collapse -->
+			/.navbar-collapse
 		</div>
-		<!-- /.container-fluid -->
-	</nav>
+		/.container-fluid
+	</nav> -->
         <!-- End of nav bar -->
-
+	<jsp:include page="navigator.jsp"></jsp:include>
         
         <!-- End page header -->
 

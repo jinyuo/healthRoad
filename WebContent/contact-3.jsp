@@ -45,7 +45,7 @@
             <div id="status">&nbsp;</div>
         </div>
 
-        <nav class="navbar navbar-default ">
+        <%-- <nav class="navbar navbar-default ">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
@@ -68,18 +68,18 @@
                             <a href="index.html" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">마이페이지 </a>
                         </li>
 
-                        <li class="dropdown yamm-fw" data-wow-delay="0.1s">
+                        <li class="dropdown <!-- yamm-fw" data-wow-delay="0.1s">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">포인트충전 </a>
                         </li>
 
                         <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact-3.jsp">헬스로드 소개 </a></li>
 
                     </ul>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-        </nav>
+                </div>/.navbar-collapse
+            </div>/.container-fluid
+        </nav> --%>
         <!-- End of nav bar -->
-        
+        <jsp:include page="navigator.jsp"></jsp:include>
         <!-- ------------------------------------------영상 시작-------------------------------------------- -->
 		<div style="position: relative; z-index: -99; width: 100%; height: 860px;">
 			<iframe style="position: relative" width=100% height=100% 

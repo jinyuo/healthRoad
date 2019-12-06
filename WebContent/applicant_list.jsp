@@ -51,9 +51,9 @@
            
         <!--End top header -->
 
-        <nav class="navbar navbar-default ">
+        <!-- <nav class="navbar navbar-default ">
             <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
+                Brand and toggle get grouped for better mobile display
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
                         <span class="sr-only">Toggle navigation</span>
@@ -64,7 +64,7 @@
                     <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png" alt=""></a>
                 </div>
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
+                Collect the nav links, forms, and other content for toggling
                 <div class="collapse navbar-collapse yamm" id="navigation">
                     <div class="button navbar-right">
                         <button class="navbar-btn nav-button wow bounceInRight login" data-wow-delay="0.4s">로그인/회원가입 </button>
@@ -80,11 +80,11 @@
 
                         <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">헬스로드 소개 </a></li>
                     </ul>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
+                </div>/.navbar-collapse
+            </div>/.container-fluid
         </nav>
-        <!-- End of nav bar -->
-
+        End of nav bar -->
+		<jsp:include page="navigator.jsp"></jsp:include>
         <div class="container">
             <h2 class="ps-property-title">신청자 내역</h2>
         </div>

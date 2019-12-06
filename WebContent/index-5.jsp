@@ -73,52 +73,8 @@
 	<!-- Body content -->
 
 	<!--End top header -->
-	<nav class="navbar navbar-default ">
-		<div class="container">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target="#navigation">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="index-5.html"><img
-					src="assets/img/logo.png" alt=""></a>
-				<!-- 로고이미지 바꾸기 -->
-			</div>
-
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse yamm" id="navigation">
-				<div class="button navbar-right">
-					<button class="navbar-btn nav-button wow bounceInRight login" id="login" data-wow-delay="0.4s"><c:choose><c:when test="${curUserType eq '0'}">로그인/회원가입</c:when><c:otherwise>로그아웃</c:otherwise></c:choose></button>
-				</div>
-				
-				<ul class="main-nav nav navbar-nav navbar-right">
-					<li class="dropdown ymm-sw " data-wow-delay="0.1s">
-						<!-- 여기href 바꿔야함--> <a
-						href="${pageContext.request.contextPath}/mypage.html"
-						class="dropdown-toggle active" data-hover="dropdown"
-						data-delay="200">마이페이지 </a>
-
-					</li>
-
-
-					<li class="wow fadeInDown" data-wow-delay="0.1s"><a class=""
-						href="property.html">포인트충전 </a></li>
-					<li class="dropdown yamm-fw" data-wow-delay="0.1s">
-						<!-- 여기href 바꿔야함--> <a href="contact-3.html"
-						class="dropdown-toggle" data-toggle="dropdown"
-						data-hover="dropdown" data-delay="200">헬스로드 소개 </a>
-					</li>
-
-					<!-- <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">Contact</a></li> -->
-				</ul>
-			</div>
-			<!-- /.navbar-collapse -->
-		</div>
-		<!-- /.container-fluid -->
-	</nav>
+	
+	<jsp:include page="navigator.jsp"></jsp:include>
 	<!-- End of nav bar -->
 
 	<div class="slider-area">

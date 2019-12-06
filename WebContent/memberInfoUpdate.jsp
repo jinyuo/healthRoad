@@ -52,7 +52,7 @@
 	</div>
 	<!-- Body content -->
 
-	<div class="header-connect">
+	<!-- <div class="header-connect">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-5 col-sm-8  col-xs-12">
@@ -78,9 +78,9 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<!--End top header -->
-
+	<jsp:include page="navigator.jsp"></jsp:include>
 	<nav class="navbar navbar-default ">
 		<div class="container">
 			<!-- Brand and toggle get grouped for better mobile display -->

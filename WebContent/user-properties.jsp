@@ -1,12 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
+
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!-->
+ 
+<html class="no-js"> 
+
+<!--<![endif]-->
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>헬스로드 | 사업자등록</title>
+        <title>헬스로드 | 이용내역</title>
         <meta name="description" content="GARO is a real-estate template">
         <meta name="author" content="Kimarotec">
         <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
@@ -39,11 +48,12 @@
         <div id="preloader">
             <div id="status">&nbsp;</div>
         </div>
-        <!-- Body content -->
+           
+        <!--End top header -->
 
-		<nav class="navbar navbar-default ">
+        <!-- <nav class="navbar navbar-default ">
             <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
+                Brand and toggle get grouped for better mobile display
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
                         <span class="sr-only">Toggle navigation</span>
@@ -54,7 +64,7 @@
                     <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png" alt=""></a>
                 </div>
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
+                Collect the nav links, forms, and other content for toggling
                 <div class="collapse navbar-collapse yamm" id="navigation">
                     <div class="button navbar-right">
                         <button class="navbar-btn nav-button wow bounceInRight login" data-wow-delay="0.4s">로그인/회원가입 </button>
@@ -70,88 +80,102 @@
 
                         <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">헬스로드 소개 </a></li>
                     </ul>
+                </div>/.navbar-collapse
+            </div>/.container-fluid
+        </nav> -->
+        <!-- End of nav bar -->
+		<jsp:include page="navigator.jsp"></jsp:include>
+        <div class="container">
+            <h2 class="ps-property-title">이용 내역</h2>
+        </div>
+        <div class="collapse navbar-collapse yamm" id="navigation">
+                    
                 </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-        </nav>
+                
+        <!-- End page header -->
 
-        <!-- register-area -->
-        <div class="register-area" style="background-color: #FCFCFC;">&nbsp;
-            <div class="container">
-            	<div class="row">
-                    <div class="col-sm-10 col-sm-offset-1 profiel-container">
-        
+        <!-- property area aaa -->
+<%-- <form action="${pageContext.request.contextPath}/front?">
+	<input type="hidden" name="command" value="useList">
+	<button type="submit">테스트 입니다</button>
+</form> --%>
+            <div class="container"> 
+           
+           
+                <div class="row">
+                	<div class="col-md-9 pr-30 padding-top-20 properties-page user-properties">
+                	
+                        
+               			<div class="section additional-details">
 
-        				<form name="gymInsertForm" action="front?command=gymInsert" method="post">
-        					<div class="profiel-header">
-        						
-                            	<h3>
-                            		<b>사업자 등록 </b><br>
-                            	</h3>
-                            	<hr>
-                            	</div>
-                            	
-                            	<div class="clear">
-                            	
-                            	<div class="col-sm-10 col-sm-offset-1">
-                         
-                                <div class="form-group">
-                                    <label for="gymName">사업장 이름</label>
-                                    <input type="text" class="form-control" name="gymName" id="gymName">
-                                </div>
-                                <div class="form-group">
-                                    <label for="addr">주소</label>
-                                    <input type="text" class="form-control" name="addr" id="addr">
-                                </div>
-                                <div class="form-group">
-                                    <label for="phone">전화번호</label>
-                                    <input type="text" class="form-control" name="phone" id="phone">
-                                </div>
-                                <div class="form-group">
-                                    <label for="capacity">수용인원</label>
-                                    <input type="text" class="form-control" name="capacity" id="capacity">
-                                </div>
-                                <div class="form-group">
-                                    <label for="price">가격</label>
-                                    <input type="text" class="form-control" name="price" id="price">
-                                </div>
-                                <div class="form-group">
-                                    <label for=comment>사업장 소개</label>
-                                    <input type="text" class="form-control" name="comment" id="comment">
-                                </div>
-                               <div class="form-group">
-                                    <label for=time>이용 시간</label>
-                                    <input type="text" class="form-control" name ="weekday" id="weekday" placeholder="평일 이용 시간"> 
-                                    <br>
-                                    <input type="text" class="form-control" name ="weekend" id="weekend" placeholder="주말 이용 시간">
-                                </div>
-                               <div class="form-group">
-                                    <label for="fileName">파일 이름</label>
-                                    <input type="text" class="form-control" name ="fileName" id="fileName">
-                                </div>
+                                 <ul class="additional-details-list clearfix">
+                                    <li>
+                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-title">헬스장 이름</span>
+                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-title">차감 포인트</span>
+                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-title">이용날짜</span>
+                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-title">이용상태</span>
+                                    </li>
 
-                        <div class="col-sm-2 col-sm-offset-5">
+                                    <li>
+                                    <c:forEach items="${requestScope.useList }" var="list" varStatus="state">
+                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry">${list.gymName }</span>
+                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry">${list.price}</span>
+                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry">${list.useStartHour}</span>
+                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry">${list.state}</span>
+                                        </c:forEach>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                        <div class="section"> 
+                            <div class="pull-right">
+                                <div class="pagination">
+                                    <ul>
+                                        <li><a href="mypage.html">이전페이지</a></li>
+                                    </ul>
+                                </div>
+                            </div>                
+                        </div>
 
-						<input type='submit' class='btn btn-finish btn-primary pull-right' name='main' value='등록'>
-						</div>
-                     </div> 
-                     </div>
-                 </form>
-                 </div>
-                 <!-- 간격 조정 필요 -->
-             </div>
-        </div>      
-	</div>
-		
+                    </div>       
+
+                    <!-- <div class="col-md-3 p0 padding-top-40">
+                        <div class="blog-asside-right">
+                            <div class="panel panel-default sidebar-menu wow fadeInRight animated" >
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Hello Kimaro</h3>
+                                </div>
+                                <div class="panel-body search-widget">
+
+                                </div>
+                            </div>
+
+                            <div class="panel panel-default sidebar-menu wow fadeInRight animated">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Recommended</h3>
+                                </div>
+                                <div class="panel-body recent-property-widget">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        <!-- </div> -->
+
           <!-- Footer area-->
         <div class="footer-area">
 
-<!--             <div class=" footer">
+            <!-- <div class=" footer">
                 <div class="container">
                     <div class="row">
+
                         <div class="col-md-3 col-sm-6 wow fadeInRight animated">
                             <div class="single-footer">
                                 <h4>About us </h4>
                                 <div class="footer-title-line"></div>
+
                                 <img src="assets/img/footer-logo.png" alt="" class="wow pulse" data-wow-delay="1s">
                                 <p>Lorem ipsum dolor cum necessitatibus su quisquam molestias. Vel unde, blanditiis.</p>
                                 <ul class="footer-adress">
@@ -185,37 +209,44 @@
                                             <a href="single.html">
                                                 <img src="assets/img/demo/small-proerty-2.jpg">
                                             </a>
-                                            <span class="blg-date">12-12-2016</span>
+                                            <span class="blg-date"></span>
+
                                         </div>
                                         <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
                                             <h6> <a href="single.html">Add news functions </a></h6> 
                                             <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p>
                                         </div>
                                     </li> 
+
                                     <li>
                                         <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
                                             <a href="single.html">
                                                 <img src="assets/img/demo/small-proerty-2.jpg">
                                             </a>
-                                            <span class="blg-date">12-12-2016</span>
+                                            <span class="blg-date"></span>
+
                                         </div>
                                         <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
                                             <h6> <a href="single.html">Add news functions </a></h6> 
                                             <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p>
                                         </div>
                                     </li> 
+
                                     <li>
                                         <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
                                             <a href="single.html">
                                                 <img src="assets/img/demo/small-proerty-2.jpg">
                                             </a>
-                                            <span class="blg-date">12-12-2016</span>
+                                            <span class="blg-date"></span>
+
                                         </div>
                                         <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
                                             <h6> <a href="single.html">Add news functions </a></h6> 
                                             <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p>
                                         </div>
                                     </li> 
+
+
                                 </ul>
                             </div>
                         </div>
@@ -224,6 +255,7 @@
                                 <h4>Stay in touch</h4>
                                 <div class="footer-title-line"></div>
                                 <p>Lorem ipsum dolor sit amet, nulla  suscipit similique quisquam molestias. Vel unde, blanditiis.</p>
+
                                 <form>
                                     <div class="input-group">
                                         <input class="form-control" type="text" placeholder="E-mail ... ">
@@ -233,6 +265,7 @@
                                     </div>
                                     /input-group
                                 </form> 
+
                                 <div class="social pull-right"> 
                                     <ul>
                                         <li><a class="wow fadeInUp animated" href="https://twitter.com/kimarotec"><i class="fa fa-twitter"></i></a></li>
@@ -244,45 +277,52 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
-            </div> -->
+            </div>
 
             <div class="footer-copy text-center">
                 <div class="container">
                     <div class="row">
                         <div class="pull-left">
-                            <span> (C) <a href="#">OpenMind</a> , All rights reserved 2019  </span> 
+                            <span> (C) <a href="http://www.KimaroTec.com">KimaroTheme</a> , All rights reserved 2016  </span> 
                         </div> 
                         <div class="bottom-menu pull-right"> 
                             <ul> 
-                               <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.2s">회사소개</a></li>
-                               <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.4s">포인트충전</a></li>
+                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.2s">Home</a></li>
+                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.3s">Property</a></li>
+                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.4s">Faq</a></li>
+                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.6s">Contact</a></li>
                             </ul> 
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
+			<jsp:include page="footer.jsp"></jsp:include>
+        </div> 
+          
 
-        </div>
-
-         <script src="assets/js/modernizr-2.6.2.min.js"></script>
-
-        <script src="assets/js/jquery-1.10.2.min.js"></script> 
+        <script src="assets/js/modernizr-2.6.2.min.js"></script>
+        <script src="assets/js/jquery-1.10.2.min.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
         <script src="assets/js/bootstrap-select.min.js"></script>
         <script src="assets/js/bootstrap-hover-dropdown.js"></script>
-
         <script src="assets/js/easypiechart.min.js"></script>
         <script src="assets/js/jquery.easypiechart.min.js"></script>
-
         <script src="assets/js/owl.carousel.min.js"></script>
         <script src="assets/js/wow.js"></script>
-
         <script src="assets/js/icheck.min.js"></script>
-        <script src="assets/js/price-range.js"></script>
+
+        <script src="assets/js/price-range.js"></script> 
+        <script src="assets/js/jquery.bootstrap.wizard.js" type="text/javascript"></script>
+        <script src="assets/js/jquery.validate.min.js"></script>
+        <script src="assets/js/wizard.js"></script>
 
         <script src="assets/js/main.js"></script>
-
+        <script type="text/javascript">
+        	
+        </script>
+        
     </body>
 </html>

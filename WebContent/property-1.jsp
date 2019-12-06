@@ -10,7 +10,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>HealthRoad</title>
+        <title>헬스로드</title>
         <meta name="description" content="company is a real-estate template">
         <meta name="author" content="Kimarotec">
         <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
@@ -38,8 +38,9 @@
         <link rel="stylesheet" href="assets/css/lightslider.min.css">
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="assets/css/responsive.css">
-        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=737a889062e3dac79756431c0f5477d1&libraries=services"></script> <!-- 반드시 실행 코드보다 먼저 선언되어야 한다. -->
         <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=737a889062e3dac79756431c0f5477d1&libraries=services"></script> <!-- 반드시 실행 코드보다 먼저 선언되어야 한다. -->
+        
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -97,7 +98,6 @@
         </nav>
         <!-- End of nav bar -->
 
-      
         <!-- End page header -->
 
         <!-- property area -->
@@ -125,18 +125,14 @@
                                     </div> 
 
                                     <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
-                                        <li data-thumb="assets/img/property-1/property1.jpg"> 
-                                            <img src="assets/img/property-1/property1.jpg" />
+                                        <li data-thumb="${pageContext.request.contextPath}/save/gym/${gym.fileName}"> 
+                                            <img src="${pageContext.request.contextPath}/save/gym/${gym.fileName}" />
                                         </li>
-                                        <li data-thumb="assets/img/property-1/property2.jpg"> 
-                                            <img src="assets/img/property-1/property3.jpg" />
+                                        <li data-thumb="${pageContext.request.contextPath}/save/property/health.PNG"> 
+                                            <img src="${pageContext.request.contextPath}/save/property/health.PNG" />
                                         </li>
-                                        <li data-thumb="assets/img/property-1/property3.jpg"> 
-                                            <img src="assets/img/property-1/property3.jpg" />
-                                        </li>
-                                        <li data-thumb="assets/img/property-1/property4.jpg"> 
-                                            <img src="assets/img/property-1/property4.jpg" />
-                                        </li>                                         
+                                        
+                                                                              
                                     </ul>
                                 </div>
                             </div>
@@ -146,12 +142,15 @@
                             <div class="single-property-header">                                          
                                 <h1 class="property-title pull-left">환영합니다</h1>
                                 
-                                
+                                <form action ="${pageContext.request.contextPath}/front?command=userPointToGym" method="post">
+                                <input type ="hidden" name="gymCode" value="${requestScope.gym.code}">
+                                <input type = "hidden" name="price" value="${requestScope.gym.price}">
+                                <input type = "hidden" name="gymName" value="${requestScope.gym.name}">
                                 <p align="right">
-                                <button type="button" class="btn btn-primary btn-lg" style="background-color:#FF8000">이용하기</button>
+                                <button class="btn btn-primary btn-lg" style="background-color:#FF8000" name="btnn">이용하기</button>
                                 </p>
-                                <span class="property-price pull-right" style="text-align:right">가격 ${requestScope.gym.price}p</span>
-                                
+                                <span class="property-price pull-right" style="text-align:right">${requestScope.gym.price}p</span>
+                                </form>
                             </div>
 
                             
@@ -163,9 +162,9 @@
                                 
                                 <div class="s-property-content">
                                 		<!-- ${requestScope.gym.comment} -->
-                                    <p>${requestScope.gym.comment}</p>
+                                    <p>${requestScope.gym.comment}  </p>
                                     
-
+								
                                   
                                 </div>
             <!-- /////////////////////////////////////////////////// -->
@@ -173,36 +172,60 @@
 									<h4 class="s-property-title">총 별점 </h4> <h1 class="rating-num">${requestScope.gym.avgScore}</h1><h4 class="s-property-title" style="position:relative; top:-38px; left:55px;">점 </h4>
 								</div>
 <%-- 								<c:set scope="request" var="gymCode" value="${requestScope.gym.code}"></c:set> --%>
-								<form action="${pageContext.request.contextPath}/front?command=insertReviewForm&gymCode=${requestScope.gym.code}" method="post" >
-								<button class="btn btn-primary" style="background-color:#FF8000" >리뷰작성하기</button> <!-- onclick="window.open('review_insert.jsp', '_blank', 'width=550, height=400, toolbar=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no' );" -->
+								<form action="${pageContext.request.contextPath}/front?command=insertReviewForm" method="post" >
+								<button class="btn btn-primary" style="background-color:#FF8000" id="insertReview" name="btnn">리뷰작성하기</button> <!-- onclick="window.open('review_insert.jsp', '_blank', 'width=550, height=400, toolbar=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no' );" -->
 								<input type="hidden" name=gymCode value ="${requestScope.gym.code}"/>
 								</form>
 								<c:choose>
 								<c:when test = "${empty requestScope.review}">
-								<div style="width:20%; height:20px; background-color:#F2F2F2">등록된 리뷰가 없습니다.</div>
+								<div style="width:30%; height:20px; background-color:#F2F2F2">등록된 리뷰가 없습니다.</div>
 								</c:when>
 								<c:otherwise>
+								
 								<c:forEach items="${requestScope.review}" var = "reviewList">
 								<div><!-- comment container 시작 -->
-									<h3 class="s-property-title">리뷰 </h3>
+									<h3 class="s-property-title">리뷰</h3>
 									
 									
-									<div style="width:20%; height:20px; background-color:#F2F2F2">별점<input type="text" value="${reviewList.starScore}" readonly="readonly" style="background-color:#F2F2F2; position:relative; top:-20px; left:150px; width:350px"></div>
-									<div style="width:20%; height:20px; background-color:#FFFFFF">작성자<input type="text" value="${reviewList.memberId}" readonly="readonly" style="background-color:#FFFFFF; position:relative; top:-20px; left:150px; width:350px"></div>
-									<div style="width:20%; height:100px; background-color:#F2F2F2">내용 
-									<!-- <textarea rows="100" cols="100"></textarea> -->
+									<!-- 리뷰 삭제 form -->
+									<form method="post" action ="${pageContext.request.contextPath}/front?command=deleteReview">
+									<div style="width:20%; height:20px; background-color:#F2F2F2; text-align: center">별점<input type="text" value="${reviewList.starScore}" readonly="readonly" style="background-color:#F2F2F2; position:relative; top:-20px; left:150px; width:350px"></div>
+									<div style="width:20%; height:20px; background-color:#FFFFFF; text-align: center">작성자<input type="text" value="${reviewList.memberId}" name="memberId" readonly="readonly" style="background-color:#FFFFFF; position:relative; top:-20px; left:150px; width:350px"></div>
+									<div style="width:20%; height:100px; background-color:#F2F2F2; text-align: center; position:relative; vertical-align: middle;">내용 
+									<textarea rows="" cols="" readonly="readonly" style="background-color:#F2F2F2; position:relative;  top:-20px; left:150px; width:350px;border-color:white; height:100px; resize: none">   ${reviewList.content}</textarea>
 									
-									<input type="text"  readonly="readonly" style="overflow:auto; background-color:#F2F2F2; position:relative; top:-20px; left:150px; width:350px; height:100px" value="${reviewList.content}">
-										
+<%-- 									<input type="text" readonly="readonly" style="white-space:normal; background-color:#F2F2F2; position:relative; top:-20px; left:150px; width:350px; height:100px" value="${reviewList.content}"> --%>		
 									</div>
+									<input type="hidden" value="${reviewList.code}" name="reviewCode"> 
+									<input type="hidden" value="${requestScope.gym.code}" name = "gymCode">
+									
+									
 									<div style="width: 500px; height:auto; overflow: hidden">
 									<c:if test="${not empty reviewList.fileName}">
 									<img id="review_pic" src="${pageContext.request.contextPath}/save/review/${reviewList.fileName}" style="position:relative;  margin: 5px 5px 5px 0px;" >
 									</c:if>
-									</div><!-- ${pageContext.request.contextPath}/save/review" -->
 									
+									</div><!-- ${pageContext.request.contextPath}/save/review" -->
+ 									<c:if test="${reviewList.memberId == sessionScope.curUserId}">
+									<span ><input type="submit" name="rBtn" value="삭제" style="text-align:center; position: relative; width:50px; background-color:orange; color:white;"></span>
+									</c:if>
+									</form>
+									<!--삭제 form끝 -->
+									<!--리뷰 업데이트 form 시작 -->
+									<form method="post" action="${pageContext.request.contextPath}/front?command=updateReviewForm">
+									<input type="hidden" value="${reviewList.memberId}" name="memberId" >
+									<input type="hidden" value="${reviewList.code}" name="reviewCode"> 
+									<input type="hidden" value="${requestScope.gym.code}" name = "gymCode">
+									<input type="hidden" value="${reviewList.content}" name = "reviewContent">
+									<input type="hidden" value="${reviewList.fileName}" name = "reviewFileName">
+									<c:if test="${reviewList.memberId == sessionScope.curUserId}">
+											<span><input type="submit" name="rBtn" value="수정" style="text-align:center; position: relative; left:55px; top:-30px; width:50px; background-color:orange; color:white;"></span>
+										</c:if>
+									</form>
+									<!-- 리뷰 업데이트 form 끝 -->
 								</div><!-- comment container 끝 -->
 								</c:forEach>
+								
 								</c:otherwise>
 								</c:choose>
 								<hr>
@@ -248,7 +271,7 @@
                                                 <li><i class="pe-7s-mail strong"> </i> hahahoho@gaver.com</li>
                                                 <li><i class="pe-7s-call strong"> </i> ${requestScope.gym.phoneNum}</li>
                                             </ul>
-                                            <p>${requestScope.gym.comment}</p>
+<%--                                             <p>${requestScope.gym.comment}</p> --%>
                                         </div>
 
                                     </div>
@@ -264,7 +287,7 @@
                                 <div class="panel-body recent-property-widget">
                                 	<!-- 지도 출력할 위치 -->
                                    
-                                    <div style="width:300px; height:400px" id='map'></div>
+                                    <div style="width:100%; height:400px" id='map' ></div>
                                 </div>
                             </div>
 
@@ -283,7 +306,7 @@
           <!-- Footer area-->
         <div class="footer-area">
 
-            <div class=" footer">
+            <!-- <div class=" footer">
                 <div class="container">
                     <div class="row">
 
@@ -379,7 +402,7 @@
                                             <button class="btn btn-primary subscribe" type="button"><i class="pe-7s-paper-plane pe-2x"></i></button>
                                         </span>
                                     </div>
-                                    <!-- /input-group -->
+                                    /input-group
                                 </form> 
 
                                 <div class="social pull-right"> 
@@ -402,7 +425,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="pull-left">
-                            <span> (C) <a href="http://www.KimaroTec.com">KimaroTheme</a> , All rights reserved 2016  </span> 
+                            <span> (C) <a href="#">OpenMind</a> , All rights reserved 2016  </span> 
                         </div> 
                         <div class="bottom-menu pull-right"> 
                             <ul> 
@@ -414,8 +437,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
+            </div> -->
+            <jsp:include page="footer.jsp"></jsp:include>
         </div>
           
         
@@ -489,6 +512,42 @@
 			    } 
 			});    
 </script>
+<!-- 리뷰 작성하기 버튼에 적용할 제이쿼리 , 리뷰 수정 삭제에 사용할 제이쿼리 -->
+<script type="text/javascript">
+	$(function(){
+		$("[name=btnn]").click(function(){
+			//session에 curUserType이 0이면 비회원이니까 로그인하라는 alert 띄움
+			
+			if("${sessionScope.curUserType}" == 0){
+				alert("로그인 후 사용해주세요.");
+				
+				return false;
+			}
+		});
+		
+		$("[value=삭제]").click(function(){
+			var b = confirm("정말삭제하시겠습니까?");
+			console.log(b);
+			if(b){
+				return true;
+			}else{
+				return false;
+			}
+			
+		});
+		
+// 		alert(reviewList);
+// 		$("[name=rBtn]").hide();
+// 		$.each(reviewList, function(index, item){
+// 			console.log(item);
+// 		});
+// 		$.each(reviewList, function(index, item){
+// 			alert(1);
+			
+// 		});
+		
+	});
 
+</script>
     </body>
 </html>

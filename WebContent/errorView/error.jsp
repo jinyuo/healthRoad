@@ -20,6 +20,9 @@
 	} else if( "${errCode}" == 4){
 		alert("이미 등록된 사업자이거나 접근 권한이 없습니다.");
 		location.href="mypage.html";
+	}else if( "${errCode}" == 30){
+		alert("이dddd.");
+		
 	}
     </script>	
     

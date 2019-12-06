@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <!DOCTYPE html>
 
@@ -15,7 +15,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>헬스로드 | Home page</title>
+<title>헬스로드 | 메인페이지</title>
 <meta name="description" content="GARO is a real-estate template">
 <meta name="author" content="Kimarotec">
 <meta name="keyword"
@@ -48,105 +48,60 @@
 <link rel="stylesheet" href="assets/css/responsive.css">
 <script src="js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
-
-	if("${Msg}"=="1"){
+	if ("${Msg}" == "1") {
 		alert("성공적으로 삭제 되었습니다.");
 	}
 
-    
-	$(function(){
-		$("#login").click(function(){
-			if($(this).text() == "로그인/회원가입"){
+	$(function() {
+		$("#login").click(function() {
+			if ($(this).text() == "로그인/회원가입") {
 				alert($(this).text())
-        		location.href="register.jsp";
-        	} else {
-        		alert($(this).text());
-        		location.href="front?command=login";
-        		
-        	}
-		}); 	
-	});
-    
+				location.href = "register.jsp";
+			} else {
+				alert($(this).text());
+				location.href = "front?command=login";
 
+			}
+		});
+	});
 </script>
 </head>
 <body>
-
 	<div id="preloader">
 		<div id="status">&nbsp;</div>
 	</div>
 	<!-- Body content -->
 
 	<!--End top header -->
-
-	<nav class="navbar navbar-default ">
-		<div class="container">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target="#navigation">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="index-5.html"><img
-					src="assets/img/logo.png" alt=""></a>
-				<!-- 로고이미지 바꾸기 -->
-			</div>
-
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse yamm" id="navigation">
-				<div class="button navbar-right">
-					<button class="navbar-btn nav-button wow bounceInRight login" id="login" data-wow-delay="0.4s"><c:choose><c:when test="${curUserType eq '0'}" >로그인/회원가입</c:when><c:otherwise>로그아웃</c:otherwise></c:choose></button>
-				</div>
-				<ul class="main-nav nav navbar-nav navbar-right">
-					<li class="dropdown ymm-sw " data-wow-delay="0.1s">
-						<!-- 여기href 바꿔야함--> <a href="${pageContext.request.contextPath}/mypage.html"
-						class="dropdown-toggle active" data-hover="dropdown"
-						data-delay="200">마이페이지 </a>
-
-					</li>
-
-
-					<li class="wow fadeInDown" data-wow-delay="0.1s"><a class=""
-						href="property.html">포인트충전</a></li>
-					<li class="dropdown yamm-fw" data-wow-delay="0.1s">
-						<!-- 여기href 바꿔야함--> <a href="contact-3.html"
-						class="dropdown-toggle" data-toggle="dropdown"
-						data-hover="dropdown" data-delay="200">서비스소개 </a>
-					</li>
-
-					<!-- <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">Contact</a></li> -->
-				</ul>
-			</div>
-			<!-- /.navbar-collapse -->
-		</div>
-		<!-- /.container-fluid -->
-	</nav>
+	
+	<jsp:include page="navigator.jsp"></jsp:include>
 	<!-- End of nav bar -->
-
 
 	<div class="slider-area">
 		<div class="slider">
 			<div id="bg-slider" class="owl-carousel owl-theme">
 				<div class="item">
-					<img src="${pageContext.request.contextPath}/save/main/main5.jpg" alt="mainImg1">
+					<img src="${pageContext.request.contextPath}/save/main/main5.jpg"
+						alt="mainImg1">
 				</div>
 				<div class="item">
-					<img src="${pageContext.request.contextPath}/save/main/main7.jpg" alt="mainImg2">
+					<img src="${pageContext.request.contextPath}/save/main/main7.jpg"
+						alt="mainImg2">
 				</div>
 				<div class="item">
-					<img src="${pageContext.request.contextPath}/save/main/main6.jpg" alt="mainImg3">
+					<img src="${pageContext.request.contextPath}/save/main/main6.jpg"
+						alt="mainImg3">
 				</div>
-
 			</div>
 		</div>
 		<div class="container slider-content">
 			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
+				<div
+					class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
 					<blockquote style="background-color: rgba(0, 0, 0, 0.23)">
-					<h2 style="color: white"> 나를 찾아오는 건강</h2>
-					<p style="color: white"> 나의 건강을 시간과 장소에 구애받지 마세요. 언제 어디서든 나와 가장 가까운 헬스장을 찾아보세요</p>
+						<h2 style="color: white">나를 찾아오는 건강</h2>
+						<p style="color: white">나의 건강을 시간과 장소에 구애받지 마세요. 언제 어디서든 나와 가장
+							가까운 헬스장을 찾아보세요</p>
 					</blockquote>
 					<div class="search-form wow pulse" data-wow-delay="0.8s">
 
@@ -155,8 +110,7 @@
 							<div class="form-group">
 								<!-- 컨트롤러 매칭을 위한 값 넘김 -->
 								<input type="hidden" name="command" value="gymList">
-								<!-- 								<select id="lunchBegins" class="selectpicker" data-live-search="true" data-live-search-style="begins" title="-선택-" name="keyfield">
- -->
+								<!-- <select id="lunchBegins" class="selectpicker" data-live-search="true" data-live-search-style="begins" title="-선택-" name="keyfield"> -->
 								<select id="basic" class="selectpicker show-tick form-control"
 									name="keyfield">
 									<option>선택</option>
@@ -165,7 +119,8 @@
 								</select>
 							</div>
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Keyword" name="keyword">
+								<input type="text" class="form-control" placeholder="Keyword"
+									name="keyword">
 							</div>
 							<button class="btn search-btn" type="submit">
 								<i class="fa fa-search"></i>
@@ -190,7 +145,7 @@
 							<!-- <ul class="sort-by-list">
 								<li class="active"><a href="javascript:void(0);"
 									class="order_by_date" data-orderby="property_date"
-									data-order="ASC"> 날짜 순 정렬 <i class="fa fa-sort-amount-asc"></i>
+									data-order="ASC"> 별점 순 정렬 <i class="fa fa-sort-amount-asc"></i>
 								</a></li>
 								<li class=""><a href="javascript:void(0);"
 									class="order_by_price" data-orderby="property_price"
@@ -198,9 +153,9 @@
 										class="fa fa-sort-numeric-desc"></i>
 								</a></li>
 							</ul>
-							/ .sort-by-list
+							 / .sort-by-list -->
 
-							<div class="items-per-page">
+							<!-- <div class="items-per-page">
 								<div class="sel">
 									<select id="items_per_page" name="per_page">
 										<option value="3">3</option>
@@ -216,8 +171,8 @@
 								/ .sel
 								<label for="items_per_page"><b>개 씩 보기 :</b></label>
 
-							</div> -->
-							<!--/ .items-per-page-->
+							</div> 
+							/ .items-per-page -->
 						</div>
 
 						<div class="col-xs-2 layout-switcher">
@@ -229,9 +184,9 @@
 						</div>
 						<!--/ .layout-switcher-->
 					</div>
+
 					<div class="col-md-12 ">
 						<div id="list-type" class="proerty-th">
-						
 							<c:if test="${fn:length(list) == 0 }">
 								<div class="row">
 									<h2 style="text-align: center;">검색 결과가 없습니다.</h2>
@@ -241,22 +196,24 @@
 								<div class="col-sm-6 col-md-3 p0">
 									<div class="box-two proerty-item">
 										<div class="item-thumb">
-											<a href="${pageContext.request.contextPath}/front?command=gymDetail&code=${gymList.code}">
-												<!-- <img src="assets/img/demo/property-3.jpg"></a> --> 
-												<img src="${pageContext.request.contextPath}/save/gym/${gymList.fileName}">
-												</a>
+											<a
+												href="${pageContext.request.contextPath}/front?command=gymDetail&code=${gymList.code}">
+												<img
+												src="${pageContext.request.contextPath}/save/gym/${gymList.fileName}">
+											</a>
 										</div>
 
 										<div class="item-entry overflow">
 											<h5>
-												<a href="${pageContext.request.contextPath}/front?command=gymDetail&code=${gymList.code}">
-													${gymList.name} </a>
+												<a
+													href="${pageContext.request.contextPath}/front?command=gymDetail&code=${gymList.code}">${gymList.name}
+												</a>
 											</h5>
 											<div class="dot-hr"></div>
-											<span class="pull-left"><b> 수용인원 :</b>
-												${gymList.gymCapacity }명 </span> 
-												<span class="proerty-price pull-right"> ${gymList.price} p
-											</span><br>
+											<span class="pull-left"> <b> 수용인원 :</b>
+												${gymList.gymCapacity }명
+											</span> <span class="proerty-price pull-right">
+												${gymList.price} p </span><br>
 											<p>${gymList.addr}</p>
 											<p>${gymList.phoneNum}</p>
 											<!--<p style="display: none;">Suspendisse ultricies
@@ -295,8 +252,7 @@
 
 	<!-- Footer area-->
 	<div class="footer-area">
-
-		<div class=" footer">
+		<!-- <div class=" footer">
 			<div class="container">
 				<div class="row">
 
@@ -307,7 +263,7 @@
 
 							<img src="assets/img/footer-logo.png" alt="" class="wow pulse"
 								data-wow-delay="1s">
-							<!-- 로고이미지 바꾸기 -->
+							로고이미지 바꾸기
 							<p>Lorem ipsum dolor cum necessitatibus su quisquam
 								molestias. Vel unde, blanditiis.</p>
 
@@ -401,7 +357,7 @@
 										</button>
 									</span>
 								</div>
-								<!-- /input-group -->
+								/input-group
 							</form>
 
 							<div class="social pull-right">
@@ -428,32 +384,8 @@
 
 				</div>
 			</div>
-		</div>
-
-		<div class="footer-copy text-center">
-			<div class="container">
-				<div class="row">
-					<div class="pull-left">
-						<span> (C) <a href="http://www.KimaroTec.com">KimaroTheme</a>
-							, All rights reserved 2016
-						</span>
-					</div>
-					<div class="bottom-menu pull-right">
-						<ul>
-							<li><a class="wow fadeInUp animated" href="#"
-								data-wow-delay="0.2s">Home</a></li>
-							<li><a class="wow fadeInUp animated" href="#"
-								data-wow-delay="0.3s">Property</a></li>
-							<li><a class="wow fadeInUp animated" href="#"
-								data-wow-delay="0.4s">Faq</a></li>
-							<li><a class="wow fadeInUp animated" href="#"
-								data-wow-delay="0.6s">Contact</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-
+		</div> -->
+		<jsp:include page="footer.jsp"></jsp:include>
 	</div>
 
 

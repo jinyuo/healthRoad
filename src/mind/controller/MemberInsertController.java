@@ -38,7 +38,7 @@ public class MemberInsertController implements HealthController {
 		
 		
 		
-		mv.setViewName("index-5.html");
+		mv.setViewName("index-5.jsp");
 		mv.setRedirect(true);
 		
 		return mv;

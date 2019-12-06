@@ -22,6 +22,9 @@ function checkValid() {
 	
     return true;
 }
+
+
+
 </SCRIPT>
 
 
@@ -71,7 +74,7 @@ function checkValid() {
         </td>
         <td width="450" height="20">
         	<b><span style="font-size:9pt;">
-        		 <input type="file" name="file" maxlength="60" size="40">
+        		 <input type="file" name="file" maxlength="60" size="40" accept=".gif, .jpg, .png, .jpeg" onchange="chk_file_type(this)">
         	   </span></b>
         </td>
     </tr>
@@ -84,6 +87,47 @@ function checkValid() {
 </table>
 
 </form>
+
+<script type="text/javascript">
+function chk_file_type(obj) {
+
+	var file_kind = obj.value.lastIndexOf('.');
+
+	var file_name = obj.value.substring(file_kind+1,obj.length);
+
+	var file_type = file_name.toLowerCase();
+
+	var check_file_type=new Array();
+
+	check_file_type=['jpg','gif','png','jpeg'];
+
+
+
+	if(check_file_type.indexOf(file_type)==-1) {
+
+		alert('이미지 파일만 업로드 해주세요.');
+
+		var parent_Obj=obj.parentNode;
+
+		var node=parent_Obj.replaceChild(obj.cloneNode(true),obj);
+
+
+
+		document.getElementById("wfb-field-219958876").value = "";    //초기화를 위한 추가 코드
+
+		document.getElementById("wfb-field-219958876").select();        //초기화를 위한 추가 코드
+
+		document.selection.clear();                                                //일부 브라우저 미지원
+
+		return false;
+
+	}
+
+}
+
+
+
+</script>
 
 
 

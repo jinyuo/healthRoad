@@ -15,7 +15,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>헬스로드 | 이용내역</title>
+        <title>헬스로드 | 신청자내역</title>
         <meta name="description" content="GARO is a real-estate template">
         <meta name="author" content="Kimarotec">
         <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
@@ -86,7 +86,7 @@
         <!-- End of nav bar -->
 
         <div class="container">
-            <h2 class="ps-property-title">신청자 목록</h2>
+            <h2 class="ps-property-title">신청자 내역</h2>
         </div>
         <div class="collapse navbar-collapse yamm" id="navigation"></div>
         <!-- /.navbar-collapse -->
@@ -290,7 +290,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="pull-left">
-                            <span> (C) <a href="http://www.KimaroTec.com">KimaroTheme</a> , All rights reserved 2016  </span> 
+                            <span> (C) <a href="#">OpenMind</a> , All rights reserved 2019  </span> 
                         </div> 
                         <div class="bottom-menu pull-right"> 
                             <ul> 

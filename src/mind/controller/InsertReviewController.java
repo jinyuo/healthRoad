@@ -40,7 +40,10 @@ public class InsertReviewController implements HealthController {
 		int gymCode = Integer.parseInt(m.getParameter("gymCode"));
 		
 		//세션에 유저 아이디 받기
-		String memberId = "GIJOE";
+//		String memberId = "GIJOE";
+		HttpSession session = request.getSession();
+		String memberId = (String)session.getAttribute("curUserId");
+		
 		//본문내용에 스크립트 태그를 막기 위해서 사용
 		content= content.replace("<", "&lt;");
 		

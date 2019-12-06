@@ -59,7 +59,7 @@
 					<span class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="index.html">
-					<img src="assets/img/logo.png" alt="">
+					<img src="assets/img/HealthRoad2.png" alt="">
 				</a>
 				<!-- 로고이미지 바꾸기 -->
 			</div>
@@ -67,34 +67,27 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse yamm" id="navigation">
 				<!-- 로그인/로그아웃 버튼 -->
-				<c:choose>
-					<c:when test="${not empty sessionScope.session }">
-						<div class="button navbar-right">
-							<button class="navbar-btn nav-button wow bounceInRight login" onclick="" data-wow-delay="0.4s">로그아웃</button>
-						</div>
-					</c:when>
-					<c:otherwise>
-						<div class="button navbar-right">
-							<button class="navbar-btn nav-button wow bounceInRight login" onclick="location.href='register.jsp'" data-wow-delay="0.4s">로그인/회원가입</button>
-						</div>
-					</c:otherwise>
-				</c:choose>
+				<div class="button navbar-right">
+					<button class="navbar-btn nav-button wow bounceInRight login" id="login" data-wow-delay="0.4s">
+						<c:choose>
+							<c:when test="${curUserType eq '0'}">로그인/회원가입</c:when>
+							<c:otherwise>로그아웃</c:otherwise>
+						</c:choose>
+					</button>
+				</div>
 	
 				<ul class="main-nav nav navbar-nav navbar-right">
 					<li class="dropdown ymm-sw " data-wow-delay="0.1s">
 						<!-- 여기href 바꿔야함--> 
-						<a href="${pageContext.request.contextPath}/mypage.html" class="dropdown-toggle" data-hover="dropdown" data-delay="200">마이페이지</a>
+						<a href="${pageContext.request.contextPath}/mypage.jsp" class="dropdown-toggle" data-hover="dropdown" data-delay="200">마이페이지</a>
 					</li>
 	
 	
 					<li class="dropdown ymm-sw " data-wow-delay="0.1s">
-						<a class="" href="property.html">포인트충전</a>
+						<a class="" href="point_charge.jsp">포인트충전</a>
 					</li>
-					<li class="dropdown yamm-fw" data-wow-delay="0.1s">
-						<!-- 여기href 바꿔야함--> 
-						<a href="contact-3.html" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">서비스소개 </a>
-					</li>
-	
+					<li class="dropdown ymm-sw " data-wow-delay="0.1s"><a href="contact-3.jsp">헬스로드 소개 </a></li>
+					
 					<!-- <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">Contact</a></li> -->
 				</ul>
 			</div>

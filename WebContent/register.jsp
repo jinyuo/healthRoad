@@ -36,20 +36,13 @@
         <link rel="stylesheet" href="assets/css/owl.transitions.css">
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="assets/css/responsive.css">
-<<<<<<< HEAD
-        
-        <script src="js/jquery-3.4.1.min.js"></script>
-        <script type="text/javascript">
 
-=======
        
         <script src="js/jquery-3.4.1.min.js"></script> 
         <script type="text/javascript">
-        
->>>>>>> branch 'tryFullMerge' of https://github.com/jinyuo/Health-Integration-Platform.git
+  
   	function checkValid(){
   		
-
 		 if($("#memberId").val()==""){
 			alert("아이디를 입력하세요.")
 			 $("#memberId").focus();
@@ -134,32 +127,7 @@
 
 		<jsp:include page="navigator.jsp"></jsp:include>
 
-<<<<<<< HEAD
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse yamm" id="navigation">
-                    <div class="button navbar-right">
-                    
-                    
-                    	 
-                        <button id="login" class="navbar-btn nav-button wow bounceInRight login" data-wow-delay="0.4s"><c:choose><c:when test="${curUserType eq '0'}" >Login</c:when><c:otherwise>Logout</c:otherwise></c:choose></button>
-                        <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.open('submit-property.html')" data-wow-delay="0.5s">Submit</button>
-                    </div>
-                    <ul class="main-nav nav navbar-nav navbar-right">
-                        <li class="dropdown ymm-sw " data-wow-delay="0.1s">
-                            <a href="index.html" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">마이페이지 </a>
-                        </li>
 
-                        <li class="dropdown yamm-fw" data-wow-delay="0.1s">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">포인트 충전 </a>
-                        </li>
-
-                        <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-        </nav>
-=======
->>>>>>> branch 'tryFullMerge' of https://github.com/jinyuo/Health-Integration-Platform.git
         <!-- End of nav bar -->
         
         <div class="container">
@@ -180,11 +148,7 @@
                                 <div class="form-group">
                                     <label for="name">아이디</label>
                                     <input type="text" class="form-control" id="memberId" name="memberId" autocomplete="off">
-<<<<<<< HEAD
-                                    <span id="span" class="orange stronge">아이디 중복 체크</span>
-=======
                                     <span id="span" class="orange strong">아이디 중복 체크</span>
->>>>>>> branch 'tryFullMerge' of https://github.com/jinyuo/Health-Integration-Platform.git
                                 </div>
                                 <div class="form-group">
                                     <label for="password">비밀번호</label>
@@ -219,17 +183,17 @@
                     <div class="box-for overflow">                         
                         <div class="col-md-12 col-xs-12 login-blocks">
                             <h2>로그인 : </h2> 
-                            <form action="" method="post">
+                            <form action="front?command=login" method="post">
                                 <div class="form-group">
                                     <label for="id">아이디</label>
-                                    <input type="text" class="form-control" id="id">
+                                    <input type="text" class="form-control" name="id">
                                 </div>
                                 <div class="form-group">
                                     <label for="password">비밀번호</label>
-                                    <input type="password" class="form-control" id="password">
+                                    <input type="password" class="form-control" name="password">
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-default"> 로그인</button>
+                                    <button type="submit" class="btn btn-default">로그인</button>
                                 </div>
                             </form>
                             <br>

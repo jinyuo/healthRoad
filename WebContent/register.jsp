@@ -1,3 +1,5 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -69,16 +71,17 @@
         
 	     $(function(){
 
-				$("#login").click(function(){
-					if($(this).text() == "Login"){
-						alert($(this).text())
-	            		location.href="register.jsp";
-	            	} else {
-	            		alert($(this).text());
-	            		location.href="front?command=login";
-	            	}
-				}); 		    	 
-	    	 
+	    	 	$("#login").click(function(){
+	    	 		if($(this).text() == "로그인/회원가입"){
+	    	 			alert($(this).text())
+	    	    		location.href="register.jsp";
+	    	    	} else {
+	    	    		alert($(this).text());
+	    	    		location.href="front?command=login";
+	    	    	}
+	    	 		
+	    	 	}); 	    	 
+	    	 	 
         	//아이디 중복 체크
         	$("#memberId").keyup(function(){
         		if($(this).val()==""){

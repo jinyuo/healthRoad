@@ -46,6 +46,24 @@
 <link rel="stylesheet" href="assets/css/owl.transitions.css">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="assets/css/responsive.css">
+
+<script src="js/jquery-3.4.1.min.js"></script> 
+<script type="text/javascript">
+
+$(function(){
+
+	$("#login").click(function(){
+		if($(this).text() == "로그인/회원가입"){
+			alert($(this).text())
+   		location.href="register.jsp";
+   	} else {
+   		alert($(this).text());
+   		location.href="front?command=login";
+   	}
+		
+	}); 	    	 
+	 
+		</script>
 </head>
 <body>
 	<nav class="navbar navbar-default ">

@@ -216,7 +216,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="page-head-content">
-					<h1 class="page-title">íì ì ë³´ ìì </h1>
+					<h1 class="page-title">회원 정보 수정</h1>
 				</div>
 			</div>
 		</div>
@@ -235,7 +235,7 @@
 
 						<div class="profiel-header">
 							<h3>
-								<b>íì ì ë³´ ìì </b> <br> <small></small>
+								<b>회원 정보 수정</b> <br> <small></small>
 							</h3>
 							<hr>
 						</div>
@@ -243,18 +243,18 @@
 						<div class="clear">
 
 							<div class="col-sm-10 col-sm-offset-1">
-								<span><h4>ë¹ë°ë²í¸ ìì </h4></span>
+								<span><h4>비밀번호 수정</h4></span>
 
 								<form action="front?command=updateUser&type=1" method="post">
 									<div class="form-group">
-										<label>ë¹ë°ë²í¸ <small>(required)</small></label> <input name="password1" type="password" class="form-control">
+										<label>비밀번호 <small>(required)</small></label> <input name="password1" type="password" class="form-control">
 									</div>
 									<div class="form-group">
-										<label>ë¹ë°ë²í¸ íì¸ : <small>(required)</small></label> <input name="password2" type="password" class="form-control">
+										<label>비밀번호 확인 : <small>(required)</small></label> <input name="password2" type="password" class="form-control">
 									</div>
 
 									<div class="col-sm-10 col-sm-offset-1">
-										<button type="submit" class="btn btn-finish btn-primary pull-right">ë³ê²½íê¸°</button>
+										<button type="submit" class="btn btn-finish btn-primary pull-right">변경하기</button>
 									</div>
 
 								</form>
@@ -264,10 +264,10 @@
 						<div class="clear">
 
 							<div class="col-sm-10 col-sm-offset-1">
-								<span><h4>ì°ë½ì² ìì </h4></span>
+								<span><h4>연락처 수정</h4></span>
 								<form action="front?command=updateUser&type=2" method="post">
 									<div class="form-group">
-										<label>ì°ë½ì² <small>(required)</small></label> <input
+										<label>연락처 <small>(required)</small></label> <input
 											name="phone" type="text" class="form-control">
 									</div>
 
@@ -275,7 +275,7 @@
 									<div class="col-sm-10 col-sm-offset-1">
 
 										<button type="submit"
-											class="btn btn-finish btn-primary pull-right">ë³ê²½íê¸°</button>
+											class="btn btn-finish btn-primary pull-right">변경하기</button>
 									</div>
 
 								</form>
@@ -293,7 +293,7 @@
 			<div class="col-sm-2 col-sm-offset-5">
 				<br> <input type='button'
 					class='btn btn-finish btn-primary pull-right' name='main'
-					value='ë©ì¸ì¼ë¡ ê°ê¸°' />
+					value='메인으로 가기' />
 			</div>
 		</div>
 	</div>
@@ -301,7 +301,7 @@
 	<!-- Footer area-->
 	<div class="footer-area">
 
-		<div class=" footer">
+		<!-- <div class=" footer">
 			<div class="container">
 				<div class="row">
 
@@ -411,7 +411,7 @@
 										</button>
 									</span>
 								</div>
-								<!-- /input-group -->
+								/input-group
 							</form>
 
 							<div class="social pull-right">
@@ -462,8 +462,8 @@
 					</div>
 				</div>
 			</div>
-		</div>
-
+		</div> -->
+		<jsp:include page="footer.jsp"></jsp:include>
 	</div>
 
 	<script src="assets/js/modernizr-2.6.2.min.js"></script>

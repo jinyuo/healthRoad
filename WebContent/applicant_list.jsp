@@ -286,7 +286,7 @@
                 </div>
             </div> -->
 
-            <div class="footer-copy text-center">
+            <!-- <div class="footer-copy text-center">
                 <div class="container">
                     <div class="row">
                         <div class="pull-left">
@@ -302,8 +302,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
+            </div> -->
+			<jsp:include page="footer.jsp"></jsp:include>
         </div>
           
 

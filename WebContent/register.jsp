@@ -39,25 +39,7 @@
         
         <script src="js/jquery-3.4.1.min.js"></script>
         <script type="text/javascript">
-        
-		$(function(){
-			$("#login").click(function(){
-				if($(this).text() == "Login"){
-					alert($(this).text())
-            		location.href="register.jsp";
-            	} else {
-            		alert($(this).text());
-            		location.href="front?command=login";
-            	}
-			}); 	
-		});
-        	
-		
-        </script>
-       
-        <script src="js/jquery-3.4.1.min.js"></script> 
-        <script type="text/javascript">
-        
+
   	function checkValid(){
 		 if($("#memberId").val()==""){
 			alert("아이디를 입력하세요.")
@@ -84,7 +66,17 @@
 	 
         
 	     $(function(){
-	    	
+
+				$("#login").click(function(){
+					if($(this).text() == "Login"){
+						alert($(this).text())
+	            		location.href="register.jsp";
+	            	} else {
+	            		alert($(this).text());
+	            		location.href="front?command=login";
+	            	}
+				}); 		    	 
+	    	 
         	//아이디 중복 체크
         	$("#memberId").keyup(function(){
         		if($(this).val()==""){
@@ -146,7 +138,9 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
                     <div class="button navbar-right">
-                    	<script type="text/javascript">alert(${curUserType});</script> 
+                    
+                    
+                    	 
                         <button id="login" class="navbar-btn nav-button wow bounceInRight login" data-wow-delay="0.4s"><c:choose><c:when test="${curUserType eq '0'}" >Login</c:when><c:otherwise>Logout</c:otherwise></c:choose></button>
                         <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.open('submit-property.html')" data-wow-delay="0.5s">Submit</button>
                     </div>
@@ -189,7 +183,7 @@
                                 <div class="form-group">
                                     <label for="name">아이디</label>
                                     <input type="text" class="form-control" id="memberId" name="memberId" autocomplete="off">
-                                    <span id="span">아이디 중복 체크</span>
+                                    <span id="span" class="orange stronge">아이디 중복 체크</span>
                                 </div>
                                 <div class="form-group">
                                     <label for="password">비밀번호</label>

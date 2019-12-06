@@ -15,7 +15,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>헬스로드 | Home page</title>
+<title>헬스로드 | 메인페이지</title>
 <meta name="description" content="GARO is a real-estate template">
 <meta name="author" content="Kimarotec">
 <meta name="keyword"
@@ -98,11 +98,11 @@
 
 
 					<li class="wow fadeInDown" data-wow-delay="0.1s"><a class=""
-						href="property.html">포인트충전</a></li>
+						href="property.html">포인트충전 </a></li>
 					<li class="dropdown yamm-fw" data-wow-delay="0.1s">
 						<!-- 여기href 바꿔야함--> <a href="contact-3.html"
 						class="dropdown-toggle" data-toggle="dropdown"
-						data-hover="dropdown" data-delay="200">서비스소개 </a>
+						data-hover="dropdown" data-delay="200">헬스로드 소개  </a>
 					</li>
 
 					<!-- <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">Contact</a></li> -->

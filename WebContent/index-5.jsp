@@ -15,7 +15,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>헬스로드 | Home page</title>
+<title>헬스로드 | 메인페이지</title>
 <meta name="description" content="GARO is a real-estate template">
 <meta name="author" content="Kimarotec">
 <meta name="keyword"
@@ -71,14 +71,12 @@
 </script>
 </head>
 <body>
-
 	<div id="preloader">
 		<div id="status">&nbsp;</div>
 	</div>
 	<!-- Body content -->
 
 	<!--End top header -->
-
 	<nav class="navbar navbar-default ">
 		<div class="container">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -96,9 +94,18 @@
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse yamm" id="navigation">
+
 				<div class="button navbar-right">
-					<button class="navbar-btn nav-button wow bounceInRight login" id="login" data-wow-delay="0.4s"><c:choose><c:when test="${curUserType eq '0'}" >로그인/회원가입</c:when><c:otherwise>로그아웃</c:otherwise></c:choose></button>
+					<button class="navbar-btn nav-button wow bounceInRight login" id="login" data-wow-delay="0.4s">
+            <c:choose>
+              <c:when test="${curUserType eq '0'}" >로그인/회원가입</c:when>
+              <c:otherwise>로그아웃</c:otherwise>
+            </c:choose>
+        </button>
 				</div>
+					</c:otherwise>
+				</c:choose>
+				
 				<ul class="main-nav nav navbar-nav navbar-right">
 					<li class="dropdown ymm-sw " data-wow-delay="0.1s">
 						<!-- 여기href 바꿔야함--> <a href="${pageContext.request.contextPath}/mypage.html"
@@ -109,11 +116,11 @@
 
 
 					<li class="wow fadeInDown" data-wow-delay="0.1s"><a class=""
-						href="property.html">포인트충전</a></li>
+						href="property.html">포인트충전 </a></li>
 					<li class="dropdown yamm-fw" data-wow-delay="0.1s">
 						<!-- 여기href 바꿔야함--> <a href="contact-3.html"
 						class="dropdown-toggle" data-toggle="dropdown"
-						data-hover="dropdown" data-delay="200">서비스소개 </a>
+						data-hover="dropdown" data-delay="200">헬스로드 소개  </a>
 					</li>
 
 					<!-- <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">Contact</a></li> -->
@@ -124,7 +131,6 @@
 		<!-- /.container-fluid -->
 	</nav>
 	<!-- End of nav bar -->
-
 
 	<div class="slider-area">
 		<div class="slider">
@@ -138,7 +144,6 @@
 				<div class="item">
 					<img src="${pageContext.request.contextPath}/save/main/main6.jpg" alt="mainImg3">
 				</div>
-
 			</div>
 		</div>
 		<div class="container slider-content">
@@ -155,8 +160,7 @@
 							<div class="form-group">
 								<!-- 컨트롤러 매칭을 위한 값 넘김 -->
 								<input type="hidden" name="command" value="gymList">
-								<!-- 								<select id="lunchBegins" class="selectpicker" data-live-search="true" data-live-search-style="begins" title="-선택-" name="keyfield">
- -->
+								<!-- <select id="lunchBegins" class="selectpicker" data-live-search="true" data-live-search-style="begins" title="-선택-" name="keyfield"> -->
 								<select id="basic" class="selectpicker show-tick form-control"
 									name="keyfield">
 									<option>선택</option>
@@ -179,18 +183,17 @@
 
 
 	<!-- property area -->
-	<div class="content-area recent-property"
-		style="padding-bottom: 60px; background-color: rgb(252, 252, 252);">
+	<div class="content-area recent-property" style="padding-bottom: 60px; background-color: rgb(252, 252, 252);">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12  padding-top-40 properties-page">
 					<div class="col-md-12 ">
 						<div class="col-xs-10 page-subheader sorting pl0">
 
-							<!-- <ul class="sort-by-list">
+							 <!-- <ul class="sort-by-list">
 								<li class="active"><a href="javascript:void(0);"
 									class="order_by_date" data-orderby="property_date"
-									data-order="ASC"> 날짜 순 정렬 <i class="fa fa-sort-amount-asc"></i>
+									data-order="ASC"> 별점 순 정렬 <i class="fa fa-sort-amount-asc"></i>
 								</a></li>
 								<li class=""><a href="javascript:void(0);"
 									class="order_by_price" data-orderby="property_price"
@@ -198,9 +201,9 @@
 										class="fa fa-sort-numeric-desc"></i>
 								</a></li>
 							</ul>
-							/ .sort-by-list
+							 / .sort-by-list -->
 
-							<div class="items-per-page">
+							<!-- <div class="items-per-page">
 								<div class="sel">
 									<select id="items_per_page" name="per_page">
 										<option value="3">3</option>
@@ -216,22 +219,23 @@
 								/ .sel
 								<label for="items_per_page"><b>개 씩 보기 :</b></label>
 
-							</div> -->
-							<!--/ .items-per-page-->
+							</div> 
+							/ .items-per-page -->
 						</div>
 
 						<div class="col-xs-2 layout-switcher">
-							<a class="layout-list" href="javascript:void(0);"> <i
-								class="fa fa-th-list"></i>
-							</a> <a class="layout-grid active" href="javascript:void(0);"> <i
-								class="fa fa-th"></i>
+							<a class="layout-list" href="javascript:void(0);"> 
+								<i class="fa fa-th-list"></i>
+							</a> 
+							<a class="layout-grid active" href="javascript:void(0);"> 
+								<i class="fa fa-th"></i>
 							</a>
 						</div>
 						<!--/ .layout-switcher-->
 					</div>
+				
 					<div class="col-md-12 ">
 						<div id="list-type" class="proerty-th">
-						
 							<c:if test="${fn:length(list) == 0 }">
 								<div class="row">
 									<h2 style="text-align: center;">검색 결과가 없습니다.</h2>
@@ -242,20 +246,20 @@
 									<div class="box-two proerty-item">
 										<div class="item-thumb">
 											<a href="${pageContext.request.contextPath}/front?command=gymDetail&code=${gymList.code}">
-												<!-- <img src="assets/img/demo/property-3.jpg"></a> --> 
 												<img src="${pageContext.request.contextPath}/save/gym/${gymList.fileName}">
-												</a>
+											</a>
 										</div>
 
 										<div class="item-entry overflow">
 											<h5>
-												<a href="${pageContext.request.contextPath}/front?command=gymDetail&code=${gymList.code}">
-													${gymList.name} </a>
+												<a href="${pageContext.request.contextPath}/front?command=gymDetail&code=${gymList.code}">${gymList.name} </a>
 											</h5>
 											<div class="dot-hr"></div>
-											<span class="pull-left"><b> 수용인원 :</b>
-												${gymList.gymCapacity }명 </span> 
-												<span class="proerty-price pull-right"> ${gymList.price} p
+											<span class="pull-left">
+												<b> 수용인원 :</b> ${gymList.gymCapacity }명 
+											</span> 
+											<span class="proerty-price pull-right"> 
+												${gymList.price} p
 											</span><br>
 											<p>${gymList.addr}</p>
 											<p>${gymList.phoneNum}</p>
@@ -295,8 +299,7 @@
 
 	<!-- Footer area-->
 	<div class="footer-area">
-
-		<div class=" footer">
+		<!-- <div class=" footer">
 			<div class="container">
 				<div class="row">
 
@@ -307,7 +310,7 @@
 
 							<img src="assets/img/footer-logo.png" alt="" class="wow pulse"
 								data-wow-delay="1s">
-							<!-- 로고이미지 바꾸기 -->
+							로고이미지 바꾸기
 							<p>Lorem ipsum dolor cum necessitatibus su quisquam
 								molestias. Vel unde, blanditiis.</p>
 
@@ -401,7 +404,7 @@
 										</button>
 									</span>
 								</div>
-								<!-- /input-group -->
+								/input-group
 							</form>
 
 							<div class="social pull-right">
@@ -428,32 +431,8 @@
 
 				</div>
 			</div>
-		</div>
-
-		<div class="footer-copy text-center">
-			<div class="container">
-				<div class="row">
-					<div class="pull-left">
-						<span> (C) <a href="http://www.KimaroTec.com">KimaroTheme</a>
-							, All rights reserved 2016
-						</span>
-					</div>
-					<div class="bottom-menu pull-right">
-						<ul>
-							<li><a class="wow fadeInUp animated" href="#"
-								data-wow-delay="0.2s">Home</a></li>
-							<li><a class="wow fadeInUp animated" href="#"
-								data-wow-delay="0.3s">Property</a></li>
-							<li><a class="wow fadeInUp animated" href="#"
-								data-wow-delay="0.4s">Faq</a></li>
-							<li><a class="wow fadeInUp animated" href="#"
-								data-wow-delay="0.6s">Contact</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-
+		</div> -->
+		<jsp:include page="footer.jsp"></jsp:include>
 	</div>
 
 

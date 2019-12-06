@@ -1,12 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> 
+<html class="no-js"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>헬스로드 | 사업자등록</title>
+        <title>GARO ESTATE | Left single page</title>
         <meta name="description" content="GARO is a real-estate template">
         <meta name="author" content="Kimarotec">
         <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
@@ -41,110 +43,107 @@
         </div>
         <!-- Body content -->
 
-		<nav class="navbar navbar-default ">
+        
+        <!--End top header -->
+
+        <nav class="navbar navbar-default ">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navigation">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index-5.html"><img
+					src="assets/img/logo.png" alt=""></a>
+				<!-- 로고이미지 바꾸기 -->
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse yamm" id="navigation">
+				<div class="button navbar-right">
+					<button class="navbar-btn nav-button wow bounceInRight login"
+						onclick=" window.open('register.html')" data-wow-delay="0.4s">로그인/회원가입</button>
+
+				</div>
+				<ul class="main-nav nav navbar-nav navbar-right">
+					<li class="dropdown ymm-sw " data-wow-delay="0.1s">
+						<!-- 여기href 바꿔야함--> <a href="index.html"
+						class="dropdown-toggle active" data-hover="dropdown"
+						data-delay="200">마이페이지 </a>
+
+					</li>
+
+
+					<li class="wow fadeInDown" data-wow-delay="0.1s"><a class=""
+						href="property.html">포인트충전</a></li>
+					<li class="dropdown yamm-fw" data-wow-delay="0.1s">
+						<!-- 여기href 바꿔야함--> <a href="contact-3.html"
+						class="dropdown-toggle" data-toggle="dropdown"
+						data-hover="dropdown" data-delay="200">서비스소개 </a>
+					</li>
+
+					<!-- <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">Contact</a></li> -->
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
+        <!-- End of nav bar -->
+
+        
+        <!-- End page header -->
+
+        <div class="content-area blog-page padding-top-40" style="background-color: #FCFCFC; padding-bottom: 55px;">
             <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png" alt=""></a>
+                <div class="row">
+                    
+          
+                        <section class="about-autor">
+
+                        </section>
+
+                        <section id="applicant" class="comments wow fadeInRight animated">
+                            <h3 class="text-uppercase wow fadeInLeft animated  center "> <span class="orange strong">신청자 목록</span></h3>
+								<br>
+
+                            <div class="row comment">
+                                <div class="col-sm-3 col-md-2 text-center-xs">
+                                
+                                </div>
+                                <div class="col-sm-9 col-md-10">
+                                    <h4 class="text-uppercase">신청자 아이디 : </h4>
+                                    <h6 class="text-uppercase">신청자 이름 : </h6>
+                                    <from action="${pageContext.request.contextPath}/front?">
+                                    	<button type="submit" class="btn btn-danger" name="controller만들기" value="회원의 뭔가" style=" border-color : orange ; color:orange">이용시작</button>                                    	
+                						<input type="hidden" name="command" value="controller만들기">
+                                    	
+                                    </from>
+                                    
+                                    </p>
+                                </div>
+                            </div>
+                            <hr>
+                            
+                            <!-- /.comment -->
+                        </section>
+
+             
+                    </div>                    
+                 
                 </div>
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse yamm" id="navigation">
-                    <div class="button navbar-right">
-                        <button class="navbar-btn nav-button wow bounceInRight login" data-wow-delay="0.4s">로그인/회원가입 </button>
-                    </div>
-                    <ul class="main-nav nav navbar-nav navbar-right">
-                        <li class="dropdown ymm-sw " data-wow-delay="0.1s">
-                            <a href="mypage.html" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">마이페이지 </a>
-                        </li>
+            </div>
+      
 
-                        <li class="dropdown yamm-fw" data-wow-delay="0.1s">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">포인트충전 </a>
-                        </li>
-
-                        <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">헬스로드 소개 </a></li>
-                    </ul>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-        </nav>
-
-        <!-- register-area -->
-        <div class="register-area" style="background-color: #FCFCFC;">&nbsp;
-            <div class="container">
-            	<div class="row">
-                    <div class="col-sm-10 col-sm-offset-1 profiel-container">
-        
-        				<form action="" method="post">
-        				
-        					<div class="profiel-header">
-        						
-                            	<h3>
-                            		<b>사업자 등록 </b><br>
-                            	</h3>
-                            	<hr>
-                            	</div>
-                            	
-                            	<div class="clear">
-                            	
-                            	<div class="col-sm-10 col-sm-offset-1">
-                         
-                                <div class="form-group">
-                                    <label for="gymName">사업장 이름</label>
-                                    <input type="text" class="form-control" id="gymName">
-                                </div>
-                                <div class="form-group">
-                                    <label for="addr">주소</label>
-                                    <input type="text" class="form-control" id="addr">
-                                </div>
-                                <div class="form-group">
-                                    <label for="phone">전화번호</label>
-                                    <input type="text" class="form-control" id="phone">
-                                </div>
-                                <div class="form-group">
-                                    <label for="capacity">수용인원</label>
-                                    <input type="text" class="form-control" id="capacity">
-                                </div>
-                                <div class="form-group">
-                                    <label for="price">가격</label>
-                                    <input type="text" class="form-control" id="price">
-                                </div>
-                                <div class="form-group">
-                                    <label for=comment>사업장 소개</label>
-                                    <input type="text" class="form-control" id="comment">
-                                </div>
-                               <div class="form-group">
-                                    <label for=time>이용 시간</label>
-                                    <input type="text" class="form-control" id="weekday" placeholder="평일 이용 시간"> 
-                                    <br>
-                                    <input type="text" class="form-control" id="weekend" placeholder="주말 이용 시간">
-                                </div>
-                               <div class="form-group">
-                                    <label for="fileName">파일 이름</label>
-                                    <input type="text" class="form-control" id="fileName">
-                                </div>
-
-                        <div class="col-sm-2 col-sm-offset-5">
-						<input type='button' class='btn btn-finish btn-primary pull-right' name='main' value='등록'>
-						</div>
-                     </div> 
-                     </div>
-                 </form>
-                 </div>
-                 <!-- 간격 조정 필요 -->
-             </div>
-        </div>      
-	</div>
-		
+            
           <!-- Footer area-->
         <div class="footer-area">
 
-<!--             <div class=" footer">
+            <div class=" footer">
                 <div class="container">
                     <div class="row">
 
@@ -240,7 +239,7 @@
                                             <button class="btn btn-primary subscribe" type="button"><i class="pe-7s-paper-plane pe-2x"></i></button>
                                         </span>
                                     </div>
-                                    /input-group
+                                    <!-- /input-group -->
                                 </form> 
 
                                 <div class="social pull-right"> 
@@ -257,18 +256,20 @@
 
                     </div>
                 </div>
-            </div> -->
+            </div>
 
             <div class="footer-copy text-center">
                 <div class="container">
                     <div class="row">
                         <div class="pull-left">
-                            <span> (C) <a href="#">OpenMind</a> , All rights reserved 2019  </span> 
+                            <span> (C) <a href="http://www.KimaroTec.com">KimaroTheme</a> , All rights reserved 2016  </span> 
                         </div> 
                         <div class="bottom-menu pull-right"> 
                             <ul> 
-                               <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.2s">회사소개</a></li>
-                               <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.4s">포인트충전</a></li>
+                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.2s">Home</a></li>
+                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.3s">Property</a></li>
+                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.4s">Faq</a></li>
+                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.6s">Contact</a></li>
                             </ul> 
                         </div>
                     </div>
@@ -276,8 +277,9 @@
             </div>
 
         </div>
-
-         <script src="assets/js/modernizr-2.6.2.min.js"></script>
+          
+        
+        <script src="assets/js/modernizr-2.6.2.min.js"></script>
 
         <script src="assets/js/jquery-1.10.2.min.js"></script> 
         <script src="bootstrap/js/bootstrap.min.js"></script>

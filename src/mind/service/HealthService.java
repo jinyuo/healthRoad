@@ -143,6 +143,7 @@ public class HealthService {
 			}
 		}
 		
+		if(gymDTO==null) throw new SQLException("선택한 헬스장을 검색할 수 없습니다.");
 		
 		return gymDTO;
 	}
@@ -154,6 +155,9 @@ public class HealthService {
 	 * */
 	public static int insertReview(ReviewDTO review) throws SQLException {
 		int result = healthDAO.insertReview(review);
+		
+		if(result==0) throw new SQLException("리뷰 등록에 실패했습니다.");
+		
 		return result;
 	}
 	
@@ -170,6 +174,7 @@ public class HealthService {
 	 * */
 	public static int updateReview(ReviewDTO review) throws SQLException {
 		int result = healthDAO.updateReview(review);
+		if(result==0) throw new SQLException("리뷰 수정에 실패했습니다.");
 		return result;
 	}
 	
@@ -178,6 +183,8 @@ public class HealthService {
 	 * */
 	public static int deleteReview(int reviewCode, String memberId) throws SQLException {
 		int result = healthDAO.deleteReview(reviewCode, memberId);
+		
+		if(result==0) throw new SQLException("리뷰 삭제에 실패했습니다.");
 		return result;
 	}
 	
@@ -216,5 +223,13 @@ public class HealthService {
 	public static int updateUseDetail(int useDetailCode) throws SQLException {
 		int result = healthDAO.updateUseDetail(useDetailCode);
 		return result;
+	}
+	
+	/*
+	 * 이용 내역에서 헬스장 이름으로 출력
+	 */
+	public static List<UseDetailDTO> selectUseDetailByMemberId(String memberId) throws SQLException {
+		List<UseDetailDTO> list = healthDAO.selectUseDetailByMemberId(memberId);
+		return list;
 	}
 }

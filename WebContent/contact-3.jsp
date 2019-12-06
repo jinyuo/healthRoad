@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -7,7 +8,7 @@
     <head>
          <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>GARO ESTATE | Home page</title>
+        <title>헬스로드 | 헬스로드 소개</title>
         <meta name="description" content="company is a real-estate template">
         <meta name="author" content="Kimarotec">
         <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
@@ -59,7 +60,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
                     <div class="button navbar-right">
-                        <button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.open('register.html')" data-wow-delay="0.4s">로그인/회원가입</button>
+                        <button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.open('register.html')" data-wow-delay="0.4s">로그인/회원가입 </button>
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
@@ -67,38 +68,64 @@
                         </li>
 
                         <li class="dropdown yamm-fw" data-wow-delay="0.1s">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">포인트 충전 </a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">포인트충전 </a>
                         </li>
 
-                        <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">서비스 소개</a></li>
+                        <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact-3.jsp">헬스로드 소개 </a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
+        
+       						<!-- <div style="position: relative; z-index: -99; width: 100%; height: 600px">
+          					
+          						<iframe width=100% height=100% src="https://www.youtube.com/embed/w-cRWOjlk8c?start=258" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+								<iframe frameborder="0" height="100%" width="100%" 
+								src="https://www.youtube.com/embed/U9csZAZUZeI?mute=1&loop=1&autoplay=1&rel=0&controls=0&showinfo=0" allow="autoplay; encrypted-media" >
+								</iframe>
+
+							</div>	 -->
+        
 
         <!-- property area -->
         
+        <!-- ------------------------------------------영상 시작-------------------------------------------- -->
+           					<div style="position: relative; z-index: -99; width: 100%; height: 600px">
+          					
+          						<iframe style="position: absolute" width=100% height=100% src="https://www.youtube.com/embed/w-cRWOjlk8c?rel=0;amp;autoplay=1&amp;mute=1;start=258&playlist=w-cRWOjlk8c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+							</div>
+            
+            <!-- ------------------------------------------영상 끝-------------------------------------------- -->
+        
             <div class="container">  
             
-            <div class="post-header single">
+            
+          					<div class="post-header single">
+          					
+          					
+							
                                 <div class="">
                                     <h2 class="wow fadeInLeft animated">헬스로드 소개</h2>
                                     <div class="title-line wow fadeInRight animated"></div>
                                 </div>
-                                <div class="row wow fadeInRight animated">
+                                
+                                
+                                <!-- <div class="row wow fadeInRight animated">
+                                ggggggggggggggggggggggggggggggggggg
                                     <br>
                                     
                                 </div>
-                                <div class="image wow fadeInRight animated"> 
-                                    <img src="assets/img/운동1.jpeg" class="img-responsive" alt="Example blog post alt">
-                                </div>
+ -->                                	
                             </div> 
 
                             <div id="post-content" class="post-body single wow fadeInLeft animated">
                                 <p><br>
                                     언제 어디서나 회사 근처. 집 근처. 밤에도 낮에도. 장소, 시간 걱정하지 말고 시작하세요. <em><strong>헬스로드 하나면 OK!</strong></em><br>
                                     하나의 멤버십으로 30개 이상 종목, 3,289개 제휴시설을 매일 매일 바꿔가며 이용하세요!</p>
-                                </p>
+                               <!--  </p> -->
                                 
                                 <hr>
 
@@ -276,12 +303,12 @@
             </div>
         </div>
         
-        <
+        
          <!-- <div id="map" style="height: 400px;"></div> -->
          <!-- Footer area-->
         <div class="footer-area">
 
-            <div class=" footer">
+            <!-- <div class=" footer">
                 <div class="container">
                     <div class="row">
 
@@ -377,7 +404,7 @@
                                             <button class="btn btn-primary subscribe" type="button"><i class="pe-7s-paper-plane pe-2x"></i></button>
                                         </span>
                                     </div>
-                                    <!-- /input-group -->
+                                    /input-group
                                 </form> 
 
                                 <div class="social pull-right"> 
@@ -394,13 +421,13 @@
 
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <div class="footer-copy text-center">
                 <div class="container">
                     <div class="row">
                         <div class="pull-left">
-                            <span> (C) <a href="http://www.KimaroTec.com">KimaroTheme</a> , All rights reserved 2016  </span> 
+                            <span> (C) <a href="#">OpenMind</a> , All rights reserved 2016  </span> 
                         </div> 
                         <div class="bottom-menu pull-right"> 
                             <ul> 

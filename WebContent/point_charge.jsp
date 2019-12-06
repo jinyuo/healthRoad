@@ -12,7 +12,7 @@
         <meta name="description" content="company is a real-estate template">
         <meta name="author" content="Kimarotec">
         <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">ㅇ
 
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
 

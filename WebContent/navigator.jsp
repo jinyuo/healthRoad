@@ -59,7 +59,7 @@
 						class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="index.html"><img
-					src="assets/img/logo.png" alt=""></a>
+					src="assets/img/HealthRoad2.png" alt=""></a>
 				<!-- 로고이미지 바꾸기 -->
 			</div>
 

@@ -22,6 +22,20 @@
 				<div class="button navbar-right">
 					<button class="navbar-btn nav-button wow bounceInRight login" id="login" data-wow-delay="0.4s"><c:choose><c:when test="${curUserType eq '0'}">로그인/회원가입</c:when><c:otherwise>로그아웃</c:otherwise></c:choose></button>
 				</div>
+				<script type="text/javascript">
+				 $(function(){
+
+			    	 	$("#login").click(function(){
+			    	 		if($(this).text() == "로그인/회원가입"){
+			    	    		location.href="register.jsp";
+			    	    	} else {
+			    	    		location.href="front?command=login";
+			    	    	}
+			    	 	});
+			    	 	});
+				 
+				 alert("${curUserType}")
+				</script>
 				
 				<ul class="main-nav nav navbar-nav navbar-right">
 					<li class="dropdown ymm-sw " data-wow-delay="0.1s">

@@ -68,19 +68,7 @@
 	
 	 }// 빈칸 유효성 체크 끝
 	 
-        
-	     $(function(){
-
-	    	 	$("#login").click(function(){
-	    	 		if($(this).text() == "로그인/회원가입"){
-	    	 			alert($(this).text())
-	    	    		location.href="register.jsp";
-	    	    	} else {
-	    	    		alert($(this).text());
-	    	    		location.href="front?command=login";
-	    	    	}
-	    	 		
-	    	 	}); 	    	 
+            $(function(){	 
 	    	 	 
         	//아이디 중복 체크
         	$("#memberId").keyup(function(){

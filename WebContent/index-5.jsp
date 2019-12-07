@@ -52,18 +52,6 @@
 		alert("성공적으로 삭제 되었습니다.");
 	}
 
-	$(function() {
-		$("#login").click(function() {
-			if ($(this).text() == "로그인/회원가입") {
-				alert($(this).text())
-				location.href = "register.jsp";
-			} else {
-				alert($(this).text());
-				location.href = "front?command=login";
-
-			}
-		});
-	});
 </script>
 </head>
 <body>

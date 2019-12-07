@@ -21,7 +21,13 @@
 		alert("이미 등록된 사업자이거나 접근 권한이 없습니다.");
 		location.href="mypage.html";
 	}else if( "${errCode}" == 30){
-		alert("이dddd.");
+		alert("이용목록 갱신에 실패했습니다.");
+		
+	}else if( "${errCode}" == 50){
+		alert("포인트충전에 실패했습니다.");
+		
+	}else if( "${errCode}" == 51){
+		alert("포인트갱신에 실패했습니다.");
 		
 	}
     </script>	

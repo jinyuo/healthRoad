@@ -9,7 +9,7 @@
 -- SELECT문에 * 대신 속성명 작성 권장
 -- 'NULL'은 NULL이라는 값의 문자열이므로 INSERT문에 속성값이 비어있다면 NULL로 처리할 것.
 update member set balance = 50000 where id = 'test'
-select * from member
+select * from member;
 
 SELECT * FROM DUAL;
 
@@ -259,3 +259,16 @@ UPDATE MEMBER SET GYM_CODE = (select LAST_NUMBER from user_sequences where SEQUE
  
  UPDATE MEMBER SET GYM_CODE = (select max(code) from gym) where id = 'testtest3';
  UPDATE MEMBER SET GYM_CODE = (select max(code) from gym) where id = 'testtest4';
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

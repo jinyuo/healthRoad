@@ -120,7 +120,7 @@
                             </div>
                             <!-- /.col-sm-4 -->
                             <div class="col-sm-4">
-                                <h3><a href="#"><i class="fa fa-money"></i>포인트 충전</a></h3>
+                                <h3><a href="point_charge.jsp"><i class="fa fa-money"></i>포인트 충전</a></h3>
                                 <p class="text-muted"><strong>포인트를 충전 할 수 있습니다.</strong></p>
                             </div>
                             <!-- /.col-sm-4 -->

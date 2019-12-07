@@ -25,11 +25,17 @@ public class userPointToGymController implements HealthController {
 		////////////////// 이용내역 추가 //////////////////////
 		
 		//로그인된 사용자의 계정에서 id를 얻어온다.
-		String memberId = (String)session.getAttribute("curUser");
+		String memberId = (String)session.getAttribute("curUserId");
+		System.out.println("curUserId : "+memberId+"  입니다.");
 		//해당 헬스장의 gymCode와 price를 받아온다.(넘어오는 파라미터 이름 점검필요)
 		String gymName = request.getParameter("gymName");
+		System.out.println("gymName : "+gymName+"  입니다.");
+		System.out.println();
 		int gymCode = Integer.parseInt(request.getParameter("gymCode"));
+		System.out.println("gymCode : "+gymCode+"  입니다.");
 		int price = Integer.parseInt(request.getParameter("price"));
+		System.out.println("price : "+price+"  입니다.");
+		
 		
 		//button을 누른 해당 시간의 시간을 받아온다.   toLocaleDateString()을 이용해서 String 값으로 받는다.
 //		SimpleDateFormat format2 = new SimpleDateFormat ( "yyyy년 MM월dd일 HH시mm분");
@@ -41,7 +47,7 @@ public class userPointToGymController implements HealthController {
 		UseDetailDTO useDetail = new UseDetailDTO(0, memberId, gymName, gymCode, price, null, 1);
 		
 		int insertUseDetailResult = HealthService.insertUseDetail(useDetail);
-		
+		System.out.println("insertUseDetailResult  :  "+insertUseDetailResult+"  테스트입니다.");
 		if(insertUseDetailResult == 0 ) {
 			//update에 실패한 경우
 			//error코드 작성 필요
@@ -49,19 +55,11 @@ public class userPointToGymController implements HealthController {
 			
 			throw new SQLException();
 			
+			
 		}
 		
-		//////////////////포인트 잔액 갱신 : 사용자가 헬스장 이용하기 시///////////////////
-		
-		
-		int updatePoinResult = HealthService.updatePoint(memberId, gymCode, price);
-		
-		if(updatePoinResult == 0 ) {
-			//update에 실패한 경우
-			//error코드 작성 필요
-			throw new SQLException();			
-		}
-		
+		mv.setViewName("mypage.jsp");
+		mv.setRedirect(true);
 		return mv;
 	}
 

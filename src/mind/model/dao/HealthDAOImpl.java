@@ -222,9 +222,12 @@ public class HealthDAOImpl implements HealthDAO {
 	public int updatePoint(String id, int gymCode, int price) throws SQLException{
 		Connection con = null;
 		PreparedStatement ps = null;
+		PreparedStatement ps2 = null;
+		PreparedStatement ps3 = null;
 		ResultSet rs = null;
 		String sql = proFile.getProperty("member.updatePoint");
 		int result = 0;
+		int result2 = 0;
 		
 		try {
 			con = DbUtil.getConnection();
@@ -235,25 +238,26 @@ public class HealthDAOImpl implements HealthDAO {
 			ps.setInt(1, (-1) * price);
 			ps.setString(2, id);
 			result = ps.executeUpdate();
+			System.out.println("업데이트 다오 고객포인트 차감 :   "+result);
 			ps.close();
 			String tempId = null;
 			if(result > 0) {
 				//짐 코드로 사업자 아이디 찾기
 				sql = proFile.getProperty("member.selectByGymCode");
-				ps = con.prepareStatement(sql);
-				ps.setInt(1, gymCode);
+				ps3 = con.prepareStatement(sql);
+				ps3.setInt(1, gymCode);
 				rs = ps.executeQuery();
-				ps.close();
+				ps3.close();
 				if(rs.next()) {
 					tempId = rs.getString("id");
 					
 					//사업자 포인트 적립
-					ps = con.prepareStatement(sql);
-					ps.setInt(1, price);
-					ps.setString(2, tempId);
-					result = ps.executeUpdate();
-					
-					if(result > 0) {
+					ps2 = con.prepareStatement(sql);
+					ps2.setInt(1, price);
+					ps2.setString(2, tempId);
+					result2 = ps2.executeUpdate();
+					System.out.println("업데이트 다오 사업자 포인트 적립 :   "+result2);
+					if(result2 > 0) {
 						con.commit();
 					}else {
 						con.rollback();						
@@ -271,7 +275,7 @@ public class HealthDAOImpl implements HealthDAO {
 				throw new SQLException(ex.getMessage());
 			}
 		} finally {
-			DbUtil.dbClose(rs, ps, con);
+			DbUtil.dbClose(rs, ps2, con);
 		}
 
 		return result;
@@ -734,6 +738,27 @@ public class HealthDAOImpl implements HealthDAO {
 			DbUtil.dbClose(rs, ps, con);
 		}
 		return list;
+	}
+
+	@Override
+	public int updateBalToUse(String userId, int gymCode, int price) throws SQLException {
+		Connection con=null;
+		PreparedStatement ps= null;
+		String sql = proFile.getProperty("point.updateBalToUse");
+		int result = 0;
+		
+		try{
+			con=DbUtil.getConnection();
+			ps=con.prepareStatement(sql);
+			ps.setString(1, userId);
+			ps.setInt(2, gymCode);
+			ps.setInt(3, price);
+			result = ps.executeUpdate();
+		}finally {
+			DbUtil.dbClose(ps, con);
+		}
+			
+		return result;
 	}
 
 	

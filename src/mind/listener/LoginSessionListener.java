@@ -27,7 +27,7 @@ public class LoginSessionListener implements HttpSessionListener {
         session.setAttribute("curUserId", "");
         session.setAttribute("curUserType", "0");
         session.setMaxInactiveInterval(10*60);
-        System.out.println("서버시작");
+        System.out.println("1");
     }
 
 	/**

@@ -125,6 +125,8 @@
                                         <form action="${pageContext.request.contextPath}/front?">
                                         <button type="submit" name="command" value="userManaging" style="width:20%">이용시작</button>
                                         <input type="hidden" name="usercode" value="${list.code}">
+                                        <input type="hidden" name="gymPrice" value="${list.price}">
+                                        <input type="hidden" name="userId" value="${list.memberId }">
                                         </form>
                                         </c:forEach>
                                     </li>

@@ -232,4 +232,9 @@ public class HealthService {
 		List<UseDetailDTO> list = healthDAO.selectUseDetailByMemberId(memberId);
 		return list;
 	}
+	
+	public static int  updateBalToUse(String userId, int gymCode, int price) throws SQLException {
+		int result = healthDAO.updateBalToUse(userId, gymCode, price);
+		return result;
+	}
 }

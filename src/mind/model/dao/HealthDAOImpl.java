@@ -740,6 +740,27 @@ public class HealthDAOImpl implements HealthDAO {
 		return list;
 	}
 
+	@Override
+	public int updateBalToUse(String userId, int gymCode, int price) throws SQLException {
+		Connection con=null;
+		PreparedStatement ps= null;
+		String sql = proFile.getProperty("point.updateBalToUse");
+		int result = 0;
+		
+		try{
+			con=DbUtil.getConnection();
+			ps=con.prepareStatement(sql);
+			ps.setString(1, userId);
+			ps.setInt(2, gymCode);
+			ps.setInt(3, price);
+			result = ps.executeUpdate();
+		}finally {
+			DbUtil.dbClose(ps, con);
+		}
+			
+		return result;
+	}
+
 	
 
 	

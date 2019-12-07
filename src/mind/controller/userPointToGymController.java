@@ -58,19 +58,8 @@ public class userPointToGymController implements HealthController {
 			
 		}
 		
-		//////////////////포인트 잔액 갱신 : 사용자가 헬스장 이용하기 시///////////////////
-		
-		
-		int updatePoinResult = HealthService.updatePoint(memberId, gymCode, price);
-		System.out.println("updatePoinResult  :  "+updatePoinResult+"  테스트입니다.");
-		if(updatePoinResult == 0 ) {
-			//update에 실패한 경우
-			//error코드 작성 필요
-			request.setAttribute("errCode","51");
-			throw new SQLException();			
-		}
-		mv.setViewName("front?command=gymDetail&code="+gymCode);
-		
+		mv.setViewName("mypage.jsp");
+		mv.setRedirect(true);
 		return mv;
 	}
 

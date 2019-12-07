@@ -95,6 +95,7 @@ public class HealthDAOImpl implements HealthDAO {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
+		
 		String sql = proFile.getProperty("member.selectById");
 		MemberDTO memberDTO = null;
 		try {

@@ -28,10 +28,11 @@ public class LoginController implements HealthController {
 	String password = request.getParameter("password");
 	boolean result = HealthService.login(id,password);
 	
-	int gymCode = HealthService.selectMemberById(id).getGymCode();
 	
 	//로그인 성공
 	if (result) {
+		int gymCode = HealthService.selectMemberById(id).getGymCode();
+		System.out.println(gymCode);
 		
 		if(gymCode==0) {
 			session.setAttribute("curUserType", "1");

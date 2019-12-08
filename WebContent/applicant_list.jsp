@@ -15,7 +15,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>헬스로드 | 신청자내역</title>
+        <title>헬스로드 | 신청자목록</title>
         <meta name="description" content="GARO is a real-estate template">
         <meta name="author" content="Kimarotec">
         <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
@@ -86,7 +86,7 @@
         End of nav bar -->
 		<jsp:include page="navigator.jsp"></jsp:include>
         <div class="container">
-            <h2 class="ps-property-title">신청자 내역</h2>
+            <h2 class="ps-property-title">신청자 목록</h2>
         </div>
         <div class="collapse navbar-collapse yamm" id="navigation"></div>
         <!-- /.navbar-collapse -->
@@ -121,13 +121,21 @@
                                         <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry" style="width:20%">${list.memberId }</span>
                                         <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry" style="width:20%">${list.price}</span>
                                         <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry" style="width:20%">${list.useStartHour}</span>
-                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry" style="width:20%">${list.state}</span>
-                                        <form action="${pageContext.request.contextPath}/front?">
-                                        <button type="submit" name="command" value="userManaging" style="width:20%">이용시작</button>
-                                        <input type="hidden" name="usercode" value="${list.code}">
-                                        <input type="hidden" name="gymPrice" value="${list.price}">
-                                        <input type="hidden" name="userId" value="${list.memberId }">
-                                        </form>
+                                        <c:choose>
+                                        	<c:when test="${list.state == 1}">
+                                        		<span class="col-xs-6 col-sm-2 col-md-3 add-d-entry" style="width:20%">이용가능</span>
+                                        		<form action="${pageContext.request.contextPath}/front?">
+			                                        <button type="submit" name="command" value="userManaging" style="width:20%">이용확인</button>
+			                                        <input type="hidden" name="usercode" value="${list.code}">
+			                                        <input type="hidden" name="gymPrice" value="${list.price}">
+			                                        <input type="hidden" name="userId" value="${list.memberId }">
+		                                        </form>
+                                        	</c:when>
+                                        	<c:otherwise>
+                                        		<span class="col-xs-6 col-sm-2 col-md-3 add-d-entry" style="width:20%">이용불가</span>
+                                        	</c:otherwise>
+                                        </c:choose>
+                                        
                                         </c:forEach>
                                     </li>
                                 </ul>

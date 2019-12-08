@@ -1,5 +1,5 @@
 -- 작성 시 주의점
-
+rollback;
 -- 테이블 및 속성 명명 시 대소문자 구분이 불가능하므로 단어와 단어는 '_' 로 구분
 -- 시퀀스 명명은 '속성_SEQ' 으로 통일
 /* 문자 한 글자는 2BYTE, 한글의 경우 3BYTE. 즉, VARCHAR2(30)은 영문숫자 15글자 또는 한글 10글자 저장 가능.
@@ -304,7 +304,17 @@ end;
 
  select * from use_detail;
  
- 
+ create or replace procedure update_bal_to_use
+(
+    memberid in member.id%type,
+    ceoid in member.id%type,
+    price in gym.price%TYPE
+)
+is
+begin
+    UPDATE MEMBER SET BALANCE = BALANCE - price WHERE ID = memberid;
+    UPDATE MEMBER SET BALANCE = BALANCE + price WHERE ID = ceoid;
+end;
  
  
  

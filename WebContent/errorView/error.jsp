@@ -29,12 +29,15 @@
 	}else if( "${errCode}" == 30){
 		alert("이용목록 갱신에 실패했습니다.");
 		
+	}else if( "${errCode}" == 40){
+		alert("잔액이 부족합니다.");
+		location.href="point_charge.jsp";
 	}else if( "${errCode}" == 50){
 		alert("포인트충전에 실패했습니다.");
-		
+		location.href="index.html";
 	}else if( "${errCode}" == 51){
 		alert("포인트갱신에 실패했습니다.");
-		
+		location.href="index.html";
 	}
     </script>	
     

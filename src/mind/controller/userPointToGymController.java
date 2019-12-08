@@ -23,6 +23,7 @@ public class userPointToGymController implements HealthController {
 		
 		ModelAndView mv = new ModelAndView();
 		////////////////// 이용내역 추가 //////////////////////
+	
 		
 		//로그인된 사용자의 계정에서 id를 얻어온다.
 		String memberId = (String)session.getAttribute("curUserId");
@@ -42,7 +43,12 @@ public class userPointToGymController implements HealthController {
 //				
 //		String useStartHour = format2.format (System.currentTimeMillis());
 		
-		
+		//잔액 체크
+		int balance = HealthService.selectPoint(memberId).getBalance();
+		if(balance < price) {
+			request.setAttribute("errCode","40");
+			throw new SQLException();
+		}
 				
 		UseDetailDTO useDetail = new UseDetailDTO(0, memberId, gymName, gymCode, price, null, 1);
 		
@@ -58,7 +64,7 @@ public class userPointToGymController implements HealthController {
 			
 		}
 		
-		mv.setViewName("mypage.jsp");
+		mv.setViewName("front?command=selectPoint");
 		mv.setRedirect(true);
 		return mv;
 	}

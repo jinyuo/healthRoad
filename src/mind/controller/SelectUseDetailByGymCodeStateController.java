@@ -40,6 +40,7 @@ public class SelectUseDetailByGymCodeStateController implements HealthController
 		
 		request.setAttribute("alist", list);
 		mv.setViewName("applicant_list.jsp");
+		//front?command=applicantList
 		mv.setRedirect(false);		
 		
 		return mv;

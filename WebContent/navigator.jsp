@@ -35,8 +35,8 @@
 			    	 	});
 			    	 	});
 				 
-				 alert("${curUserType}");
-				 alert("${curUserId}");
+				 //alert("${curUserType}");
+				 //alert("${curUserId}");
 				</script>
 				
 				<ul class="main-nav nav navbar-nav navbar-right">

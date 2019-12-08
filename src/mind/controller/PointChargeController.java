@@ -35,7 +35,7 @@ public class PointChargeController implements HealthController {
 				throw new SQLException();
 			}
 			
-			mv.setViewName("mypage.jsp");//포인트 충전에 성공한 경우 마이페이지로 이동한다.
+			mv.setViewName("front?command=selectPoint");//포인트 충전에 성공한 경우 마이페이지로 이동한다.
 			//넘길 값이 없기 때문에 redirect방식 x : setRedirect(true) 설정 필요 없음
 		}else {
 			//로그인 안되어있는 경우 해당 페이지에서 로그인 회원가입 페이지로 이동한 후

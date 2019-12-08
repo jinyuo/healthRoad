@@ -33,7 +33,7 @@ public class UserManagingController implements HealthController {
 		}
 		
 		//3. 현재 사업자가 보고있는 화면을 갱신시켜준다.(이용버튼을 누른 회원이 나오지 않게 만들어준다.)
-		mv.setViewName("applicant_list.jsp");
+		mv.setViewName("front?command=applicantList");
 		
 		//////////////////포인트 잔액 갱신 : 사업자가 헬스장 이용하기 시///////////////////
 		//1. 사용자의 아이디를 가져오기

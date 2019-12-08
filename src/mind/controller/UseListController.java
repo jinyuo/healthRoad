@@ -21,14 +21,16 @@ public class UseListController implements HealthController {
 		ModelAndView mv = new ModelAndView();
 		HttpSession session = request.getSession();
 		
-		session.setAttribute("curUserId", "QQQ");
-		session.setAttribute("curUser", 1);
+		//session.setAttribute("curUserId", "QQQ");
+		//session.setAttribute("curUser", 1);
 		
 		mv.setViewName("user-properties.jsp");
 		
 		//curUserType : session에저장된 사용자 타입 1 : 회원 2 :사업자<- 확인 필
-		int curUserType = Integer.parseInt(session.getAttribute("curUser").toString());
+		int curUserType = Integer.parseInt(session.getAttribute("curUserType").toString());
 		String memberId = session.getAttribute("curUserId").toString();
+		//System.out.println(curUserType);
+		//System.out.println(memberId);
 		List<UseDetailDTO> list = new ArrayList<UseDetailDTO>();
 		
 //		if(curUserType == 1)

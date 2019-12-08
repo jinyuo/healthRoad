@@ -121,7 +121,18 @@
                                         <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry">${list.gymName }</span>
                                         <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry">${list.price}</span>
                                         <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry">${list.useStartHour}</span>
-                                        <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry">${list.state}</span>
+                                        <c:choose>
+                                        	<c:when test="${list.state == 1}">
+                                        		<span class="col-xs-6 col-sm-2 col-md-3 add-d-entry">사용 가능</span>
+                                        	</c:when>
+                                        	<c:when test="${list.state == 0}">
+                                        		<span class="col-xs-6 col-sm-2 col-md-3 add-d-entry">사용 완료</span>
+                                        	</c:when>
+                                        	<c:when test="${list.state == -1}">
+                                        		<span class="col-xs-6 col-sm-2 col-md-3 add-d-entry">기간 만료</span>
+                                        	</c:when>
+                                        </c:choose>
+                                        <%-- <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry">${list.state}</span> --%>
                                         </c:forEach>
                                     </li>
                                 </ul>

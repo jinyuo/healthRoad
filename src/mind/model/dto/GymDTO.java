@@ -38,6 +38,22 @@ public class GymDTO {
 		WeekendHour = weekendHour;
 		this.avgScore = avgScore;
 	}
+	
+	
+
+	public GymDTO(String name, String addr, String phoneNum, int gymCapacity, int price, String comment,
+			String weekdayHour, String weekendHour, String fileName) {
+		super();
+		this.name = name;
+		this.addr = addr;
+		PhoneNum = phoneNum;
+		this.gymCapacity = gymCapacity;
+		this.price = price;
+		this.comment = comment;
+		WeekdayHour = weekdayHour;
+		WeekendHour = weekendHour;
+		this.fileName = fileName;
+	}
 
 	/**
 	 * 그 외 필요한 생성자는 각자 생성해서 사용

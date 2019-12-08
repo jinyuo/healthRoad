@@ -2007,6 +2007,7 @@ single property page
     clear: both;
     overflow: hidden;
 }
+	
 .single-property-header .property-title {
     margin: 10px 0px;
     font-size: 28px;
@@ -2014,6 +2015,17 @@ single property page
     text-transform: uppercase;
     letter-spacing: 3px;
 }
+
+h6.property-title.pull-left {
+    margin: 10px 0px;
+    font-size: 15px;
+    font-weight:bold;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    position: relative;
+    left: 57%;
+}
+
 .single-property-header .property-price{
     color: #FFA500;
     font-size: 30px;
@@ -2696,7 +2708,7 @@ padding-bottom: 15px;
     float: left;
     width: 24px;
     height: 24px;
-    content: "";
+    content: "�겎";
     color: #FDC600;
     font-size: 16px;
     line-height: 24px;

@@ -1,5 +1,5 @@
 -- 작성 시 주의점
-
+rollback;
 -- 테이블 및 속성 명명 시 대소문자 구분이 불가능하므로 단어와 단어는 '_' 로 구분
 -- 시퀀스 명명은 '속성_SEQ' 으로 통일
 /* 문자 한 글자는 2BYTE, 한글의 경우 3BYTE. 즉, VARCHAR2(30)은 영문숫자 15글자 또는 한글 10글자 저장 가능.
@@ -8,13 +8,20 @@
 -- INSERT문에 속성명 작성 권장
 -- SELECT문에 * 대신 속성명 작성 권장
 -- 'NULL'은 NULL이라는 값의 문자열이므로 INSERT문에 속성값이 비어있다면 NULL로 처리할 것.
-
-SELECT * FROM DUAL;
+update member set balance = 50000 where id = 'test';
 
 DROP TABLE USE_DETAIL;
 DROP TABLE REVIEW;
 DROP TABLE GYM;
 DROP TABLE MEMBER;
+
+SELECT CODE, MEMBER_ID, GYM_CODE, PRICE, USE_START_HOUR, STATE FROM USE_DETAIL WHERE GYM_CODE = 83 AND STATE = 1
+
+UPDATE USE_DETAIL SET STATE = CASE 
+                                WHEN SYSDATE - TO_DATE(USE_START_HOUR) > 1.0 THEN -1
+                                ELSE 1
+                                END
+                                where state = 1;
 
 
 --DROP TABLE POINT;
@@ -37,7 +44,7 @@ CREATE TABLE GYM(
     FILE_NAME VARCHAR2(300),
     GYM_CAPACITY NUMBER,
     PRICE NUMBER,
-    GYM_COMMENT VARCHAR2(100),
+    GYM_COMMENT VARCHAR2(4000),
     WEEKDAY_HOUR VARCHAR2(20),
     WEEKEND_HOUR VARCHAR2(20),
     STAR_SCORE NUMBER
@@ -45,26 +52,49 @@ CREATE TABLE GYM(
 
 --헬스장 등록
 INSERT INTO GYM(CODE, NAME, ADDR, PHONE_NUM, FILE_NAME, GYM_CAPACITY, PRICE, GYM_COMMENT, WEEKDAY_HOUR, WEEKEND_HOUR, STAR_SCORE) 
-VALUES(GYM_CODE_SEQ.NEXTVAL, '스포짐', '대왕판교로670 유스페이스2 B1', '010-1234-3333', NULL, 55, 300, '헬스장 시설좋아요', '08:00-22:00', '08:00-22:00', 5);
+VALUES(GYM_CODE_SEQ.NEXTVAL, '스포짐', '대왕판교로670 유스페이스2 B1', '010-1234-3333', '1438257600892.jpeg', 55, 300, '판교 스포짐은 대한민국 휘트니스 대표 브랜드로 판교테크노밸리 최대규모의 고품격 Total Fitness입니다. 최고의 시설과 최첨단 장비, 전문강사진으로 이루어져 있으며 동종업계 최초로 스포츠 메디컬 케어 시스템을 갖추고 있어 체계적인 건강관리와 최상의 서비스를 제공합니다.', '08:00-22:00', '08:00-22:00', 0);
 INSERT INTO GYM(CODE, NAME, ADDR, PHONE_NUM, FILE_NAME, GYM_CAPACITY, PRICE, GYM_COMMENT, WEEKDAY_HOUR, WEEKEND_HOUR, STAR_SCORE) 
-VALUES(GYM_CODE_SEQ.NEXTVAL, '헬스매니아', '야탑동 537-6', '031-706-1156', NULL, 80, 200, '헬스장 사장님이 친절합니다.', '06:00-21:00', '05:00-11:00', 3);
+VALUES(GYM_CODE_SEQ.NEXTVAL, '헬스매니아', '야탑동 537-6', '031-706-1156', '181126-1-2000-fac-LTSM.jpg.thumb.768.768.jpg', 80, 200, '판교스포츠센터는 지역 주민의 건강증진 및 여가선용, 건강한 행복을 위해 수영장, 다목적실, 헬스장, 문화교실 등 다양한 시설로 2013년 3월 1일 개관하였습니다.
+쾌적한 시설과 다양한 프로그램을 제공하기 위해 전 직원이 최선의 노력을 다하고 있으며, 시민 여러분의 커다란 관심과 호응 속에 운영되고 있습니다.
+앞으로도 저희 판교스포츠센터는 이용 시민의 행복을 위해 최선을 다해 시민 여러분을 위한 최고의 시설이 되도록 하겠습니다. 감사합니다.', '06:00-21:00', '05:00-11:00', 0);
 INSERT INTO GYM(CODE, NAME, ADDR, PHONE_NUM, FILE_NAME, GYM_CAPACITY, PRICE, GYM_COMMENT, WEEKDAY_HOUR, WEEKEND_HOUR, STAR_SCORE) 
-VALUES(GYM_CODE_SEQ.NEXTVAL, '판교스포츠 센터', '판교로228번길 55KR', '031-724-4660', NULL, 90, 100, '헬스장 싸고 헬스기구가 많아요', '07:00-22:00', '08:00-24:00', 4);
+VALUES(GYM_CODE_SEQ.NEXTVAL, '판교스포츠 센터', '판교로228번길 55KR', '031-724-4660', '52e376cd81d2a10c485f1108aa664c37.jpg', 90, 100, '헬스&휘트니스센터 [스타메이트]는 분당 이매동에 위치하고 있으며 분당 최고의 시설, 최상의 시스템을 갖추고 2008년 2월에 오픈 하였습니다. 
+ 호텔식 고급 인테리어와 첨단 장비. 최신 헬스장비. 개인별 측정장비와 운동 프로그램을 접목한 운동처방프로그램을 제공하는 헬스/에어로빅/요가/GX 프로그램을 운영하는 헬스 & 휘트니스 전문센터입니다.
+저희 휘트니스 클럽은 등록시 무조건 1+1 시스템을 가지고 등록시에는 한명가격으로 2명이 동시에 등록이 가능하십니다. 
+ 주말에는 가족 & 친구 모두 입장이 가능 하오니 언제든 편하게 등록 해주시면 감사하겠습니다', '07:00-22:00', '08:00-24:00', 0);
 INSERT INTO GYM(CODE, NAME, ADDR, PHONE_NUM, FILE_NAME, GYM_CAPACITY, PRICE, GYM_COMMENT, WEEKDAY_HOUR, WEEKEND_HOUR, STAR_SCORE) 
-VALUES(GYM_CODE_SEQ.NEXTVAL, '스피드 핏', '판교로606번길 45 푸르지오시티 3층', '031-707-9682', NULL, 70, 700, '헬스장 포인트가 너무 비싸요 ', '05:00-22:00', '00:00-24:00', 3);
+VALUES(GYM_CODE_SEQ.NEXTVAL, '스피드 핏', '판교로606번길 45 푸르지오시티 3층', '031-707-9682', 'sub21-02.jpg', 70, 700, '판교 스포짐은 대한민국 휘트니스 대표 브랜드로 판교테크노밸리 최대규모의 고품격 Total Fitness입니다. 최고의 시설과 최첨단 장비, 전문강사진으로 이루어져 있으며 동종업계 최초로 스포츠 메디컬 케어 시스템을 갖추고 있어 체계적인 건강관리와 최상의 서비스를 제공합니다.', '05:00-22:00', '00:00-24:00', 0);
 INSERT INTO GYM(CODE, NAME, ADDR, PHONE_NUM, FILE_NAME, GYM_CAPACITY, PRICE, GYM_COMMENT, WEEKDAY_HOUR, WEEKEND_HOUR, STAR_SCORE) 
-VALUES(GYM_CODE_SEQ.NEXTVAL, '201휘트니스클럽', '이매 2동 판교로 446', '031-706-9841', NULL, 70, 100, '헬스장 오래되어서 시설이안좋네요', '09:00-22:00', '07:00-24:00', 2);
+VALUES(GYM_CODE_SEQ.NEXTVAL, '201휘트니스클럽', '이매 2동 판교로 446', '031-706-9841', '1438257600892.jpeg', 70, 100, '판교스포츠센터는 지역 주민의 건강증진 및 여가선용, 건강한 행복을 위해 수영장, 다목적실, 헬스장, 문화교실 등 다양한 시설로 2013년 3월 1일 개관하였습니다.
+쾌적한 시설과 다양한 프로그램을 제공하기 위해 전 직원이 최선의 노력을 다하고 있으며, 시민 여러분의 커다란 관심과 호응 속에 운영되고 있습니다.
+앞으로도 저희 판교스포츠센터는 이용 시민의 행복을 위해 최선을 다해 시민 여러분을 위한 최고의 시설이 되도록 하겠습니다. 감사합니다.', '09:00-22:00', '07:00-24:00', 0);
 INSERT INTO GYM(CODE, NAME, ADDR, PHONE_NUM, FILE_NAME, GYM_CAPACITY, PRICE, GYM_COMMENT, WEEKDAY_HOUR, WEEKEND_HOUR, STAR_SCORE) 
-VALUES(GYM_CODE_SEQ.NEXTVAL, '스타메이트', '이매1동 106-5', '031-708-9679', NULL, 40, 100, '운동기구가 많고 트레이너가 잘 가르쳐줘요', '08:00-22:00', '07:00-24:00', 4);
+VALUES(GYM_CODE_SEQ.NEXTVAL, '스타메이트', '이매1동 106-5', '031-708-9679', '181126-1-2000-fac-LTSM.jpg.thumb.768.768.jpg', 40, 100, '헬스&휘트니스센터 [스타메이트]는 분당 이매동에 위치하고 있으며 분당 최고의 시설, 최상의 시스템을 갖추고 2008년 2월에 오픈 하였습니다. 
+ 호텔식 고급 인테리어와 첨단 장비. 최신 헬스장비. 개인별 측정장비와 운동 프로그램을 접목한 운동처방프로그램을 제공하는 헬스/에어로빅/요가/GX 프로그램을 운영하는 헬스 & 휘트니스 전문센터입니다.
+저희 휘트니스 클럽은 등록시 무조건 1+1 시스템을 가지고 등록시에는 한명가격으로 2명이 동시에 등록이 가능하십니다. 
+ 주말에는 가족 & 친구 모두 입장이 가능 하오니 언제든 편하게 등록 해주시면 감사하겠습니다', '08:00-22:00', '07:00-24:00', 0);
 INSERT INTO GYM(CODE, NAME, ADDR, PHONE_NUM, FILE_NAME, GYM_CAPACITY, PRICE, GYM_COMMENT, WEEKDAY_HOUR, WEEKEND_HOUR, STAR_SCORE) 
-VALUES(GYM_CODE_SEQ.NEXTVAL, '고투강남점', '역삼1동 826-26', '02-3466-4060', NULL, 30, 200, '헬스장이 싸고 좋네요', '05:00-22:00', '06:00-24:00', 5);
+VALUES(GYM_CODE_SEQ.NEXTVAL, '고투강남점', '역삼1동 826-26', '02-3466-4060', '52e376cd81d2a10c485f1108aa664c37.jpg', 30, 200, '판교 스포짐은 대한민국 휘트니스 대표 브랜드로 판교테크노밸리 최대규모의 고품격 Total Fitness입니다. 최고의 시설과 최첨단 장비, 전문강사진으로 이루어져 있으며 동종업계 최초로 스포츠 메디컬 케어 시스템을 갖추고 있어 체계적인 건강관리와 최상의 서비스를 제공합니다.', '05:00-22:00', '06:00-24:00', 0);
 INSERT INTO GYM(CODE, NAME, ADDR, PHONE_NUM, FILE_NAME, GYM_CAPACITY, PRICE, GYM_COMMENT, WEEKDAY_HOUR, WEEKEND_HOUR, STAR_SCORE) 
-VALUES(GYM_CODE_SEQ.NEXTVAL, '투엑휘트니스', '청담동44-15', '02-546-0079', NULL, 40, 500, '샤워실이 깨끗하고 좋아요', '10:00-22:00', '06:00-24:00', 4.5);
+VALUES(GYM_CODE_SEQ.NEXTVAL, '투엑휘트니스', '청담동44-15', '02-546-0079', 'sub21-02.jpg', 40, 500, '판교스포츠센터는 지역 주민의 건강증진 및 여가선용, 건강한 행복을 위해 수영장, 다목적실, 헬스장, 문화교실 등 다양한 시설로 2013년 3월 1일 개관하였습니다.
+쾌적한 시설과 다양한 프로그램을 제공하기 위해 전 직원이 최선의 노력을 다하고 있으며, 시민 여러분의 커다란 관심과 호응 속에 운영되고 있습니다.
+앞으로도 저희 판교스포츠센터는 이용 시민의 행복을 위해 최선을 다해 시민 여러분을 위한 최고의 시설이 되도록 하겠습니다. 감사합니다.', '10:00-22:00', '06:00-24:00', 0);
 INSERT INTO GYM(CODE, NAME, ADDR, PHONE_NUM, FILE_NAME, GYM_CAPACITY, PRICE, GYM_COMMENT, WEEKDAY_HOUR, WEEKEND_HOUR, STAR_SCORE) 
-VALUES(GYM_CODE_SEQ.NEXTVAL, '자마이카휘트니스', '봉천동 862-1 13층', '02-6276-8588', NULL, 20, 300, '새로 오픈해서 쾌적하고 운동하기 좋아요', '10:00-22:00', '06:00-24:00', 4.5);
+VALUES(GYM_CODE_SEQ.NEXTVAL, '자마이카휘트니스', '봉천동 862-1 13층', '02-6276-8588', '1438257600892.jpeg', 20, 300, '헬스&휘트니스센터 [스타메이트]는 분당 이매동에 위치하고 있으며 분당 최고의 시설, 최상의 시스템을 갖추고 2008년 2월에 오픈 하였습니다. 
+ 호텔식 고급 인테리어와 첨단 장비. 최신 헬스장비. 개인별 측정장비와 운동 프로그램을 접목한 운동처방프로그램을 제공하는 헬스/에어로빅/요가/GX 프로그램을 운영하는 헬스 & 휘트니스 전문센터입니다.
+저희 휘트니스 클럽은 등록시 무조건 1+1 시스템을 가지고 등록시에는 한명가격으로 2명이 동시에 등록이 가능하십니다. 
+ 주말에는 가족 & 친구 모두 입장이 가능 하오니 언제든 편하게 등록 해주시면 감사하겠습니다', '10:00-22:00', '06:00-24:00', 0);
 INSERT INTO GYM(CODE, NAME, ADDR, PHONE_NUM, FILE_NAME, GYM_CAPACITY, PRICE, GYM_COMMENT, WEEKDAY_HOUR, WEEKEND_HOUR, STAR_SCORE) 
-VALUES(GYM_CODE_SEQ.NEXTVAL, '리버스휘트니스', '봉천동 관악로 217', '02-885-8628', NULL, 70, 400, '샤워실이 깨끗하고 좋아요', '07:00-22:00', '05:00-24:00', 3.5);
+VALUES(GYM_CODE_SEQ.NEXTVAL, '리버스휘트니스', '봉천동 관악로 217', '02-885-8628', '181126-1-2000-fac-LTSM.jpg.thumb.768.768.jpg', 70, 400, '판교 스포짐은 대한민국 휘트니스 대표 브랜드로 판교테크노밸리 최대규모의 고품격 Total Fitness입니다. 최고의 시설과 최첨단 장비, 전문강사진으로 이루어져 있으며 동종업계 최초로 스포츠 메디컬 케어 시스템을 갖추고 있어 체계적인 건강관리와 최상의 서비스를 제공합니다.', '07:00-22:00', '05:00-24:00', 0);
+insert into gym(code) values(-1);
 
+
+
+--사업자 체크
+INSERT INTO GYM(CODE, NAME, ADDR, PHONE_NUM, FILE_NAME, GYM_CAPACITY, PRICE, GYM_COMMENT, WEEKDAY_HOUR, WEEKEND_HOUR, STAR_SCORE) 
+VALUES(-1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL); 
+
+COMMIT
 --모든 헬스장 출력
 SELECT CODE, NAME, ADDR, PHONE_NUM, FILE_NAME, GYM_CAPACITY, PRICE, GYM_COMMENT, WEEKDAY_HOUR, WEEKEND_HOUR, STAR_SCORE FROM GYM;
 
@@ -96,6 +126,11 @@ CREATE TABLE MEMBER(
     CONSTRAINT MEMBER_GYM_CODE_FK FOREIGN KEY (GYM_CODE) REFERENCES GYM(CODE)
 );
 
+
+update member set gym_code = 83 where id = 'ceo';
+
+
+
 --회원 추가
 INSERT INTO MEMBER (ID, PWD, NAME, PHONE_NUM, GYM_CODE, BALANCE)
 VALUES ('AAA', 'SSS', 'DDD','010-9179-3380', NULL, 0); 
@@ -126,6 +161,10 @@ VALUES('JOONGKI','5756','송중기','010-4735-8721',8, 0);
 INSERT INTO MEMBER(ID,PWD,NAME,PHONE_NUM,GYM_CODE,BALANCE)
 VALUES('testtest','03AC674216F3E15C761EE1A5E255F067953623C8B388B4459E13F978D7C846F4','송중기','010-4735-8721',null,50000);
 
+delete from member where id='testtest';
+delete from member where id='ceo';
+
+
 SELECT ID, PWD, NAME, PHONE_NUM, GYM_CODE, BALANCE FROM MEMBER;
 --회원 아이디로 회원 찾기
 SELECT ID, PWD, NAME, PHONE_NUM, GYM_CODE, BALANCE FROM MEMBER WHERE ID = 'AAA';
@@ -136,6 +175,10 @@ UPDATE MEMBER SET PWD = 'ZZZ', PHONE_NUM='010-8888-2322' WHERE ID = 'AAA' AND PW
 
 --회원 탈퇴
 DELETE MEMBER WHERE ID = 'AAA';
+
+INSERT INTO MEMBER(ID,PWD,NAME,PHONE_NUM,GYM_CODE,BALANCE)
+VALUES('testtest','03AC674216F3E15C761EE1A5E255F067953623C8B388B4459E13F978D7C846F4','송중기','010-4735-8721',-1,50000);
+
 
 
 --
@@ -205,7 +248,7 @@ CREATE TABLE USE_DETAIL(
     STATE NUMBER,
 
     CONSTRAINT USE_DETAIL_PK PRIMARY KEY (CODE),
-    CONSTRAINT USE_DETAIL_MEMBER_ID_FK FOREIGN KEY (MEMBER_ID) REFERENCES MEMBER(ID),
+    CONSTRAINT USE_DETAIL_MEMBER_ID_FK FOREIGN KEY (MEMBER_ID) REFERENCES MEMBER(ID) on delete cascade,
     CONSTRAINT USE_DETAIL_GYM_CODE_FK FOREIGN KEY (GYM_CODE) REFERENCES GYM(CODE),
     CONSTRAINT USE_DETAIL_STATE_CK CHECK(STATE IN (-1, 0, 1))  
 );
@@ -214,6 +257,10 @@ CREATE TABLE USE_DETAIL(
 INSERT INTO USE_DETAIL(CODE, MEMBER_ID, GYM_CODE, PRICE, USE_START_HOUR, STATE)
 SELECT USE_DETAIL_SEQ.NEXTVAL, MEMBER.ID, GYM.CODE, GYM.PRICE, SYSDATE, 1 FROM MEMBER, GYM
 WHERE MEMBER.ID = 'QQQ' AND GYM.CODE = 9;
+
+INSERT INTO USE_DETAIL(CODE, MEMBER_ID, GYM_CODE, PRICE, USE_START_HOUR, STATE)
+SELECT USE_DETAIL_SEQ.NEXTVAL, MEMBER.ID, GYM.CODE, GYM.PRICE, SYSDATE, 1 FROM MEMBER, GYM
+WHERE MEMBER.ID = 'SONG' AND GYM.CODE = 7;
 
 
 SELECT CODE, MEMBER_ID, GYM_CODE, PRICE, USE_START_HOUR, STATE FROM USE_DETAIL;
@@ -229,6 +276,45 @@ UPDATE USE_DETAIL SET STATE = 0 WHERE CODE = 2;
 UPDATE USE_DETAIL SET STATE = CASE 
                                 WHEN SYSDATE - TO_DATE(USE_START_HOUR) > 1.0 THEN -1
                                 ELSE 1
-                                END;
+                                END
+                                where state = 1;
 
 COMMIT
+select * from gym;
+select * from member;
+UPDATE MEMBER SET GYM_CODE = (select LAST_NUMBER from user_sequences where SEQUENCE_NAME = 'GYM_CODE_SEQ') where id = 'testtest3';
+ SELECT GYM_CODE_SEQ.CURRVAL FROM DUAL 
+
+ 
+ UPDATE MEMBER SET GYM_CODE = (select max(code) from gym) where id = 'testtest3';
+ UPDATE MEMBER SET GYM_CODE = (select max(code) from gym) where id = 'testtest4';
+ 
+ 
+create or replace procedure update_bal_to_use
+(
+    memberid in member.id%type,
+    ceoid in member.id%type,
+    price in gym.price%TYPE
+)
+is
+begin
+    UPDATE MEMBER SET BALANCE = BALANCE - price WHERE ID = memberid;
+    UPDATE MEMBER SET BALANCE = BALANCE + price WHERE ID = ceoid;
+end;
+
+ select * from use_detail;
+ 
+ create or replace procedure update_bal_to_use
+(
+    memberid in member.id%type,
+    ceoid in member.id%type,
+    price in gym.price%TYPE
+)
+is
+begin
+    UPDATE MEMBER SET BALANCE = BALANCE - price WHERE ID = memberid;
+    UPDATE MEMBER SET BALANCE = BALANCE + price WHERE ID = ceoid;
+end;
+ 
+ 
+ 

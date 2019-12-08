@@ -211,9 +211,9 @@ public class HealthService {
 	/**
 	 * 헬스장 이용 신청을 한 사용자 목록 검색
 	 * */
-	public static List<UseDetailDTO> selectUseDetailByGymCodeState(int gymCode, int state) throws SQLException {
+	public static List<UseDetailDTO> selectUseDetailByGymCodeState(int gymCode) throws SQLException {
 		healthDAO.checkUseDetailState();
-		List<UseDetailDTO> list = healthDAO.selectUseDetailByGymCodeState(gymCode, state);
+		List<UseDetailDTO> list = healthDAO.selectUseDetailByGymCodeState(gymCode);
 		return list;
 	}
 	

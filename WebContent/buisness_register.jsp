@@ -96,7 +96,7 @@
                     <div class="col-sm-10 col-sm-offset-1 profiel-container">
         
         				
-        				<form name="gymInsertForm" action="front?command=gymInsert" method="post">
+        				<form name="gymInsertForm" action="front?command=gymInsert" method="post" enctype="multipart/form-data">
         					<div class="profiel-header">
         						
                             	<h3>
@@ -140,8 +140,8 @@
                                     <input type="text" class="form-control" name ="weekend" id="weekend" placeholder="주말 이용 시간">
                                 </div>
                                <div class="form-group">
-                                    <label for="fileName">파일 이름</label>
-                                    <input type="text" class="form-control" name ="fileName" id="fileName">
+                                    <label for="file">헬스장 이미지 등록</label>
+                                    <input type="file"  name ="file" id="file" >
                                 </div>
 
                         <div class="col-sm-2 col-sm-offset-5">

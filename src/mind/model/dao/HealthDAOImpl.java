@@ -641,7 +641,7 @@ public class HealthDAOImpl implements HealthDAO {
 	}
 
 	@Override
-	public List<UseDetailDTO> selectUseDetailByGymCodeState(int gymCode, int state) throws SQLException {
+	public List<UseDetailDTO> selectUseDetailByGymCodeState(int gymCode) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		String sql = proFile.getProperty("useDetail.selectByGymCodeState"); //SELECT CODE, MEMBER_ID, GYM.NAME, GYM_CODE, PRICE, USE_START_HOUR, STATE FROM USE_DETAIL WHERE GYM_CODE = ? AND STATE = 1
@@ -653,16 +653,14 @@ public class HealthDAOImpl implements HealthDAO {
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, gymCode);
 			rs = ps.executeQuery();
-			
 			while(rs.next()) {
 				int code = rs.getInt("CODE");
 				String memberId = rs.getString("MEMBER_ID");
-				//String gName = rs.getString("GYM.NAME");
 				int gCode = rs.getInt("GYM_CODE");  // gymCode는 매개변수로 들어오는 값이랑 같아서 변수이름 gCode로 변경
 				int price = rs.getInt("PRICE");
 				String useStartHour = rs.getString("USE_START_HOUR");
 				int st = rs.getInt("STATE"); //state는 매개변수로 들어오는 값이랑 같아서 변수이름 st로 변경
-						
+				System.out.println("st :" + st);
 				UseDetailDTO useDetail = new UseDetailDTO(code, memberId, null, gCode, price, useStartHour, st);
 				list.add(useDetail);
 			}
@@ -684,9 +682,6 @@ public class HealthDAOImpl implements HealthDAO {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, useDetailCode);
-			
-			
-
 			result = ps.executeUpdate();
 		} finally {
 			DbUtil.dbClose(ps, con);
@@ -698,7 +693,7 @@ public class HealthDAOImpl implements HealthDAO {
 	public int checkUseDetailState() throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
-		String sql = proFile.getProperty("useDetail.CheckStateUpdate"); //UPDATE USE_DETAIL SET STATE = CASE WHEN SYSDATE - TO_DATE(USE_START_HOUR) > 1.0 THEN -1 ELSE 1 END
+		String sql = proFile.getProperty("useDetail.CheckStateUpdate"); //UPDATE USE_DETAIL SET STATE = CASE WHEN SYSDATE - TO_DATE(USE_START_HOUR) > 1.0 THEN -1 ELSE 1 END where state = 1;
 		int result = 0;
 		//System.out.println(sql);
 		try {
@@ -746,8 +741,6 @@ public class HealthDAOImpl implements HealthDAO {
 		Connection con=null;
 		CallableStatement cs = null;
 		String sql = proFile.getProperty("point.updateBalToUse");
-		System.out.println(userId);
-		System.out.println(price);
 		int result = 0;
 		
 		try{
@@ -756,8 +749,6 @@ public class HealthDAOImpl implements HealthDAO {
 			cs.setString(1, userId);
 			cs.setString(2, ceoId);
 			cs.setInt(3, price);
-			//cs.setInt(2, gymCode);
-			//cs.setInt(3, price);
 			result = cs.executeUpdate();
 		}finally {
 			DbUtil.dbClose(cs, con);

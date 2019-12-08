@@ -33,7 +33,7 @@
 	    auth="Container"
         type="javax.sql.DataSource" 
         driverClassName="oracle.jdbc.OracleDriver"
-        url="jdbc:oracle:thin:@localhost:1521:orcl"
+        url="jdbc:oracle:thin:@localhost:1521:xe"
         username="openmind" 
         password="1234" 
         maxTotal="20" 

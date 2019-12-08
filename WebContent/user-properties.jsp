@@ -107,7 +107,6 @@
                 	
                         
                			<div class="section additional-details">
-
                                  <ul class="additional-details-list clearfix">
                                     <li>
                                         <span class="col-xs-6 col-sm-2 col-md-3 add-d-title">헬스장 이름</span>
@@ -116,8 +115,9 @@
                                         <span class="col-xs-6 col-sm-2 col-md-3 add-d-title">이용상태</span>
                                     </li>
 
-                                    <li>
+                                    
                                     <c:forEach items="${requestScope.useList }" var="list" varStatus="state">
+                                    <li>
                                         <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry">${list.gymName }</span>
                                         <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry">${list.price}</span>
                                         <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry">${list.useStartHour}</span>
@@ -132,9 +132,9 @@
                                         		<span class="col-xs-6 col-sm-2 col-md-3 add-d-entry">기간 만료</span>
                                         	</c:when>
                                         </c:choose>
-                                        <%-- <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry">${list.state}</span> --%>
-                                        </c:forEach>
-                                    </li>
+                                   </li>
+                                   </c:forEach>
+                                    
                                 </ul>
                             </div>
                             

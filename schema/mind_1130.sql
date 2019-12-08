@@ -8,16 +8,20 @@
 -- INSERT문에 속성명 작성 권장
 -- SELECT문에 * 대신 속성명 작성 권장
 -- 'NULL'은 NULL이라는 값의 문자열이므로 INSERT문에 속성값이 비어있다면 NULL로 처리할 것.
-update member set balance = 50000 where id = 'test'
-select * from member;
-select * from gym;
-select * from use_detail;
-SELECT * FROM DUAL;
+update member set balance = 50000 where id = 'test';
 
 DROP TABLE USE_DETAIL;
 DROP TABLE REVIEW;
 DROP TABLE GYM;
 DROP TABLE MEMBER;
+
+SELECT CODE, MEMBER_ID, GYM_CODE, PRICE, USE_START_HOUR, STATE FROM USE_DETAIL WHERE GYM_CODE = 83 AND STATE = 1
+
+UPDATE USE_DETAIL SET STATE = CASE 
+                                WHEN SYSDATE - TO_DATE(USE_START_HOUR) > 1.0 THEN -1
+                                ELSE 1
+                                END
+                                where state = 1;
 
 
 --DROP TABLE POINT;
@@ -40,7 +44,7 @@ CREATE TABLE GYM(
     FILE_NAME VARCHAR2(300),
     GYM_CAPACITY NUMBER,
     PRICE NUMBER,
-    GYM_COMMENT VARCHAR2(100),
+    GYM_COMMENT VARCHAR2(4000),
     WEEKDAY_HOUR VARCHAR2(20),
     WEEKEND_HOUR VARCHAR2(20),
     STAR_SCORE NUMBER
@@ -172,6 +176,10 @@ UPDATE MEMBER SET PWD = 'ZZZ', PHONE_NUM='010-8888-2322' WHERE ID = 'AAA' AND PW
 --회원 탈퇴
 DELETE MEMBER WHERE ID = 'AAA';
 
+INSERT INTO MEMBER(ID,PWD,NAME,PHONE_NUM,GYM_CODE,BALANCE)
+VALUES('testtest','03AC674216F3E15C761EE1A5E255F067953623C8B388B4459E13F978D7C846F4','송중기','010-4735-8721',-1,50000);
+
+
 
 --
 ----포인트 테이블
@@ -240,7 +248,7 @@ CREATE TABLE USE_DETAIL(
     STATE NUMBER,
 
     CONSTRAINT USE_DETAIL_PK PRIMARY KEY (CODE),
-    CONSTRAINT USE_DETAIL_MEMBER_ID_FK FOREIGN KEY (MEMBER_ID) REFERENCES MEMBER(ID),
+    CONSTRAINT USE_DETAIL_MEMBER_ID_FK FOREIGN KEY (MEMBER_ID) REFERENCES MEMBER(ID) on delete cascade,
     CONSTRAINT USE_DETAIL_GYM_CODE_FK FOREIGN KEY (GYM_CODE) REFERENCES GYM(CODE),
     CONSTRAINT USE_DETAIL_STATE_CK CHECK(STATE IN (-1, 0, 1))  
 );
@@ -268,7 +276,8 @@ UPDATE USE_DETAIL SET STATE = 0 WHERE CODE = 2;
 UPDATE USE_DETAIL SET STATE = CASE 
                                 WHEN SYSDATE - TO_DATE(USE_START_HOUR) > 1.0 THEN -1
                                 ELSE 1
-                                END;
+                                END
+                                where state = 1;
 
 COMMIT
 select * from gym;

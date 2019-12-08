@@ -21,6 +21,12 @@ DROP TABLE MEMBER;
 
 SELECT CODE, MEMBER_ID, GYM_CODE, PRICE, USE_START_HOUR, STATE FROM USE_DETAIL WHERE GYM_CODE = 83 AND STATE = 1
 
+UPDATE USE_DETAIL SET STATE = CASE 
+                                WHEN SYSDATE - TO_DATE(USE_START_HOUR) > 1.0 THEN -1
+                                ELSE 1
+                                END
+                                where state = 1;
+
 
 --DROP TABLE POINT;
 
@@ -270,7 +276,8 @@ UPDATE USE_DETAIL SET STATE = 0 WHERE CODE = 2;
 UPDATE USE_DETAIL SET STATE = CASE 
                                 WHEN SYSDATE - TO_DATE(USE_START_HOUR) > 1.0 THEN -1
                                 ELSE 1
-                                END;
+                                END
+                                where state = 1;
 
 COMMIT
 select * from gym;

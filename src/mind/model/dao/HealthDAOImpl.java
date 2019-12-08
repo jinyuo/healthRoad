@@ -1,6 +1,7 @@
 
 package mind.model.dao;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -715,11 +716,7 @@ public class HealthDAOImpl implements HealthDAO {
 	public List<UseDetailDTO> selectUseDetailByMemberId(String memberId) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
-		String sql = proFile.getProperty("useDetail.selectByMemberId"); // SELECT USE_DETAIL.CODE, GYM.NAME,
-																		// USE_DETAIL.PRICE, USE_DETAIL.USE_START_HOUR,
-																		// USE_DETAIL.STATE FROM USE_DETAIL, GYM WHERE
-																		// USE_DETAIL.GYM_CODE = GYM.CODE AND
-																		// USE_DETAIL.MEMBER_ID = ?
+		String sql = proFile.getProperty("useDetail.selectByMemberId"); // SELECT USE_DETAIL.CODE, GYM.NAME,																// USE_DETAIL.MEMBER_ID = ?
 		ResultSet rs = null;
 		List<UseDetailDTO> list = new ArrayList<UseDetailDTO>();
 		System.out.println(memberId);
@@ -745,28 +742,26 @@ public class HealthDAOImpl implements HealthDAO {
 	}
 
 	@Override
-	public int updateBalToUse(String userId, int gymCode, int price) throws SQLException {
+	public int updateBalToUse(String userId, String ceoId, int price) throws SQLException {
 		Connection con=null;
-		PreparedStatement ps= null;
+		CallableStatement cs = null;
 		String sql = proFile.getProperty("point.updateBalToUse");
+		System.out.println(userId);
+		System.out.println(price);
 		int result = 0;
 		
 		try{
 			con=DbUtil.getConnection();
-			ps=con.prepareStatement(sql);
-			ps.setString(1, userId);
-			ps.setInt(2, gymCode);
-			ps.setInt(3, price);
-			result = ps.executeUpdate();
+			cs = con.prepareCall(sql);
+			cs.setString(1, userId);
+			cs.setString(2, ceoId);
+			cs.setInt(3, price);
+			//cs.setInt(2, gymCode);
+			//cs.setInt(3, price);
+			result = cs.executeUpdate();
 		}finally {
-			DbUtil.dbClose(ps, con);
+			DbUtil.dbClose(cs, con);
 		}
-			
 		return result;
 	}
-
-	
-
-	
-
 }

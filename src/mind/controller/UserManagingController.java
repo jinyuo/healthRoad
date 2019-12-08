@@ -51,7 +51,7 @@ public class UserManagingController implements HealthController {
 		//3. 해당 업장의 가격 가져오기
 		int price = Integer.parseInt(request.getParameter("gymPrice"));
 		
-		int updatePoinResult = HealthService.updateBalToUse(memberId, gymcode, price);
+		int updatePoinResult = HealthService.updateBalToUse(memberId, businessId, price);
 		System.out.println("updatePoinResult  :  "+updatePoinResult+"  테스트입니다.");
 		if(updatePoinResult == 0 ) {
 			//update에 실패한 경우

@@ -233,8 +233,8 @@ public class HealthService {
 		return list;
 	}
 	
-	public static int  updateBalToUse(String userId, int gymCode, int price) throws SQLException {
-		int result = healthDAO.updateBalToUse(userId, gymCode, price);
+	public static int  updateBalToUse(String userId, String ceoId, int price) throws SQLException {
+		int result = healthDAO.updateBalToUse(userId, ceoId, price);
 		return result;
 	}
 }

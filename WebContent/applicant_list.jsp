@@ -116,8 +116,9 @@
                                         <span class="col-xs-6 col-sm-2 col-md-3 add-d-title" style="width:20%">이용시작</span>
                                     </li>
 
-                                    <li>
+                                    
                                     <c:forEach items="${requestScope.alist }" var="list" varStatus="state">
+                                    <li>
                                         <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry" style="width:20%">${list.memberId }</span>
                                         <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry" style="width:20%">${list.price}</span>
                                         <span class="col-xs-6 col-sm-2 col-md-3 add-d-entry" style="width:20%">${list.useStartHour}</span>
@@ -128,16 +129,16 @@
 			                                        <button type="submit" name="command" value="userManaging" style="width:20%">이용확인</button>
 			                                        <input type="hidden" name="usercode" value="${list.code}">
 			                                        <input type="hidden" name="gymPrice" value="${list.price}">
-			                                        <input type="hidden" name="userId" value="${list.memberId }">
+			                                        <input type="hidden" name="userId" value="${list.memberId}">
 		                                        </form>
                                         	</c:when>
                                         	<c:otherwise>
                                         		<span class="col-xs-6 col-sm-2 col-md-3 add-d-entry" style="width:20%">이용불가</span>
                                         	</c:otherwise>
                                         </c:choose>
-                                        
-                                        </c:forEach>
-                                    </li>
+                                     </li>
+                                     </c:forEach>
+                                    
                                 </ul>
                             </div>
                             

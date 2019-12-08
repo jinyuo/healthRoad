@@ -151,7 +151,7 @@ public interface HealthDAO {
 	/**
 	 * 사업자가 이용수락을 누르는 경우 이용자의 포인트가 차감되고 사업자의 포인트가 적립되는 메소드
 	 * */
-	int updateBalToUse(String userId, int gymCode, int price) throws SQLException;
+	int updateBalToUse(String userId, String ceoId, int price) throws SQLException;
 	
 	
 }

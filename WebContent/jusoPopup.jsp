@@ -2,6 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <% 
@@ -56,20 +57,25 @@ function init(){
 		document.form.submit();
 		//위 변수에 지정된 키와 주소와 타입을 hide된 input에 삽입후 post형식으로 전송(파라미터값), action링크로 리다이렉트됨
 		//이후 웹사이트로 가짐
-		
 	}else{
+		
+		var answer = "<%=roadFullAddr%>";
+	    opener.document.getElementById("addr").value=answer;
+		window.close();
 		/** API 서비스 제공항목 확대 (2017.02) **/
 		opener.jusoCallBack("<%=roadFullAddr%>","<%=roadAddrPart1%>","<%=addrDetail%>", "<%=roadAddrPart2%>","<%=engAddr%>"
 			, "<%=jibunAddr%>","<%=zipNo%>", "<%=admCd%>", "<%=rnMgtSn%>", "<%=bdMgtSn%>", "<%=detBdNmList%>"
 			, "<%=bdNm%>", "<%=bdKdcd%>", "<%=siNm%>", "<%=sggNm%>", "<%=emdNm%>", "<%=liNm%>", "<%=rn%>", "<%=udrtYn%>"
 			, "<%=buldMnnm%>", "<%=buldSlno%>", "<%=mtYn%>", "<%=lnbrMnnm%>", "<%=lnbrSlno%>", "<%=emdNo%>");
-		document.write("<%=roadFullAddr%>");
-		console.log("<%=roadFullAddr%>");
-		window.close();
+
+	   
+			
+		}	
 		
 	}
-}
+
 </script>
+
 <body onload="init();">
 	<form id="form" name="form" method="post">
 		<input type="hidden" id="confmKey" name="confmKey" value=""/>
@@ -80,7 +86,7 @@ function init(){
 		<input type="hidden" id="encodingType" name="encodingType" value="EUC-KR"/>
 		 -->
 		<!-- 해당시스템의 인코딩타입이 EUC-KR일경우에만 추가 END-->
-		<h3><%=roadFullAddr%></h3>
+		
 	</form>
 </body>
 </html>

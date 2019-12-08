@@ -121,8 +121,8 @@
                 
                 <div class="panel-footer">
                 	<form action="${pageContext.request.contextPath}/front?">
-                    <button type="submit" class="btn btn-lg btn-block btn-success" name="fiveCharge" value="50000">충전하기</button>
-                    <input type="hidden" name="command" value="fiveCharge">
+                    <button type="submit" class="btn btn-lg btn-block btn-success" name="point" value="50000">충전하기</button>
+                    <input type="hidden" name="command" value="pointCharge">
                     </form>
                 </div>
             </div>
@@ -140,8 +140,8 @@
                 
                 <div class="panel-footer">
                     <form action="${pageContext.request.contextPath}/front?">
-                    <button type="submit" class="btn btn-lg btn-block btn-success" name="twetCharge" value="200000">충전하기</button>
-                    <input type="hidden" name="command" value="twetCharge">
+                    <button type="submit" class="btn btn-lg btn-block btn-success" name="point" value="200000">충전하기</button>
+                    <input type="hidden" name="command" value="pointCharge">
                     </form>
                 </div>
             </div>
@@ -159,8 +159,8 @@
                 
                 <div class="panel-footer">
                     <form action="${pageContext.request.contextPath}/front?">
-                    <button type="submit" class="btn btn-lg btn-block btn-success" name="fiftyCharge" value="500000">충전하기</button>
-                    <input type="hidden" name="command" value="fiftyCharge">
+                    <button type="submit" class="btn btn-lg btn-block btn-success" name="point" value="500000">충전하기</button>
+                    <input type="hidden" name="command" value="pointCharge">
                     </form>
                 </div>
             </div>

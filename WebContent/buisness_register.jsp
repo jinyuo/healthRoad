@@ -43,11 +43,10 @@
         	location.href="mypage.jsp";
         }
         
-        $(function(){
-        	$("#addr").click(function(){
-        		window.open("jusoPopup.jsp","","width=400,height=400,left=600");
-        	});
-        });
+        function juso(){
+        	window.open("jusoPopup.jsp","","width=400,height=400,left=600");
+        }
+
         </script>
         
            </head>
@@ -119,7 +118,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="addr">주소</label>
-                                    <input type="text" class="form-control" name="addr" id="addr">
+                                    <input type="text" class="form-control" name="addr" id="addr" onclick="juso()">
                                 </div>
                                 <div class="form-group">
                                     <label for="phone">전화번호</label>

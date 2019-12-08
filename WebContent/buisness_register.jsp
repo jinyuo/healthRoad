@@ -42,13 +42,21 @@
         	alert("일반 회원은 접근 할 수 없습니다.");
         	location.href="mypage.jsp";
         }
+        
+        $(function(){
+        	$("#addr").click(function(){
+        		window.open("jusoPopup.jsp","","width=400,height=400,left=600");
+        	});
+        });
         </script>
-    </head>
+        
+           </head>
     <body>
 
-        <div id="preloader">
+ <div id="preloader">
             <div id="status">&nbsp;</div> 
         </div>
+       
         <!-- Body content -->
 
 		<!-- <nav class="navbar navbar-default ">

@@ -30,7 +30,7 @@ function checkValid() {
 <BODY>
 
 <form name="writeForm" method="post" action="${pageContext.request.contextPath}/front?command=updateReview" 
-  onSubmit='return checkValid()' enctype="multipart/form-data" target="_parent">
+  onSubmit='return checkValid()' enctype="multipart/form-data" >
 <input type="hidden" name="gymCode" value="${review.gymCode}">
 <input type="hidden" name="oldFile" value="${review.fileName}">
 <input type="hidden" name="reviewCode" value="${review.code }">

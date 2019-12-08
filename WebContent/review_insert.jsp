@@ -32,7 +32,7 @@ function checkValid() {
 <BODY>
 
 <form name="writeForm" method="post" action="${pageContext.request.contextPath}/front?command=insertReview" 
-  onSubmit='return checkValid()' enctype="multipart/form-data" target="_parent">
+  onSubmit='return checkValid()' enctype="multipart/form-data" >
 <input type="hidden" name="gymCode" value="${requestScope.gymCode}">
 <input type="hidden" name="curUserId" value="${sessionScope.curUserId}">
 <table align="center" cellpadding="5" cellspacing="2" width="600" border="1" >

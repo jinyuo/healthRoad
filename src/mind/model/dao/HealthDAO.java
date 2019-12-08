@@ -136,7 +136,7 @@ public interface HealthDAO {
 	 * 헬스장 이용 신청을 한 사용자 목록
 	 * @param state는 -1 만료됨, 0 사용됨, 1 사용가능
 	 * */
-	List<UseDetailDTO> selectUseDetailByGymCodeState(int gymCode, int state) throws SQLException;
+	List<UseDetailDTO> selectUseDetailByGymCodeState(int gymCode) throws SQLException;
 	
 	/**
 	 * 이용상태 갱신

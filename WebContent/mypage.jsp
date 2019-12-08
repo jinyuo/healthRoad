@@ -152,9 +152,8 @@
                             </div>
                             <!-- /.col-sm-4 -->
                             <div class="col-sm-4">
-                                <h3><a href="front?command=applicantList"><i class="fa fa-heart"></i>신청자 목록</a></h3>
+                                <h3><a href="${pageContext.request.contextPath}/front?command=applicantList"><i class="fa fa-heart"></i>신청자 목록</a></h3>
                                 <p class="text-muted"><strong>신청한 회원 목록을 보고 승인을 해줄수 있습니다.</strong></p>
-                             
                             </div>
                         	</c:when>
                         </c:choose>
@@ -164,13 +163,12 @@
                                                         <!-- /.col-sm-4 -->
                             <div class="col-sm-4" style="padding-left: 0px;">
                                 <h3><a href="#" onclick="userDel()"><i class="fa fa-sign-out"></i>회원 탈퇴</a></h3>
-                                <p class="text-muted"><strong>신청한 회원 목록을 보고 승인을 해줄수 있습니다.</strong></p>
+                                <p class="text-muted"><strong>회원을 탈퇴합니다.</strong></p>
                              
                             </div>
                             <!-- /.col-sm-4 -->
                     
                             <!-- /.row -->
-                        </form>
                     </div>
                 </div>
                 

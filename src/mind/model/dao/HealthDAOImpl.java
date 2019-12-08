@@ -656,13 +656,13 @@ public class HealthDAOImpl implements HealthDAO {
 			while(rs.next()) {
 				int code = rs.getInt("CODE");
 				String memberId = rs.getString("MEMBER_ID");
-				String gName = rs.getString("GYM.NAME");
+				//String gName = rs.getString("GYM.NAME");
 				int gCode = rs.getInt("GYM_CODE");  // gymCode는 매개변수로 들어오는 값이랑 같아서 변수이름 gCode로 변경
 				int price = rs.getInt("PRICE");
 				String useStartHour = rs.getString("USE_START_HOUR");
 				int st = rs.getInt("STATE"); //state는 매개변수로 들어오는 값이랑 같아서 변수이름 st로 변경
 						
-				UseDetailDTO useDetail = new UseDetailDTO(code, memberId, gName, gCode, price, useStartHour, st);
+				UseDetailDTO useDetail = new UseDetailDTO(code, memberId, null, gCode, price, useStartHour, st);
 				list.add(useDetail);
 			}
 			

@@ -25,7 +25,7 @@ public class DeleteReviewController implements HealthController {
 		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("front?command=gymDetail&code="+gymCode);
-		
+		mv.setRedirect(true);
 		return mv;
 	}
 

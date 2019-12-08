@@ -45,7 +45,7 @@ public class GymInsertController implements HealthController {
 		
 		ModelAndView mv = new ModelAndView();
 		
-		mv.setViewName("mypage.html");
+		mv.setViewName("front?command=selectPoint");
 		mv.setRedirect(true);
 			
 		return mv;

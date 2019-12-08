@@ -30,14 +30,13 @@ public class UpdateUserController implements HealthController {
 			HealthService.updateMember(new MemberDTO(id,pwd1,null),type);
 		} else {
 			request.setAttribute("errCode", "3");
-			new SQLException();
-			
+			throw new SQLException();
 		}
 	} else {
 		String phone= request.getParameter("phone");
 		HealthService.updateMember(new MemberDTO(id,null,phone),type);
 	}
-	mv.setViewName("mypage.html");
+	mv.setViewName("mypage.jsp");
 	mv.setRedirect(true);
 	return mv;
 	}

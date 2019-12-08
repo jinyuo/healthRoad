@@ -18,8 +18,14 @@ public class DeleteUserController implements HealthController {
 		ModelAndView mv = new ModelAndView();
 		
 		HttpSession session = request.getSession();
-		String id = session.getAttribute("curUserId").toString();		
+		String id = session.getAttribute("curUserId").toString();
+		String type = session.getAttribute("curUserType").toString();
 		//서비스 메소드 호출
+		if(type.equals("2")) {
+			request.setAttribute("errCode","6");
+			throw new SQLException();
+		}
+		
 		int result = HealthService.deleteMember(id);
 		
 		if (result >  0) {

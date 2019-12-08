@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="f" %>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -51,6 +51,7 @@
         		}
         	}
         	
+        
             
         </script>
     </head>
@@ -96,15 +97,20 @@
         </nav> -->
         <!-- End of nav bar -->
         <jsp:include page="navigator.jsp"></jsp:include>
-<div class="container">
+				<div class="container">
             <h2 class="ps-property-title">마이페이지</h2>
+           
+
+            
         </div>
         <!-- End page header -->
 		
         <!-- property area -->
-        <div class="content-area recent-property padding-top-40" style="background-color: #FFF;">
+        <div class="content-area recent-property padding-top-40" style="background-color: #FFF; padding-top: 7px">
             <div class="container"> 
-             
+                           <div class="single-property-header">                                          
+                                <h6 class="property-title pull-left">My Point : <span class="counter"><h4><f:formatNumber value="${balance}" pattern="#,###"/></h4></span></h6>
+                            </div>
             <div class="profiel-header">
                             
                                     </div>
@@ -133,10 +139,12 @@
                         <!-- /.row --> 
                        
                         <hr>
-                        
+                        <c:choose>
+                       	 	<c:when test="${curUserType eq '2'}">
+                       
                          <!-- /.col-sm-4 -->
                             <div class="col-sm-4" style="padding: 0px 0px;">
-                                <h3><a href="buisness_register.html"><i class="fa fa-child"></i>사업자 등록</a></h3>
+                                <h3><a href="front?command=checkGymCode"><i class="fa fa-child"></i>사업자 등록</a></h3>
                                 <p class="text-muted"><strong>사업자가 헬스장을 등록해서 
                                 <br>회원들에게 서비스를
                                 <br>제공해 줄 수 있습니다.</strong></p>
@@ -144,13 +152,17 @@
                             </div>
                             <!-- /.col-sm-4 -->
                             <div class="col-sm-4">
-                                <h3><a href="#"><i class="fa fa-heart"></i>신청자 목록</a></h3>
+                                <h3><a href="front?command=applicantList"><i class="fa fa-heart"></i>신청자 목록</a></h3>
                                 <p class="text-muted"><strong>신청한 회원 목록을 보고 승인을 해줄수 있습니다.</strong></p>
                              
                             </div>
+                        	</c:when>
+                        </c:choose>
+                             
+                            
                             <!-- /.col-sm-4 -->
                                                         <!-- /.col-sm-4 -->
-                            <div class="col-sm-4">
+                            <div class="col-sm-4" style="padding-left: 0px;">
                                 <h3><a href="#" onclick="userDel()"><i class="fa fa-sign-out"></i>회원 탈퇴</a></h3>
                                 <p class="text-muted"><strong>신청한 회원 목록을 보고 승인을 해줄수 있습니다.</strong></p>
                              
@@ -166,13 +178,17 @@
 
             </div>
          </div>
+
+        
         
          <!-- Footer area-->
          
          <div class="footer-area">
 			<jsp:include page="footer.jsp"></jsp:include>
         </div>
-
+       
+     
+		
         <script src="assets/js/modernizr-2.6.2.min.js"></script>
         <script src="assets/js/jquery-1.10.2.min.js"></script> 
         <script src="bootstrap/js/bootstrap.min.js"></script>
@@ -193,6 +209,19 @@
         <script src="assets/js/gmaps.init.js"></script>
 
         <script src="assets/js/main.js"></script>
+        
+                
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+    <script src="assets/js/jquery.counterup.js"></script>
+       <script type="text/javascript">
+       $(document).ready(function($) {
+           $('.counter').counterUp({
+               delay: 10,
+               time: 1000
+           });
+       });
+        </script>
 
     </body>
 </html>

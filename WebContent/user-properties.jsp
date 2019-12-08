@@ -131,7 +131,7 @@
                             <div class="pull-right">
                                 <div class="pagination">
                                     <ul>
-                                        <li><a href="mypage.html">이전페이지</a></li>
+                                        <li><a href="front?command=selectPoint">이전페이지</a></li>
                                     </ul>
                                 </div>
                             </div>                

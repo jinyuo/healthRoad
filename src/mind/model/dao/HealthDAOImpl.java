@@ -104,9 +104,12 @@ public class HealthDAOImpl implements HealthDAO {
 			ps.setString(1, id);
 			rs = ps.executeQuery();
 
-			if (rs.next())
+			if (rs.next()) {
+				
 				memberDTO = new MemberDTO(rs.getString("id"), rs.getString("name"), rs.getString("pwd"),
 						rs.getString("phone_num"), rs.getInt("gym_code"));
+				
+			}
 		} finally {
 			DbUtil.dbClose(rs, ps, con);
 		}
@@ -297,7 +300,7 @@ public class HealthDAOImpl implements HealthDAO {
 			rs = ps.executeQuery();
 			
 			if(rs.next())
-				memberDTO = new MemberDTO(rs.getString("member_id"), rs.getInt("balance"));
+				memberDTO = new MemberDTO(rs.getString("id"), rs.getInt("balance"));
 		} finally {
 			DbUtil.dbClose(rs, ps, con);
 		}

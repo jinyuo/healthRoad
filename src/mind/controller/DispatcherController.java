@@ -36,6 +36,7 @@ public class DispatcherController extends HttpServlet {
 			}
 		} catch (SQLException | IOException e) {
 			e.printStackTrace();
+			System.out.println(1);
 			request.setAttribute("errorMsg", e.getMessage());
 			request.getRequestDispatcher("errorView/error.jsp").forward(request, response);
 		}

@@ -37,11 +37,17 @@
         <link rel="stylesheet" href="assets/css/owl.transitions.css">
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="assets/css/responsive.css">
+        <script type="text/javascript">
+        if("${curUserType}"=="1"){
+        	alert("일반 회원은 접근 할 수 없습니다.");
+        	location.href="mypage.jsp";
+        }
+        </script>
     </head>
     <body>
 
         <div id="preloader">
-            <div id="status">&nbsp;</div>
+            <div id="status">&nbsp;</div> 
         </div>
         <!-- Body content -->
 
@@ -85,8 +91,8 @@
             	<div class="row">
                     <div class="col-sm-10 col-sm-offset-1 profiel-container">
         
-        				<form action="" method="post">
         				
+        				<form name="gymInsertForm" action="front?command=gymInsert" method="post">
         					<div class="profiel-header">
         						
                             	<h3>
@@ -101,41 +107,42 @@
                          
                                 <div class="form-group">
                                     <label for="gymName">사업장 이름</label>
-                                    <input type="text" class="form-control" id="gymName">
+                                    <input type="text" class="form-control" name="gymName" id="gymName">
                                 </div>
                                 <div class="form-group">
                                     <label for="addr">주소</label>
-                                    <input type="text" class="form-control" id="addr">
+                                    <input type="text" class="form-control" name="addr" id="addr">
                                 </div>
                                 <div class="form-group">
                                     <label for="phone">전화번호</label>
-                                    <input type="text" class="form-control" id="phone">
+                                    <input type="text" class="form-control" name="phone" id="phone">
                                 </div>
                                 <div class="form-group">
                                     <label for="capacity">수용인원</label>
-                                    <input type="text" class="form-control" id="capacity">
+                                    <input type="text" class="form-control" name="capacity" id="capacity">
                                 </div>
                                 <div class="form-group">
                                     <label for="price">가격</label>
-                                    <input type="text" class="form-control" id="price">
+                                    <input type="text" class="form-control" name="price" id="price">
                                 </div>
                                 <div class="form-group">
                                     <label for=comment>사업장 소개</label>
-                                    <input type="text" class="form-control" id="comment">
+                                    <input type="text" class="form-control" name="comment" id="comment">
                                 </div>
                                <div class="form-group">
                                     <label for=time>이용 시간</label>
-                                    <input type="text" class="form-control" id="weekday" placeholder="평일 이용 시간"> 
+                                    <input type="text" class="form-control" name ="weekday" id="weekday" placeholder="평일 이용 시간"> 
                                     <br>
-                                    <input type="text" class="form-control" id="weekend" placeholder="주말 이용 시간">
+                                    <input type="text" class="form-control" name ="weekend" id="weekend" placeholder="주말 이용 시간">
                                 </div>
                                <div class="form-group">
                                     <label for="fileName">파일 이름</label>
-                                    <input type="text" class="form-control" id="fileName">
+                                    <input type="text" class="form-control" name ="fileName" id="fileName">
                                 </div>
 
                         <div class="col-sm-2 col-sm-offset-5">
-						<input type='button' class='btn btn-finish btn-primary pull-right' name='main' value='등록'>
+
+						<input type='submit' class='btn btn-finish btn-primary pull-right' name='main' value='등록'>
 						</div>
                      </div> 
                      </div>

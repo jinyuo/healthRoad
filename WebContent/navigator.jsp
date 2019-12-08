@@ -22,6 +22,7 @@
 				<div class="button navbar-right">
 					<button class="navbar-btn nav-button wow bounceInRight login" id="login" data-wow-delay="0.4s"><c:choose><c:when test="${curUserType eq '0'}">로그인/회원가입</c:when><c:otherwise>로그아웃</c:otherwise></c:choose></button>
 				</div>
+				 <script src="js/jquery-3.4.1.min.js"></script>
 				<script type="text/javascript">
 				 $(function(){
 
@@ -34,15 +35,30 @@
 			    	 	});
 			    	 	});
 				 
-				 alert("${curUserType}")
+				 alert("${curUserType}");
+				 alert("${curUserId}");
 				</script>
 				
 				<ul class="main-nav nav navbar-nav navbar-right">
 					<li class="dropdown ymm-sw " data-wow-delay="0.1s">
 						<!-- 여기href 바꿔야함--> 
-						<a href="mypage.jsp" class="dropdown-toggle" data-hover="dropdown" data-delay="200">마이페이지 </a>
-
+						<a href="#" class="dropdown-toggle" data-hover="dropdown" data-delay="200" id="mypage">마이페이지 </a>
 					</li>
+					
+					<script type="text/javascript">
+				 $(function(){
+
+			    	 	$("#mypage").click(function(){
+			    	 		if("${curUserType}" == "0"){
+			    	    		alert("로그인 후에 이용하실 수 있습니다.");
+			    	    		location.href="register.jsp";
+			    	    	} else {
+			    	    		location.href="front?command=selectPoint";
+			    	    	}
+			    	 	});
+			    	 	});
+				 
+				</script>
 
 
 					<li class="dropdown ymm-sw " data-wow-delay="0.1s">

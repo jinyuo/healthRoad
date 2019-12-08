@@ -10,7 +10,8 @@
 -- 'NULL'은 NULL이라는 값의 문자열이므로 INSERT문에 속성값이 비어있다면 NULL로 처리할 것.
 update member set balance = 50000 where id = 'test'
 select * from member;
-
+select * from gym;
+select * from use_detail;
 SELECT * FROM DUAL;
 
 DROP TABLE USE_DETAIL;

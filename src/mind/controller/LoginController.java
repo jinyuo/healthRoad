@@ -32,16 +32,15 @@ public class LoginController implements HealthController {
 	//로그인 성공
 	if (result) {
 		int gymCode = HealthService.selectMemberById(id).getGymCode();
-		System.out.println(gymCode);
 		
 		if(gymCode==0) {
 			session.setAttribute("curUserType", "1");
-		} else if (gymCode==-1) {
+		} else {
 			session.setAttribute("curUserType", "2");
-		}
+		} 
 		session.setAttribute("curUserId",id);
-		mv.setViewName("index-5.jsp");
-		mv.setRedirect(true);
+		mv.setViewName("index.html");
+		
 		
 		
 	} else {		
@@ -53,7 +52,7 @@ public class LoginController implements HealthController {
 	} else { 
 		  session.setAttribute("curUserType", "0");
 		  session.setAttribute("curUserId",""); 
-		  mv.setViewName("index-5.jsp");
+		  mv.setViewName("index.html");
 		  mv.setRedirect(true); 
 		  }
 

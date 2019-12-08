@@ -22,11 +22,14 @@ public class SelectUseDetailByGymCodeStateController implements HealthController
 		ModelAndView mv = new ModelAndView();
 		//현재 로그인 계정의 아이디 받기
 		HttpSession session = request.getSession();
-		String id = (String)session.getAttribute("curUserType");
+		String id = (String)session.getAttribute("curUserId");
 		
 		//사업자의 짐코드를 받아오기
+		
 		MemberDTO memberDTO = HealthService.selectMemberById(id);
+		
 		int gymcode = memberDTO.getGymCode();
+		System.out.println(gymcode);
 //		int gymcode = 7;
 
 		

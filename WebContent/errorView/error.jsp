@@ -15,11 +15,17 @@
 		alert("아이디 혹은 패스워드가 틀립니다.");
 		location.href="register.jsp";
 	} else if( "${errCode}" == 3){
-		alert("패스워드 불일치");
-		location.href="memberInfoUpdate.html";
+		alert("패스워드가 불일치 합니다.");
+		location.href="memberInfoUpdate.jsp";
 	} else if( "${errCode}" == 4){
-		alert("이미 등록된 사업자이거나 접근 권한이 없습니다.");
-		location.href="mypage.html";
+		alert(" 접근 권한이 없습니다.");
+		location.href="mypage.jsp";
+	}else if( "${errCode}" == 5){
+		alert(" 이미 등록 되셨습니다.");
+		location.href="mypage.jsp";
+	}else if( "${errCode}" == 6){
+		alert(" 사업자로 등록된 회원은 고객센터에 문의 후 탈퇴 하실 수 있으십니다.");
+		location.href="mypage.jsp";
 	}else if( "${errCode}" == 30){
 		alert("이용목록 갱신에 실패했습니다.");
 		

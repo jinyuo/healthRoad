@@ -20,14 +20,14 @@ public class CheckGymCodeController implements HealthController {
 		String id =session.getAttribute("curUserId").toString();
 		String type =session.getAttribute("curUserType").toString();
 		
-		if(type.equals("1") || type.equals("")) {
+		if(type.equals("1") || type.equals("0")) {
 			request.setAttribute("errCode", "4");
 			throw new SQLException();
 		}else {
 		MemberDTO member=  HealthService.selectMemberById(id);
 			int gymCode=member.getGymCode();
 			if(gymCode == -1) {
-				mv.setViewName("buisness_register.html");
+				mv.setViewName("buisness_register.jsp");
 			}else {
 				request.setAttribute("errCode", "5");
 			throw new SQLException();

@@ -42,6 +42,10 @@
         	alert("일반 회원은 접근 할 수 없습니다.");
         	location.href="mypage.jsp";
         }
+        
+        $(function(){
+        	$("#addr").
+        })
         </script>
     </head>
     <body>

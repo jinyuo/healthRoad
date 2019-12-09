@@ -26,7 +26,7 @@ public class PwUtil {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-//		System.out.println(hexString);
+		//System.out.println(hexString);
 		
 		return hexString.toString();
 	}
@@ -34,8 +34,8 @@ public class PwUtil {
 	// Properties에 있는 값과 SHA-256 암호화시킨 입력값을 비교해서 boolean값 반환
 	
 	public boolean PWCheck(String inputPwd,String pwd) {
-
-		if (Encryption(inputPwd).toUpperCase().equals(pwd)) {
+		
+		if (Encryption(inputPwd).toUpperCase().equals(pwd.toUpperCase())) {
 			return true;
 		}
 		return false;

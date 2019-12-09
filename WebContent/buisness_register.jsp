@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -6,7 +10,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>GARO ESTATE | Register page</title>
+        <title>헬스로드 | 사업자등록</title>
         <meta name="description" content="GARO is a real-estate template">
         <meta name="author" content="Kimarotec">
         <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
@@ -33,46 +37,29 @@
         <link rel="stylesheet" href="assets/css/owl.transitions.css">
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="assets/css/responsive.css">
+        <script type="text/javascript">
+        if("${curUserType}"=="1"){
+        	alert("일반 회원은 접근 할 수 없습니다.");
+        	location.href="mypage.jsp";
+        }
+        
+        
+        function juso(){
+        	window.open("jusoPopup.jsp","","width=400,height=400,left=600");
+        }
+
+        </script>
     </head>
     <body>
 
         <div id="preloader">
-            <div id="status">&nbsp;</div>
+            <div id="status">&nbsp;</div> 
         </div>
         <!-- Body content -->
 
-       
-        <div class="header-connect">
+		<!-- <nav class="navbar navbar-default ">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-5 col-sm-8  col-xs-12">
-                        <div class="header-half header-call">
-                            <p>
-                                <span><i class="pe-7s-call"></i> +1 234 567 7890</span>
-                                <span><i class="pe-7s-mail"></i> your@company.com</span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-2 col-md-offset-5  col-sm-3 col-sm-offset-1  col-xs-12">
-                        <div class="header-half header-social">
-                            <ul class="list-inline">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-vine"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>            
-        <!--End top header -->
-
-        <nav class="navbar navbar-default ">
-            <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
+                Brand and toggle get grouped for better mobile display
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
                         <span class="sr-only">Toggle navigation</span>
@@ -83,194 +70,99 @@
                     <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png" alt=""></a>
                 </div>
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
+                Collect the nav links, forms, and other content for toggling
                 <div class="collapse navbar-collapse yamm" id="navigation">
                     <div class="button navbar-right">
-                        <button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.open('register.html')" data-wow-delay="0.4s">Login</button>
-                        <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.open('submit-property.html')" data-wow-delay="0.5s">Submit</button>
+                        <button class="navbar-btn nav-button wow bounceInRight login" data-wow-delay="0.4s">로그인/회원가입 </button>
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
-                            <a href="index.html" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Home <b class="caret"></b></a>
-                            <ul class="dropdown-menu navbar-nav">
-                                <li>
-                                    <a href="index-2.html">Home Style 2</a>
-                                </li>
-                                <li>
-                                    <a href="index-3.html">Home Style 3</a>
-                                </li>
-                                <li>
-                                    <a href="index-4.html">Home Style 4</a>
-                                </li>
-                                <li>
-                                    <a href="index-5.html">Home Style 5</a>
-                                </li>
-
-                            </ul>
+                            <a href="mypage.html" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">마이페이지 </a>
                         </li>
 
-                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="properties.html">Properties</a></li>
-                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="property.html">Property</a></li>
                         <li class="dropdown yamm-fw" data-wow-delay="0.1s">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Template <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <div class="yamm-content">
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <h5>Home pages</h5>
-                                                <ul>
-                                                    <li>
-                                                        <a href="index.html">Home Style 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-2.html">Home Style 2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-3.html">Home Style 3</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-4.html">Home Style 4</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-5.html">Home Style 5</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h5>Pages and blog</h5>
-                                                <ul>
-                                                    <li><a href="blog.html">Blog listing</a>  </li>
-                                                    <li><a href="single.html">Blog Post (full)</a>  </li>
-                                                    <li><a href="single-right.html">Blog Post (Right)</a>  </li>
-                                                    <li><a href="single-left.html">Blog Post (left)</a>  </li>
-                                                    <li><a href="contact.html">Contact style (1)</a> </li>
-                                                    <li><a href="contact-3.html">Contact style (2)</a> </li>
-                                                    <li><a href="contact_3.html">Contact style (3)</a> </li>
-                                                    <li><a href="faq.html">FAQ page</a> </li> 
-                                                    <li><a href="404.html">404 page</a>  </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h5>Property</h5>
-                                                <ul>
-                                                    <li><a href="property-1.html">Property pages style (1)</a> </li>
-                                                    <li><a href="property-2.html">Property pages style (2)</a> </li>
-                                                    <li><a href="property-3.html">Property pages style (3)</a> </li>
-                                                </ul>
-
-                                                <h5>Properties list</h5>
-                                                <ul>
-                                                    <li><a href="properties.html">Properties list style (1)</a> </li> 
-                                                    <li><a href="properties-2.html">Properties list style (2)</a> </li> 
-                                                    <li><a href="properties-3.html">Properties list style (3)</a> </li> 
-                                                </ul>                                               
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h5>Property process</h5>
-                                                <ul> 
-                                                    <li><a href="submit-property.html">Submit - step 1</a> </li>
-                                                    <li><a href="submit-property.html">Submit - step 2</a> </li>
-                                                    <li><a href="submit-property.html">Submit - step 3</a> </li> 
-                                                </ul>
-                                                <h5>User account</h5>
-                                                <ul>
-                                                    <li><a href="register.html">Register / login</a>   </li>
-                                                    <li><a href="user-properties.html">Your properties</a>  </li>
-                                                    <li><a href="submit-property.html">Submit property</a>  </li>
-                                                    <li><a href="change-password.html">Change password</a> </li>
-                                                    <li><a href="user-profile.html">Your profile</a>  </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- /.yamm-content -->
-                                </li>
-                            </ul>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">포인트충전 </a>
                         </li>
 
-                        <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">Contact</a></li>
+                        <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">헬스로드 소개 </a></li>
                     </ul>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-        </nav>
-        <!-- End of nav bar -->
-
-        <div class="page-head"> 
-            <div class="container">
-                <div class="row">
-                    <div class="page-head-content">
-                        <h1 class="page-title">사업자 등록 </h1>               
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End page header -->
- 
+                </div>/.navbar-collapse
+            </div>/.container-fluid
+        </nav> -->
+        <jsp:include page="navigator.jsp"></jsp:include>
 
         <!-- register-area -->
-        <div class="register-area" style="background-color: rgb(249, 249, 249);">
+        <div class="register-area" style="background-color: #FCFCFC;">&nbsp;
             <div class="container">
-
-                <div class="col-md-10">
-                    <div class="box-for overflow">
-                        <div class="col-md-10  register-blocks">
-                            <h2>사업자 등록 </h2> 
-                            <form action="" method="post">
+            	<div class="row">
+                    <div class="col-sm-10 col-sm-offset-1 profiel-container">
+        
+        				
+        				<form name="gymInsertForm" action="front?command=gymInsert" method="post" enctype="multipart/form-data">
+        					<div class="profiel-header">
+        						
+                            	<h3>
+                            		<b>사업자 등록 </b><br>
+                            	</h3>
+                            	<hr>
+                            	</div>
+                            	
+                            	<div class="clear">
+                            	
+                            	<div class="col-sm-10 col-sm-offset-1">
                          
                                 <div class="form-group">
                                     <label for="gymName">사업장 이름</label>
-                                    <input type="text" class="form-control" id="gymName">
+                                    <input type="text" class="form-control" name="gymName" id="gymName">
                                 </div>
                                 <div class="form-group">
                                     <label for="addr">주소</label>
-                                    <input type="text" class="form-control" id="addr">
+                                    <input type="text" class="form-control" name="addr" id="addr" onclick="juso()">
                                 </div>
                                 <div class="form-group">
                                     <label for="phone">전화번호</label>
-                                    <input type="text" class="form-control" id="phone">
+                                    <input type="text" class="form-control" name="phone" id="phone">
                                 </div>
                                 <div class="form-group">
                                     <label for="capacity">수용인원</label>
-                                    <input type="text" class="form-control" id="capacity">
+                                    <input type="text" class="form-control" name="capacity" id="capacity">
                                 </div>
                                 <div class="form-group">
                                     <label for="price">가격</label>
-                                    <input type="text" class="form-control" id="price">
+                                    <input type="text" class="form-control" name="price" id="price">
                                 </div>
                                 <div class="form-group">
                                     <label for=comment>사업장 소개</label>
-                                    <input type="text" class="form-control" id="comment">
+                                    <input type="text" class="form-control" name="comment" id="comment">
                                 </div>
                                <div class="form-group">
                                     <label for=time>이용 시간</label>
-                                    <input type="text" class="form-control" id="weekday" placeholder="평일 이용 시간"> 
+                                    <input type="text" class="form-control" name ="weekday" id="weekday" placeholder="평일 이용 시간"> 
                                     <br>
-                                    <input type="text" class="form-control" id="weekend" placeholder="주말 이용 시간">
+                                    <input type="text" class="form-control" name ="weekend" id="weekend" placeholder="주말 이용 시간">
                                 </div>
                                <div class="form-group">
-                                    <label for="fileName">파일 이름</label>
-                                    <input type="text" class="form-control" id="fileName">
+                                    <label for="file">헬스장 이미지 등록</label>
+                                    <input type="file"  name ="file" id="file" >
                                 </div>
 
                         <div class="col-sm-2 col-sm-offset-5">
-						<input type='button' class='btn btn-finish btn-primary pull-right' name='main' value='등록' />
+
+						<input type='submit' class='btn btn-finish btn-primary pull-right' name='main' value='등록'>
 						</div>
-                                
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-          
-
-            </div>
+                     </div> 
+                     </div>
+                 </form>
+                 </div>
+                 <!-- 간격 조정 필요 -->
+             </div>
         </div>      
-
+	</div>
+		
           <!-- Footer area-->
         <div class="footer-area">
 
-            <div class=" footer">
+<!--             <div class=" footer">
                 <div class="container">
                     <div class="row">
 
@@ -366,7 +258,7 @@
                                             <button class="btn btn-primary subscribe" type="button"><i class="pe-7s-paper-plane pe-2x"></i></button>
                                         </span>
                                     </div>
-                                    <!-- /input-group -->
+                                    /input-group
                                 </form> 
 
                                 <div class="social pull-right"> 
@@ -383,26 +275,24 @@
 
                     </div>
                 </div>
-            </div>
+            </div> -->
 
-            <div class="footer-copy text-center">
+            <!-- <div class="footer-copy text-center">
                 <div class="container">
                     <div class="row">
                         <div class="pull-left">
-                            <span> (C) <a href="http://www.KimaroTec.com">KimaroTheme</a> , All rights reserved 2016  </span> 
+                            <span> (C) <a href="#">OpenMind</a> , All rights reserved 2019  </span> 
                         </div> 
                         <div class="bottom-menu pull-right"> 
                             <ul> 
-                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.2s">Home</a></li>
-                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.3s">Property</a></li>
-                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.4s">Faq</a></li>
-                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.6s">Contact</a></li>
+                               <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.2s">회사소개</a></li>
+                               <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.4s">포인트충전</a></li>
                             </ul> 
                         </div>
                     </div>
                 </div>
-            </div>
-
+            </div> -->
+			<jsp:include page="footer.jsp"></jsp:include>
         </div>
 
          <script src="assets/js/modernizr-2.6.2.min.js"></script>

@@ -18,7 +18,7 @@ public class MemberDTO {
 	/**
 	 * 모든 필드사용하는 MemberDTO생성자 아마 헬스장 코드가 있으니 사업가 생성할 때 사용할 듯
 	 * */
-	public MemberDTO(String id, String name, String pwd, String phoneNum, int gymCode/*, int balance*/) {
+	public MemberDTO(String id, String pwd, String name, String phoneNum, int gymCode/*, int balance*/) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -28,14 +28,22 @@ public class MemberDTO {
 		/*this.balance = balance;*/
 	}
 
-
+ 
 	/**
 	 * 헬스장 코드가 없는 MemberDTO생성자 아마 일반 유저가 사용할 듯ㅋㅋ
 	 * */
 	public MemberDTO(String id, String name, String pwd, String phoneNum) {
+		this(id,pwd,phoneNum);
+		this.name = name;
+
+	}
+	
+	/**
+	 * 회원 정보 수정을 위한 MemberDTO생성자
+	 */
+	public MemberDTO(String id, String pwd, String phoneNum) {
 		super();
 		this.id = id;
-		this.name = name;
 		this.pwd = pwd;
 		this.phoneNum = phoneNum;
 	}

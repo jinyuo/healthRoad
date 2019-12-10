@@ -134,10 +134,15 @@
                                 <p class="text-muted"><strong>포인트를 충전 할 수 있습니다.</strong></p>
                             </div>
                             <!-- /.col-sm-4 -->
-                            <div class="col-sm-4">
+                           	<c:if test="${curUserType eq '1'}">
+                           	<div class="col-sm-4">
                                 <h3><a href="${pageContext.request.contextPath}/front?command=useList"><i class="fa fa-bar-chart"></i>이용 내역</a></h3>
                                 <p class="text-muted"><strong>회원의 포인트 사용 내역을 볼 수 있습니다.</strong></p>
                             </div>
+                           	
+                           	</c:if>
+                           	
+                            
                             <!-- /.col-sm-4 -->
                         </div>
                         <!-- /.row --> 
@@ -167,7 +172,7 @@
                                                         <!-- /.col-sm-4 -->
                             <div class="col-sm-4" style="padding-left: 0px;">
                                 <h3><a href="#" onclick="userDel()"><i class="fa fa-sign-out"></i>회원 탈퇴</a></h3>
-                                <p class="text-muted"><strong>회원을 탈퇴합니다.</strong></p>
+                                <p class="text-muted"><strong>헬스로드 서비스를 탈퇴합니다.</strong></p>
                              
                             </div>
                             <!-- /.col-sm-4 -->
